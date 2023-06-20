@@ -1,4 +1,18 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRoute } from 'vue-router'
+import { watch } from 'vue'
+import slides from '../router/slides.json'
+
+const route = useRoute();
+
+watch(() => route.fullPath, () => {
+    const current = +route.fullPath.slice(1);
+    document.getElementById("progress")?.setAttribute("style", `width: ${(current/slides.length)*100}%`);
+  }
+);
+
+
+</script>
 
 <template>
   <div class="border"></div>
@@ -14,7 +28,7 @@
     </div>
     <img id="heading-shield" src="../assets/shield-01.png" />
     <div class="progress-bar">
-        <div id="progress" style="width: 20%"></div>
+      <div id="progress"></div>
     </div>
     <button id="heading-index" class="btn-med">INDEX</button
     ><!--CONVERT TO COMPONENT-->
@@ -35,7 +49,7 @@ nav {
   color: white;
   display: grid;
   grid-template-areas: 'a b d d' 'a b e f';
-  grid-template-columns: 120px 1fr repeat(2, .3fr);
+  grid-template-columns: 120px 1fr repeat(2, 0.3fr);
   justify-content: left;
   margin: 2em 4em;
 
@@ -50,20 +64,20 @@ nav {
   .progress-bar {
     grid-area: d;
     align-self: end;
-    width:100%;
+    width: 100%;
     height: 2em;
     border: 1px solid #ffffff81;
     background-color: #303030;
     border-radius: 10px;
     overflow: hidden;
     #progress {
-        height: 100%;
-        background-color: #508546;
+      height: 100%;
+      background-color: #43bb2b;
     }
   }
 
   .heading {
-    grid-area : b;
+    grid-area: b;
     margin: 0% 2%;
     align-self: center;
     #heading-title {

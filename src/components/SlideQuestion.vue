@@ -1,8 +1,9 @@
 <script setup lang="ts">
 defineProps<{
   title?: string
-  answer?: string
 }>()
+
+var answered = false;
 </script>
 
 <template>

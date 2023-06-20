@@ -1,14 +1,49 @@
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router';
+import { watch } from 'vue';
+import slides from "../router/slides.json";
 
-const curr = useRoute().fullPath.slice(1);
-console.log(curr);
+const route = useRoute();
+const router = useRouter();
+const totalSlides = slides.length;
+var current: number;
+
+watch(() => route.fullPath, () => {
+  current = +(route.fullPath).slice(1);
+  if (current == 1) {
+    document.getElementById("prev")?.setAttribute("disabled", "true");
+  } else {
+    document.getElementById("prev")?.removeAttribute("disabled");
+  }
+  if (current == totalSlides) {
+    document.getElementById("next")?.setAttribute("disabled", "true");
+  } else {
+    document.getElementById("next")?.removeAttribute("disabled");
+  }
+});
+
+function prev() {
+  if (current == 1) {
+    return
+  } else {
+    router.push(`/${current - 1}`);
+  }
+}
+
+function next() {
+  if (current == totalSlides) {
+    return
+  } else {
+    router.push(`/${current + 1}`);
+  }
+  
+}
 
 </script>
 
 <template>
   <div class="layout">
-    <button class="nav-btn" id="prev">
+    <button class="nav-btn" id="prev" @click="prev">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="15"
@@ -28,7 +63,7 @@ console.log(curr);
     <div class="content-box">
       <slot></slot>
     </div>
-    <button class="nav-btn" id="next">
+    <button class="nav-btn" id="next" @click="next">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="15"
@@ -70,6 +105,9 @@ console.log(curr);
     background-color: #1ea3de;
     height: 129px;
     border-width: 1px;
+    &:disabled {
+      background-color: gray;
+    }
   }
 }
 </style>
