@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   title?: string
+  answer?: string
 }>()
 </script>
 

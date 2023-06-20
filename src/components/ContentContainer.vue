@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRoute, useRouter } from 'vue-router'
+
+const curr = useRoute().fullPath.slice(1);
+console.log(curr);
+
+</script>
 
 <template>
   <div class="layout">
@@ -50,7 +56,7 @@
   height: 100%;
   align-items: center;
   grid-template-columns: 2em 1fr 2em;
-  grid-template-areas: "a b c";
+  grid-template-areas: 'a b c';
   padding: 0em 1em 3em 1em;
   .content-box {
     grid-area: b;

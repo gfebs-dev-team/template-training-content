@@ -2,11 +2,13 @@
 import { RouterView } from 'vue-router';
 import ContentHeader from './components/ContentHeader.vue';
 import ContentContainer from './components/ContentContainer.vue';
+
+
 </script>
 
 <template>
   <main>
-   <ContentHeader>Introduction to Finanancial Processes</ContentHeader>
+   <ContentHeader>GFEBS L210E Financials Process Overview</ContentHeader>
    <ContentContainer>
     <RouterView/>
    </ContentContainer>

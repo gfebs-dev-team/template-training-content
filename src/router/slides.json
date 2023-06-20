@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Welcome to Introduction to Financials",
+        "component": "../views/01_Welcome_to.vue",
+        "type": "content"
+    },
+    {
+        "name": "Objectives",
+        "component": "../views/02_Objectives.vue",
+        "type": "content"
+    }
+]
