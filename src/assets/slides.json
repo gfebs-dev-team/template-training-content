@@ -1,14 +1,12 @@
 [
     {
         "name": "Welcome to Introduction to Financials",
-        "router":"/1",
-        "component": "../views/01_Welcome_to.vue",
+        "component": "../views/Slide1.vue",
         "type": "content"
     },
     {
         "name": "Objectives",
-        "router":"/2",
-        "component": "../views/02_Objectives.vue",
+        "component": "../views/Slide2.vue",
         "type": "content"
     }
 ]

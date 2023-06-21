@@ -1,89 +1,78 @@
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router';
-import { watch } from 'vue';
-import slides from "../router/slides.json";
+import { ref, watch } from 'vue'
+import ContentHeader from '../components/ContentHeader.vue'
+import SideBar from '../components/SideBar.vue'
+import views from '../views'
 
-const route = useRoute();
-const router = useRouter();
-const totalSlides = slides.length;
-var current: number;
+var slides = Object.keys(views).map((key) => {
+  return views[key]
+})
+const totalSlides = slides.length
+var current = ref(1)
 
-watch(() => route.fullPath, () => {
-  current = +(route.fullPath).slice(1);
-  if (current == 1) {
-    document.getElementById("prev")?.setAttribute("disabled", "true");
-  } else {
-    document.getElementById("prev")?.removeAttribute("disabled");
-  }
-  if (current == totalSlides) {
-    document.getElementById("next")?.setAttribute("disabled", "true");
-  } else {
-    document.getElementById("next")?.removeAttribute("disabled");
-  }
-});
-
-function prev() {
-  if (current == 1) {
-    return
-  } else {
-    router.push(`/${current - 1}`);
-  }
-}
-
-function next() {
-  if (current == totalSlides) {
-    return
-  } else {
-    router.push(`/${current + 1}`);
-  }
-  
-}
-
+watch(current, () => {
+  console.log(current.value)
+  current.value - 1 <= 0
+    ? document.getElementById('prev')?.setAttribute('disabled', 'true')
+    : document.getElementById('prev')?.removeAttribute('disabled')
+  current.value >= totalSlides
+    ? document.getElementById('next')?.setAttribute('disabled', 'true')
+    : document.getElementById('next')?.removeAttribute('disabled')
+})
 </script>
 
 <template>
-  <div class="layout">
-    <button class="nav-btn" id="prev" @click="prev">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="15"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="4"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="feather feather-arrow-left"
-      >
-        <line x1="19" y1="12" x2="5" y2="12"></line>
-        <polyline points="12 19 5 12 12 5"></polyline>
-      </svg>
-    </button>
-    <div class="content-box">
-      <slot></slot>
+  <main>
+    <ContentHeader :current="current">GFEBS L210E Financials Process Overview</ContentHeader>
+    <div class="layout">
+      <button class="nav-btn" id="prev" @click="current--" disabled>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-arrow-left"
+        >
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </button>
+      <div class="content-box">
+        <SideBar title="Introduction to Financials"></SideBar>
+        <component :is="slides[current - 1]"></component>
+      </div>
+      <button class="nav-btn" id="next" @click="current++">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-arrow-right"
+        >
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
     </div>
-    <button class="nav-btn" id="next" @click="next">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="15"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="4"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="feather feather-arrow-right"
-      >
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-        <polyline points="12 5 19 12 12 19"></polyline>
-      </svg>
-    </button>
-  </div>
+  </main>
 </template>
 
 <style scoped lang="scss">
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 .layout {
   position: relative;
   display: grid;
@@ -111,3 +100,4 @@ function next() {
   }
 }
 </style>
+../views

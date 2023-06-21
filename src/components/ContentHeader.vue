@@ -1,16 +1,25 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-import { watch } from 'vue'
-import slides from '../router/slides.json'
+import { ref, watch } from 'vue'
+import slides from '../assets/slides.json'
 
-const route = useRoute();
+const current = ref(this.$parent.current);
 
-watch(() => route.fullPath, () => {
-    const current = +route.fullPath.slice(1);
-    document.getElementById("progress")?.setAttribute("style", `width: ${(current/slides.length)*100}%`);
+watch(current, () => {
+    document.getElementById("progress")?.setAttribute("style", `width: ${(current.value/slides.length)*100}%`);
   }
 );
 
+function toggleSidebar() {
+  if (document.getElementById('sidebar')?.hasAttribute("style")) {
+    document.getElementById('sidebar')?.removeAttribute("style");
+  } else {
+    document.getElementById('sidebar')?.setAttribute("style", "display:none");
+  }
+}
+
+function windowClose() {
+  window.close();
+}
 
 </script>
 
@@ -26,13 +35,13 @@ watch(() => route.fullPath, () => {
         <slot></slot>
       </h2>
     </div>
-    <img id="heading-shield" src="../assets/shield-01.png" />
+    <img id="heading-shield" src="/shield-01.png" />
     <div class="progress-bar">
       <div id="progress"></div>
     </div>
-    <button id="heading-index" class="btn-med">INDEX</button
+    <button id="heading-index" class="btn-med" @click="toggleSidebar">INDEX</button
     ><!--CONVERT TO COMPONENT-->
-    <button id="heading-exit" class="btn-med">X EXIT</button>
+    <button id="heading-exit" class="btn-med" @click="windowClose()">X EXIT</button>
   </nav>
 </template>
 

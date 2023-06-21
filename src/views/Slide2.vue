@@ -16,6 +16,6 @@
         <li>Define the key concepts and terms related to GFEBS Financials.</li>
       </ul>
     </div>
-    <img src="../assets/shield-01.png" />
+    <img src="/shield-01.png" />
   </SlideContent>
 </template>

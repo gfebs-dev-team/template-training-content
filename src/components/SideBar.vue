@@ -1,24 +1,23 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
-import slides from '../router/slides.json'
+import slides from '../assets/slides.json'
 defineProps<{
   title?: string
 }>()
 
 function closeSideBar() {
-    document.getElementById("sidebar")?.setAttribute
+  document.getElementById('sidebar')?.setAttribute("style", "display:none");
 }
 </script>
 
 <template>
-  <div id="sidebar">
+  <div id="sidebar" style="display:none">
     <h1>Index</h1>
     <div class="links">
       <h2>{{ title }}</h2>
       <li v-for="(slide, index) in slides" :key="index">
-        <RouterLink :to="slide.router">
+        <a @click="closeSideBar">
           {{ slide.name }}
-        </RouterLink>
+        </a>
       </li>
     </div>
     <button id="close-sidebar" @click="closeSideBar">X</button>
@@ -44,12 +43,15 @@ function closeSideBar() {
     font-weight: bold;
     color: white;
     line-height: 1.2em;
-    padding: 0 0.5em;
+    padding: 0.1em 0.5em;
     background-color: #009bd1;
   }
 
   .links {
     padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: .2em;
     color: white;
     background-color: #636d74;
     height: 100%;
@@ -61,15 +63,16 @@ function closeSideBar() {
 
     li {
       list-style-type: none;
-      margin-left: 1em;
-
+      display: flex;
       a {
         text-decoration: none;
+        width: 100%;
+        padding-left: 1em;
         color: white;
         font-size: 1.2em;
         &:hover {
           color: rgb(228, 192, 31);
-        }
+      }
       }
     }
   }
@@ -86,7 +89,7 @@ function closeSideBar() {
     padding: 0;
     color: white;
     &:hover {
-        cursor: pointer;
+      cursor: pointer;
     }
   }
 }
