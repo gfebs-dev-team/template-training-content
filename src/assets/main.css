@@ -14,7 +14,8 @@
   font-weight: bold;
   color: white;
   background-color: #1ea3de;
-  border-width: 1px;
+  border-width: 2px;
+  border-color: white;
   font-size: 16px;
   padding: 6px;
   margin-top: 20px;

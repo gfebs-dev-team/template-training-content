@@ -1,31 +1,44 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useSlidesStore } from '@/stores/slides'
 import ContentHeader from '../components/ContentHeader.vue'
 import SideBar from '../components/SideBar.vue'
 import views from '../views'
 
-var slides = Object.keys(views).map((key) => {
+var slidesComp = Object.keys(views).map((key) => {
   return views[key]
 })
-const totalSlides = slides.length
-var current = ref(1)
+
+const totalSlides = slidesComp.length
+const slides = useSlidesStore()
+const { current } = storeToRefs(slides)
+const { prev, next, slidesList } = slides
+const type = ref(slidesList[current.value].type)
 
 watch(current, () => {
-  console.log(current.value)
-  current.value - 1 <= 0
+  current.value <= 0
     ? document.getElementById('prev')?.setAttribute('disabled', 'true')
     : document.getElementById('prev')?.removeAttribute('disabled')
-  current.value >= totalSlides
+  current.value + 1 >= totalSlides
     ? document.getElementById('next')?.setAttribute('disabled', 'true')
     : document.getElementById('next')?.removeAttribute('disabled')
+
+  type.value = slidesList[current.value].type
+  type.value == 'question'
+    ? document.getElementById('next')?.setAttribute('disabled', 'true')
+    : document.getElementById('next')?.removeAttribute('disabled')
+
+  console.log(type.value)
+  console.log(slidesList[current.value].type)
 })
 </script>
 
 <template>
   <main>
-    <ContentHeader :current="current">GFEBS L210E Financials Process Overview</ContentHeader>
+    <ContentHeader>GFEBS L210E Financials Process Overview</ContentHeader>
     <div class="layout">
-      <button class="nav-btn" id="prev" @click="current--" disabled>
+      <button class="nav-btn" id="prev" @click="prev" disabled>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="15"
@@ -44,9 +57,9 @@ watch(current, () => {
       </button>
       <div class="content-box">
         <SideBar title="Introduction to Financials"></SideBar>
-        <component :is="slides[current - 1]"></component>
+        <component :is="slidesComp[current]"></component>
       </div>
-      <button class="nav-btn" id="next" @click="current++">
+      <button class="nav-btn" id="next" @click="next">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="15"
@@ -100,4 +113,3 @@ main {
   }
 }
 </style>
-../views

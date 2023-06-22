@@ -5,8 +5,14 @@
         "type": "content"
     },
     {
-        "name": "Objectives",
+        "name": "Question 1",
         "component": "../views/Slide2.vue",
+        "type": "question",
+        "answer": false
+    },
+    {
+        "name": "Objectives",
+        "component": "../views/Slide3.vue",
         "type": "content"
     }
 ]

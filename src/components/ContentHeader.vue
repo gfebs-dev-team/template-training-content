@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import slides from '../assets/slides.json'
+import { useSlidesStore } from '@/stores/slides';
+import { storeToRefs } from 'pinia';
 
-const current = ref(this.$parent.current);
+const slides = useSlidesStore();
+const { current } = storeToRefs(slides);
+const { totalSlides } = slides;
+var progress = `width: ${(current.value+1/totalSlides)*100}%`;
 
-watch(current, () => {
-    document.getElementById("progress")?.setAttribute("style", `width: ${(current.value/slides.length)*100}%`);
-  }
-);
+
+watch (current, () => {
+  progress = `width: ${((current.value+1)/totalSlides)*100}%`;
+  document.getElementById("progress")?.setAttribute("style", `${progress}`);
+});
+
+
 
 function toggleSidebar() {
   if (document.getElementById('sidebar')?.hasAttribute("style")) {
@@ -20,6 +27,8 @@ function toggleSidebar() {
 function windowClose() {
   window.close();
 }
+
+
 
 </script>
 
@@ -37,7 +46,7 @@ function windowClose() {
     </div>
     <img id="heading-shield" src="/shield-01.png" />
     <div class="progress-bar">
-      <div id="progress"></div>
+      <div id="progress" :style = "progress"></div>
     </div>
     <button id="heading-index" class="btn-med" @click="toggleSidebar">INDEX</button
     ><!--CONVERT TO COMPONENT-->
@@ -76,12 +85,12 @@ nav {
     width: 100%;
     height: 2em;
     border: 1px solid #ffffff81;
-    background-color: #303030;
+    background-color: #005870;
     border-radius: 10px;
     overflow: hidden;
     #progress {
       height: 100%;
-      background-color: #43bb2b;
+      background-color: #bbcf3e;
     }
   }
 

@@ -1,21 +1,60 @@
 <script setup lang="ts">
-import slides from '../assets/slides.json'
+import { useSlidesStore } from '@/stores/slides'
+import { storeToRefs } from 'pinia'
+import { watch } from 'vue'
+
 defineProps<{
   title?: string
 }>()
 
+const slides = useSlidesStore()
+const { slidesList, totalSlides } = slides
+const { current } = storeToRefs(slides)
+
 function closeSideBar() {
-  document.getElementById('sidebar')?.setAttribute("style", "display:none");
+  document.getElementById('sidebar')?.setAttribute('style', 'display:none')
 }
+
+function goToSlide(i: number) {
+  document.getElementById('sidebar')?.setAttribute('style', 'display:none')
+}
+
+var checkpoint = totalSlides + 1
+function isLocked(slide: number) {
+  for (var i = current.value; i < totalSlides; i++) {
+    if (slidesList[i].type == 'question' && slidesList[i].answer == false) {
+      checkpoint = i
+      return;
+    }
+  }
+
+  return slide >= checkpoint ? true : false
+}
+
+function setLinks() {
+  document.querySelectorAll('#sidebar .links li a').forEach((link, index) => {
+    if (isLocked(index)) {
+      link.classList.add('disabled')
+    } else {
+      link.classList.remove('disabled')
+    }
+  })
+}
+
+setLinks();
+
+watch(current, () => {
+  setLinks();
+})
 </script>
 
 <template>
-  <div id="sidebar" style="display:none">
+  <div id="sidebar" style="display: none">
     <h1>Index</h1>
     <div class="links">
       <h2>{{ title }}</h2>
-      <li v-for="(slide, index) in slides" :key="index">
-        <a @click="closeSideBar">
+      <li v-for="(slide, index) in slidesList" :key="index">
+        <a @click="goToSlide(index)">
           {{ slide.name }}
         </a>
       </li>
@@ -51,7 +90,7 @@ function closeSideBar() {
     padding: 1em;
     display: flex;
     flex-direction: column;
-    gap: .2em;
+    gap: 0.2em;
     color: white;
     background-color: #636d74;
     height: 100%;
@@ -70,9 +109,15 @@ function closeSideBar() {
         padding-left: 1em;
         color: white;
         font-size: 1.2em;
+        &.disabled {
+          color: grey;
+          &:hover {
+            color: grey;
+          }
+        }
         &:hover {
           color: rgb(228, 192, 31);
-      }
+        }
       }
     }
   }
