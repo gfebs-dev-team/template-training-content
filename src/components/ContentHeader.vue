@@ -6,7 +6,7 @@ import { storeToRefs } from 'pinia';
 const slides = useSlidesStore();
 const { current } = storeToRefs(slides);
 const { totalSlides } = slides;
-var progress = `width: ${(current.value+1/totalSlides)*100}%`;
+let progress = `width: ${(current.value+1/totalSlides)*100}%`;
 
 
 watch (current, () => {

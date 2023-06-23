@@ -2,46 +2,39 @@
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
 import { watch } from 'vue'
+import { onMounted } from 'vue'
 
 defineProps<{
   title?: string
 }>()
 
-const slides = useSlidesStore()
-const { slidesList, totalSlides } = slides
-const { current } = storeToRefs(slides)
+const slides = useSlidesStore();
+const { slidesList, totalSlides } = slides;
+const { current, checkpoint } = storeToRefs(slides);
 
 function closeSideBar() {
   document.getElementById('sidebar')?.setAttribute('style', 'display:none')
 }
 
 function goToSlide(i: number) {
+  current.value = i;
   document.getElementById('sidebar')?.setAttribute('style', 'display:none')
-}
-
-var checkpoint = totalSlides + 1
-function isLocked(slide: number) {
-  for (var i = current.value; i < totalSlides; i++) {
-    if (slidesList[i].type == 'question' && slidesList[i].answer == false) {
-      checkpoint = i
-      return;
-    }
-  }
-
-  return slide >= checkpoint ? true : false
 }
 
 function setLinks() {
   document.querySelectorAll('#sidebar .links li a').forEach((link, index) => {
-    if (isLocked(index)) {
-      link.classList.add('disabled')
+    if (index > checkpoint.value) {
+      link.classList.add("disabled")
     } else {
-      link.classList.remove('disabled')
+      link.classList.remove("disabled")
     }
   })
-}
+} 
 
-setLinks();
+onMounted(() => {
+  slides.setCheckpoint();
+  setLinks();
+}) 
 
 watch(current, () => {
   setLinks();
@@ -111,6 +104,14 @@ watch(current, () => {
         font-size: 1.2em;
         &.disabled {
           color: grey;
+          pointer-events: none;
+          display: flex;
+          justify-content: space-between;
+          &::after {
+            content:url("/lock-fill.svg");
+            display: inline-block;
+            width: 20px;
+          }
           &:hover {
             color: grey;
           }

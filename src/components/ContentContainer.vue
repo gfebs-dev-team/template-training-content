@@ -28,9 +28,6 @@ watch(current, () => {
   type.value == 'question'
     ? document.getElementById('next')?.setAttribute('disabled', 'true')
     : document.getElementById('next')?.removeAttribute('disabled')
-
-  console.log(type.value)
-  console.log(slidesList[current.value].type)
 })
 </script>
 

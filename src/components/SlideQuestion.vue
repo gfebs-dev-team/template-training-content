@@ -4,7 +4,8 @@ import { watch } from 'vue';
 import { storeToRefs } from 'pinia';
 
 const slides = useSlidesStore();
-
+const { current } = storeToRefs(slides);
+const { slidesList } = slides
 
 defineProps<{
   title?: string

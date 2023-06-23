@@ -23,5 +23,14 @@ export const useSlidesStore = defineStore('slides', () => {
     slidesList[current.value].answer = false;
   }
 
-  return {current, totalSlides, slidesList, next, prev, setTrue, setFalse }
+  function setCheckpoint() {
+    for (let i = 0; i < totalSlides; i++) {
+      if (slidesList[i].type == 'question' && slidesList[i].answer == false) {
+        checkpoint.value = i
+        return;
+      }
+    }
+  }
+
+  return {current, totalSlides, slidesList, checkpoint, next, prev, setTrue, setFalse, setCheckpoint }
 })
