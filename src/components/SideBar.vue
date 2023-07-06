@@ -9,7 +9,7 @@ defineProps<{
 }>()
 
 const slides = useSlidesStore();
-const { slidesList, totalSlides } = slides;
+const { slidesList } = slides;
 const { current, checkpoint } = storeToRefs(slides);
 
 function closeSideBar() {
@@ -36,7 +36,8 @@ onMounted(() => {
   setLinks();
 }) 
 
-watch(current, () => {
+watch(current || checkpoint, () => {
+  slides.setCheckpoint();
   setLinks();
 })
 </script>

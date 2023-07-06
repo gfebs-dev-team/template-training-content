@@ -1,18 +1,24 @@
 [
     {
         "name": "Welcome to Introduction to Financials",
-        "component": "../views/Slide1.vue",
         "type": "content"
     },
     {
         "name": "Question 1",
-        "component": "../views/Slide2.vue",
         "type": "question",
-        "answer": false
+        "viewed": false,
+        "answer": "true"
     },
     {
         "name": "Objectives",
-        "component": "../views/Slide3.vue",
+        "type": "content"
+    },
+    {
+        "name": "Objectives",
+        "type": "content"
+    },
+    {
+        "name": "Objectives",
         "type": "content"
     }
 ]

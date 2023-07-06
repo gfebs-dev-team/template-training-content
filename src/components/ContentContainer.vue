@@ -12,9 +12,9 @@ var slidesComp = Object.keys(views).map((key) => {
 
 const totalSlides = slidesComp.length
 const slides = useSlidesStore()
-const { current } = storeToRefs(slides)
-const { prev, next, slidesList } = slides
-const type = ref(slidesList[current.value].type)
+const { current, slidesList} = storeToRefs(slides)
+const { prev, next } = slides
+const type = ref(slidesList.value[current.value].type)
 
 watch(current, () => {
   current.value <= 0
@@ -24,7 +24,8 @@ watch(current, () => {
     ? document.getElementById('next')?.setAttribute('disabled', 'true')
     : document.getElementById('next')?.removeAttribute('disabled')
 
-  type.value = slidesList[current.value].type
+  type.value = slidesList.value[current.value].type
+  console.log(type.value);
   type.value == 'question'
     ? document.getElementById('next')?.setAttribute('disabled', 'true')
     : document.getElementById('next')?.removeAttribute('disabled')

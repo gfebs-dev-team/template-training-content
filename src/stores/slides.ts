@@ -5,7 +5,7 @@ import slides from '../assets/slides.json'
 export const useSlidesStore = defineStore('slides', () => {
   const current = ref(0)
   const totalSlides = slides.length
-  const slidesList = slides
+  const slidesList = ref(slides)
   const checkpoint = ref(totalSlides + 1);
 
   function next() {
@@ -17,15 +17,15 @@ export const useSlidesStore = defineStore('slides', () => {
   }
 
   function setTrue() {
-    slidesList[current.value].answer = true;
+    slidesList.value[current.value].viewed = true;
   }
   function setFalse() {
-    slidesList[current.value].answer = false;
+    slidesList.value[current.value].viewed = false;
   }
 
   function setCheckpoint() {
     for (let i = 0; i < totalSlides; i++) {
-      if (slidesList[i].type == 'question' && slidesList[i].answer == false) {
+      if (slidesList.value[i].type === 'question' && slidesList.value[i].viewed === false) {
         checkpoint.value = i
         return;
       }
