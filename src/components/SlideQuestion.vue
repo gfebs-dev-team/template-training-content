@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useSlidesStore } from '@/stores/slides'
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted} from 'vue'
 import { storeToRefs } from 'pinia'
 import { inject } from 'vue';
 
 const slides = useSlidesStore()
 const { current, slidesList } = storeToRefs(slides)
-
 const image = ref('qanda.png');
+const currentQuestion = slidesList.value[current.value]
 
 defineProps<{
   title?: string
@@ -16,18 +16,27 @@ defineProps<{
 
 const answer: Ref<string> = inject("answer")
 
+onMounted(()=> {
+  if (currentQuestion.user != "") {
+    answer.value = currentQuestion.user;
+  }
+  if (currentQuestion.viewed) {
+    slides.enableNext()
+  } else {
+    slides.disableNext()
+  }
+})
 watch(answer, ()=> {
-  if(answer.value === slidesList.value[current.value].answer) {
+  slides.setTrue();
+  slides.setCheckpoint();
+  if(answer.value === currentQuestion.answer) {
     image.value = 'correct.png'
-    document.getElementById('next')?.removeAttribute('disabled')
-    slides.setTrue();
-    console.log(slidesList.value[current.value].viewed);
-    slides.setCheckpoint();
-    console.log(slides.checkpoint);
+    slidesList.value[current.value].user = answer;
+    slides.enableNext()
   } else {
     image.value = 'incorrect.png'
-    document.getElementById('next')?.setAttribute('disabled', 'true')
-    slides.setTrue();
+    slides.disableNext()
+    slidesList.value[current.value].user = answer;
   }
 });
 

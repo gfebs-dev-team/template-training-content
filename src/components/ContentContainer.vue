@@ -12,23 +12,16 @@ var slidesComp = Object.keys(views).map((key) => {
 
 const totalSlides = slidesComp.length
 const slides = useSlidesStore()
-const { current, slidesList} = storeToRefs(slides)
-const { prev, next } = slides
-const type = ref(slidesList.value[current.value].type)
+const { current, next, prev} = storeToRefs(slides)
+const { goPrev, goNext} = slides
 
 watch(current, () => {
   current.value <= 0
-    ? document.getElementById('prev')?.setAttribute('disabled', 'true')
-    : document.getElementById('prev')?.removeAttribute('disabled')
+    ? prev.value = true
+    : prev.value = false
   current.value + 1 >= totalSlides
-    ? document.getElementById('next')?.setAttribute('disabled', 'true')
-    : document.getElementById('next')?.removeAttribute('disabled')
-
-  type.value = slidesList.value[current.value].type
-  console.log(type.value);
-  type.value == 'question'
-    ? document.getElementById('next')?.setAttribute('disabled', 'true')
-    : document.getElementById('next')?.removeAttribute('disabled')
+    ? next.value = true
+    : next.value = false
 })
 </script>
 
@@ -36,7 +29,7 @@ watch(current, () => {
   <main>
     <ContentHeader>GFEBS L210E Financials Process Overview</ContentHeader>
     <div class="layout">
-      <button class="nav-btn" id="prev" @click="prev" disabled>
+      <button class="nav-btn" id="prev" @click="goPrev" :disabled="prev">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="15"
@@ -57,7 +50,7 @@ watch(current, () => {
         <SideBar title="Introduction to Financials"></SideBar>
         <component :is="slidesComp[current]"></component>
       </div>
-      <button class="nav-btn" id="next" @click="next">
+      <button class="nav-btn" id="next" @click="goNext" :disabled="next">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="15"

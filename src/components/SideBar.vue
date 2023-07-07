@@ -36,7 +36,7 @@ onMounted(() => {
   setLinks();
 }) 
 
-watch(current || checkpoint, () => {
+watch(checkpoint, () => {
   slides.setCheckpoint();
   setLinks();
 })

@@ -1,29 +1,21 @@
 <script setup lang="ts">
-import SlideQuestion from '@/components/SlideQuestion.vue'
-import { provide, ref} from 'vue';
-const answer = ref<string>();
-
-provide("answer", answer);
-
+    import SlideContent from '@/components/SlideContent.vue'
 </script>
 
 <template>
-  <SlideQuestion title="Question 1" unit="Introduction to Financials">
-    <template #question>What is the answer to this question?</template>
-    <template #options>
-      <li class="choice">
-        <input id="true" value="true" v-model="answer" type="radio" /> <label for="true">True</label>
-      </li>
-      <li class="choice">
-        <input id="false" value="false" v-model="answer" type="radio" /> <label for="false">False</label>
-      </li>
-    </template>
-  </SlideQuestion>
+  <SlideContent title="Objectives" unit="Introduction to Financials">
+    <div>
+      <p>After completing this course, you will be able to:</p>
+      <ul>
+        <li>Describe how the Financials process works in GFEBS.</li>
+        <li>Explain how General Ledger accounts are managed in GFEBS.</li>
+        <li>Explain how a Journal Voucher is processed in GFEBS.</li>
+        <li>Describe how a period is closed in GFEBS.</li>
+        <li>Explain how the year is closed in GFEBS.</li>
+        <li>Describe the Cash Balancing process in GFEBS.</li>
+        <li>Define the key concepts and terms related to GFEBS Financials.</li>
+      </ul>
+    </div>
+    <img src="/shield-01.png" />
+  </SlideContent>
 </template>
-
-<style scoped lang="scss">
-  label {
-    padding: .5rem;
-    width: 100%;
-  }
-</style>

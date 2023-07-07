@@ -4,21 +4,22 @@
         "type": "content"
     },
     {
+        "name": "Objectives",
+        "type": "content"
+    },
+    {
+        "name": "Topics",
+        "type": "content"
+    },
+    {
+        "name": "Module Objectives",
+        "type": "content"
+    },  
+    {
         "name": "Question 1",
         "type": "question",
         "viewed": false,
-        "answer": "true"
+        "answer": "true",
+        "user": ""
     },
-    {
-        "name": "Objectives",
-        "type": "content"
-    },
-    {
-        "name": "Objectives",
-        "type": "content"
-    },
-    {
-        "name": "Objectives",
-        "type": "content"
-    }
 ]
