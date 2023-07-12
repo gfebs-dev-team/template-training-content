@@ -7,13 +7,13 @@
     <div>
       <p>In this module, we discuss the following topics:</p>
       <ul>
-        Course Navigation
-Course Objectives
-What is Financials?
-GFEBS and Financial Management
-Financials Business Process Areas
-Financials Roles and Organizations
-Module Checkpoint
+        <li>Course Navigation</li>
+        <li>Course Objectives</li>
+        <li>What is Financials?</li>
+        <li>GFEBS and Financial Management</li>
+        <li>Financials Business Process Areas</li>
+        <li>Financials Roles and Organizations</li>
+        <li>Module Checkpoint</li>
       </ul>
     </div>
     <img src="/shield-01.png" />

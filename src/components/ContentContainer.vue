@@ -7,7 +7,8 @@ import SideBar from '../components/SideBar.vue'
 import views from '../views'
 
 var slidesComp = Object.keys(views).map((key) => {
-  return views[key]
+  const pages: any = views;
+  return pages[key]
 })
 
 const totalSlides = slidesComp.length

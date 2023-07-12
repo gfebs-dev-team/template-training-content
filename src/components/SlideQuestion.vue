@@ -2,6 +2,7 @@
 import { useSlidesStore } from '@/stores/slides'
 import { ref, watch, onMounted} from 'vue'
 import { storeToRefs } from 'pinia'
+import type { Ref } from 'vue';
 import { inject } from 'vue';
 
 const slides = useSlidesStore()
@@ -14,11 +15,11 @@ defineProps<{
   unit?: string
 }>()
 
-const answer: Ref<string> = inject("answer")
+const answer: Ref<string> = inject("answer")!
 
 onMounted(()=> {
   if (currentQuestion.user != "") {
-    answer.value = currentQuestion.user;
+    answer.value = currentQuestion.user!;
   }
   if (currentQuestion.viewed) {
     slides.enableNext()
@@ -31,12 +32,12 @@ watch(answer, ()=> {
   slides.setCheckpoint();
   if(answer.value === currentQuestion.answer) {
     image.value = 'correct.png'
-    slidesList.value[current.value].user = answer;
+    slidesList.value[current.value].user = answer.value;
     slides.enableNext()
   } else {
     image.value = 'incorrect.png'
     slides.disableNext()
-    slidesList.value[current.value].user = answer;
+    slidesList.value[current.value].user = answer.value;
   }
 });
 
@@ -58,7 +59,7 @@ watch(answer, ()=> {
       </div>
 
       <div class="right-column">
-        <img :src="image" />
+        <img :src="image"/>
       </div>
     </div>
   </div>
