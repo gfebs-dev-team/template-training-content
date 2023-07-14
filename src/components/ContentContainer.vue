@@ -1,5 +1,5 @@
-<script setup lang="ts">
-import { ref, watch } from 'vue'
+<script setup>
+import { watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSlidesStore } from '@/stores/slides'
 import ContentHeader from '../components/ContentHeader.vue'
@@ -7,8 +7,7 @@ import SideBar from '../components/SideBar.vue'
 import views from '../views'
 
 var slidesComp = Object.keys(views).map((key) => {
-  const pages: any = views;
-  return pages[key]
+  return views[key]
 })
 
 const totalSlides = slidesComp.length

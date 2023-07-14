@@ -1,5 +1,5 @@
-<script setup lang="ts">
-import { ref, watch } from 'vue'
+<script setup>
+import { watch } from 'vue'
 import { useSlidesStore } from '@/stores/slides';
 import { storeToRefs } from 'pinia';
 

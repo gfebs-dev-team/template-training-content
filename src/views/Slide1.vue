@@ -1,12 +1,21 @@
-<script setup lang="ts">
-    import SlideContent from '@/components/SlideContent.vue';
+<script setup>
+import SlideContent from '../components/SlideContent.vue'
+import { provide } from 'vue';
+
+const slideData = {
+    "title": "Welcome to Introductions to Fiancials",
+    "type": "content"
+}
+
+provide("slideData", slideData)
 </script>
 
 <template>
-    <SlideContent title="Welcome to Introduction to Financials" unit="Introduction to Financials">
-        <p>
-            This training course will introduce you to the process, coordination, and information required to understand the Financials process in GFEBS.
-        </p>
-        <img src="/shield-01.png"/>        
-    </SlideContent>
+  <SlideContent v-bind="slideData">
+    <p>
+      This training course will introduce you to the process, coordination, and information required
+      to understand the Financials process in GFEBS.
+    </p>
+    <img src="/shield-01.png" />
+  </SlideContent>
 </template>

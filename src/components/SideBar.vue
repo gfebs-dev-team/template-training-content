@@ -1,12 +1,10 @@
-<script setup lang="ts">
+<script setup>
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
 import { watch } from 'vue'
 import { onMounted } from 'vue'
 
-defineProps<{
-  title?: string
-}>()
+defineProps(['unit'])
 
 const slides = useSlidesStore();
 const { slidesList } = slides;
@@ -16,7 +14,7 @@ function closeSideBar() {
   document.getElementById('sidebar')?.setAttribute('style', 'display:none')
 }
 
-function goToSlide(i: number) {
+function goToSlide(i) {
   current.value = i;
   document.getElementById('sidebar')?.setAttribute('style', 'display:none')
 }

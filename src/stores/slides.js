@@ -1,14 +1,19 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import slides from '../assets/slides.json'
 
 export const useSlidesStore = defineStore('slides', () => {
   const current = ref(0)
-  const totalSlides = slides.length
-  const slidesList = ref(slides)
-  const checkpoint = ref(totalSlides + 1);
-  const next = ref(false);
-  const prev = ref(true);
+  const slidesList = ref(new Array)
+  const total = slidesList.value.length
+  const checkpoint = ref(total + 1)
+  const next = ref(false)
+  const prev = ref(true)
+
+  function addSlide(obj) {
+    if(slidesList[current.value] == null) {
+      slidesList[current.value] = obj
+    } 
+  }
 
   function goNext() {
     current.value++
@@ -19,43 +24,49 @@ export const useSlidesStore = defineStore('slides', () => {
   }
 
   function disableNext() {
-    next.value = true;
+    next.value = true
   }
 
   function enableNext() {
-    next.value = false;
+    next.value = false
   }
 
   function disablePrev() {
-    prev.value = true;
+    prev.value = true
   }
 
   function enablePrev() {
-    prev.value = false;
-  }
-
-  function setTrue() {
-    slidesList.value[current.value].viewed = true;
-    //console.log(slidesList.value[current.value]);
-  }
-  function setFalse() {
-    slidesList.value[current.value].viewed = false;
-    //console.log(slidesList.value[current.value].viewed);
+    prev.value = false
   }
 
   function setCheckpoint() {
-    for (let i = 0; i < totalSlides; i++) {
+    for (let i = 0; i < total; i++) {
       if (slidesList.value[i].type === 'question' && slidesList.value[i].viewed === false) {
         checkpoint.value = i
-        console.log(slidesList.value[i].type);
-        console.log(slidesList.value[i].viewed);
-        console.log("Checkpoint: " + checkpoint.value);
-        return;
+        console.log(slidesList.value[i].type)
+        console.log(slidesList.value[i].viewed)
+        console.log('Checkpoint: ' + checkpoint.value)
+        return
       }
-    } checkpoint.value = totalSlides +1;
-    console.log("Checkpoint: " + checkpoint.value);
-    
+    }
+    checkpoint.value = total + 1
+    console.log('Checkpoint: ' + checkpoint.value)
   }
 
-  return {current, totalSlides, slidesList, checkpoint, next, prev, disableNext, disablePrev, enableNext, enablePrev, goNext, goPrev, setTrue, setFalse, setCheckpoint }
+  return {
+    current,
+    total,
+    slidesList,
+    checkpoint,
+    next,
+    prev,
+    addSlide,
+    disableNext,
+    disablePrev,
+    enableNext,
+    enablePrev,
+    goNext,
+    goPrev,
+    setCheckpoint
+  }
 })

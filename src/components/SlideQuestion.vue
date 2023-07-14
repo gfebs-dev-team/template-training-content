@@ -1,8 +1,7 @@
-<script setup lang="ts">
+<script setup>
 import { useSlidesStore } from '@/stores/slides'
 import { ref, watch, onMounted} from 'vue'
 import { storeToRefs } from 'pinia'
-import type { Ref } from 'vue';
 import { inject } from 'vue';
 
 const slides = useSlidesStore()
@@ -10,16 +9,13 @@ const { current, slidesList } = storeToRefs(slides)
 const image = ref('qanda.png');
 const currentQuestion = slidesList.value[current.value]
 
-defineProps<{
-  title?: string
-  unit?: string
-}>()
+defineProps(['unit', 'title'])
 
-const answer: Ref<string> = inject("answer")!
+const answer= inject("answer")
 
 onMounted(()=> {
   if (currentQuestion.user != "") {
-    answer.value = currentQuestion.user!;
+    answer.value = currentQuestion.user;
   }
   if (currentQuestion.viewed) {
     if (current.value != slides.totalSlides-1){

@@ -1,8 +1,16 @@
-<script setup lang="ts">
-defineProps<{
-  unit?: string
-  title?: string
-}>()
+<script setup>
+import { useSlidesStore } from '../stores/slides';
+import { onMounted, inject } from 'vue';
+
+const slides = useSlidesStore();
+const { addSlide } = slides
+const slideData = inject("slideData");
+
+defineProps(['unit', 'title', ])
+
+onMounted(()=> {
+  addSlide(slideData)
+})
 </script>
 
 <template>
