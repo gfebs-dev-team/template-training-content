@@ -1,21 +1,30 @@
 <script setup lang="ts">
-    import SlideContent from '@/components/SlideContent.vue'
+import SlideQuestion from '@/components/SlideQuestion.vue'
+import { provide, ref} from 'vue';
+
+const answer = ref<string>();
+
+provide("answer", answer);
+
 </script>
 
 <template>
-  <SlideContent title="Topics" unit="Introduction to Financials">
-    <div>
-      <p>In this module, we discuss the following topics:</p>
-      <ul>
-        <li>Course Navigation</li>
-        <li>Course Objectives</li>
-        <li>What is Financials?</li>
-        <li>GFEBS and Financial Management</li>
-        <li>Financials Business Process Areas</li>
-        <li>Financials Roles and Organizations</li>
-        <li>Module Checkpoint</li>
-      </ul>
-    </div>
-    <img src="/shield-01.png" />
-  </SlideContent>
+  <SlideQuestion title="Question 1" unit="Introduction to Financials">
+    <template #question>What is the answer to this question?</template>
+    <template #options>
+      <li class="choice">
+        <input id="true" value="true" v-model="answer" type="radio" /> <label for="true">True</label>
+      </li>
+      <li class="choice">
+        <input id="false" value="false" v-model="answer" type="radio" /> <label for="false">False</label>
+      </li>
+    </template>
+  </SlideQuestion>
 </template>
+
+<style scoped lang="scss">
+  label {
+    padding: .5rem;
+    width: 100%;
+  }
+</style>

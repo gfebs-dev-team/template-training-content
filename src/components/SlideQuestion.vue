@@ -22,7 +22,9 @@ onMounted(()=> {
     answer.value = currentQuestion.user!;
   }
   if (currentQuestion.viewed) {
-    slides.enableNext()
+    if (current.value != slides.totalSlides-1){
+      slides.enableNext()
+    }
   } else {
     slides.disableNext()
   }
@@ -33,7 +35,9 @@ watch(answer, ()=> {
   if(answer.value === currentQuestion.answer) {
     image.value = 'correct.png'
     slidesList.value[current.value].user = answer.value;
-    slides.enableNext()
+    if (current.value != slides.totalSlides-1){
+      slides.enableNext()
+    }
   } else {
     image.value = 'incorrect.png'
     slides.disableNext()

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SlideQuestion from '@/components/SlideQuestion.vue'
 import { provide, ref} from 'vue';
+
 const answer = ref<string>();
 
 provide("answer", answer);
