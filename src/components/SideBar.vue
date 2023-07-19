@@ -4,11 +4,10 @@ import { storeToRefs } from 'pinia'
 import { watch } from 'vue'
 import { onMounted } from 'vue'
 
-defineProps(['unit'])
+defineProps(['topic'])
 
 const slides = useSlidesStore();
-const { slidesList } = slides;
-const { current, checkpoint } = storeToRefs(slides);
+const { current, checkpoint, slidesList } = storeToRefs(slides);
 
 function closeSideBar() {
   document.getElementById('sidebar')?.setAttribute('style', 'display:none')
@@ -44,10 +43,10 @@ watch(checkpoint, () => {
   <div id="sidebar" style="display: none">
     <h1>Index</h1>
     <div class="links">
-      <h2>{{ title }}</h2>
-      <li v-for="(slide, index) in slidesList" :key="index">
+      <h2>{{ topic }}</h2>
+      <li v-for="(slide, index) in slidesList.value" :key="index">
         <a @click="goToSlide(index)">
-          {{ slide.name }}
+          {{ slide.title }}
         </a>
       </li>
     </div>

@@ -27,9 +27,6 @@ function toggleSidebar() {
 function windowClose() {
   window.close();
 }
-
-
-
 </script>
 
 <template>

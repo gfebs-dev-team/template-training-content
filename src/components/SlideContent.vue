@@ -1,22 +1,23 @@
 <script setup>
 import { useSlidesStore } from '../stores/slides';
-import { onMounted, inject } from 'vue';
+import { onBeforeMount, inject } from 'vue';
+import SlideHeader from './SlideHeader.vue'
+
 
 const slides = useSlidesStore();
 const { addSlide } = slides
 const slideData = inject("slideData");
 
-defineProps(['unit', 'title', ])
+defineProps(['topic', 'title', "type"])
 
-onMounted(()=> {
+onBeforeMount(()=> {
   addSlide(slideData)
+  //console.log(slides.slidesList.value[slides.current.value]);
 })
 </script>
 
 <template>
-  <div class="unit-header">
-    <h1>{{ unit }}</h1>
-  </div>
+  <SlideHeader>{{ topic }}</SlideHeader>
   <div class="slide">
     <h2 class="slide-header">{{ title }}</h2>
     <div class="content">
@@ -26,16 +27,6 @@ onMounted(()=> {
 </template>
 
 <style scoped lang="scss">
-.unit-header {
-    width: 100%;
-    background-color: #414141;
-    padding: .2em 2em;
-    h1 {
-      color: white;
-      text-align: right;
-      font-weight: 400;
-    }
-}
 .slide {
   display: flex;
   flex-direction: column;

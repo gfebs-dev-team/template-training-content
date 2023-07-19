@@ -19,15 +19,17 @@ watch(current, () => {
   current.value <= 0
     ? prev.value = true
     : prev.value = false
-  current.value + 1 >= totalSlides
+  current.value >= totalSlides
     ? next.value = true
     : next.value = false
 })
+
+const props = defineProps(['course', 'topic'])
 </script>
 
 <template>
   <main>
-    <ContentHeader>GFEBS L210E Financials Process Overview</ContentHeader>
+    <ContentHeader>{{ course }}</ContentHeader>
     <div class="layout">
       <button class="nav-btn" id="prev" @click="goPrev" :disabled="prev">
         <svg
@@ -47,8 +49,8 @@ watch(current, () => {
         </svg>
       </button>
       <div class="content-box">
-        <SideBar title="Introduction to Financials"></SideBar>
-        <component :is="slidesComp[current]"></component>
+        <SideBar v-bind="props"></SideBar>
+        <component :is="slidesComp[current]" :topic="topic"></component>
       </div>
       <button class="nav-btn" id="next" @click="goNext" :disabled="next">
         <svg

@@ -10,8 +10,8 @@ export const useSlidesStore = defineStore('slides', () => {
   const prev = ref(true)
 
   function addSlide(obj) {
-    if(slidesList[current.value] == null) {
-      slidesList[current.value] = obj
+    if(slidesList.value[current.value] == null) {
+      slidesList.value[current.value] = obj
     } 
   }
 
