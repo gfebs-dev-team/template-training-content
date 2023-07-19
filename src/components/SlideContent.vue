@@ -11,6 +11,7 @@ defineProps(['topic', 'title', "type"])
 
 onMounted(()=> {
   addSlide(slideData)
+  console.log(slides.slidesList);
 })
 </script>
 

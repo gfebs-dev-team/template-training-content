@@ -11,8 +11,10 @@ export const useSlidesStore = defineStore('slides', () => {
 
   function addSlide(obj) {
     if(slidesList.value[current.value] == null) {
-      slidesList.value[current.value] = obj
-    } 
+      slidesList.value.push(obj)
+    } else {
+      slidesList.value[current.value] == obj
+    }
   }
 
   function goNext() {
