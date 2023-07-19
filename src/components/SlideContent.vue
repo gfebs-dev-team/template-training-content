@@ -1,8 +1,7 @@
 <script setup>
 import { useSlidesStore } from '../stores/slides';
-import { onBeforeMount, inject } from 'vue';
+import { onMounted, inject } from 'vue';
 import SlideHeader from './SlideHeader.vue'
-
 
 const slides = useSlidesStore();
 const { addSlide } = slides
@@ -10,9 +9,8 @@ const slideData = inject("slideData");
 
 defineProps(['topic', 'title', "type"])
 
-onBeforeMount(()=> {
+onMounted(()=> {
   addSlide(slideData)
-  //console.log(slides.slidesList.value[slides.current.value]);
 })
 </script>
 

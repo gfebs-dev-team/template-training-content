@@ -3,7 +3,7 @@ import SlideContent from '../components/SlideContent.vue'
 import { provide } from 'vue';
 
 const slideData = {
-    "title": "Welcome to Introductions to Fianancials",
+    "title": "This is a second slide, Surprise!",
     "type": "content"
 }
 provide("slideData", slideData)

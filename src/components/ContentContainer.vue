@@ -19,7 +19,7 @@ watch(current, () => {
   current.value <= 0
     ? prev.value = true
     : prev.value = false
-  current.value >= totalSlides
+  current.value >= totalSlides-1
     ? next.value = true
     : next.value = false
 })

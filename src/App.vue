@@ -2,8 +2,8 @@
 import ContentContainer from './components/ContentContainer.vue'
 
 const courseData = {
-    'course': "GFEBS L210E Fianancials Processes Overview",
-    'topic': "Introduction to Financials"
+    'course': "GFEBS L210E Fianancials Process",
+    'topic': "Intro to Financials"
 }
 </script>
 

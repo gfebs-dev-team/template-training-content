@@ -8,6 +8,7 @@ defineProps(['topic'])
 
 const slides = useSlidesStore();
 const { current, checkpoint, slidesList } = storeToRefs(slides);
+console.log(slidesList.value);
 
 function closeSideBar() {
   document.getElementById('sidebar')?.setAttribute('style', 'display:none')
@@ -46,7 +47,7 @@ watch(checkpoint, () => {
       <h2>{{ topic }}</h2>
       <li v-for="(slide, index) in slidesList.value" :key="index">
         <a @click="goToSlide(index)">
-          {{ slide.title }}
+          {{ slidesList.value }}
         </a>
       </li>
     </div>
