@@ -1,65 +1,65 @@
 <script setup>
+import SlideHeader from './SlideHeader.vue'
 import { useSlidesStore } from '@/stores/slides'
-import { ref, watch, onMounted} from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
-import { inject } from 'vue';
+import { inject } from 'vue'
 
 const slides = useSlidesStore()
 const { current, slidesList } = storeToRefs(slides)
-const image = ref('qanda.png');
+const image = ref('qanda.png')
 const currentQuestion = slidesList.value[current.value]
 
-defineProps(['unit', 'title'])
+defineProps(['title', 'topic'])
 
-const answer= inject("answer")
+const answer = inject('answer')
 
-onMounted(()=> {
-  if (currentQuestion.user != "") {
-    answer.value = currentQuestion.user;
+onMounted(() => {
+  if (currentQuestion.user != '') {
+    answer.value = currentQuestion.user
   }
   if (currentQuestion.viewed) {
-    if (current.value != slides.totalSlides-1){
+    if (current.value != slides.totalSlides - 1) {
       slides.enableNext()
     }
   } else {
     slides.disableNext()
   }
 })
-watch(answer, ()=> {
-  slides.setTrue();
-  slides.setCheckpoint();
-  if(answer.value === currentQuestion.answer) {
+watch(answer, () => {
+  slides.setTrue()
+  slides.setCheckpoint()
+  if (answer.value === currentQuestion.answer) {
     image.value = 'correct.png'
-    slidesList.value[current.value].user = answer.value;
-    if (current.value != slides.totalSlides-1){
+    slidesList.value[current.value].user = answer.value
+    if (current.value != slides.totalSlides - 1) {
       slides.enableNext()
     }
   } else {
     image.value = 'incorrect.png'
     slides.disableNext()
-    slidesList.value[current.value].user = answer.value;
+    slidesList.value[current.value].user = answer.value
   }
-});
-
+})
 </script>
 
 <template>
-  <div class="unit-header">
-    <h1>{{ unit }}</h1>
-  </div>
-  <div class="slide">
-    <h2 class="slide-header">{{ title }}</h2>
-    <div class="content">
-      <div class="left-column">
-        <h3><slot name="question"></slot></h3>
+  <div>
+    <SlideHeader>{{ topic }}</SlideHeader>
+    <div class="slide">
+      <h2 class="slide-header">{{ title }}</h2>
+      <div class="content">
+        <div class="left-column">
+          <h3><slot name="question"></slot></h3>
 
-        <ul class="options">
-          <slot name="options"></slot> 
-        </ul>
-      </div>
+          <ul class="options">
+            <slot name="options"></slot>
+          </ul>
+        </div>
 
-      <div class="right-column">
-        <img :src="image"/>
+        <div class="right-column">
+          <img :src="image" />
+        </div>
       </div>
     </div>
   </div>

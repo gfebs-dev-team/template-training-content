@@ -1,5 +1,5 @@
 <script setup>
-import { watch } from 'vue'
+import { onMounted, watch } from 'vue'
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
 
@@ -7,14 +7,22 @@ const slides = useSlidesStore()
 const { goPrev, goNext, total, enableNext, disableNext, enablePrev, disablePrev} = slides
 const { current, prev, next } = storeToRefs(slides)
 
+onMounted(()=>{
+  setNav()
+})
+
 watch(current, () => {
+  setNav()
+})
+
+function setNav() {
   current.value <= 0 ? disablePrev() : enablePrev()
   current.value >= total-1 ? disableNext() : enableNext()
-})
+}
 </script>
 
 <template>
-  <button class="nav-btn" id="prev" @click="goPrev" :disabled="!prev">
+  <button class="nav-btn" id="prev" @click="goPrev" :disabled="(!prev)">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="15"
@@ -31,10 +39,8 @@ watch(current, () => {
       <polyline points="12 19 5 12 12 5"></polyline>
     </svg>
   </button>
-  <div class="content-box">
-    <slot></slot>
-  </div>
-  <button class="nav-btn" id="next" @click="goNext" :disabled="!next">
+  <slot></slot>
+  <button class="nav-btn" id="next" @click="goNext" :disabled="(!next)">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="15"

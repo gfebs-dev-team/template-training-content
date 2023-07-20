@@ -1,7 +1,7 @@
 <script setup>
 import SlideContent from '../components/SlideContent.vue'
 import { useSlidesStore } from '../stores/slides'
-import { onMounted } from 'vue';
+import { onBeforeMount } from 'vue';
 
 const slideData = {
     "title": "Welcome to Introductions to Fianancials",
@@ -11,7 +11,7 @@ const slideData = {
 const slides = useSlidesStore()
 const { addSlide } = slides
 
-onMounted(()=>{
+onBeforeMount(()=>{
   addSlide(slideData, 0)
 })
 </script>

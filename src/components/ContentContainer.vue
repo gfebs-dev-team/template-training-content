@@ -24,7 +24,7 @@ const props = defineProps(['course', 'topic'])
         <div class="content-box">
           <SideBar v-bind="props"></SideBar>
           <div v-for="(slide, index) in slidesComp" :key=index>
-            <component :is="slide" v-bind="props" v-if="index==current"></component>
+            <component :is="slide" :topic="topic" v-show="(index==current)"></component>
           </div>
         </div>
       </ContentNavigation>
