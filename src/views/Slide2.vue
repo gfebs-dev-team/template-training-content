@@ -1,13 +1,20 @@
 <script setup>
 import SlideContent from '../components/SlideContent.vue'
-import { provide } from 'vue';
+import { useSlidesStore } from '../stores/slides'
+import { onMounted } from 'vue';
 
 const slideData = {
     "title": "This is a second slide, Surprise!",
     "type": "content"
 }
-provide("slideData", slideData)
 
+const slides = useSlidesStore()
+const { addSlide } = slides
+
+onMounted(()=>{
+  addSlide(slideData, 1)
+  console.log("mounted 2")
+})
 </script>
 
 <template>

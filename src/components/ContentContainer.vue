@@ -1,28 +1,17 @@
 <script setup>
-import { watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSlidesStore } from '@/stores/slides'
 import ContentHeader from '../components/ContentHeader.vue'
+import ContentNavigation from './ContentNavigation.vue'
 import SideBar from '../components/SideBar.vue'
 import views from '../views'
 
-var slidesComp = Object.keys(views).map((key) => {
+let slidesComp = Object.keys(views).map((key) => {
   return views[key]
 })
 
-const totalSlides = slidesComp.length
 const slides = useSlidesStore()
-const { current, next, prev} = storeToRefs(slides)
-const { goPrev, goNext} = slides
-
-watch(current, () => {
-  current.value <= 0
-    ? prev.value = true
-    : prev.value = false
-  current.value >= totalSlides-1
-    ? next.value = true
-    : next.value = false
-})
+const { current } = storeToRefs(slides)
 
 const props = defineProps(['course', 'topic'])
 </script>
@@ -31,44 +20,14 @@ const props = defineProps(['course', 'topic'])
   <main>
     <ContentHeader>{{ course }}</ContentHeader>
     <div class="layout">
-      <button class="nav-btn" id="prev" @click="goPrev" :disabled="prev">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="15"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="feather feather-arrow-left"
-        >
-          <line x1="19" y1="12" x2="5" y2="12"></line>
-          <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-      </button>
-      <div class="content-box">
-        <SideBar v-bind="props"></SideBar>
-        <component :is="slidesComp[current]" :topic="topic"></component>
-      </div>
-      <button class="nav-btn" id="next" @click="goNext" :disabled="next">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="15"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="feather feather-arrow-right"
-        >
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </button>
+      <ContentNavigation>
+        <div class="content-box">
+          <SideBar v-bind="props"></SideBar>
+          <div v-for="(slide, index) in slidesComp" :key=index>
+            <component :is="slide" v-bind="props" v-if="index==current"></component>
+          </div>
+        </div>
+      </ContentNavigation>
     </div>
   </main>
 </template>

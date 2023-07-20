@@ -5,12 +5,12 @@ import { storeToRefs } from 'pinia';
 
 const slides = useSlidesStore();
 const { current } = storeToRefs(slides);
-const { totalSlides } = slides;
-let progress = `width: ${(current.value+1/totalSlides)*100}%`;
+const { total } = slides;
+let progress = `width: ${(current.value+1/total)*100}%`;
 
 
 watch (current, () => {
-  progress = `width: ${((current.value+1)/totalSlides)*100}%`;
+  progress = `width: ${((current.value+1)/total)*100}%`;
   document.getElementById("progress")?.setAttribute("style", `${progress}`);
 });
 

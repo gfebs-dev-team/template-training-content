@@ -34,7 +34,7 @@ function setLinks() {
 } 
 
 onMounted(() => {
-  slides.setCheckpoint();
+  //slides.setCheckpoint();
   setLinks();
 }) 
 

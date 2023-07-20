@@ -1,13 +1,19 @@
 <script setup>
 import SlideContent from '../components/SlideContent.vue'
-import { provide } from 'vue';
+import { useSlidesStore } from '../stores/slides'
+import { onMounted } from 'vue';
 
 const slideData = {
     "title": "Welcome to Introductions to Fianancials",
     "type": "content"
 }
-provide("slideData", slideData)
 
+const slides = useSlidesStore()
+const { addSlide } = slides
+
+onMounted(()=>{
+  addSlide(slideData, 0)
+})
 </script>
 
 <template>

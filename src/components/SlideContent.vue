@@ -1,26 +1,16 @@
 <script setup>
-import { useSlidesStore } from '../stores/slides';
-import { onMounted, inject } from 'vue';
 import SlideHeader from './SlideHeader.vue'
-
-const slides = useSlidesStore();
-const { addSlide } = slides
-const slideData = inject("slideData");
-
-defineProps(['topic', 'title', "type"])
-
-onMounted(()=> {
-  addSlide(slideData)
-  console.log(slides.slidesList);
-})
+defineProps(['topic', 'title', 'type'])
 </script>
 
 <template>
-  <SlideHeader>{{ topic }}</SlideHeader>
-  <div class="slide">
-    <h2 class="slide-header">{{ title }}</h2>
-    <div class="content">
-      <slot></slot>
+  <div>
+    <SlideHeader>{{ topic }}</SlideHeader>
+    <div class="slide">
+      <h2 class="slide-header">{{ title }}</h2>
+      <div class="content">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>

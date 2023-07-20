@@ -1,20 +1,24 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import views from '../views'
 
 export const useSlidesStore = defineStore('slides', () => {
   const current = ref(0)
   const slidesList = ref(new Array)
-  const total = slidesList.value.length
-  const checkpoint = ref(total + 1)
-  const next = ref(false)
-  const prev = ref(true)
 
-  function addSlide(obj) {
-    if(slidesList.value[current.value] == null) {
+  let slidesComp = Object.keys(views).map((key) => {
+    return views[key]
+  })
+
+  const total = slidesComp.length
+  const checkpoint = ref(total + 1)
+  const next = ref(true)
+  const prev = ref(false)
+
+  function addSlide(obj, index) {
+    if(slidesList.value[index] == null) {
       slidesList.value.push(obj)
-    } else {
-      slidesList.value[current.value] == obj
-    }
+    } 
   }
 
   function goNext() {
@@ -26,19 +30,19 @@ export const useSlidesStore = defineStore('slides', () => {
   }
 
   function disableNext() {
-    next.value = true
-  }
-
-  function enableNext() {
     next.value = false
   }
 
+  function enableNext() {
+    next.value = true
+  }
+
   function disablePrev() {
-    prev.value = true
+    prev.value = false
   }
 
   function enablePrev() {
-    prev.value = false
+    prev.value = true
   }
 
   function setCheckpoint() {
