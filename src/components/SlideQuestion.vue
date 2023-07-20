@@ -1,7 +1,7 @@
 <script setup>
 import SlideHeader from './SlideHeader.vue'
 import { useSlidesStore } from '@/stores/slides'
-import { ref, watch, onActivated } from 'vue'
+import { ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { inject } from 'vue'
 
@@ -12,22 +12,13 @@ defineProps(['title', 'topic'])
 
 const answer = inject('answer')
 
-onActivated(() => {
-  console.log("activated")
-  if (slidesList.value[current.value].user != '') {
-    answer.value = slidesList.value[current.value].value.user
-  }
-
-  if (slidesList.value[current.value].viewed === false ) {
-    slides.disableNext()
-  }
-})
 watch(answer, () => {
+  slidesList.value[current.value].viewed = true
   slides.setCheckpoint()
   if (answer.value === slidesList.value[current.value].answer) {
     image.value = 'correct.png'
     slidesList.value[current.value].user = answer.value
-    if (current.value <= slides.total - 1) {
+    if (current.value <= slides.total) {
       slides.enableNext()
     } else {
       slides.disableNext()
@@ -37,6 +28,10 @@ watch(answer, () => {
     slides.disableNext()
     slidesList.value[current.value].user = answer.value
   }
+})
+
+watch (current, ()=> {
+  image.value = 'qanda.png'
 })
 </script>
 
