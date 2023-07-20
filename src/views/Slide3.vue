@@ -12,10 +12,10 @@ const slideData = {
 }
 
 const answer = ref();
+const checked_el= ref(0);
 const slides = useSlidesStore()
 const { addSlide } = slides
 provide("answer", answer);
-
 
 onBeforeMount(() => {
   addSlide(slideData, 2)
@@ -26,19 +26,15 @@ onBeforeMount(() => {
   <SlideQuestion :title="slideData.title">
     <template #question>What is the answer to this question?</template>
     <template #options>
-      <li class="choice">
-        <input id="true" value="true" v-model="answer" type="radio" /> <label for="true">True</label>
+      <li class="choice" @click="checked_el=1" :class="{checked: checked_el == 1}">
+        <input id="1_true" value="true" v-model="answer" type="radio"/> <label for="1_true">True</label>
       </li>
-      <li class="choice">
-        <input id="false" value="false" v-model="answer" type="radio" /> <label for="false">False</label>
+      <li class="choice" @click="checked_el=2" :class="{checked: checked_el == 2}">
+        <input id="1_false" value="false" v-model="answer" type="radio"/> <label for="1_false">False</label>
       </li>
     </template>
   </SlideQuestion>
 </template>
 
 <style scoped lang="scss">
-  label {
-    padding: .5rem;
-    width: 100%;
-  }
 </style>

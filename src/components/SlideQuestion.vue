@@ -1,7 +1,7 @@
 <script setup>
 import SlideHeader from './SlideHeader.vue'
 import { useSlidesStore } from '@/stores/slides'
-import { ref, watch } from 'vue'
+import { onUpdated, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { inject } from 'vue'
 
@@ -11,6 +11,12 @@ const image = ref('qanda.png')
 defineProps(['title', 'topic'])
 
 const answer = inject('answer')
+
+onUpdated(() => {
+  if (slidesList.value[current.value].viewed === false) {
+    slides.disableNext()
+  }
+})
 
 watch(answer, () => {
   slidesList.value[current.value].viewed = true
@@ -29,10 +35,6 @@ watch(answer, () => {
     slidesList.value[current.value].user = answer.value
   }
 })
-
-watch (current, ()=> {
-  image.value = 'qanda.png'
-})
 </script>
 
 <template>
@@ -44,9 +46,9 @@ watch (current, ()=> {
         <div class="left-column">
           <h3><slot name="question"></slot></h3>
 
-          <ul class="options">
+          <div class="options">
             <slot name="options"></slot>
-          </ul>
+          </div>
         </div>
 
         <div class="right-column">
@@ -92,9 +94,45 @@ watch (current, ()=> {
       gap: 1em;
       .options {
         display: flex;
+        gap: 0.5em;
         flex-direction: column;
         list-style-type: none;
-        margin-left: -1rem;
+        margin-right: 1rem;
+        :slotted(.choice) {
+          display: flex;
+          width: 100%;
+          gap: 1em;
+          border: 2px solid rgba(11, 69, 194, 0);
+          border-radius: 10px;
+
+          input[type='radio'] {
+            margin-left: 0.5em;
+          }
+
+          label {
+            width: 100%;
+            height: 100%;
+            padding: 0.5em;
+          }
+
+          &.checked {
+            background-color: rgba(11, 69, 194, 0.1);
+            border-radius: 10px;
+            input[type='radio'] + label {
+              color: rgba(11, 69, 194, 1);
+              padding: 0.5em;
+              font-weight: bold;
+            }
+          }
+
+          &:hover {
+            color: rgba(11, 69, 194, 1);
+            border: 2px solid rgb(93, 114, 160);
+            label {
+              font-weight: bold;
+            }
+          }
+        }
       }
     }
 

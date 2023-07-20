@@ -1,5 +1,6 @@
 <script setup>
 import { storeToRefs } from 'pinia'
+import { onMounted } from 'vue'
 import { useSlidesStore } from '@/stores/slides'
 import ContentHeader from '../components/ContentHeader.vue'
 import ContentNavigation from './ContentNavigation.vue'
@@ -12,6 +13,10 @@ let slidesComp = Object.keys(views).map((key) => {
 
 const slides = useSlidesStore()
 const { current } = storeToRefs(slides)
+
+onMounted(()=>{
+
+})
 
 const props = defineProps(['course', 'topic'])
 </script>

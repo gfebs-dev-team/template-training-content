@@ -2,7 +2,7 @@
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
 import { watch } from 'vue'
-import { onMounted } from 'vue'
+import { onUpdated } from 'vue'
 
 defineProps(['topic'])
 
@@ -33,8 +33,9 @@ function setLinks() {
   })
 } 
 
-onMounted(() => {
+onUpdated(() => {
   slides.setCheckpoint();
+  links = slidesList.value
   setLinks();
 }) 
 
