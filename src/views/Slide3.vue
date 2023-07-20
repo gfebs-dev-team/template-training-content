@@ -23,7 +23,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideQuestion title="slideData.title">
+  <SlideQuestion :title="slideData.title">
     <template #question>What is the answer to this question?</template>
     <template #options>
       <li class="choice">

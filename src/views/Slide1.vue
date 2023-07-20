@@ -4,7 +4,7 @@ import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue';
 
 const slideData = {
-    "title": "Welcome to Introductions to Fianancials",
+    "title": "Lorem ipsum dolor",
     "type": "content"
 }
 

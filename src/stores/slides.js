@@ -56,7 +56,7 @@ export const useSlidesStore = defineStore('slides', () => {
       }
     }
     checkpoint.value = total + 1
-    console.log('Checkpoint: ' + checkpoint.value)
+    console.log('Outer Checkpoint: ' + checkpoint.value)
   }
 
   return {

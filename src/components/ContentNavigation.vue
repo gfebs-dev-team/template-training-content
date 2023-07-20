@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, watch } from 'vue'
+import { watch } from 'vue'
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
 
@@ -7,18 +7,11 @@ const slides = useSlidesStore()
 const { goPrev, goNext, total, enableNext, disableNext, enablePrev, disablePrev} = slides
 const { current, prev, next } = storeToRefs(slides)
 
-onMounted(()=>{
-  setNav()
-})
-
 watch(current, () => {
-  setNav()
-})
-
-function setNav() {
   current.value <= 0 ? disablePrev() : enablePrev()
   current.value >= total-1 ? disableNext() : enableNext()
-}
+})
+
 </script>
 
 <template>

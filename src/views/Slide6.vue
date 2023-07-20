@@ -1,15 +1,29 @@
-<script setup lang="ts">
-import SlideQuestion from '@/components/SlideQuestion.vue'
-import { provide, ref} from 'vue';
+<script setup>
+import SlideQuestion from '../components/SlideQuestion.vue'
+import { useSlidesStore } from '../stores/slides'
+import { onBeforeMount, provide, ref } from 'vue'
 
-const answer = ref<string>();
+const slideData = {
+  title: 'Question 2',
+  type: 'question',
+  viewed: false,
+  answer: 'false',
+  user: ''
+}
 
+const answer = ref();
+const slides = useSlidesStore()
+const { addSlide } = slides
 provide("answer", answer);
 
+
+onBeforeMount(() => {
+  addSlide(slideData, 5)
+})
 </script>
 
 <template>
-  <SlideQuestion title="Question 1" unit="Introduction to Financials">
+  <SlideQuestion :title="slideData.title">
     <template #question>What is the answer to this question?</template>
     <template #options>
       <li class="choice">

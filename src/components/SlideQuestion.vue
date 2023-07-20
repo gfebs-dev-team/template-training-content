@@ -1,39 +1,36 @@
 <script setup>
 import SlideHeader from './SlideHeader.vue'
 import { useSlidesStore } from '@/stores/slides'
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch, onActivated } from 'vue'
 import { storeToRefs } from 'pinia'
 import { inject } from 'vue'
 
 const slides = useSlidesStore()
 const { current, slidesList } = storeToRefs(slides)
 const image = ref('qanda.png')
-const currentQuestion = slidesList.value[current.value]
-
 defineProps(['title', 'topic'])
 
 const answer = inject('answer')
 
-onMounted(() => {
-  if (currentQuestion.user != '') {
-    answer.value = currentQuestion.user
+onActivated(() => {
+  console.log("activated")
+  if (slidesList.value[current.value].user != '') {
+    answer.value = slidesList.value[current.value].value.user
   }
-  if (currentQuestion.viewed) {
-    if (current.value != slides.totalSlides - 1) {
-      slides.enableNext()
-    }
-  } else {
+
+  if (slidesList.value[current.value].viewed === false ) {
     slides.disableNext()
   }
 })
 watch(answer, () => {
-  slides.setTrue()
   slides.setCheckpoint()
-  if (answer.value === currentQuestion.answer) {
+  if (answer.value === slidesList.value[current.value].answer) {
     image.value = 'correct.png'
     slidesList.value[current.value].user = answer.value
-    if (current.value != slides.totalSlides - 1) {
+    if (current.value <= slides.total - 1) {
       slides.enableNext()
+    } else {
+      slides.disableNext()
     }
   } else {
     image.value = 'incorrect.png'
