@@ -4,7 +4,7 @@ import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue';
 
 const slideData = {
-    "title": "Phasellus sed urna",
+    "title": "Vivamus eleifend ex",
     "type": "content"
 }
 
@@ -12,7 +12,7 @@ const slides = useSlidesStore()
 const { addSlide } = slides
 
 onBeforeMount(()=>{
-  addSlide(slideData, 1)
+  addSlide(slideData, 7)
 })
 </script>
 

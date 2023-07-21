@@ -1,22 +1,24 @@
-<script setup lang="ts">
+<script setup>
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
 import { watch } from 'vue'
-import { onMounted } from 'vue'
+import { onUpdated } from 'vue'
 
-defineProps<{
-  title?: string
-}>()
+defineProps(['topic'])
 
 const slides = useSlidesStore();
-const { slidesList } = slides;
-const { current, checkpoint } = storeToRefs(slides);
+const { current, checkpoint, slidesList } = storeToRefs(slides);
+let links = slidesList.value
+
+watch(slidesList, ()=> {
+  links = slidesList.value
+})
 
 function closeSideBar() {
   document.getElementById('sidebar')?.setAttribute('style', 'display:none')
 }
 
-function goToSlide(i: number) {
+function goToSlide(i) {
   current.value = i;
   document.getElementById('sidebar')?.setAttribute('style', 'display:none')
 }
@@ -31,8 +33,9 @@ function setLinks() {
   })
 } 
 
-onMounted(() => {
+onUpdated(() => {
   slides.setCheckpoint();
+  links = slidesList.value
   setLinks();
 }) 
 
@@ -40,16 +43,17 @@ watch(checkpoint, () => {
   slides.setCheckpoint();
   setLinks();
 })
+
 </script>
 
 <template>
   <div id="sidebar" style="display: none">
     <h1>Index</h1>
     <div class="links">
-      <h2>{{ title }}</h2>
-      <li v-for="(slide, index) in slidesList" :key="index">
+      <h2>{{ topic }}</h2>
+      <li v-for="(slide, index) in links" :key="index">
         <a @click="goToSlide(index)">
-          {{ slide.name }}
+          {{ slide.title }}
         </a>
       </li>
     </div>

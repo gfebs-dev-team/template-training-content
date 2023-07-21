@@ -1,35 +1,29 @@
-<script setup lang="ts">
-import { ref, watch } from 'vue'
-import { useSlidesStore } from '@/stores/slides';
-import { storeToRefs } from 'pinia';
+<script setup>
+import { watch } from 'vue'
+import { useSlidesStore } from '@/stores/slides'
+import { storeToRefs } from 'pinia'
 
-const slides = useSlidesStore();
-const { current } = storeToRefs(slides);
-const { totalSlides } = slides;
-let progress = `width: ${(current.value+1/totalSlides)*100}%`;
+const slides = useSlidesStore()
+const { current } = storeToRefs(slides)
+const { total } = slides
+let progress = `width: ${(current.value + 1 / total) * 100}%`
 
-
-watch (current, () => {
-  progress = `width: ${((current.value+1)/totalSlides)*100}%`;
-  document.getElementById("progress")?.setAttribute("style", `${progress}`);
-});
-
-
+watch(current, () => {
+  progress = `width: ${((current.value + 1) / total) * 100}%`
+  document.getElementById('progress')?.setAttribute('style', `${progress}`)
+})
 
 function toggleSidebar() {
-  if (document.getElementById('sidebar')?.hasAttribute("style")) {
-    document.getElementById('sidebar')?.removeAttribute("style");
+  if (document.getElementById('sidebar')?.hasAttribute('style')) {
+    document.getElementById('sidebar')?.removeAttribute('style')
   } else {
-    document.getElementById('sidebar')?.setAttribute("style", "display:none");
+    document.getElementById('sidebar')?.setAttribute('style', 'display:none')
   }
 }
 
 function windowClose() {
-  window.close();
+  window.close()
 }
-
-
-
 </script>
 
 <template>
@@ -46,30 +40,28 @@ function windowClose() {
     </div>
     <img id="heading-shield" src="/shield-01.png" />
     <div class="progress-bar">
-      <div id="progress" :style = "progress"></div>
+      <div id="progress" :style="progress"></div>
     </div>
-    <button id="heading-index" class="btn-med" @click="toggleSidebar">INDEX</button
-    ><!--CONVERT TO COMPONENT-->
-    <button id="heading-exit" class="btn-med" @click="windowClose()">X EXIT</button>
+    <div class="buttons">
+      <button id="heading-index" class="btn-med" @click="toggleSidebar">INDEX</button>
+      <button id="heading-exit" class="btn-med" @click="windowClose()">X EXIT</button>
+    </div>
   </nav>
 </template>
 
 <style scoped lang="scss">
 .border {
   background-color: #1ea3de;
-  height: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 2%;
+  min-height: 40px;
+  box-sizing: border-box;
 }
 nav {
   color: white;
   display: grid;
-  grid-template-areas: 'a b d d' 'a b e f';
+  grid-template-areas: 'a b d d' 'a b f f';
   grid-template-columns: 120px 1fr repeat(2, 0.3fr);
   justify-content: left;
-  margin: 2em 4em;
+  margin: 1em 4em;
 
   #heading-shield {
     grid-area: a;
@@ -112,16 +104,17 @@ nav {
     }
   }
 
-  #heading-index {
-    grid-area: e;
-    margin-right: 1em;
-  }
-
-  #heading-exit {
-    display: block;
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
     grid-area: f;
-    &:hover {
-      cursor: pointer;
+    width: 100%;
+    .btn-med {
+      width: 100%;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

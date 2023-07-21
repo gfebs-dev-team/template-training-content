@@ -1,33 +1,21 @@
-<script setup lang="ts">
-defineProps<{
-  unit?: string
-  title?: string
-}>()
+<script setup>
+import SlideHeader from './SlideHeader.vue'
+defineProps(['topic', 'title', 'type'])
 </script>
 
 <template>
-  <div class="unit-header">
-    <h1>{{ unit }}</h1>
-  </div>
-  <div class="slide">
-    <h2 class="slide-header">{{ title }}</h2>
-    <div class="content">
-      <slot></slot>
+  <div>
+    <SlideHeader>{{ topic }}</SlideHeader>
+    <div class="slide">
+      <h2 class="slide-header">{{ title }}</h2>
+      <div class="content">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.unit-header {
-    width: 100%;
-    background-color: #414141;
-    padding: .2em 2em;
-    h1 {
-      color: white;
-      text-align: right;
-      font-weight: 400;
-    }
-}
 .slide {
   display: flex;
   flex-direction: column;

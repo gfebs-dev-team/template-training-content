@@ -1,30 +1,27 @@
-<script setup lang="ts">
-import SlideQuestion from '@/components/SlideQuestion.vue'
-import { provide, ref} from 'vue';
+<script setup>
+import SlideContent from '../components/SlideContent.vue'
+import { useSlidesStore } from '../stores/slides'
+import { onBeforeMount } from 'vue';
 
-const answer = ref<string>();
+const slideData = {
+    "title": "Proin et leo sed diam",
+    "type": "content"
+}
 
-provide("answer", answer);
+const slides = useSlidesStore()
+const { addSlide } = slides
 
+onBeforeMount(()=>{
+  addSlide(slideData, 4)
+})
 </script>
 
 <template>
-  <SlideQuestion title="Question 1" unit="Introduction to Financials">
-    <template #question>What is the answer to this question?</template>
-    <template #options>
-      <li class="choice">
-        <input id="true" value="true" v-model="answer" type="radio" /> <label for="true">True</label>
-      </li>
-      <li class="choice">
-        <input id="false" value="false" v-model="answer" type="radio" /> <label for="false">False</label>
-      </li>
-    </template>
-  </SlideQuestion>
+  <SlideContent v-bind="slideData">
+    <p>
+      This training course will introduce you to the process, coordination, and information required
+      to understand the Financials process in GFEBS.
+    </p>
+    <img src="/shield-01.png" />
+  </SlideContent>
 </template>
-
-<style scoped lang="scss">
-  label {
-    padding: .5rem;
-    width: 100%;
-  }
-</style>
