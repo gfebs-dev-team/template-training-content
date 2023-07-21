@@ -54,13 +54,13 @@ watch(current, () => {
 
 <style scoped lang="scss">
 button {
-  font-weight: bold;
-  color: white;
-  background-color: #1ea3de;
-  height: 129px;
-  border-width: 1px;
-  &:disabled {
-    background-color: gray;
+    font-weight: bold;
+    color: white;
+    background-color: #1ea3de;
+    height: 129px;
+    border-width: 1px;
+    &:disabled {
+      background-color: gray;
+    }
   }
-}
 </style>

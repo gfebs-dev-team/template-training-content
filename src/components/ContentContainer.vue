@@ -1,6 +1,5 @@
 <script setup>
 import { storeToRefs } from 'pinia'
-import { onMounted } from 'vue'
 import { useSlidesStore } from '@/stores/slides'
 import ContentHeader from '../components/ContentHeader.vue'
 import ContentNavigation from './ContentNavigation.vue'
@@ -14,20 +13,16 @@ let slidesComp = Object.keys(views).map((key) => {
 const slides = useSlidesStore()
 const { current } = storeToRefs(slides)
 
-onMounted(()=>{
-
-})
-
-const props = defineProps(['course', 'topic'])
+defineProps(['topic', 'courseCode', 'courseTitle'])
 </script>
 
 <template>
   <main>
-    <ContentHeader>{{ course }}</ContentHeader>
+    <ContentHeader>GFEBS {{ courseCode }} {{ courseTitle }}</ContentHeader>
     <div class="layout">
       <ContentNavigation>
         <div class="content-box">
-          <SideBar v-bind="props"></SideBar>
+          <SideBar v-bind="{'topic': topic}"></SideBar>
           <div v-for="(slide, index) in slidesComp" :key=index>
             <component :is="slide" :topic="topic" v-show="(index==current)"></component>
           </div>
@@ -57,16 +52,6 @@ main {
     width: 100%;
     height: 100%;
     background-color: white;
-  }
-  button {
-    font-weight: bold;
-    color: white;
-    background-color: #1ea3de;
-    height: 129px;
-    border-width: 1px;
-    &:disabled {
-      background-color: gray;
-    }
   }
 }
 </style>
