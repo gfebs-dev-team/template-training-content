@@ -12,6 +12,12 @@ export const useSlidesStore = defineStore('slides', () => {
 
   const total = slidesComp.length
   const checkpoint = ref(total + 1)
+  const navigation = {
+    'next': {
+      display: ref(true),
+    },
+    'prev': ref(false),
+  }
   const next = ref(true)
   const prev = ref(false)
 

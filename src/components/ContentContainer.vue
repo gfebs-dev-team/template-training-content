@@ -37,6 +37,9 @@ main {
   display: flex;
   flex-direction: column;
   height: 100%;
+  display: flex;
+  padding: 5rem;
+  gap: 3rem;
 }
 .layout {
   position: relative;
