@@ -6,10 +6,19 @@
   --delft-blue: rgb(36, 53, 88);
   --mas-blue: rgb(58, 75, 111);
   --cool-grey: rgb(145, 160, 190);
-  --lavendar: rgb(222, 228, 241);
+  --lavender: rgb(222, 228, 241);
   --alice-blue: rgb(231, 235, 243);
   --harvest-gold: rgb(231, 166, 13);
   --saffron: rgb(244, 188, 58);
+
+  --m5: 3.12rem;
+  --m4: 2.62rem;
+  --m3: 2.12rem;
+  --m2: 1.75rem;
+  --m1: 1.5rem;
+  --m0: 1.25rem;
+  --m-1: 1rem;
+  --m-2: 0.88rem;
 }
 
 /* semantic color variables for this project */
@@ -18,10 +27,12 @@
   --color-background-mute: var(--charcoal);
   --color-background-dark: var(--oxford-blue);
 
-  --color-border-hover: var(--saffron);
-  --color-heading: var(--saffron);
+  --color-heading: var(--mas-blue);
+  --color-accent: var(--saffron);
   --color-text: var(--rich-black);
-  --color-primary: var(--mas-blue);
+  --color-accent-light: var(--lavender);
+  --color-text-dark: var(--alice-blue);
+  --color-primary: var(--cool-grey);
 
   --section-gap: 160px;
 }
@@ -38,7 +49,6 @@
 
 body {
   min-height: 100vh;
-  color: #000;
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
   font-family: Arial, sans-serif;
