@@ -1,4 +1,5 @@
 <script setup>
+import AppButton from './AppButton.vue'
 import { watch } from 'vue'
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
@@ -6,6 +7,12 @@ import { storeToRefs } from 'pinia'
 const slides = useSlidesStore()
 const { goPrev, goNext, total, enableNext, disableNext, enablePrev, disablePrev } = slides
 const { current, prev, next } = storeToRefs(slides)
+
+const buttonStyle = {
+  size: 'small',
+  color: 'lightMode',
+  variant: 'outline'
+}
 
 watch(current, () => {
   current.value <= 0 ? disablePrev() : enablePrev()
@@ -15,14 +22,13 @@ watch(current, () => {
 
 <template>
   <div class="unit-header">
-    <h1 class="heading"><slot /></h1>
+    <div class="heading">
+      
+      <h1><slot /></h1>
+    </div>
     <nav>
-      <button class="button" @click="goPrev" :disabled=!prev>
-        <p>Back</p>
-      </button>
-      <button class="button" @click="goNext" :disabled=!next>
-        <p>Next</p>
-      </button>
+      <AppButton @click="goPrev" v-bind="buttonStyle" :disabled="!prev"> Back </AppButton>
+      <AppButton @click="goNext" v-bind="buttonStyle" :disabled="!next"> Next </AppButton>
     </nav>
   </div>
 </template>
@@ -30,30 +36,22 @@ watch(current, () => {
 <style scoped lang="scss">
 .unit-header {
   width: 100%;
-  background-color: var(--color-heading);
+  background-color: var(--color-accent-light);
   display: flex;
   padding: 1.25rem 2rem;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
-  h1 {
-    color: var(--color-text-dark);
-    font-size: var(--m2);
+  .heading {
+
+    h1 {
+      color: var(--color-text-dark);
+      font-size: var(--m2);
+    }
   }
   nav {
     display: flex;
     gap: 1rem;
-    .button {
-      padding: 0.25rem 1.5rem; 
-      color: var(--color-accent-light);
-      background-color: transparent;
-      p {
-        font-size: var(--m-2);
-      }
-      &:hover {
-        background-color: var(--color-accent-light);
-      }
-    }
   }
 }
 </style>

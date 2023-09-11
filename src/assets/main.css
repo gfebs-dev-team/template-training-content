@@ -9,31 +9,6 @@
   flex-direction: column;
 }
 
-.button {
-  display: flex;
-  padding: 0.75rem 1.5rem;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  flex: 1 0 0;
-  border-radius: 0.3125rem;
-  border: 2px solid var(--color-primary);
-  transition: .2s;
-}
-
-.button p {
-  font-weight: 700; 
-  text-transform: uppercase; 
-  letter-spacing: 0.02rem;
-  color: var(--color-primary);
-}
-
-.button:hover{
-  cursor: pointer;
-  border: 2px solid var(--mas-blue);
-  transition: .2s;
-}
-
 .title {
   font-weight: 700;
   text-transform: uppercase;
@@ -51,4 +26,10 @@
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 2em;
+  color: var(--color-accent);
 }

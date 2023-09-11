@@ -1,4 +1,5 @@
 <script setup>
+import AppButton from './AppButton.vue';
 import { watch } from 'vue'
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
@@ -7,6 +8,12 @@ const slides = useSlidesStore()
 const { current } = storeToRefs(slides)
 const { total } = slides
 let progress = `width: ${(current.value + 1 / total) * 100}%`
+
+const buttonStyle = {
+  'size': 'medium',
+  'color': 'darkMode',
+  'variant': 'outline',
+}
 
 watch(current, () => {
   progress = `width: ${((current.value + 1) / total) * 100}%`
@@ -45,7 +52,7 @@ function windowClose() {
         <div id="progress" :style="progress"></div>
       </div>
       <div class="buttons">
-        <div id="heading-index" class="button" @click="toggleSidebar">
+        <AppButton id="heading-index" v-bind=buttonStyle @click="toggleSidebar">
           <svg
             width="17"
             height="17"
@@ -58,9 +65,9 @@ function windowClose() {
               fill="#91A0BE"
             />
           </svg>
-          <p>Resources</p>
-        </div>
-        <div id="heading-exit" class="button" @click="windowClose()">
+          Resources
+        </AppButton>
+        <AppButton id="heading-exit" v-bind=buttonStyle @click="windowClose()">
           <svg
             width="13"
             height="13"
@@ -73,8 +80,8 @@ function windowClose() {
               fill="#F4BC3A"
             />
           </svg>
-          <p>Exit</p>
-        </div>
+          Exit
+        </AppButton>
       </div>
     </div>
   </nav>
@@ -122,11 +129,12 @@ nav {
     .progress-bar {
       width: 100%;
       height: 1.5rem;
-      background-color: var(--mas-blue);
+      background-color: var(--color-accent-light);
       border-radius: 1rem;
       #progress {
         background-color: var(--color-accent);
         border-radius: 1rem;
+        transition: ease 1s;
         height: 100%;
       }
     }
@@ -136,11 +144,7 @@ nav {
       align-items: flex-start;
       gap: 1.5rem;
       align-self: stretch;
-      .button {
-        padding: 0.5rem 1.5rem;
-        font-size: var(--m-2);
-      }
-      #heading-exit p {
+      #heading-exit{
         color:var(--color-accent);
       }
       

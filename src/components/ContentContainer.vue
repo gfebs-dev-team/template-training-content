@@ -33,20 +33,22 @@ defineProps(['topic', 'courseCode', 'courseTitle'])
 main {
   display: flex;
   flex-direction: column;
+  max-width: 1200px;
+  margin:auto;
+  align-items: center;
   height: 100%;
-  display: flex;
-  padding: 5rem 8rem;
+  padding: 5rem 5rem;
   gap: 3rem;
 }
 .layout {
   position: relative;
-  grid-gap: 1em;
+  width: 100%;
   height: 100%;
-  align-items: center;
   .content-box {
-    grid-area: b;
-    width: 100%;
+    width:100%;
     height: 100%;
+    border-radius: .5rem;
+    overflow: hidden;
     background-color:var(--color-background-dark);
   }
 }

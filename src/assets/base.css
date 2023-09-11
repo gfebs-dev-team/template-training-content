@@ -27,11 +27,12 @@
   --color-background-mute: var(--charcoal);
   --color-background-dark: var(--oxford-blue);
 
-  --color-heading: var(--mas-blue);
   --color-accent: var(--saffron);
+  --color-accent-light: var(--mas-blue);
   --color-text: var(--rich-black);
-  --color-accent-light: var(--lavender);
   --color-text-dark: var(--alice-blue);
+  
+  --color-button-light: var(--lavender);
   --color-primary: var(--cool-grey);
 
   --section-gap: 160px;
@@ -41,6 +42,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
   margin: 0;
   font-size: 16px;
   position: relative;
@@ -51,7 +53,6 @@ body {
   min-height: 100vh;
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: Arial, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

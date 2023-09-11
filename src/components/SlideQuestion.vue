@@ -65,13 +65,6 @@ watch(answer, () => {
   flex-direction: column;
   padding: 2em;
   gap: 1em;
-
-  h2 {
-    font-weight: bold;
-    font-size: 2em;
-    color: red;
-    flex-shrink: 1;
-  }
   .content {
     display: flex;
     position:relative;

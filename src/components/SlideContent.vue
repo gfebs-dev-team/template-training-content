@@ -22,11 +22,6 @@ defineProps(['topic', 'title', 'type'])
   padding: 2em;
   gap: 1em;
 
-  h2 {
-    font-weight: bold;
-    font-size: 2em;
-    color: red;
-  }
   .content {
     display: flex;
     flex-direction: row;
