@@ -20,14 +20,6 @@ watch(current, () => {
   document.getElementById('progress')?.setAttribute('style', `${progress}`)
 })
 
-function toggleSidebar() {
-  if (document.getElementById('sidebar')?.hasAttribute('style')) {
-    document.getElementById('sidebar')?.removeAttribute('style')
-  } else {
-    document.getElementById('sidebar')?.setAttribute('style', 'display:none')
-  }
-}
-
 function windowClose() {
   window.close()
 }

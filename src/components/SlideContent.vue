@@ -1,32 +1,11 @@
 <script setup>
-import SlideHeader from './SlideHeader.vue'
-defineProps(['topic', 'title', 'type'])
+import SlideBase from './SlideBase.vue';
+defineProps(['title'])
 </script>
 
 <template>
-  <div>
-    <SlideHeader>{{ topic }}</SlideHeader>
-    <div class="slide">
-      <h2 class="slide-header">{{ title }}</h2>
-      <div class="content">
-        <slot></slot>
-      </div>
-    </div>
-  </div>
+  <SlideBase :title="title">
+      <slot></slot>
+  </SlideBase>   
 </template>
 
-<style scoped lang="scss">
-.slide {
-  display: flex;
-  flex-direction: column;
-  padding: 2em;
-  gap: 1em;
-
-  .content {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    font-size: 1.2em;
-  }
-}
-</style>

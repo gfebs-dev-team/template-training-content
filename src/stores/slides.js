@@ -18,6 +18,7 @@ export const useSlidesStore = defineStore('slides', () => {
     },
     'prev': ref(false),
   }
+  const sidebarState = ref(false)
   const next = ref(true)
   const prev = ref(false)
 
@@ -25,6 +26,11 @@ export const useSlidesStore = defineStore('slides', () => {
     if(slidesList.value[index] == null) {
       slidesList.value.push(obj)
     } 
+    //console.log(slidesList.value)
+  }
+
+  function toggleSidebar() {
+    sidebarState.value = !(sidebarState.value)
   }
 
   function goNext() {
@@ -51,13 +57,17 @@ export const useSlidesStore = defineStore('slides', () => {
     prev.value = true
   }
 
+  function getTitle() {
+    return slidesList.value[current.value].title;
+  }
+
   function setCheckpoint() {
     for (let i = 0; i < total; i++) {
       if (slidesList.value[i].type === 'question' && slidesList.value[i].viewed === false) {
         checkpoint.value = i
-        console.log(slidesList.value[i].type)
-        console.log(slidesList.value[i].viewed)
-        console.log('Checkpoint: ' + checkpoint.value)
+        //console.log(slidesList.value[i].type)
+        //console.log(slidesList.value[i].viewed)
+        //console.log('Checkpoint: ' + checkpoint.value)
         return
       }
     }
@@ -72,6 +82,9 @@ export const useSlidesStore = defineStore('slides', () => {
     checkpoint,
     next,
     prev,
+    sidebarState,
+    getTitle,
+    toggleSidebar,
     addSlide,
     disableNext,
     disablePrev,

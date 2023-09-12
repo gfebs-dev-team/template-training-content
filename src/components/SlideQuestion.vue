@@ -1,5 +1,5 @@
 <script setup>
-import SlideHeader from './SlideHeader.vue'
+import SlideBase from './SlideBase.vue'
 import { useSlidesStore } from '@/stores/slides'
 import { onUpdated, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
@@ -38,25 +38,19 @@ watch(answer, () => {
 </script>
 
 <template>
-  <div>
-    <SlideHeader>{{ topic }}</SlideHeader>
-    <div class="slide">
-      <h2 class="slide-header">{{ title }}</h2>
-      <div class="content">
-        <div class="left-column">
-          <h3><slot name="question"></slot></h3>
+    <SlideBase :title="title">
+      <div class="left-column">
+        <h3><slot name="question"></slot></h3>
 
-          <div class="options">
-            <slot name="options"></slot>
-          </div>
-        </div>
-
-        <div class="right-column">
-          <img :src="image" />
+        <div class="options">
+          <slot name="options"></slot>
         </div>
       </div>
-    </div>
-  </div>
+
+      <div class="right-column">
+        <img :src="image" />
+      </div>
+    </SlideBase>
 </template>
 
 <style scoped lang="scss">
@@ -67,7 +61,7 @@ watch(answer, () => {
   gap: 1em;
   .content {
     display: flex;
-    position:relative;
+    position: relative;
     flex-direction: row;
     gap: 1em;
     font-size: 1.2em;

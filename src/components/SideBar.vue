@@ -4,23 +4,17 @@ import { storeToRefs } from 'pinia'
 import { watch } from 'vue'
 import { onUpdated } from 'vue'
 
-defineProps(['topic'])
-
 const slides = useSlidesStore();
-const { current, checkpoint, slidesList } = storeToRefs(slides);
+const { current, checkpoint, slidesList, sidebarState } = storeToRefs(slides);
 let links = slidesList.value
 
 watch(slidesList, ()=> {
   links = slidesList.value
 })
 
-function closeSideBar() {
-  document.getElementById('sidebar')?.setAttribute('style', 'display:none')
-}
-
 function goToSlide(i) {
   current.value = i;
-  document.getElementById('sidebar')?.setAttribute('style', 'display:none')
+  slides.toggleSidebar();
 }
 
 function setLinks() {
@@ -47,33 +41,39 @@ watch(checkpoint, () => {
 </script>
 
 <template>
-  <div id="sidebar" style="display: none">
-    <h1>Index</h1>
+  <div id="sidebar" :class="{active: sidebarState}">
+
     <div class="links">
-      <h2>{{ topic }}</h2>
       <li v-for="(slide, index) in links" :key="index">
         <a @click="goToSlide(index)">
           {{ slide.title }}
         </a>
       </li>
     </div>
-    <button id="close-sidebar" @click="closeSideBar">X</button>
   </div>
 </template>
 
 <style scoped lang="scss">
 #sidebar {
-  position: absolute;
-  height: 125%;
-  bottom: 2px;
-  left: 2px;
-  width: 30em;
-  z-index: 1;
-  background-color: #133038;
-  padding: 1em;
   display: flex;
+  position: absolute;
+  height: 100%;
+  bottom: 0;
+  left: -26em;
+  width: 26em;
+  z-index: 1;
+  background-color:var(--delft-blue);
+  padding: 1em;
   flex-direction: column;
+  overflow: hidden;
+  transition: ease-in-out .7s;
   gap: 1em;
+
+  &.active {
+    
+    left: 0;
+    transition: ease-in-out .7s;
+  }
 
   h1 {
     text-transform: uppercase;
@@ -81,7 +81,6 @@ watch(checkpoint, () => {
     color: white;
     line-height: 1.2em;
     padding: 0.1em 0.5em;
-    background-color: #009bd1;
   }
 
   .links {
@@ -90,7 +89,6 @@ watch(checkpoint, () => {
     flex-direction: column;
     gap: 0.2em;
     color: white;
-    background-color: #636d74;
     height: 100%;
     overflow-y: scroll;
     clip-path: polygon(100% 0, 100% 100%, 12% 100%, 0 92%, 0 0); //Start Top Right

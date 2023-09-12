@@ -24,22 +24,25 @@ button {
 }
 
 .small {
-  padding: 0.4rem 1.75rem;
+  padding: 0.4rem 1.65rem;
   font-size: var(--m-2);
 }
 
 .medium {
   padding: 0.75rem 1.5rem;
-  font-size: var(--m-1);
+  font-size: var(--m-2);
 }
 
 .large {
 }
 
 .outline {
-  border: 2px solid var(--color-border);
+  border: .2rem solid var(--color-border);
   color: var(--color-text);
   background-color: transparent;
+  &.small {
+    border-width: .1rem;
+  }
 
   &:hover {
     background-color: var(--color-hover-background);
