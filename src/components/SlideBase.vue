@@ -12,8 +12,11 @@ defineProps(['title'])
 
 <style scoped lang="scss">
 .content-box {
-    height: 100%;
-    width: 100%
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: 1.5rem;
 }
 h2 {
   font-size: var(--m2);
@@ -24,8 +27,9 @@ h2 {
 .content {
   display: flex;
   flex-direction: row;
-  gap: 1em;
-  font-size: 1.2em;
+  font-size: 1.25rem;
+  ::slotted(div) {
+    gap: 1rem;
+  }
 }
-
 </style>

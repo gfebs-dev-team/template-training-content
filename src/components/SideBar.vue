@@ -45,7 +45,7 @@ watch(checkpoint, () => {
 
     <div class="links">
       <li v-for="(slide, index) in links" :key="index">
-        <a @click="goToSlide(index)">
+        <a :class="{active:current==index}" @click="goToSlide(index)">
           {{ slide.title }}
         </a>
       </li>
@@ -59,18 +59,14 @@ watch(checkpoint, () => {
   position: absolute;
   height: 100%;
   bottom: 0;
-  left: -26em;
-  width: 26em;
+  left: -24rem;
+  width: 24rem;
   z-index: 1;
   background-color:var(--delft-blue);
-  padding: 1em;
   flex-direction: column;
-  overflow: hidden;
   transition: ease-in-out .7s;
-  gap: 1em;
 
   &.active {
-    
     left: 0;
     transition: ease-in-out .7s;
   }
@@ -87,11 +83,10 @@ watch(checkpoint, () => {
     padding: 1em;
     display: flex;
     flex-direction: column;
-    gap: 0.2em;
+    gap: 0.75rem;
     color: white;
     height: 100%;
     overflow-y: scroll;
-    clip-path: polygon(100% 0, 100% 100%, 12% 100%, 0 92%, 0 0); //Start Top Right
     h2 {
       font-weight: bold;
     }
@@ -102,18 +97,26 @@ watch(checkpoint, () => {
       a {
         text-decoration: none;
         width: 100%;
-        padding-left: 1em;
+        padding-left: 1rem;
         color: white;
-        font-size: 1.2em;
+        font-size: var(--m-1);
+        font-weight: 700;
+        &.active {
+          color:var(--color-accent);
+        }
         &.disabled {
           color: grey;
           pointer-events: none;
           display: flex;
           justify-content: space-between;
+          align-items: center;
           &::after {
-            content:url("/lock-fill.svg");
-            display: inline-block;
-            width: 20px;
+            content:"";
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' version='1.1' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m17 8h1c0.5523 0 1 0.4477 1 1v10c0 0.5523-0.4477 1-1 1h-16c-0.55228 0-1-0.4477-1-1v-10c0-0.5523 0.44772-1 1-1h1v-1c0-3.866 3.134-7 7-7 3.866 0 7 3.134 7 7zm-2 0v-1c0-2.7614-2.2386-5-5-5-2.7614 0-5 2.2386-5 5v1zm-6 4v4h2v-4z' fill='%23fff'/%3E%3C/svg%3E");
+            display: block;
+            background-size: 16px 16px;
+            height: 16px;
+            width: 16px;
           }
           &:hover {
             color: grey;

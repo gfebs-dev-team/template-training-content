@@ -29,14 +29,14 @@ watch(current, () => {
         :class="{ open: sidebarState }"
         class="hamburger"
         width="26"
-        height="2"
+        height="26"
         viewBox="0 0 30 30"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <rect class="bar" x="3" y="3" height="2" fill="#DEE4F1" />
-        <rect class="bar" x="3" y="15" height="2" fill="#DEE4F1" />
-        <rect class="bar" x="3" y="26" height="2" fill="#DEE4F1" />
+        <rect class="bar" x="3" y="12" height="2" fill="#DEE4F1" />
+        <rect class="bar" x="3" y="22" height="2" fill="#DEE4F1" />
       </svg>
 
       <!--<div class="hamburger" @click="toggleSidebar()" :class="{ open: sidebarState }">
@@ -87,8 +87,8 @@ watch(current, () => {
           opacity: 0;
         }
         .bar:nth-child(3) {
-          -webkit-transform: rotate(-45deg) translate(-19px, -12px);
-          transform: rotate(-45deg) translate(-19px, -12px);
+          -webkit-transform: rotate(-45deg) translate(-19px, -9px);
+          transform: rotate(-45deg) translate(-19px, -9px);
         }
       }
     }

@@ -19,9 +19,9 @@ defineProps(['topic'])
 <template>
   <div class="slide-container">
     <SlideHeader>{{ topic }}</SlideHeader>
-    <div class="slide">
+    <div class="slide-area">
       <SideBar />
-      <div class="slideContent" v-for="(slide, index) in slidesComp" :key="index">
+      <div v-for="(slide, index) in slidesComp" :key="index">
         <Transition>
           <component :is="slide" v-show="index == current"></component>
         </Transition>
@@ -39,7 +39,7 @@ defineProps(['topic'])
   flex-direction: column;
   background-color: var(--color-background-dark);
 }
-.slide {
+.slide-area {
   display: flex;
   transition: ease-in-out 1s;
   overflow: hidden;

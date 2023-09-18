@@ -9,6 +9,9 @@ defineProps(['size', 'color', 'variant'])
 </template>
 
 <style lang="scss">
+$offwhite: var(--alice-blue);
+$darkblue: var(--oxford-blue);
+
 button {
   display: flex;
   flex: 1 0 0;
@@ -21,6 +24,15 @@ button {
   align-items: center;
   border-radius: 0.3125rem;
   transition: transform 0.2s, background-color 0.2s;
+  border: .2rem solid transparent;
+  outline: none;
+  &:active {
+    transform: translateY(.1rem)
+  }
+
+  &::after, &::before {
+    border-radius: .1rem;
+  }
 }
 
 .small {
@@ -37,15 +49,34 @@ button {
 }
 
 .outline {
-  border: .2rem solid var(--color-border);
+  transition: color 0.5s, transform 0.2s, background-color 0.2s;
   color: var(--color-text);
   background-color: transparent;
+  border: .2rem solid var(--color-border);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    //border: .1rem solid var(--color-border);
+    transition: opacity 0.3s, border 0.3s;
+  }
+
+  &:hover::before {
+    opacity: 0;
+  }
+    
   &.small {
     border-width: .1rem;
   }
 
   &:hover {
-    background-color: var(--color-hover-background);
+    background-color: transparent;
+    box-shadow: none;
+    color: var(--color-hover-text);
   }
 }
 
@@ -55,12 +86,14 @@ button {
 .darkMode {
   --color-border: var(--mas-blue);
   --color-text: var(--cool-grey);
+  --color-hover-text: var(--alice-blue);
   --color-hover-background: rgba(0, 0, 0, 0.1);
 }
 
 .lightMode {
   --color-border: var(--alice-blue);
   --color-text: var(--alice-blue);
+  --color-hover-text: var(--space-cadet);
   --color-hover-background: rgba(255, 255, 255, 0.1);
 }
 

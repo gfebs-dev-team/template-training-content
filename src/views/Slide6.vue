@@ -1,7 +1,7 @@
 <script setup>
 import SlideQuestion from '../components/SlideQuestion.vue'
 import { useSlidesStore } from '../stores/slides'
-import { onBeforeMount, provide, ref } from 'vue'
+import { onBeforeMount, provide, ref, watch} from 'vue'
 
 const slideData = {
   title: 'Question 2',
@@ -16,7 +16,6 @@ const checked_el = ref();
 const slides = useSlidesStore()
 const { addSlide } = slides
 provide("answer", answer);
-
 
 onBeforeMount(() => {
   addSlide(slideData, 5)

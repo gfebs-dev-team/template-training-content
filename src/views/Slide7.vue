@@ -5,7 +5,7 @@ import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue';
 
 import SlideTerms from "@/components/SlideTerms.vue";
-import SlideTermButtons from "@/components/SlideTermButtons.vue";
+import SlideTermButton from "@/components/SlideTermButton.vue";
 
 const buttons = ref([
   { id: 1, termName: 'Journal Voucher Workflow Maintainer' },
@@ -16,7 +16,7 @@ const buttons = ref([
 
 ])
 
-let terms = [] =[
+let terms = [
   'The Journal Voucher Workflow Maintainer loads the two tables. ' +
   'One table stores the user IDs of Journal Voucher Processors and the '+ 
   'related organizations. The other table stores the user IDs of the Journal ' +
@@ -64,8 +64,8 @@ onBeforeMount(()=>{
   </div>
   
   <div class="buttons">
-    <SlideTermButtons v-for="button in buttons" :key="button.id" :termName="button.termName" 
-    @click="PassNameAndDef(button.termName, terms[button.id-1])"></SlideTermButtons>
+    <SlideTermButton v-for="button in buttons" :key="button.id" :termName="button.termName" 
+    @click="PassNameAndDef(button.termName, terms[button.id-1])"></SlideTermButton>
   </div>
   </SlideContent>
 </template>

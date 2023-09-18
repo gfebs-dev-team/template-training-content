@@ -126,7 +126,7 @@ nav {
       #progress {
         background-color: var(--color-accent);
         border-radius: 1rem;
-        transition: ease 1s;
+        transition: ease 1.5s;
         height: 100%;
       }
     }
