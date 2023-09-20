@@ -65,6 +65,7 @@ watch(answer, () => {
     flex-direction: column;
     list-style-type: none;
     margin-right: 1rem;
+    z-index: 1;
     :slotted(li.choice) {
       //box-sizing: border-box;
       display: flex;

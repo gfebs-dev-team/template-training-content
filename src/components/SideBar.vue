@@ -42,7 +42,6 @@ watch(checkpoint, () => {
 
 <template>
   <div id="sidebar" :class="{active: sidebarState}">
-
     <div class="links">
       <li v-for="(slide, index) in links" :key="index">
         <a :class="{active:current==index}" @click="goToSlide(index)">
@@ -61,7 +60,7 @@ watch(checkpoint, () => {
   bottom: 0;
   left: -24rem;
   width: 24rem;
-  z-index: 1;
+  z-index: 99;
   background-color:var(--delft-blue);
   flex-direction: column;
   transition: ease-in-out .7s;

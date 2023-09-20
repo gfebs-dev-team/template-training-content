@@ -5,7 +5,8 @@ import { onBeforeMount } from 'vue';
 
 const slideData = {
     "title": "Lorem ipsum dolor",
-    "type": "content"
+    "type": "content",
+    "img": '/shield-01.png'
 }
 
 const slides = useSlidesStore()
@@ -22,6 +23,5 @@ onBeforeMount(()=>{
       This training course will introduce you to the process, coordination, and information required
       to understand the Financials process in GFEBS.
     </p>
-    <img src="/shield-01.png" />
   </SlideContent>
 </template>

@@ -21,7 +21,7 @@ defineProps(['topic'])
     <SlideHeader>{{ topic }}</SlideHeader>
     <div class="slide-area">
       <SideBar />
-      <div v-for="(slide, index) in slidesComp" :key="index">
+      <div id="slide" v-for="(slide, index) in slidesComp" :key="index">
         <Transition>
           <component :is="slide" v-show="index == current"></component>
         </Transition>
@@ -45,10 +45,10 @@ defineProps(['topic'])
   overflow: hidden;
   height: 100%;
   flex-direction: column;
-  padding: 3rem;
-  :global(.content-box) {
+  #slide {
     position: absolute;
-
+    height:100%;
+    width: 100%;
   }
 }
 

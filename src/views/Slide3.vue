@@ -2,7 +2,7 @@
 import SlideQuestion from '../components/SlideQuestion.vue'
 import SlideQuestionInput from '../components/SlideQuestionInput.vue';
 import { useSlidesStore } from '../stores/slides'
-import { onBeforeMount, provide, ref, watch } from 'vue'
+import { onBeforeMount, provide, ref} from 'vue'
 
 const slideData = {
   title: 'Question 1',
@@ -12,10 +12,12 @@ const slideData = {
   user: ''
 }
 
-const answer = ref();
-const checked_el= ref(0);
 const slides = useSlidesStore()
 const { addSlide } = slides
+
+const answer = ref();
+const checked_el= ref(0);
+
 provide("answer", answer);
 provide("checked_el", checked_el);
 
@@ -28,10 +30,8 @@ onBeforeMount(() => {
   <SlideQuestion :title="slideData.title">
     <template #question>What is the answer to this question?</template>
     <template #options>
-      <SlideQuestionInput value="True" index="1"/>
-      <li class="choice" @click="checked_el=2; answer='false'" :class="{checked: checked_el == 2}">
-        <input id="1_false" value="false" v-model="answer" type="radio"/> <label for="1_false">False</label>
-      </li>
+      <SlideQuestionInput value="true" label="true" index="1" count="1"/>
+      <SlideQuestionInput value="false" label="false" index="2" count="1"/>
     </template>
   </SlideQuestion>
 </template>

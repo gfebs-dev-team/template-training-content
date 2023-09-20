@@ -8,7 +8,7 @@ defineProps(['size', 'color', 'variant'])
   </button>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 $offwhite: var(--alice-blue);
 $darkblue: var(--oxford-blue);
 

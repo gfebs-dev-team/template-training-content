@@ -12,12 +12,6 @@ export const useSlidesStore = defineStore('slides', () => {
 
   const total = slidesComp.length
   const checkpoint = ref(total + 1)
-  const navigation = {
-    'next': {
-      display: ref(true),
-    },
-    'prev': ref(false),
-  }
   const sidebarState = ref(false)
   const next = ref(true)
   const prev = ref(false)
@@ -65,14 +59,10 @@ export const useSlidesStore = defineStore('slides', () => {
     for (let i = 0; i < total; i++) {
       if (slidesList.value[i].type === 'question' && slidesList.value[i].viewed === false) {
         checkpoint.value = i
-        //console.log(slidesList.value[i].type)
-        //console.log(slidesList.value[i].viewed)
-        //console.log('Checkpoint: ' + checkpoint.value)
         return
       }
     }
     checkpoint.value = total + 1
-    console.log('Outer Checkpoint: ' + checkpoint.value)
   }
 
   return {

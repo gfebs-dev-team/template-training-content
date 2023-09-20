@@ -1,11 +1,14 @@
 <script setup>
-defineProps(['title'])
+defineProps(['title', 'columns'])
 </script>
 <template>
   <div class="content-box">
-    <h2 class="slide-title">{{ title }}</h2>
-    <div class="content">
-      <slot></slot>
+    <div class="column main_column">
+      <h2 class="slide-title">{{ title }}</h2>
+      <slot name="main" />
+    </div>
+    <div :class="'column column_' + (index + 1)" v-for="index in columns" :key="index">
+      <slot :name="'column_' + (index + 1)" />
     </div>
   </div>
 </template>
@@ -13,23 +16,22 @@ defineProps(['title'])
 <style scoped lang="scss">
 .content-box {
   display: flex;
-  flex-direction: column;
+  align-items: stretch;
   height: 100%;
   width: 100%;
-  gap: 1.5rem;
-}
-h2 {
-  font-size: var(--m2);
-  font-weight: bold;
-  text-transform: capitalize;
-  color: var(--color-accent);
-}
-.content {
-  display: flex;
-  flex-direction: row;
-  font-size: 1.25rem;
-  ::slotted(div) {
-    gap: 1rem;
+  padding: 4rem;
+  gap: 2rem;
+  .column {
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+  h2 {
+    font-size: var(--m2);
+    font-weight: bold;
+    text-transform: capitalize;
+    color: var(--color-accent);
   }
 }
 </style>

@@ -7,8 +7,9 @@ defineProps({
 </script>
 
 <template>
-  <SlideBase>
-    <div class="left">
+  <SlideBase :title="title" :columns="1">
+    <template #main>
+      <div class="left">
       <p>
         Here are a number key terms and concepts related to this section.<br />
         <span>Click</span> each term to the right to learn more.
@@ -18,7 +19,12 @@ defineProps({
         <p id="def-paragraph">{{ defParagraph }}</p>
       </div>
     </div>
+    </template>
+    <template #column_2>
+      <slot></slot>
+    </template>   
   </SlideBase>
+  
 </template>
 
 <style scoped lang="scss">
@@ -27,11 +33,16 @@ span {
 }
 
 .left {
-  
+  display:flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  height:100%;
+  justify-content: space-between;  
 }
 
 .term-definition {
-  background-color: dimgray;
+  background-color: var(--color-background);
   border-radius: 5px;
   width: 100%;
   height: 60%;
@@ -50,11 +61,10 @@ span {
   }
 }
 
-.content {
+:global(.term-buttons) {
   display: flex;
-  flex-direction: row;
-  gap: 1em;
-  font-size: 1.1em;
-  width: 100%;
+  flex-direction: column;
+  justify-content: space-between; 
+  width: 50%;
 }
 </style>
