@@ -24,14 +24,15 @@ button {
   align-items: center;
   border-radius: 0.3125rem;
   transition: transform 0.2s, background-color 0.2s;
-  border: .2rem solid transparent;
+  border: 0.2rem solid transparent;
   outline: none;
   &:active {
-    transform: translateY(.1rem)
+    transform: translateY(0.1rem);
   }
 
-  &::after, &::before {
-    border-radius: .1rem;
+  &::after,
+  &::before {
+    border-radius: 0.1rem;
   }
 }
 
@@ -52,10 +53,10 @@ button {
   transition: color 0.5s, transform 0.2s, background-color 0.2s;
   color: var(--color-text);
   background-color: transparent;
-  border: .2rem solid var(--color-border);
+  border: 0.2rem solid var(--color-border);
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -68,15 +69,21 @@ button {
   &:hover::before {
     opacity: 0;
   }
-    
+
   &.small {
-    border-width: .1rem;
+    border-width: 0.1rem;
   }
 
   &:hover {
-    background-color: transparent;
+    background-color: var(--color-hover-background);
+    border-color: transparent;
     box-shadow: none;
     color: var(--color-hover-text);
+    &:disabled {
+      background-color: transparent;
+      color:var(--color-text);
+      border-color: var(--color-border)
+    }
   }
 }
 
@@ -91,10 +98,15 @@ button {
 }
 
 .lightMode {
-  --color-border: var(--alice-blue);
+  --color-border: var(--lavender);
   --color-text: var(--alice-blue);
   --color-hover-text: var(--space-cadet);
   --color-hover-background: rgba(255, 255, 255, 0.1);
+  &:disabled {
+    --color-border: var(--cool-grey);
+    --color-text: var(--cool-grey);
+    cursor: not-allowed;
+  }
 }
 
 .accentMode {

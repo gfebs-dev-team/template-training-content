@@ -10,6 +10,7 @@ defineProps(['title', 'columns'])
     <div :class="'column column_' + (index + 1)" v-for="index in columns" :key="index">
       <slot :name="'column_' + (index + 1)" />
     </div>
+    <slot></slot>
   </div>
 </template>
 
@@ -26,6 +27,13 @@ defineProps(['title', 'columns'])
     flex-direction: column;
     height: 100%;
     width: 100%;
+    &:last-child {
+      width: 20rem;
+      :global(img) {
+        height:100%;
+        object-fit: contain;
+      }
+    } 
   }
   h2 {
     font-size: var(--m2);

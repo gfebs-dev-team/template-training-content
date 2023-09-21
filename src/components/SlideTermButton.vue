@@ -1,11 +1,12 @@
 <script setup>
 defineProps({
-  termName: String
+  termName: String,
+  activeName: String
 })
 </script>
 
 <template>
-  <button>{{ termName }}</button>
+  <button :class="{active: termName == activeName }">{{ termName }}</button>
 </template>
 
 <style scoped>
@@ -19,16 +20,26 @@ button {
   outline: 0;
   text-align: center;
   cursor: pointer;
-  padding: 1rem;
+  height: 100%;
   width: 100%;
-  border: transparent;
+  border: 2px solid transparent;
   border-radius: .5rem;
-  color: #fff;
+  color: var(--color-text-dark);
   font-weight: 700;
   font-size: var(--m-1);
   z-index: 1;
   background: var(--space-cadet);
   line-height: 20px;
-  transition: background, color 0.1s ease-in-out;
+  transition: all, color 0.1s ease-in-out;
+
+  &:hover {
+    background-color: transparent;
+    transition-duration: 0.2s;
+    border: 2px solid var(--color-accent);
+  }
+  &.active {
+    background-color: var(--color-accent);
+    color: var(--space-cadet)
+  }
 }
 </style>

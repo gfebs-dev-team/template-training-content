@@ -18,7 +18,7 @@ onBeforeMount(()=>{
 </script>
 
 <template>
-  <SlideContent v-bind="slideData">
+  <SlideContent v-bind="slideData" :columns="1">
     <p>
       This training course will introduce you to the process, coordination, and information required
       to understand the Financials process in GFEBS.

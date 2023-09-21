@@ -38,18 +38,20 @@ watch(answer, () => {
 </script>
 
 <template>
-  <SlideBase :title="title">
-    <div class="left-column">
-      <h3><slot name="question"></slot></h3>
+  <SlideBase :title="title" :columns="1">
+    <template #main>
+      <div class="left-column">
+        <h3><slot name="question"></slot></h3>
 
-      <div class="options">
-        <slot name="options"></slot>
+        <div class="options">
+          <slot name="options"></slot>
+        </div>
       </div>
-    </div>
+    </template>
 
-    <div class="right-column">
+    <template #column_2>
       <img :src="image" />
-    </div>
+    </template>
   </SlideBase>
 </template>
 

@@ -56,13 +56,20 @@ onBeforeMount(() => {
 
 <template>
   <SlideTerms :defName="activeName" :defParagraph="activeDef" v-bind="slideData">
+    <template #main-text>
+      <p>Here are a number key terms and concepts related to this section.</p>
+      <p><span style="font-weight: bold">Click</span> each term to the right to learn more.</p>
+    </template>
     <SlideTermButton
       v-for="button in buttons"
       :key="button.id"
       :termName="button.termName"
       @click="PassNameAndDef(button.termName, terms[button.id - 1])"
+      :activeName="activeName"
     ></SlideTermButton>
   </SlideTerms>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

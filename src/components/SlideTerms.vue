@@ -7,64 +7,68 @@ defineProps({
 </script>
 
 <template>
-  <SlideBase :title="title" :columns="1">
+  <SlideBase :title="title">
     <template #main>
       <div class="left">
-      <p>
-        Here are a number key terms and concepts related to this section.<br />
-        <span>Click</span> each term to the right to learn more.
-      </p>
-      <div class="term-definition">
-        <h3 id="def-name">{{ defName }}</h3>
-        <p id="def-paragraph">{{ defParagraph }}</p>
+        <div class="main-text">
+          <slot name="main-text" />
+        </div>
+
+        <div class="term-definition" v-if="defName != ''">
+          <h3 id="def-name">{{ defName }}</h3>
+          <p id="def-paragraph">{{ defParagraph }}</p>
+        </div>
       </div>
-    </div>
     </template>
-    <template #column_2>
+    <div class="column column_2">
       <slot></slot>
-    </template>   
+    </div>
   </SlideBase>
-  
 </template>
 
 <style scoped lang="scss">
-span {
-  font-weight: bold;
-}
-
 .left {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: stretch;
   width: 100%;
-  height:100%;
-  justify-content: space-between;  
+  height: 100%;
+  justify-content: space-between;
+  .main-text {
+    display:flex;
+    flex-direction: column;
+    padding: 1rem 0rem;
+    gap:1rem;
+  }
 }
 
 .term-definition {
   background-color: var(--color-background);
   border-radius: 5px;
+  display: flex;
   width: 100%;
-  height: 60%;
+  min-height: 15rem;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
 
   #def-name {
-    margin: 3% 0% 0% 3%;
-    color: greenyellow;
-    font-size: 14px;
+    color: var(--color-accent);
+    font-size: var(--m0);
     font-weight: bold;
   }
 
   #def-paragraph {
-    margin: 3% 6% 3% 6%;
-    color: white;
-    font-size: 14px;
+    font-size: var(--m-2);
+    line-height: 1.5rem;
   }
 }
 
-:global(.term-buttons) {
+:global(.column_2) {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
-  width: 50%;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 80%;
 }
 </style>
