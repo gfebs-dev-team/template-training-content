@@ -30,7 +30,6 @@ defineProps({
 .left {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   width: 100%;
   height: 100%;
   justify-content: space-between;
@@ -47,11 +46,12 @@ defineProps({
   border-radius: 5px;
   display: flex;
   width: 100%;
-  min-height: 15rem;
+  z-index: 1;
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem;
-
+  max-height: 15rem;
+  
   #def-name {
     color: var(--color-accent);
     font-size: var(--m0);
@@ -59,8 +59,16 @@ defineProps({
   }
 
   #def-paragraph {
+    overflow: auto;
     font-size: var(--m-2);
     line-height: 1.5rem;
+  }
+
+  @media only screen and (max-height: 925px) {
+    max-height: max-content;
+    #def-paragraph{
+      font-size: var(--m-1);
+    }
   }
 }
 

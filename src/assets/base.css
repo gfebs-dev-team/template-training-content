@@ -20,6 +20,23 @@
   --m-1: 1rem;
   --m-2: 0.88rem;
   --m-3: 0.7rem;
+
+  --p5: 5rem;
+  --p4: 3rem;
+  --p3: 2rem;
+  --p2: 1.5rem;
+  --p1: 1rem;
+  --p0: 0.75rem;
+  --p-1: 0.5rem;
+  --p-2: 0.25rem;
+
+  @media only screen and (max-width: 1200px) {
+    font-size: 12px;
+  }
+
+  @media only screen and (max-height: 925px)  {
+    font-size: 12px;
+  }
 }
 
 /* semantic color variables for this project */
@@ -32,7 +49,7 @@
   --color-accent-light: var(--mas-blue);
   --color-text: var(--rich-black);
   --color-text-dark: var(--alice-blue);
-  
+
   --color-button-light: var(--lavender);
   --color-primary: var(--cool-grey);
 

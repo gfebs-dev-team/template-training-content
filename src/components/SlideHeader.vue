@@ -68,27 +68,31 @@ watch(current, () => {
     gap: 1rem;
     .hamburger {
       display: flex;
-      height: 1.2rem;
+      font-size: 20px;
+      height: 1.2em;
       justify-content: space-between;
       flex-direction: column;
       cursor: pointer;
+      @media only screen and (max-width:1200px) {
+        transform: scale(.75);
+      }
       .bar {
-        height: 0.2rem;
-        width: 1.5rem;
+        height: 0.2em;
+        width: 1.5em;
         background-color: var(--color-text-dark);
         transition: 0.5s;
       }
       &.open {
         .bar:first-child {
-          -webkit-transform: rotate(45deg);
-          transform: rotate(45deg) ;
+          -webkit-transform: rotate(45deg) translate(6px, -2px);
+          transform: rotate(45deg) translate(6px, -2px);
         }
         .bar:nth-child(2) {
           opacity: 0;
         }
         .bar:nth-child(3) {
-          -webkit-transform: rotate(-45deg) translate(-19px, -9px);
-          transform: rotate(-45deg) translate(-19px, -9px);
+          -webkit-transform: rotate(-45deg) translate(-17px, -3px);
+          transform: rotate(-45deg) translate(-17px, -3px);
         }
       }
     }

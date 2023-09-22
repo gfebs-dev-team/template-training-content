@@ -34,7 +34,7 @@ defineProps(['topic'])
 .slide-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16/9;
   display: flex;
   flex-direction: column;
   background-color: var(--color-background-dark);

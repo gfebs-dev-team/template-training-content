@@ -21,7 +21,7 @@ main {
   margin:auto;
   align-items: center;
   height: 100%;
-  padding: 5rem 5rem;
-  gap: 3rem;
+  padding: var(--p5);
+  gap: var(--p4);
 }
 </style>

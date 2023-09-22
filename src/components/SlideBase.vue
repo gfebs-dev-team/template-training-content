@@ -20,8 +20,8 @@ defineProps(['title', 'columns'])
   align-items: stretch;
   height: 100%;
   width: 100%;
-  padding: 4rem;
-  gap: 2rem;
+  padding: var(--p5);
+  gap: var(--p3);
   .column {
     display:flex;
     flex-direction: column;
@@ -35,6 +35,12 @@ defineProps(['title', 'columns'])
       }
     } 
   }
+  .main_column {
+    align-items: stretch;
+      h2 {
+        flex-shrink: 0;
+      }
+    }
   h2 {
     font-size: var(--m2);
     font-weight: bold;

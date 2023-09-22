@@ -15,7 +15,7 @@ $darkblue: var(--oxford-blue);
 button {
   display: flex;
   flex: 1 0 0;
-  gap: 1rem;
+  gap: var(--p1);
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.02rem;
@@ -37,12 +37,12 @@ button {
 }
 
 .small {
-  padding: 0.4rem 1.65rem;
+  padding: var(--p-1) var(--p2);
   font-size: var(--m-2);
 }
 
 .medium {
-  padding: 0.75rem 1.5rem;
+  padding: var(--p0) var(--p2);
   font-size: var(--m-2);
 }
 

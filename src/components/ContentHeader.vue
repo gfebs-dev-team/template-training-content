@@ -88,7 +88,7 @@ nav {
   .heading {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: var(--p3);
     width: fit-content;
     #heading-shield {
       width: 6rem;
