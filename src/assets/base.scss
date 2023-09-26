@@ -30,13 +30,17 @@
   --p-1: 0.5rem;
   --p-2: 0.25rem;
 
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 1200px) and (max-height: 923px) {
     font-size: 12px;
+    --p5: 4rem;
+    --p4: 2.5rem;
+    --p3: 1.5rem;
+  }
+  
+  @media only screen and (max-width: 1024px) and (max-height: 768px) {
+    font-size: 11px;
   }
 
-  @media only screen and (max-height: 925px)  {
-    font-size: 12px;
-  }
 }
 
 /* semantic color variables for this project */

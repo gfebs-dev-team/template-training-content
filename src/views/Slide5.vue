@@ -5,7 +5,7 @@ import { onBeforeMount } from 'vue';
 
 const slideData = {
     "title": "Proin et leo sed diam",
-    "type": "content",
+    "type": "section",
     "img": '/shield-01.png'
 }
 

@@ -13,14 +13,14 @@ let slidesComp = Object.keys(views).map((key) => {
 const slides = useSlidesStore()
 const { current } = storeToRefs(slides)
 
-defineProps(['topic'])
+defineProps(['topic', 'title'])
 </script>
 
 <template>
   <div class="slide-container">
     <SlideHeader>{{ topic }}</SlideHeader>
     <div class="slide-area">
-      <SideBar />
+      <SideBar :title="title"/>
       <div id="slide" v-for="(slide, index) in slidesComp" :key="index">
         <Transition>
           <component :is="slide" v-show="index == current"></component>
@@ -34,7 +34,7 @@ defineProps(['topic'])
 .slide-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 100%;
   display: flex;
   flex-direction: column;
   background-color: var(--color-background-dark);

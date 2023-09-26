@@ -2,13 +2,13 @@
 import ContentHeader from '../components/ContentHeader.vue'
 import SlideContainer from './SlideContainer.vue'
 
-defineProps(['topic', 'courseCode', 'courseTitle'])
+defineProps(['topic', 'courseCode', 'courseTitle', 'title'])
 </script>
 
 <template>
   <main>
     <ContentHeader>GFEBS {{ courseCode }} {{ courseTitle }}</ContentHeader>
-    <SlideContainer :topic= topic />
+    <SlideContainer :topic="topic" :title="title" />
 
   </main>
 </template>
@@ -17,10 +17,10 @@ defineProps(['topic', 'courseCode', 'courseTitle'])
 main {
   display: flex;
   flex-direction: column;
-  max-width: 1200px;
+  aspect-ratio: 4/3;
+  max-height: 100%;
   margin:auto;
   align-items: center;
-  height: 100%;
   padding: var(--p5);
   gap: var(--p4);
 }
