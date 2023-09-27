@@ -1,6 +1,7 @@
 <script setup>
 import SlideBase from './SlideBase.vue'
 defineProps({
+  title: String,
   defName: String,
   defParagraph: String
 })

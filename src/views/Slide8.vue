@@ -1,18 +1,19 @@
 <script setup>
 import SlideContent from '../components/SlideContent.vue'
 import { useSlidesStore } from '../stores/slides'
-import { onBeforeMount } from 'vue';
+import { onBeforeMount } from 'vue'
 
 const slideData = {
-    "title": "Vivamus eleifend ex",
-    "type": "content",
-    "img": '/shield-01.png'
+  title: 'Vivamus eleifend ex',
+  type: 'content',
+  section: "Section 1: What to Expect",
+  img: '/shield-01.png'
 }
 
 const slides = useSlidesStore()
 const { addSlide } = slides
 
-onBeforeMount(()=>{
+onBeforeMount(() => {
   addSlide(slideData, 7)
 })
 </script>

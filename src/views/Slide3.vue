@@ -7,6 +7,7 @@ import { onBeforeMount, provide, ref} from 'vue'
 const slideData = {
   title: 'Question 1',
   type: 'question',
+  section: "Lesson 1: GFEBS Essentials Introduction",
   viewed: false,
   answer: 'true',
   user: ''

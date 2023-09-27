@@ -1,12 +1,13 @@
 <script setup>
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
-import { watch } from 'vue'
-import { onUpdated } from 'vue'
+import { watch} from 'vue'
+import { onUpdated, onMounted } from 'vue'
 
 const slides = useSlidesStore()
 const { current, checkpoint, slidesList, sidebarState } = storeToRefs(slides)
 let links = slidesList.value
+let sections = new Array()
 
 watch(slidesList, () => {
   links = slidesList.value
@@ -27,9 +28,21 @@ function setLinks() {
   })
 }
 
+onMounted(() => {
+  links = slidesList.value
+  links.forEach((slide) => {
+    sections.push(slide.section)
+  })
+
+  sections = sections.filter((value, index, array) => {
+    return array.indexOf(value) === index
+  })
+
+  console.log(sections)
+})
+
 onUpdated(() => {
   slides.setCheckpoint()
-  links = slidesList.value
   setLinks()
 })
 
@@ -44,14 +57,14 @@ defineProps(['title'])
 <template>
   <div id="sidebar" :class="{ active: sidebarState }">
     <div class="links">
-      <li>
-        <h2>{{ title }}</h2>
-      </li>
-      <li v-for="(slide, index) in links" :key="index">
-        <a :class="[{ active: current == index }, slide.type]" @click="goToSlide(index)">
-          {{ slide.title }}
-        </a>
-      </li>
+      <div class="section" v-for="(section, index) in sections" :key="index">
+        <h2 class="section-title">{{ section }}</h2>
+        <li v-for="(slide) in links.filter((link)=>{return link.section === section})" :key="slidesList.indexOf(slide)">
+          <a :class="[{ active: current === slidesList.indexOf(slide)}, slide.type]" @click="goToSlide(slidesList.indexOf(slide))">
+            {{ slide.title }}
+          </a>
+        </li>
+      </div>
     </div>
   </div>
 </template>
@@ -86,20 +99,28 @@ defineProps(['title'])
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    gap: 0.75rem;
+    gap: 2rem;
     color: white;
     height: 100%;
     overflow-y: scroll;
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      h2 {
+        font-weight: bold;
+        font-size: var(--m0);
+        color: var(--color-text-dark);
+        padding-bottom: .25rem;
+      }
+
+    }
 
     li {
       list-style-type: none;
       display: flex;
 
-      h2 {
-      font-weight: bold;
-      font-size: var(--m0);
-      color: var(--color-text-dark);
-    }
       a {
         text-decoration: none;
         width: 100%;
@@ -107,12 +128,7 @@ defineProps(['title'])
         color: white;
         font-size: var(--m-1);
         font-weight: 700;
-        &.section {
-          font-weight: bold;
-          font-size: var(--m0);
-          color: var(--color-text-dark);
-          padding-top: 1.75rem;
-        }
+
         &.active {
           color: var(--color-accent);
         }

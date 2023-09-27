@@ -4,9 +4,10 @@ import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue';
 
 const slideData = {
-    "title": "Proin et leo sed diam",
-    "type": "section",
-    "img": '/shield-01.png'
+    title: "Proin et leo sed diam",
+    type: "content",
+    section: "Section 1: What to Expect",
+    img: '/shield-01.png'
 }
 
 const slides = useSlidesStore()

@@ -4,7 +4,7 @@ import { computed } from 'vue'
 const props = defineProps(['title', 'img', 'columns'])
 const lastColumn = computed(() => {
   if(props.columns){
-    console.log('column_' + (props.columns + 1));
+    //console.log('column_' + (props.columns + 1));
     return 'column_' + (props.columns + 1);
   }
   return 'column'

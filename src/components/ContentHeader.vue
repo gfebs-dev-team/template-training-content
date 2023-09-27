@@ -6,7 +6,7 @@ import { storeToRefs } from 'pinia'
 
 const slides = useSlidesStore()
 const { current } = storeToRefs(slides)
-const { total } = slides
+const { total, toggleSidebar } = slides
 let progress = `width: ${(current.value + 1 / total) * 100}%`
 
 const buttonStyle = {

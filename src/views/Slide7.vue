@@ -43,7 +43,8 @@ function PassNameAndDef(name, def) {
 
 const slideData = {
   title: 'Master Data Maintenance Roles',
-  type: 'content'
+  type: 'content',
+  section: "Section 1: What to Expect",
 }
 
 const slides = useSlidesStore()
