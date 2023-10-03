@@ -27,7 +27,6 @@ button {
   color: var(--color-text-dark);
   font-weight: 700;
   font-size: var(--m-1);
-  z-index: 1;
   background: var(--space-cadet);
   line-height: 20px;
   transition: all, color 0.1s ease-in-out;

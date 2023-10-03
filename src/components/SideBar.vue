@@ -161,7 +161,6 @@ defineProps(['title'])
     position: absolute;
     bottom: 0.6rem;
     left: 0.8rem;
-    z-index: 2;
     font-weight: bold;
     background: none;
     border: none;

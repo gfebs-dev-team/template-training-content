@@ -39,6 +39,7 @@ button {
 .small {
   padding: var(--p-1) var(--p2);
   font-size: var(--m-2);
+  border-width: .1em!important;
 }
 
 .medium {
@@ -50,39 +51,17 @@ button {
 }
 
 .outline {
-  transition: color 0.5s, transform 0.2s, background-color 0.2s;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   color: var(--color-text);
   background-color: transparent;
   border: 0.2rem solid var(--color-border);
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    //border: .1rem solid var(--color-border);
-    transition: opacity 0.3s, border 0.3s;
-  }
-
-  &:hover::before {
-    opacity: 0;
-  }
-
-  &.small {
-    border-width: 0.1rem;
-  }
-
   &:hover {
-    background-color: var(--color-hover-background);
-    border-color: transparent;
-    box-shadow: none;
+    box-shadow: 0 0 40px 40px var(--color-border) inset;
     color: var(--color-hover-text);
     &:disabled {
-      background-color: transparent;
+      box-shadow: none;
       color:var(--color-text);
-      border-color: var(--color-border)
     }
   }
 }

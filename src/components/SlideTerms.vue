@@ -47,7 +47,6 @@ defineProps({
   border-radius: 5px;
   display: flex;
   width: 100%;
-  z-index: 1;
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem;

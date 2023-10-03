@@ -1,12 +1,15 @@
 <script setup>
 import ContentHeader from '../components/ContentHeader.vue'
+import AppGlossary from './AppGlossary.vue';
 import SlideContainer from './SlideContainer.vue'
+import glossary from '../assets/glossary.json';
 
 defineProps(['topic', 'courseCode', 'courseTitle', 'title'])
 </script>
 
 <template>
   <main>
+    <AppGlossary :glossary="glossary"></AppGlossary>
     <ContentHeader>GFEBS {{ courseCode }} {{ courseTitle }}</ContentHeader>
     <SlideContainer :topic="topic" :title="title" />
 
