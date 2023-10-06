@@ -31,9 +31,9 @@ function windowClose() {
     <div class="heading">
       <img id="heading-shield" src="/shield-01.png" />
       <div class="heading-text">
-        <h1 id="heading-title" class="title">
-          Financial<br />
-          Management School
+        <h1 id="heading-title">
+          <span class="title">Financial</span>
+          <span class="title">Management School</span>
         </h1>
         <h2 id="heading-subtitle" class="title">
           <slot></slot>
@@ -65,7 +65,8 @@ function windowClose() {
           <template #menu>
             <div class="resource-menu">
               <ul>
-                <li>Glossary</li> <!--Set Glossary Popup and bind to click-->
+                <li>Glossary</li>
+                <!--Set Glossary Popup and bind to click-->
                 <li><a href="/">GFEBS Production PSW</a></li>
               </ul>
             </div>
@@ -97,11 +98,21 @@ nav {
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
+
+  @media only screen and (max-width: 1000px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
   .heading {
     display: flex;
     align-items: center;
     gap: var(--p3);
     width: fit-content;
+
+    @media only screen and (max-width: 1000px) {
+      justify-content: space-between;
+      width: 100%;
+    }
     #heading-shield {
       width: 6rem;
       height: 6rem;
@@ -112,12 +123,25 @@ nav {
       flex-direction: column;
       align-items: flex-start;
       gap: 0.75rem;
+
       #heading-title {
-        font-size: var(--m1);
+        display: flex;
+        flex-direction: column;
+        span {
+          font-size: var(--m1);
+        }
+
+        @media only screen and (max-width: 1000px) {
+          flex-direction: row;
+          gap: 0.7rem;
+        }
       }
       #heading-subtitle {
         font-size: var(--m-1);
         color: var(--color-accent);
+        @media only screen and (max-width: 1000px) {
+          align-self: flex-end;
+        }
       }
     }
   }
@@ -130,6 +154,10 @@ nav {
     gap: 1.5rem;
     align-self: stretch;
     width: 25rem;
+
+    @media only screen and (max-width: 1000px) {
+      width: 100%;
+    }
     .progress-bar {
       width: 100%;
       height: 1.5rem;
@@ -144,10 +172,10 @@ nav {
     }
     .buttons {
       display: flex;
-      justify-content: flex-end;
+      width: 100%;
+      justify-content: space-between;
       align-items: flex-start;
       gap: 1.5rem;
-      align-self: stretch;
       .resource-menu {
         background-color: var(--oxford-blue);
         width: fit-content;
@@ -168,7 +196,7 @@ nav {
               font-weight: 700;
               text-decoration: none;
               &:visited {
-                color: inherit; 
+                color: inherit;
               }
             }
             &:hover {
@@ -177,6 +205,7 @@ nav {
           }
         }
       }
+
       #heading-exit {
         color: var(--color-accent);
       }

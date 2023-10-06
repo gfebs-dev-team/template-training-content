@@ -3,7 +3,7 @@ defineProps(['size', 'color', 'variant'])
 </script>
 
 <template>
-  <button :class="[size, color, variant]">
+  <button :class="['appButton', size, color, variant]">
     <slot></slot>
   </button>
 </template>
