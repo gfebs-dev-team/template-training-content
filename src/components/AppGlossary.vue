@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 defineProps({
   glossary: Array
 })
@@ -32,6 +32,25 @@ const alphabet = [
   'Z'
 ]
 const activeIndex = ref(0)
+const activeFilter = ref('all')
+const search = ref('')
+
+function getFilter(term) {
+  if (search.value != '') {
+    return term.match(search.value)
+  } else {
+    switch (activeFilter.value) {
+      case 'all':
+        return true
+      case '0-9':
+        console.log(term + ' : ' + activeFilter.value)
+        return term.match('/^[0-9].+$/')
+      default:
+        console.log(term + ' : ' + activeFilter.value)
+        return term.startsWith(activeFilter.value.toLocaleLowerCase())
+    }
+  }
+}
 </script>
 
 <template>
@@ -45,6 +64,7 @@ const activeIndex = ref(0)
           viewBox="0 0 16 17"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          @click="{}"
         >
           <path
             d="M8.00005 6.72228L14.2222 0.5L16 2.27778L9.77782 8.50005L16 14.7222L14.2222 16.5L8.00005 10.2778L1.77778 16.5L0 14.7222L6.22228 8.50005L0 2.27778L1.77778 0.5L8.00005 6.72228Z"
@@ -54,20 +74,39 @@ const activeIndex = ref(0)
       </div>
       <div class="filter-search">
         <div class="filter">
-          <button class="active">All</button>
-          <p>|</p>
+          <button :class="[{default: search != ''},{ active: activeFilter == 'all' && search == '' }]" @click="activeFilter = 'all'">
+            All
+          </button>
+          <div class="v-divider"></div>
           <div class="alphabet">
-            <button>0-9</button>
-            <button v-for="(letter, index) in alphabet" :key="index">{{ letter }}</button>
+            <button :class="{ active: activeFilter == '0-9' && search == '' }" @click="activeFilter = '0-9'">
+              0-9
+            </button>
+            <button
+              :class="{ active: activeFilter == letter && search == ''}"
+              @click="activeFilter = letter"
+              v-for="(letter, index) in alphabet"
+              :key="index"
+            >
+              {{ letter }}
+            </button>
           </div>
         </div>
         <div class="search">
-          <input id="glossary-search" type="search" />
+          <input id="glossary-search" type="search" v-model="search" placeholder="Search"/>
         </div>
       </div>
       <div class="terms-definitions">
         <div class="terms-area">
-          <li v-for="item in glossary" :key="item.term">{{ item.term }}</li>
+          <template v-for="(item, index) in glossary" :key="item.term">
+            <li
+              :class="{ active: activeIndex == index }"
+              @click="activeIndex = index"
+              v-if="getFilter(item.term)"
+            >
+              {{ item.term }}
+            </li>
+          </template>
         </div>
         <div class="definition-area">
           <h3>{{ glossary[activeIndex].term }}</h3>
@@ -81,7 +120,7 @@ const activeIndex = ref(0)
 <style lang="scss" scoped>
 .overlay {
   position: fixed;
-  display: flex;
+  display: none;
   background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(5px);
   padding: 5rem;
@@ -99,7 +138,7 @@ const activeIndex = ref(0)
     background-color: var(--delft-blue);
     border-radius: 0.5rem;
     padding: 2rem;
-    gap: 1.5rem;
+    gap: 1rem;
     .heading {
       display: flex;
       justify-content: space-between;
@@ -115,10 +154,13 @@ const activeIndex = ref(0)
 
     .filter-search {
       display: flex;
+      align-items: center;
       gap: 1rem;
       .filter {
         display: flex;
+        padding: 1rem;
         gap: 1rem;
+        align-items: center;
         @media only screen and (max-width: 1330px) {
           display: none;
         }
@@ -126,27 +168,49 @@ const activeIndex = ref(0)
         @media only screen and (max-height: 750px) {
           display: none;
         }
+        .v-divider {
+          display: block;
+          height: 1.5rem;
+          width: 2px;
+          background-color: var(--cool-grey);
+        }
 
         button {
           background: none;
+          border-radius: 0.2rem;
+          padding: 0.3rem;
           color: var(--cool-grey);
           border: none;
           font-weight: 700;
           font-size: var(--m-1);
-          & .active {
+          transition: transform ease-in-out 0.8s;
+          transition: margin ease-in-out 0.5s;
+          &.active {
             color: var(--color-accent);
-            font-size: var(--m0);
+            transform: scale(1.2);
+            margin: 0 0.4rem ;
           }
         }
 
         .alphabet {
           display: flex;
-          gap: 0.2rem;
+          align-items: center;
+          max-height: 1.5rem;
+          gap: 0.4rem;
+        }
+
+        .default {
+          margin: 0 0.4rem ;
         }
       }
       .search {
         #glossary-search {
           border-radius: 1rem;
+          height: 1.5rem;
+          border: none;
+          background-color: var(--space-cadet);
+          color: var(--cool-grey);
+          padding: 1rem;
         }
       }
     }
@@ -169,6 +233,10 @@ const activeIndex = ref(0)
           color: var(--lavendar);
           font-weight: 700;
           text-transform: capitalize;
+
+          &.active {
+            color: var(--color-accent);
+          }
         }
       }
 
