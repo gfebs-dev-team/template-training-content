@@ -1,13 +1,13 @@
 <script setup>
 import AppButton from './AppButton.vue'
 import AppPopover from './AppPopover.vue'
-import { watch } from 'vue'
+import { watchEffect } from 'vue'
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
 
 const slides = useSlidesStore()
-const { current } = storeToRefs(slides)
-const { total, toggleSidebar } = slides
+const { current, glossaryState } = storeToRefs(slides)
+const { total } = slides
 let progress = `width: ${(current.value + 1 / total) * 100}%`
 
 const buttonStyle = {
@@ -16,7 +16,7 @@ const buttonStyle = {
   variant: 'outline'
 }
 
-watch(current, () => {
+watchEffect(current, () => {
   progress = `width: ${((current.value + 1) / total) * 100}%`
   document.getElementById('progress')?.setAttribute('style', `${progress}`)
 })
@@ -33,7 +33,8 @@ function windowClose() {
       <div class="heading-text">
         <h1 id="heading-title">
           <span class="title">Financial</span>
-          <span class="title">Management School</span>
+          <span class="title">Management</span>
+          <span class="title">School</span>
         </h1>
         <h2 id="heading-subtitle" class="title">
           <slot></slot>
@@ -45,7 +46,7 @@ function windowClose() {
         <div id="progress" :style="progress"></div>
       </div>
       <div class="buttons">
-        <AppPopover id="heading-index" :buttonStyle="buttonStyle">
+        <AppPopover :buttonStyle="buttonStyle">
           <template #button-name
             ><svg
               width="17"
@@ -65,7 +66,7 @@ function windowClose() {
           <template #menu>
             <div class="resource-menu">
               <ul>
-                <li>Glossary</li>
+                <li @click="glossaryState = true">Glossary</li>
                 <!--Set Glossary Popup and bind to click-->
                 <li><a href="/">GFEBS Production PSW</a></li>
               </ul>
@@ -101,7 +102,7 @@ nav {
 
   @media only screen and (max-width: 1000px) {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   .heading {
     display: flex;
@@ -125,15 +126,31 @@ nav {
       gap: 0.75rem;
 
       #heading-title {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-areas: 'a a' 'b c';
+        gap: 0 0.7rem;
         span {
           font-size: var(--m1);
+          &:first-child {
+            grid-area: a;
+          }
+
+          &:nth-child(2) {
+            grid-area: b;
+          }
+
+          &:last-child {
+            grid-area: c;
+          }
         }
 
         @media only screen and (max-width: 1000px) {
-          flex-direction: row;
-          gap: 0.7rem;
+          grid-template-areas: 'a b c';
+          text-align: right;
+        }
+
+        @media only screen and (max-width: 760px) {
+          grid-template-areas: 'a a' 'b c';
         }
       }
       #heading-subtitle {
@@ -157,12 +174,17 @@ nav {
 
     @media only screen and (max-width: 1000px) {
       width: 100%;
+      gap: 1rem;
     }
     .progress-bar {
       width: 100%;
       height: 1.5rem;
       background-color: var(--color-accent-light);
       border-radius: 1rem;
+
+      @media only screen and (max-width: 1000px) {
+        height: 1rem;
+      }
       #progress {
         background-color: var(--color-accent);
         border-radius: 1rem;

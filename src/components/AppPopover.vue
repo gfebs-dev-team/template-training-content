@@ -4,14 +4,14 @@ import { ref, watch } from 'vue'
 
 const popover = ref(false)
 
-watch((popover) => {
+watch((popover), () => {
   console.log(popover.value)
 })
 defineProps(['buttonStyle'])
 </script>
 
 <template>
-  <div class="outside" @click="popover = false"></div>
+  <div class="outside" @click="popover = false" v-if="popover"></div>
   <AppButton class="toggleButton" v-bind="buttonStyle" @click="popover = !popover"
     ><slot name="button-name"></slot
   ></AppButton>
@@ -24,6 +24,7 @@ defineProps(['buttonStyle'])
 .outside {
   top: 0;
   left: 0;
+  z-index: 1;
   position: fixed;
   width: 100vw;
   height: 100vh;

@@ -21,11 +21,11 @@ defineProps(['topic', 'title'])
     <SlideHeader>{{ topic }}</SlideHeader>
     <div class="slide-area">
       <SideBar :title="title"/>
-      <div :class="['slide', {active: index == current}]" v-for="(slide, index) in slidesComp" :key="index">
+      <template v-for="(slide, index) in slidesComp" :key="index">
         <Transition>
-          <component :is="slide" v-show="index == current"></component>
+          <component :class="[{active: index == current}]" :is="slide" v-show="index == current"></component>
         </Transition>
-      </div>
+      </template>
     </div>
   </div>
 </template>
@@ -45,15 +45,6 @@ defineProps(['topic', 'title'])
   overflow: hidden;
   height: 100%;
   flex-direction: column;
-  .slide {
-    position: absolute;
-    height:100%;
-    width: 100%;
-    z-index: -99;
-    &.active {
-      z-index: 0;
-    }
-  }
 }
 
 .v-enter-active,

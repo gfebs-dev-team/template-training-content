@@ -40,7 +40,7 @@ watch(answer, () => {
 <template>
   <SlideBase :title="title" :columns="1">
     <template #main>
-      <div class="left-column">
+      <div class="content-box">
         <h3><slot name="question"></slot></h3>
 
         <div class="options">
@@ -56,7 +56,7 @@ watch(answer, () => {
 </template>
 
 <style scoped lang="scss">
-.left-column {
+.content-box {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -118,16 +118,6 @@ watch(answer, () => {
         }
       }
     }
-  }
-}
-
-.right-column {
-  width: 20em;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  img {
-    width: 20em;
   }
 }
 </style>

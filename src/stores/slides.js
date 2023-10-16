@@ -13,6 +13,7 @@ export const useSlidesStore = defineStore('slides', () => {
   const total = slidesComp.length
   const checkpoint = ref(total + 1)
   const sidebarState = ref(false)
+  const glossaryState = ref(false)
   const next = ref(true)
   const prev = ref(false)
 
@@ -73,6 +74,7 @@ export const useSlidesStore = defineStore('slides', () => {
     next,
     prev,
     sidebarState,
+    glossaryState,
     getTitle,
     toggleSidebar,
     addSlide,
