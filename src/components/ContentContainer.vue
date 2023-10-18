@@ -27,12 +27,12 @@ main {
   max-height: 100%;
   margin:auto;
   align-items: center;
-  padding: var(--p5);
-  gap: var(--p4);
+  padding: $p5;
+  gap: $p4;
 
   @media only screen and (max-width: 960px){
     aspect-ratio: auto;
-    gap: var (--p3);
+    gap: $p3;
     height: 100%;
   }
 }

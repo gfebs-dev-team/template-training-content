@@ -94,12 +94,12 @@ watch(answer, () => {
         border-radius: 10px;
         transition-duration: 0.2s;
         input[type='radio'] {
-          accent-color: var(--oxford-blue);
+          accent-color: $oxford-blue;
           mix-blend-mode: multiply;
         }
         input[type='radio'] + label {
           background-color: var(--color-accent);
-          color: var(--space-cadet);
+          color: $space-cadet;
           padding: 0.5em;
           font-weight: bold;
         }

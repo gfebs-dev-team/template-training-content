@@ -22,8 +22,8 @@ defineProps(['title', 'columns'])
   align-items: stretch;
   height: 100%;
   width: 100%;
-  padding: var(--p5);
-  gap: var(--p3);
+  padding: $p5;
+  gap: $p3;
   &.active {
     z-index: 0;
   }
@@ -53,7 +53,7 @@ defineProps(['title', 'columns'])
     }
   }
   h2 {
-    font-size: var(--m2);
+    font-size: $m2;
     font-weight: bold;
     text-transform: capitalize;
     color: var(--color-accent);

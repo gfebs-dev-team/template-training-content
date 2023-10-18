@@ -86,7 +86,7 @@ defineProps(['title'])
   left: -24rem;
   width: 24rem;
   z-index: 99;
-  background-color: var(--delft-blue);
+  background-color: $delft-blue;
   flex-direction: column;
   transition: ease-in-out 0.7s;
 
@@ -100,14 +100,14 @@ defineProps(['title'])
     font-weight: bold;
     color: white;
     line-height: 1.2em;
-    padding: 0.1em 0.5em;
+    padding: $p-2 $p-1;
   }
 
   .links {
     display: flex;
     flex-direction: column;
-    padding: 2rem;
-    gap: 2rem;
+    padding: $p3;
+    gap: $p3;
     color: white;
     height: 100%;
     overflow-y: scroll;
@@ -115,21 +115,21 @@ defineProps(['title'])
     .section {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: $p0;
       h2 {
         font-weight: bold;
-        font-size: var(--m0);
+        font-size: $m0;
         color: var(--color-text-dark);
-        padding-bottom: 0.25rem;
+        padding-bottom: $p-2;
       }
     }
 
     a {
       text-decoration: none;
       width: 100%;
-      padding-left: 1rem;
+      padding-left: $p1;
       color: white;
-      font-size: var(--m-1);
+      font-size: $m-1;
       font-weight: 700;
 
       &.active {
@@ -154,7 +154,7 @@ defineProps(['title'])
         }
       }
       &:hover {
-        color: rgb(228, 192, 31);
+        color: var(--color-accent)
       }
     }
   }
@@ -166,7 +166,6 @@ defineProps(['title'])
     font-weight: bold;
     background: none;
     border: none;
-    font-size: 1.5em;
     padding: 0;
     color: white;
     &:hover {

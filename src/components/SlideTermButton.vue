@@ -9,7 +9,7 @@ defineProps({
   <button :class="{active: termName == activeName }">{{ termName }}</button>
 </template>
 
-<style scoped>
+<style lang=scss scoped>
 .terms {
   margin-left: auto;
   margin-bottom: auto;
@@ -26,8 +26,8 @@ button {
   border-radius: .5rem;
   color: var(--color-text-dark);
   font-weight: 700;
-  font-size: var(--m-1);
-  background: var(--space-cadet);
+  font-size: $m-1;
+  background: $space-cadet;
   line-height: 20px;
   transition: all, color 0.1s ease-in-out;
 
@@ -38,7 +38,7 @@ button {
   }
   &.active {
     background-color: var(--color-accent);
-    color: var(--space-cadet)
+    color: $space-cadet;
   }
 }
 </style>

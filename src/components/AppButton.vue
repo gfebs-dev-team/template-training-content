@@ -9,13 +9,10 @@ defineProps(['size', 'color', 'variant'])
 </template>
 
 <style scoped lang="scss">
-$offwhite: var(--alice-blue);
-$darkblue: var(--oxford-blue);
-
 button {
   display: flex;
   flex: 1 0 0;
-  gap: var(--p1);
+  gap: $p1;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.02rem;
@@ -37,14 +34,14 @@ button {
 }
 
 .small {
-  padding: var(--p-1) var(--p2);
-  font-size: var(--m-2);
+  padding: $p1 $p2;
+  font-size: $m-2;
   border-width: .1em!important;
 }
 
 .medium {
-  padding: var(--p0) var(--p2);
-  font-size: var(--m-2);
+  padding: $p0 $p2;
+  font-size: $m-2;
 }
 
 .large {
@@ -70,24 +67,25 @@ button {
 }
 
 .darkMode {
-  --color-border: var(--mas-blue);
-  --color-text: var(--cool-grey);
-  --color-hover-text: var(--alice-blue);
-  --color-hover-background: rgba(0, 0, 0, 0.1);
+  --color-border: #{$mas-blue};
+  --color-text: #{$cool-grey};
+  --color-hover-text: #{$alice-blue};
+  --color-hover-background: #{lighten($rich-black, .1)}
 }
 
 .lightMode {
-  --color-border: var(--lavender);
-  --color-text: var(--alice-blue);
-  --color-hover-text: var(--space-cadet);
-  --color-hover-background: rgba(255, 255, 255, 0.1);
+  --color-border: #{$lavender};
+  --color-text: #{$alice-blue};
+  --color-hover-text: #{$space-cadet};
+  --color-hover-background: #{lighten($rich-black, .1)}
   &:disabled {
-    --color-border: var(--cool-grey);
-    --color-text: var(--cool-grey);
+    --color-border: #{$cool-grey};
+    --color-text:  #{$cool-grey};
     cursor: not-allowed;
   }
 }
 
 .accentMode {
 }
+
 </style>

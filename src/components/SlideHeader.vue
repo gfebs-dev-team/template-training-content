@@ -43,14 +43,14 @@ watch(current, () => {
   width: 100%;
   background-color: var(--color-accent-light);
   display: flex;
-  padding: 1.25rem 2rem;
+  padding: $p2 $p3;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
   .heading {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: $p2;
     .hamburger {
       display: grid;
       gap: 5px;
@@ -82,13 +82,13 @@ watch(current, () => {
 
     h1 {
       color: var(--color-text-dark);
-      font-size: var(--m0);
+      font-size: $m0;
       font-weight: bold;
     }
   }
   nav {
     display: flex;
-    gap: 1rem;
+    gap: $p1;
   }
 }
 </style>

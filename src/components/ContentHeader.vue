@@ -102,12 +102,12 @@ nav {
 
   @media only screen and (max-width: 1000px) {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: $p2;
   }
   .heading {
     display: flex;
     align-items: center;
-    gap: var(--p3);
+    gap: $p3;
     width: fit-content;
 
     @media only screen and (max-width: 1000px) {
@@ -123,14 +123,14 @@ nav {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 0.75rem;
+      gap: $p0;
 
       #heading-title {
         display: grid;
         grid-template-areas: 'a a' 'b c';
-        gap: 0 0.7rem;
+        gap: 0 $p0;
         span {
-          font-size: var(--m1);
+          font-size: $m1;
           &:first-child {
             grid-area: a;
           }
@@ -154,7 +154,7 @@ nav {
         }
       }
       #heading-subtitle {
-        font-size: var(--m-1);
+        font-size: $m-1;
         color: var(--color-accent);
         @media only screen and (max-width: 1000px) {
           align-self: flex-end;
@@ -168,13 +168,13 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    gap: 1.5rem;
+    gap: $p2;
     align-self: stretch;
     width: 25rem;
 
     @media only screen and (max-width: 1000px) {
       width: 100%;
-      gap: 1rem;
+      gap: $p1;
     }
     .progress-bar {
       width: 100%;
@@ -197,24 +197,24 @@ nav {
       width: 100%;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 1.5rem;
+      gap: $p2;
       .resource-menu {
-        background-color: var(--oxford-blue);
+        background-color: $oxford-blue;
         width: fit-content;
         border-radius: 0.5rem;
         ul {
           display: flex;
           flex-direction: column;
-          padding: 0.5rem;
+          padding: $p-1;
           list-style: none;
           justify-content: center;
           li {
-            padding: 0.5rem;
+            padding: $p-1;
             border-radius: 0.25rem;
-            font-size: var(--m-2);
+            font-size: $m-2;
             font-weight: 700;
             a {
-              font-size: var(--m-2);
+              font-size: $m-2;
               font-weight: 700;
               text-decoration: none;
               &:visited {
@@ -222,7 +222,7 @@ nav {
               }
             }
             &:hover {
-              background-color: var(--mas-blue);
+              background-color: $mas-blue;
             }
           }
         }

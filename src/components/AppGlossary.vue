@@ -142,16 +142,16 @@ function getFilter(term) {
     display: flex;
     flex-direction: column;
     aspect-ratio: 16/9;
-    background-color: var(--delft-blue);
+    background-color: $delft-blue;
     border-radius: 0.5rem;
-    padding: 2rem;
-    gap: 1rem;
+    padding: $p3;
+    gap: $p1;
     .heading {
       display: flex;
       justify-content: space-between;
       h2 {
-        color: var(--lavendar);
-        font-size: var(--m2);
+        color: $lavender;
+        font-size: $m2;
         font-weight: 700;
         line-height: 130%;
         letter-spacing: 0.175rem;
@@ -162,11 +162,11 @@ function getFilter(term) {
     .filter-search {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: $p1;
       .filter {
         display: flex;
         padding: 1rem;
-        gap: 1rem;
+        gap: $p1;
         align-items: center;
         @media only screen and (max-width: 1330px) {
           width: 30vw;
@@ -182,23 +182,23 @@ function getFilter(term) {
           display: block;
           height: 1.5rem;
           width: 2px;
-          background-color: var(--cool-grey);
+          background-color: $cool-grey;
         }
 
         button {
           background: none;
-          border-radius: 0.2rem;
-          padding: 0.3rem;
-          color: var(--cool-grey);
+          border-radius: $p-2;
+          padding: $p-2;
+          color: $cool-grey;
           border: none;
           font-weight: 700;
-          font-size: var(--m-1);
+          font-size: $m-1;
           transition: transform ease-in-out 0.8s;
           transition: margin ease-in-out 0.5s;
           &.active {
             color: var(--color-accent);
             transform: scale(1.2);
-            margin: 0 0.4rem ;
+            margin: 0 $p-1 ;
           }
         }
 
@@ -206,11 +206,11 @@ function getFilter(term) {
           display: flex;
           align-items: center;
           max-height: 1.5rem;
-          gap: 0.4rem;
+          gap: $p-1;
         }
 
         .default {
-          margin: 0 0.4rem ;
+          margin: 0 $p-1 ;
         }
       }
       .search {
@@ -218,9 +218,9 @@ function getFilter(term) {
           border-radius: 1rem;
           height: 1.5rem;
           border: none;
-          background-color: var(--space-cadet);
-          color: var(--cool-grey);
-          padding: 1rem;
+          background-color: $space-cadet;
+          color: $cool-grey;
+          padding: $p1;
         }
       }
     }
@@ -233,14 +233,14 @@ function getFilter(term) {
         width: 15rem;
         padding: 1.25rem;
         overflow-y: auto;
-        gap: 0.5rem;
-        background-color: var(--oxford-blue);
+        gap: $p-1;
+        background-color: $oxford-blue;
         display: flex;
         flex-direction: column;
         li {
           list-style-type: none;
-          font-size: var(--m-2);
-          color: var(--lavendar);
+          font-size: $m-2;
+          color: $lavender;
           font-weight: 700;
           text-transform: capitalize;
 
@@ -253,14 +253,14 @@ function getFilter(term) {
       .definition-area {
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
+        gap: $p0;
         width: 100%;
         height: 100%;
         padding: 2rem;
-        background-color: var(--space-cadet);
+        background-color: $space-cadet;
 
         h3 {
-          font-size: var(--m0);
+          font-size: $m0;
           font-weight: 700;
           color: var(--color-accent);
           text-transform: capitalize;
