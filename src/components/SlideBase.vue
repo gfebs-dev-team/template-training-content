@@ -3,7 +3,7 @@ defineProps(['title', 'columns'])
 </script>
 <template>
   <div class="slide">
-    <div class="column main_column">
+    <div class="column main_column" v-if="!!this.$slots.main">
       <h2 class="slide-title">{{ title }}</h2>
       <slot name="main" />
     </div>
@@ -24,6 +24,10 @@ defineProps(['title', 'columns'])
   width: 100%;
   padding: $p5;
   gap: $p3;
+
+  @media only screen and (max-width: 1200px) {
+    padding: $p4;
+  }
   &.active {
     z-index: 0;
   }

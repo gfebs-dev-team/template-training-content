@@ -89,7 +89,14 @@ defineProps(['title'])
   background-color: $delft-blue;
   flex-direction: column;
   transition: ease-in-out 0.7s;
-
+  --font-size-heading: #{$m0};
+  --font-size-body: #{$m-1};
+  @media only screen and (max-width: 1100px) {
+    --font-size-heading: #{$m-1};
+    --font-size-body: #{$m-2};
+    left: -18rem;
+    width: 18rem;
+  }
   &.active {
     left: 0;
     transition: ease-in-out 0.7s;
@@ -118,7 +125,7 @@ defineProps(['title'])
       gap: $p0;
       h2 {
         font-weight: bold;
-        font-size: $m0;
+        font-size: var(--font-size-heading);
         color: var(--color-text-dark);
         padding-bottom: $p-2;
       }
@@ -129,7 +136,7 @@ defineProps(['title'])
       width: 100%;
       padding-left: $p1;
       color: white;
-      font-size: $m-1;
+      font-size: var(--font-size-body);
       font-weight: 700;
 
       &.active {
@@ -154,7 +161,7 @@ defineProps(['title'])
         }
       }
       &:hover {
-        color: var(--color-accent)
+        color: var(--color-accent);
       }
     }
   }

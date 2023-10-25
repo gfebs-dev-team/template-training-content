@@ -34,7 +34,7 @@ button {
 }
 
 .small {
-  padding: $p1 $p2;
+  padding: $p0 $p2;
   font-size: $m-2;
   border-width: .1em!important;
 }
@@ -58,7 +58,7 @@ button {
     color: var(--color-hover-text);
     &:disabled {
       box-shadow: none;
-      color:var(--color-text);
+      color: var(--color-text);
     }
   }
 }
@@ -70,19 +70,19 @@ button {
   --color-border: #{$mas-blue};
   --color-text: #{$cool-grey};
   --color-hover-text: #{$alice-blue};
-  --color-hover-background: #{lighten($rich-black, .1)}
+  --color-hover-background: #{lighten($rich-black, .1)};
 }
 
 .lightMode {
   --color-border: #{$lavender};
   --color-text: #{$alice-blue};
   --color-hover-text: #{$space-cadet};
-  --color-hover-background: #{lighten($rich-black, .1)}
+  --color-hover-background: #{lighten($rich-black, .1)};
   &:disabled {
     --color-border: #{$cool-grey};
     --color-text:  #{$cool-grey};
     cursor: not-allowed;
-  }
+  };
 }
 
 .accentMode {

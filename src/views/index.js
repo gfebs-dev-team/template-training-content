@@ -6,6 +6,7 @@ import Slide5 from './Slide5.vue';
 import Slide6 from './Slide6.vue';
 import Slide7 from './Slide7.vue';
 import Slide8 from './Slide8.vue';
+import Slide9 from './Slide9.vue';
 
 export default {
     Slide1,
@@ -15,5 +16,6 @@ export default {
     Slide5,
     Slide6,
     Slide7,
-    Slide8
+    Slide8,
+    Slide9
 };
