@@ -1,5 +1,5 @@
 <script setup>
-defineProps(['title', 'columns'])
+const props = defineProps(['title', 'columns', 'img'])
 </script>
 <template>
   <div class="slide">
@@ -7,7 +7,7 @@ defineProps(['title', 'columns'])
       <h2 class="slide-title">{{ title }}</h2>
       <slot name="main" />
     </div>
-    <div :class="'column column_' + (index + 1)" v-for="index in columns" :key="index">
+    <div :class="[{'img-column': $props.img },'column column_' + (index + 1)]" v-for="index in columns" :key="index">
       <slot :name="'column_' + (index + 1)" />
     </div>
     <slot></slot>
@@ -36,7 +36,7 @@ defineProps(['title', 'columns'])
     flex-direction: column;
     height: 100%;
     width: 100%;
-    &:last-child {
+    &.img-column {
       width: 20rem;
       :global(img) {
         height: 100%;
@@ -52,6 +52,7 @@ defineProps(['title', 'columns'])
   }
   .main_column {
     align-items: stretch;
+    gap: $p0;
     h2 {
       flex-shrink: 0;
     }

@@ -12,7 +12,7 @@ const lastColumn = computed(() => {
 </script>
 
 <template>
-  <SlideBase :title="props.title" :columns="props.columns">
+  <SlideBase :title="props.title" :columns="props.columns" :img="props.img">
     <template #main>
       <slot></slot>
     </template>
@@ -21,3 +21,6 @@ const lastColumn = computed(() => {
     </template>
   </SlideBase>
 </template>
+
+<style scoped lang="scss">
+</style>
