@@ -15,7 +15,7 @@ let column = (index) => {
 </script>
 
 <template>
-  <SlideBase :title="props.title" :columns="props.columns" :img="props.img">
+  <SlideBase class="content" :title="props.title" :columns="props.columns" :img="props.img">
     <template #main>
       <slot></slot>
     </template>

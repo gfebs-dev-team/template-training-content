@@ -5,7 +5,7 @@ import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount, provide, ref} from 'vue'
 
 const slideData = {
-  title: 'Question 2',
+  title: 'True-False Question',
   type: 'question',
   section: "Section 1: What to Expect",
   viewed: false,

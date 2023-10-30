@@ -7,7 +7,11 @@ const props = defineProps(['title', 'columns', 'img'])
       <h2 class="slide-title">{{ title }}</h2>
       <slot name="main" />
     </div>
-    <div :class="[{'img-column': $props.img },'column column_' + (index + 1)]" v-for="index in columns" :key="index">
+    <div
+      :class="'column column_' + (index + 1)"
+      v-for="index in columns"
+      :key="index"
+    >
       <slot :name="'column_' + (index + 1)" />
     </div>
     <slot></slot>
@@ -15,6 +19,15 @@ const props = defineProps(['title', 'columns', 'img'])
 </template>
 
 <style scoped lang="scss">
+:global(img) {
+  height: 100%;
+  object-fit: contain;
+  @media only screen and (max-width: 1000px) {
+    :global(img) {
+      max-width: 100%;
+    }
+  }
+}
 .slide {
   display: flex;
   z-index: -99;
@@ -36,19 +49,6 @@ const props = defineProps(['title', 'columns', 'img'])
     flex-direction: column;
     height: 100%;
     width: 100%;
-    &.img-column {
-      width:40rem;
-      :global(img) {
-        height: 100%;
-        object-fit: contain;
-      }
-
-      @media only screen and (max-width: 1000px) {
-        :global(img) {
-          max-width: 100%;
-        }
-      }
-    }
   }
   .main_column {
     align-items: stretch;

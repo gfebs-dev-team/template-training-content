@@ -5,11 +5,11 @@ import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount, provide, ref} from 'vue'
 
 const slideData = {
-  title: 'Question 1',
+  title: 'Multiple Choice Question',
   type: 'question',
-  section: "Lesson 1: GFEBS Essentials Introduction",
+  section: "Section 1: Slide Types",
   viewed: false,
-  answer: 'true',
+  answer: 'third',
   user: ''
 }
 
@@ -31,8 +31,10 @@ onBeforeMount(() => {
   <SlideQuestion :title="slideData.title">
     <template #question>What is the answer to this question?</template>
     <template #options>
-      <SlideQuestionInput value="true" label="true" index="1" count="1"/>
-      <SlideQuestionInput value="false" label="false" index="2" count="1"/>
+      <SlideQuestionInput value="first" label="first" index="1" count="1"/>
+      <SlideQuestionInput value="second" label="second" index="2" count="1"/>
+      <SlideQuestionInput value="third" label="third" index="3" count="1"/>
+      <SlideQuestionInput value="fourth" label="fourth" index="4" count="1"/>
     </template>
   </SlideQuestion>
 </template>

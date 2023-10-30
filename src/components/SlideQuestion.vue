@@ -38,7 +38,7 @@ watch(answer, () => {
 </script>
 
 <template>
-  <SlideBase :title="title" :columns="1">
+  <SlideBase :title="title" :columns="1" class="question">
     <template #main>
       <div class="content-box">
         <h3><slot name="question"></slot></h3>
@@ -50,7 +50,7 @@ watch(answer, () => {
     </template>
 
     <template #column_2>
-      <img :src="image" />
+      <img class="question_marker" :src="image" />
     </template>
   </SlideBase>
 </template>
@@ -117,6 +117,15 @@ watch(answer, () => {
           font-weight: bold;
         }
       }
+    }
+  }
+}
+
+:global(.slide.question .column_2) {
+  width: 20rem;
+  @media only screen and (max-width: 1000px) {
+    :global(img) {
+      max-width: 100%;
     }
   }
 }

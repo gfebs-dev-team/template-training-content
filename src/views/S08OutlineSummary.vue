@@ -4,7 +4,7 @@ import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue'
 
 const slideData = {
-  title: 'Vivamus eleifend ex',
+  title: 'Outline Summary Slide',
   type: 'content',
   section: 'Section 1: What to Expect',
   img: '/shield-01.png'
