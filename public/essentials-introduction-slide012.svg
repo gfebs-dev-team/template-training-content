@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 919.1 464.45">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f4bc3a;
+      }
+
+      .cls-2 {
+        fill: #3a4b6f;
+      }
+
+      .cls-3 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-4 {
+        font-size: 18.93px;
+      }
+
+      .cls-4, .cls-5 {
+        fill: #f2f2f2;
+        font-family: ArialMT, Arial;
+      }
+
+      .cls-5 {
+        font-size: 23px;
+      }
+
+      .cls-6 {
+        fill: none;
+        stroke: #dee4f1;
+        stroke-miterlimit: 10;
+        stroke-width: 1.58px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" x="383.54" y="-371.39" width="22.61" height="765.38" transform="translate(406.15 -383.54) rotate(90)"/>
+  <rect class="cls-2" x="9.36" y="432.06" width="31.28" height="31.28" transform="translate(472.7 422.7) rotate(90)"/>
+  <rect class="cls-1" x="184.08" y="-160.63" width="22.61" height="366.47" transform="translate(218 -172.78) rotate(90)"/>
+  <rect class="cls-1" x="9.36" y="390.55" width="31.28" height="31.28" transform="translate(431.19 381.19) rotate(90)"/>
+  <rect class="cls-2" x="383.54" y="-331.16" width="22.61" height="765.38" transform="translate(446.37 -343.31) rotate(90)"/>
+  <rect class="cls-1" x="299.22" y="-235.54" width="22.61" height="596.74" transform="translate(373.35 -247.69) rotate(90)"/>
+  <rect class="cls-2" x="383.54" y="-290.94" width="22.61" height="765.38" transform="translate(486.59 -303.09) rotate(90)"/>
+  <rect class="cls-1" x="416.06" y="-312.16" width="22.61" height="830.42" transform="translate(530.41 -324.31) rotate(90)"/>
+  <rect class="cls-2" x="383.54" y="-250.72" width="22.61" height="765.38" transform="translate(526.81 -262.87) rotate(90)"/>
+  <rect class="cls-1" x="347.86" y="-203.74" width="22.61" height="694.03" transform="translate(502.44 -215.89) rotate(90)"/>
+  <rect class="cls-2" x="383.54" y="-210.5" width="22.61" height="765.38" transform="translate(567.03 -222.65) rotate(90)"/>
+  <rect class="cls-1" x="229.49" y="-45.14" width="22.61" height="457.28" transform="translate(424.29 -57.3) rotate(90)"/>
+  <rect class="cls-2" x="383.54" y="-170.27" width="22.61" height="765.38" transform="translate(607.26 -182.43) rotate(90)"/>
+  <rect class="cls-1" x="299.22" y="-74.65" width="22.61" height="596.74" transform="translate(534.24 -86.8) rotate(90)"/>
+  <rect class="cls-2" x="383.54" y="-130.05" width="22.61" height="765.38" transform="translate(647.48 -142.2) rotate(90)"/>
+  <rect class="cls-1" x="383.54" y="-118.75" width="22.61" height="765.38" transform="translate(658.78 -130.9) rotate(90)"/>
+  <rect class="cls-2" x="383.54" y="-89.83" width="22.61" height="765.38" transform="translate(687.7 -101.98) rotate(90)"/>
+  <rect class="cls-1" x="435.77" y="-130.76" width="22.61" height="869.85" transform="translate(751.24 -142.91) rotate(90)"/>
+  <text class="cls-4" transform="translate(0 354.17)"><tspan x="0" y="0">0%</tspan></text>
+  <text class="cls-5" transform="translate(55.87 415.48)"><tspan x="0" y="0">Required</tspan></text>
+  <text class="cls-5" transform="translate(55.87 456.99)"><tspan class="cls-3" x="0" y="0">A</tspan><tspan x="14.92" y="0">vailable</tspan></text>
+  <text class="cls-4" transform="translate(145.12 354.17)"><tspan x="0" y="0">20%</tspan></text>
+  <text class="cls-4" transform="translate(290.23 354.17)"><tspan x="0" y="0">40%</tspan></text>
+  <text class="cls-4" transform="translate(435.35 354.17)"><tspan x="0" y="0">60%</tspan></text>
+  <text class="cls-4" transform="translate(580.46 354.17)"><tspan x="0" y="0">80%</tspan></text>
+  <text class="cls-4" transform="translate(725.58 354.17)"><tspan x="0" y="0">100%</tspan></text>
+  <text class="cls-4" transform="translate(870.69 354.17)"><tspan x="0" y="0">120%</tspan></text>
+  <line class="cls-6" x1="12.15" y1="321.78" x2="12.15" y2="335.78"/>
+  <line class="cls-6" x1="157" y1="321.78" x2="157" y2="335.78"/>
+  <line class="cls-6" x1="301.86" y1="321.78" x2="301.86" y2="335.78"/>
+  <line class="cls-6" x1="446.71" y1="321.78" x2="446.71" y2="335.78"/>
+  <line class="cls-6" x1="591.56" y1="321.78" x2="591.56" y2="335.78"/>
+  <line class="cls-6" x1="736.41" y1="321.78" x2="736.41" y2="335.78"/>
+  <polyline class="cls-6" points="5.84 0 5.84 321.78 882 321.78 881.27 321.78 881.27 335.78"/>
+</svg>

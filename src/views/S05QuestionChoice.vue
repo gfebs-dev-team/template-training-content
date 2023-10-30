@@ -23,7 +23,7 @@ provide("answer", answer);
 provide("checked_el", checked_el);
 
 onBeforeMount(() => {
-  addSlide(slideData, 2)
+  addSlide(slideData, 4)
 })
 </script>
 

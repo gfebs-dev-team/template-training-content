@@ -37,7 +37,7 @@ const props = defineProps(['title', 'columns', 'img'])
     height: 100%;
     width: 100%;
     &.img-column {
-      width: 20rem;
+      width:40rem;
       :global(img) {
         height: 100%;
         object-fit: contain;

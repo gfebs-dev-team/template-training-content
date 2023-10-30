@@ -9,12 +9,18 @@ const lastColumn = computed(() => {
   }
   return 'column'
 })
+let column = (index) => {
+  return 'column_' + (index+1);
+}
 </script>
 
 <template>
   <SlideBase :title="props.title" :columns="props.columns" :img="props.img">
     <template #main>
       <slot></slot>
+    </template>
+    <template #[column(index)] v-for="index in columns" :key=index>
+      <slot :name="'column_' + (index + 1)" />
     </template>
     <template #[lastColumn] v-if="this.$props.img">
       <img :src="img" :alt="img" />

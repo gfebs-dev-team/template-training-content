@@ -4,17 +4,17 @@ import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue';
 
 const slideData = {
-    title: "Proin tristique lacus",
+    title: "Image Slide",
     type: "content",
-    section: "Lesson 1: GFEBS Essentials Introduction",
-    img: '/shield-01.png'
+    section: "Section 1: Slide Types",
+    img: '/essentials-introduction-slide01-multiple.svg'
 }
 
 const slides = useSlidesStore()
 const { addSlide } = slides
 
 onBeforeMount(()=>{
-  addSlide(slideData, 3)
+  addSlide(slideData, 1)
 })
 </script>
 

@@ -1,21 +1,22 @@
-import Slide1 from './Slide1.vue';
-import Slide2 from './Slide2.vue';
-import Slide3 from './Slide3.vue';
-import Slide4 from './Slide4.vue';
-import Slide5 from './Slide5.vue';
-import Slide6 from './Slide6.vue';
-import Slide7 from './Slide7.vue';
-import Slide8 from './Slide8.vue';
-import Slide9 from './Slide9.vue';
-
+//@index('./*.vue', f=> `import ${f.name} from '${f.path}.vue';`)
+import S01BaseSlide from './S01BaseSlide.vue';
+import S02ImageSlide from './S02ImageSlide.vue';
+import S03DoubleColumn from './S03DoubleColumn.vue';
+import S04TripleColumn from './S04TripleColumn.vue';
+import S05QuestionChoice from './S05QuestionChoice.vue';
+import S06TrueFalse from './S06TrueFalse.vue';
+import S07TermsAndDefinitions from './S07TermsAndDefinitions.vue';
+import S08OutlineSummary from './S08OutlineSummary.vue';
+//@endindex
 export default {
-    Slide1,
-    Slide2,
-    Slide3,
-    Slide4,
-    Slide5,
-    Slide6,
-    Slide7,
-    Slide8,
-    Slide9
-};
+  //@index('./*.vue', f=> `${f.name},`)
+  S01BaseSlide,
+  S02ImageSlide,
+  S03DoubleColumn,
+  S04TripleColumn,
+  S05QuestionChoice,
+  S06TrueFalse,
+  S07TermsAndDefinitions,
+  S08OutlineSummary,
+  //@endindex
+}
