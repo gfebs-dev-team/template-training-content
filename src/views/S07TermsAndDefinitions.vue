@@ -15,13 +15,9 @@ const buttons = ref([
 
 let terms = [
   'The Journal Voucher Workflow Maintainer loads the two tables. One table stores the user IDs of Journal Voucher Processors and the related organizations. The other table stores the user IDs of the Journal Voucher Reviewers and the Journal Voucher Approvers, and maintains the dollar thresholds for routing. GFEBS will route JVs automatically to their appropriate reviewers based on the organization from the JV originate, and to approvers based on the dollar amount of the JV.',
-
   'The Journal Voucher Processor prepares and parks JV.',
-
   'The Journal Voucher Reviewer reviews parked JVs and releases or rejects the JV. If the Journal Voucher Reviewer releases a JV, he/she sends it on the Journal Voucher Approver for final approval.',
-
   'The Journal Voucher Approver approves or rejects JV and processes JV documents.',
-
   'The Journal Voucher Master Processor uploads JVs into GFEBS and updates funding changes on purchase orders (POs)'
 ]
 
@@ -35,7 +31,7 @@ function PassNameAndDef(name, def) {
 const slideData = {
   title: 'Terms and Definition Slide',
   type: 'content',
-  section: "Section 1: What to Expect",
+  section: 'Section 1: What to Expect'
 }
 
 const slides = useSlidesStore()
@@ -62,6 +58,4 @@ onBeforeMount(() => {
   </SlideTerms>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
