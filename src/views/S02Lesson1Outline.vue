@@ -18,7 +18,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideContent v-bind="slideData">
+  <SlideContent v-bind="slideData" columns="1">
     <p>
       In this lesson, we're going to cover what you need to get started learning GFEBS. 
     </p>

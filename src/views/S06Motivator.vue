@@ -18,7 +18,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideContent v-bind="slideData">
+  <SlideContent v-bind="slideData" columns="1">
     <p>
       <strong>
         Why is the General Fund Enterprise Business System (GFEBS) Essentials course important to

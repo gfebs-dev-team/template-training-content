@@ -18,7 +18,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideContent v-bind="slideData">
+  <SlideContent v-bind="slideData" columns="1">
     <p>
       GFEBS Essentials Training is based upon procedures and screens at the time of development.
       Production environments are updated on a regular basis and therefore the procedures and

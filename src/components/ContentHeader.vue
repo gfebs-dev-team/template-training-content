@@ -1,14 +1,14 @@
 <script setup>
 import AppButton from './AppButton.vue'
 import AppPopover from './AppPopover.vue'
-import { watchEffect } from 'vue'
+import { watchEffect, computed } from 'vue'
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
 
 const slides = useSlidesStore()
 const { current, glossaryState } = storeToRefs(slides)
 const { total } = slides
-let progress = `width: ${(current.value + 1 / total) * 100}%`
+let progress = computed (()=>{ return `width: ${((current.value+1) / total) * 100}%`});
 
 const buttonStyle = {
   size: 'medium',
@@ -17,8 +17,7 @@ const buttonStyle = {
 }
 
 watchEffect(current, () => {
-  progress = `width: ${((current.value + 1) / total) * 100}%`
-  document.getElementById('progress')?.setAttribute('style', `${progress}`)
+  document.getElementById('progress')?.setAttribute('style', `${progress.value}`)
 })
 
 function windowClose() {
@@ -29,7 +28,7 @@ function windowClose() {
 <template>
   <nav>
     <div class="heading">
-      <img id="heading-shield" src="/shield-01.png" />
+      <img id="heading-shield" src="/FC-Crest.svg" />
       <div class="heading-text">
         <h1 id="heading-title">
           <span class="title">Financial</span>

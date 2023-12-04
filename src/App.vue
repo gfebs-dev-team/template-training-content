@@ -3,7 +3,7 @@ import ContentContainer from './components/ContentContainer.vue'
 
 const courseData = {
   "courseCode": "",
-  "courseTitle": "GFEBS Essentials",
+  "courseTitle": "Essentials",
   "topic": "Introduction"
 }
 </script>

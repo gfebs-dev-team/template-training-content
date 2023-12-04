@@ -6,6 +6,9 @@ import S04GFEBSTrainingDisclaimer from './S04GFEBSTrainingDisclaimer.vue';
 import S05InstructionalPrerequisites from './S05InstructionalPrerequisites.vue';
 import S06Motivator from './S06Motivator.vue';
 import S07ModuleOutline from './S07ModuleOutline.vue';
+import S08GFEBSOverviewLesson from './S08GFEBSOverviewLesson.vue';
+import S09GFEBSIntegratedProcessOverview from './S09GFEBSIntegratedProcessOverview.vue';
+import S10GFEBSNavigationandGFEBSReports from './S10GFEBSNavigationandGFEBSReports.vue';
 //@endindex
 export default {
   //@index('./*.vue', f=> `${f.name},`)
@@ -16,6 +19,9 @@ export default {
   S05InstructionalPrerequisites,
   S06Motivator,
   S07ModuleOutline,
+  S08GFEBSOverviewLesson,
+  S09GFEBSIntegratedProcessOverview,
+  S10GFEBSNavigationandGFEBSReports,
   //@endindex
 }
 

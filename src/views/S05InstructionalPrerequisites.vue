@@ -18,7 +18,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideContent v-bind="slideData">
+  <SlideContent v-bind="slideData" columns="1">
     <p>
       The GFEBS Essentials module includes 5 lessons. Currently, there are no prerequisite training
       requirements to preclude completion.

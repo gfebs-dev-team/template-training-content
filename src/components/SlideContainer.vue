@@ -1,7 +1,7 @@
 <script setup>
 import SlideHeader from './SlideHeader.vue'
 import SideBar from './SideBar.vue'
-import { Transition } from 'vue'
+import { Transition, watch, onMounted, isReactive } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSlidesStore } from '@/stores/slides'
 import views from '../views'
@@ -13,6 +13,25 @@ let slidesComp = Object.keys(views).map((key) => {
 const slides = useSlidesStore()
 const { current } = storeToRefs(slides)
 
+watch(current, () => {
+  const searchURL = new URL(window.location)
+  searchURL.searchParams.set('page', slides.current + 1)
+
+  window.history.pushState({}, '', searchURL)
+})
+
+onMounted(() => {
+  let pageFilter;
+
+  let queryString = window.location.search
+  let urlParams = new URLSearchParams(queryString)
+
+  if (urlParams.has('page')) {
+    pageFilter = parseInt(urlParams.get('page'));
+    current.value = pageFilter-1;
+  }
+})
+
 defineProps(['topic', 'title'])
 </script>
 
@@ -20,10 +39,14 @@ defineProps(['topic', 'title'])
   <div class="slide-container">
     <SlideHeader>{{ topic }}</SlideHeader>
     <div class="slide-area">
-      <SideBar :title="title"/>
+      <SideBar :title="title" />
       <template v-for="(slide, index) in slidesComp" :key="index">
         <Transition>
-          <component :class="[{active: index == current}]" :is="slide" v-show="index == current"></component>
+          <component
+            :class="[{ active: index == current }]"
+            :is="slide"
+            v-show="index == current"
+          ></component>
         </Transition>
       </template>
     </div>

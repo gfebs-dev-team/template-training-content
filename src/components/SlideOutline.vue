@@ -61,8 +61,8 @@ const activeSection = ref(0)
       button {
       font-weight: bold;
       color: $alice-blue;
-      width: 5rem;
-      height: 5rem;
+      width: 4rem;
+      height: 4rem;
       border-radius: 5rem;
       background: color.scale($rich-black, $alpha: -40%);
       border: none;
@@ -86,11 +86,12 @@ const activeSection = ref(0)
   }
 
   &.table {
-    width: 30rem;
+    width: 35rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: .75rem;
     justify-content: space-between;
+    overflow-y: auto;
     li {
       list-style-position: inside;
       font-size: $m-2;
