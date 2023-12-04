@@ -18,3 +18,5 @@ export default {
   S07ModuleOutline,
   //@endindex
 }
+
+// CTRL + SHIFT + P
