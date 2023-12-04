@@ -1,10 +1,10 @@
 <script setup>
-import ContentHeader from '../components/ContentHeader.vue'
+import ContentHeader from '../components/ContentHeader.vue';
 import AppGlossary from './AppGlossary.vue';
 import SlideContainer from './SlideContainer.vue';
 import glossary from '../assets/glossary.json';
-import { useSlidesStore } from '@/stores/slides'
-import { storeToRefs } from 'pinia'
+import { useSlidesStore } from '@/stores/slides';
+import { storeToRefs } from 'pinia';
 
 defineProps(['topic', 'courseCode', 'courseTitle', 'title'])
 const slides = useSlidesStore()

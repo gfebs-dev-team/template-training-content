@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, TransitionGroup, Transition } from 'vue'
 import { useSlidesStore } from '../stores/slides'
 import { storeToRefs } from 'pinia'
 
@@ -8,7 +8,7 @@ defineProps({
 })
 
 const slides = useSlidesStore()
-const { glossaryState} = storeToRefs(slides)
+const { glossaryState } = storeToRefs(slides)
 
 const alphabet = [
   'A',
@@ -81,16 +81,22 @@ function getFilter(term) {
       </div>
       <div class="filter-search">
         <div class="filter">
-          <button :class="[{default: search != ''},{ active: activeFilter == 'all' && search == '' }]" @click="activeFilter = 'all'">
+          <button
+            :class="[{ default: search != '' }, { active: activeFilter == 'all' && search == '' }]"
+            @click="activeFilter = 'all'"
+          >
             All
           </button>
           <div class="v-divider"></div>
           <div class="alphabet">
-            <button :class="{ active: activeFilter == '0-9' && search == '' }" @click="activeFilter = '0-9'">
+            <button
+              :class="{ active: activeFilter == '0-9' && search == '' }"
+              @click="activeFilter = '0-9'"
+            >
               0-9
             </button>
             <button
-              :class="{ active: activeFilter == letter && search == ''}"
+              :class="{ active: activeFilter == letter && search == '' }"
               @click="activeFilter = letter"
               v-for="(letter, index) in alphabet"
               :key="index"
@@ -100,24 +106,30 @@ function getFilter(term) {
           </div>
         </div>
         <div class="search">
-          <input id="glossary-search" type="search" v-model="search" placeholder="Search"/>
+          <input id="glossary-search" type="search" v-model="search" placeholder="Search" />
         </div>
       </div>
       <div class="terms-definitions">
         <div class="terms-area">
           <template v-for="(item, index) in glossary" :key="item.term">
-            <li
-              :class="{ active: activeIndex == index }"
-              @click="activeIndex = index"
-              v-if="getFilter(item.term)"
-            >
-              {{ item.term }}
-            </li>
+            <TransitionGroup name="terms">
+              <li
+                :class="{ active: activeIndex == index }"
+                @click="activeIndex = index"
+                v-if="getFilter(item.term)"
+              >
+                {{ item.term }}
+              </li>
+            </TransitionGroup>
           </template>
         </div>
         <div class="definition-area">
-          <h3>{{ glossary[activeIndex].term }}</h3>
-          <p>{{ glossary[activeIndex].definition }}</p>
+            <Transition>
+              <h3 :key="activeIndex">{{ glossary[activeIndex].term }}</h3></Transition
+            >
+            <Transition>
+              <p :key="activeIndex">{{ glossary[activeIndex].definition }}</p>
+            </Transition>
         </div>
       </div>
     </div>
@@ -170,7 +182,8 @@ function getFilter(term) {
         align-items: center;
         @media only screen and (max-width: 1330px) {
           width: 30vw;
-          button, div.v-divider{
+          button,
+          div.v-divider {
             display: none;
           }
         }
@@ -198,7 +211,8 @@ function getFilter(term) {
           &.active {
             color: var(--color-accent);
             transform: scale(1.2);
-            margin: 0 $p-1 ;
+            margin: 0 $p-1;
+            transition-duration: 0.5s;
           }
         }
 
@@ -210,7 +224,7 @@ function getFilter(term) {
         }
 
         .default {
-          margin: 0 $p-1 ;
+          margin: 0 $p-1;
         }
       }
       .search {
@@ -237,6 +251,22 @@ function getFilter(term) {
         background-color: $oxford-blue;
         display: flex;
         flex-direction: column;
+
+        .terms-move,
+        .terms-enter-active,
+        .terms-leave-active {
+          transition: all 0.5s ease;
+        }
+        .terms-enter-from,
+        .terms-leave-to {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+
+        .terms-leave-active {
+          position: absolute;
+        }
+
         li {
           list-style-type: none;
           font-size: $m-2;
@@ -258,6 +288,21 @@ function getFilter(term) {
         height: 100%;
         padding: 2rem;
         background-color: $space-cadet;
+
+        .v-enter-active,
+        .v-leave-active {
+          transition: opacity 0.5s ease;
+        }
+
+        .v-enter-from,
+        .v-leave-to {
+          opacity: 0;
+        }
+
+        .v-leave-active {
+          position: absolute;
+          z-index: -1;
+        }
 
         h3 {
           font-size: $m0;
