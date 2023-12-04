@@ -1,5 +1,5 @@
 <script setup>
-import SlideOutline from '../components/SlideOutling.vue'
+import SlideOutline from '../components/SlideOutline.vue'
 import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue'
 
