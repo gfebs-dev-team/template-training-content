@@ -1,22 +1,20 @@
 //@index('./*.vue', f=> `import ${f.name} from '${f.path}.vue';`)
-import S01BaseSlide from './S01BaseSlide.vue';
-import S02ImageSlide from './S02ImageSlide.vue';
-import S03DoubleColumn from './S03DoubleColumn.vue';
-import S04TripleColumn from './S04TripleColumn.vue';
-import S05QuestionChoice from './S05QuestionChoice.vue';
-import S06TrueFalse from './S06TrueFalse.vue';
-import S07TermsAndDefinitions from './S07TermsAndDefinitions.vue';
-import S08OutlineSummary from './S08OutlineSummary.vue';
+import S01WelcometoEssentials from './S01WelcometoEssentials.vue';
+import S02Lesson1Outline from './S02Lesson1Outline.vue';
+import S03TargetAudience from './S03TargetAudience.vue';
+import S04GFEBSTrainingDisclaimer from './S04GFEBSTrainingDisclaimer.vue';
+import S05InstructionalPrerequisites from './S05InstructionalPrerequisites.vue';
+import S06Motivator from './S06Motivator.vue';
+import S07ModuleOutline from './S07ModuleOutline.vue';
 //@endindex
 export default {
   //@index('./*.vue', f=> `${f.name},`)
-  S01BaseSlide,
-  S02ImageSlide,
-  S03DoubleColumn,
-  S04TripleColumn,
-  S05QuestionChoice,
-  S06TrueFalse,
-  S07TermsAndDefinitions,
-  S08OutlineSummary,
+  S01WelcometoEssentials,
+  S02Lesson1Outline,
+  S03TargetAudience,
+  S04GFEBSTrainingDisclaimer,
+  S05InstructionalPrerequisites,
+  S06Motivator,
+  S07ModuleOutline,
   //@endindex
 }
