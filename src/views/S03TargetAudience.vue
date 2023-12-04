@@ -1,0 +1,30 @@
+<script setup>
+import SlideContent from '../components/SlideContent.vue'
+import { useSlidesStore } from '../stores/slides'
+import { onBeforeMount } from 'vue'
+
+const slideData = {
+  title: 'Target Audience',
+  type: 'content',
+  img: '/essentials-introduction-slide02.svg'
+}
+
+const slides = useSlidesStore()
+const { addSlide } = slides
+
+onBeforeMount(() => {
+  addSlide(slideData, 2)
+})
+</script>
+
+<template>
+  <SlideContent v-bind="slideData">
+    <p>
+      The target audience for this course is anyone who is assigned a GFEBS user role according to their installation requirements or organizational needs. Successful completion of this course is paramount before a user is provisioned for GFEBS user-role functions.
+    </p>
+  </SlideContent>
+</template>
+
+<style scoped lang="scss">
+
+</style>
