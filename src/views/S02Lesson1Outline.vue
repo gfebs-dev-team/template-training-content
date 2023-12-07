@@ -6,7 +6,7 @@ import { onBeforeMount } from 'vue'
 const slideData = {
   title: 'Lesson 1 Outline',
   type: 'content',
-  img: '/essentials-introduction-slide01-multiple.svg'
+  img: './essentials-introduction-slide01-multiple.svg'
 }
 
 const slides = useSlidesStore()
@@ -18,7 +18,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideContent v-bind="slideData" columns="1">
+  <SlideContent v-bind="slideData" :columns="1">
     <p>
       In this lesson, we're going to cover what you need to get started learning GFEBS. 
     </p>

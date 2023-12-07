@@ -44,9 +44,9 @@ const search = ref('')
 
 function getFilter(term) {
   if (search.value != '') {
-    return term.match(search.value)
+    return term.toLocaleLowerCase().match(search.value.toLocaleLowerCase())
   } else {
-    switch (activeFilter.value) {
+    switch (activeFilter.value.toLocaleLowerCase()) {
       case 'all':
         return true
       case '0-9':
@@ -54,7 +54,7 @@ function getFilter(term) {
         return term.match('/^[0-9].+$/')
       default:
         //console.log(term + ' : ' + activeFilter.value)
-        return term.startsWith(activeFilter.value.toLocaleLowerCase())
+        return term.toLocaleLowerCase().startsWith(activeFilter.value.toLocaleLowerCase())
     }
   }
 }
@@ -109,7 +109,7 @@ function getFilter(term) {
           <input id="glossary-search" type="search" v-model="search" placeholder="Search" />
         </div>
       </div>
-      <div class="terms-definitions">
+      
         <div class="terms-area">
           <template v-for="(item, index) in glossary" :key="item.term">
             <TransitionGroup name="terms">
@@ -131,7 +131,7 @@ function getFilter(term) {
               <p :key="activeIndex">{{ glossary[activeIndex].definition }}</p>
             </Transition>
         </div>
-      </div>
+      
     </div>
   </div>
 </template>
@@ -142,7 +142,6 @@ function getFilter(term) {
   display: flex;
   background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(5px);
-  padding: 5rem;
   z-index: 100;
   top: 0;
   left: 0;
@@ -150,20 +149,31 @@ function getFilter(term) {
   height: 100vh;
   align-items: center;
   justify-content: center;
+  padding: $p5;
   .glossary {
-    display: flex;
-    flex-direction: column;
-    aspect-ratio: 16/9;
+    display: grid;
+    grid-template-areas: "a a" "b b" "c d";
+    grid-template-columns: 15rem auto;
+    grid-template-rows: 2rem 2rem auto;
     background-color: $delft-blue;
     border-radius: 0.5rem;
     padding: $p3;
-    gap: $p1;
+    gap: $p0 0;
+    width: 100%;
+    height: 100%;
+    max-width: 70rem;
+    max-height: 40rem;
+
+    @media only screen and (max-width: 1024px) {
+      max-width: 54rem;
+    }
     .heading {
       display: flex;
+      grid-area: a;
       justify-content: space-between;
       h2 {
         color: $lavender;
-        font-size: $m2;
+        font-size: clamp($m0, clampBuilder(1024, 1440, $m0, $m2, 1), $m2);
         font-weight: 700;
         line-height: 130%;
         letter-spacing: 0.175rem;
@@ -173,24 +183,14 @@ function getFilter(term) {
 
     .filter-search {
       display: flex;
+      grid-area: b;
       align-items: center;
-      gap: $p1;
+      height: 2rem;
+      gap: $p0;
       .filter {
         display: flex;
-        padding: 1rem;
-        gap: $p1;
+        gap: $p0;
         align-items: center;
-        @media only screen and (max-width: 1330px) {
-          width: 30vw;
-          button,
-          div.v-divider {
-            display: none;
-          }
-        }
-
-        @media only screen and (max-height: 750px) {
-          display: none;
-        }
         .v-divider {
           display: block;
           height: 1.5rem;
@@ -201,11 +201,11 @@ function getFilter(term) {
         button {
           background: none;
           border-radius: $p-2;
-          padding: $p-2;
+          padding: math.div($p-2,2);
           color: $cool-grey;
           border: none;
           font-weight: 700;
-          font-size: $m-1;
+          font-size: $m-2;
           transition: transform ease-in-out 0.8s;
           transition: margin ease-in-out 0.5s;
           &.active {
@@ -227,30 +227,48 @@ function getFilter(term) {
           margin: 0 $p-1;
         }
       }
-      .search {
-        #glossary-search {
+      .search #glossary-search {
           border-radius: 1rem;
-          height: 1.5rem;
+          width: 100%;
+          height: 1rem;
           border: none;
           background-color: $space-cadet;
           color: $cool-grey;
           padding: $p1;
         }
-      }
+      
     }
 
-    .terms-definitions {
-      display: flex;
-      height: 100%;
+
       .terms-area {
+        grid-area: c;
+        width: 100%;
         height: 100%;
-        width: 15rem;
         padding: 1.25rem;
         overflow-y: auto;
         gap: $p-1;
         background-color: $oxford-blue;
         display: flex;
         flex-direction: column;
+        flex-grow:1;
+
+        li {
+          position: relative;
+          list-style-type: none;
+          font-size: $m-2;
+          color: $lavender;
+          font-weight: 700;
+          text-transform: capitalize;
+          cursor: pointer;
+
+          &:hover{
+            text-decoration: underline;
+          }
+
+          &.active {
+            color: var(--color-accent);
+          }
+        }
 
         .terms-move,
         .terms-enter-active,
@@ -262,32 +280,32 @@ function getFilter(term) {
           opacity: 0;
           transform: translateX(30px);
         }
-
         .terms-leave-active {
           position: absolute;
         }
 
-        li {
-          list-style-type: none;
-          font-size: $m-2;
-          color: $lavender;
-          font-weight: 700;
-          text-transform: capitalize;
-
-          &.active {
-            color: var(--color-accent);
-          }
-        }
       }
 
       .definition-area {
         display: flex;
+        grid-area: d;
         flex-direction: column;
         gap: $p0;
-        width: 100%;
-        height: 100%;
         padding: 2rem;
         background-color: $space-cadet;
+        width:100%;
+
+        h3 {
+          font-size: $m0;
+          font-weight: 700;
+          color: var(--color-accent);
+          text-transform: capitalize;
+        }
+
+        p {
+          width: 100%;
+          word-wrap: break-word;
+        }
 
         .v-enter-active,
         .v-leave-active {
@@ -303,15 +321,8 @@ function getFilter(term) {
           position: absolute;
           z-index: -1;
         }
-
-        h3 {
-          font-size: $m0;
-          font-weight: 700;
-          color: var(--color-accent);
-          text-transform: capitalize;
-        }
       }
     }
   }
-}
+
 </style>

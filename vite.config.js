@@ -14,7 +14,8 @@ export default defineConfig({
       scss: {
         additionalData: `
         @use 'sass:color';
-        @import "./src/assets/base.scss";
+        @use "sass:math";
+        @import "./src/assets/sass/base.scss";
         `
       }
     }

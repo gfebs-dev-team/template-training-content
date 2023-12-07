@@ -7,7 +7,7 @@ const slideData = {
   title: 'GFEBS Navigation and GFEBS Reports',
   type: 'content',
   section: 'Section 1: What to Expect',
-  img: '/essentials-introduction-slide01-multiple.svg'
+  img: './essentials-introduction-slide01-multiple.svg'
 }
 
 const slides = useSlidesStore()
@@ -19,7 +19,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideContent v-bind="slideData" columns="1">
+  <SlideContent v-bind="slideData" :columns="1">
     <p>
       The final lessons, GFEBS Navigation and GFEBS Reports, will take up the majority of your time.
     </p>

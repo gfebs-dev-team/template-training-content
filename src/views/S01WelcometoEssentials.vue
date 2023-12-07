@@ -2,11 +2,12 @@
 import SlideContent from '../components/SlideContent.vue'
 import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue'
+import slide01 from '../assets/img/essentials-introduction-slide01-multiple.svg'
 
 const slideData = {
   title: 'Welcome to Essentials',
   type: 'content',
-  img: './essentials-introduction-slide01-multiple.svg'
+  img: slide01
 }
 
 const slides = useSlidesStore()
@@ -18,7 +19,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideContent v-bind="slideData" columns="1">
+  <SlideContent v-bind="slideData" :columns="1">
     <p>
       Welcome to the General Fund Enterprise Business System (GFEBS) Essentials module. In this introduction, we provide an overview of the material covered in the module lessons.
     </p>

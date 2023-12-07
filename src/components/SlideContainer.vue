@@ -46,6 +46,7 @@ defineProps(['topic', 'title'])
             :class="[{ active: index == current }]"
             :is="slide"
             v-show="index == current"
+            v-if="slide"
           ></component>
         </Transition>
       </template>

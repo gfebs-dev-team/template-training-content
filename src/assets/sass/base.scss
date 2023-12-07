@@ -28,3 +28,15 @@ $p1: 1rem;
 $p0: 0.75rem;
 $p-1: 0.5rem;
 $p-2: 0.25rem;
+
+@use "sass:math";
+
+@function clampBuilder($minV, $maxV, $minS, $maxS, $reverse) {
+    $slope: math.div(math.div($maxS, 1rem) - math.div($minS, 1rem) , math.div($maxV, 16) - math.div($minV , 16));
+    @debug $slope;
+    $yIntercept: (-$minV * $slope) + math.div($minS, 1rem);
+    @debug $yIntercept;
+    
+    
+    @return calc(#{$yIntercept}rem + #{($reverse * $slope *100)}vw);
+}

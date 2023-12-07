@@ -154,6 +154,10 @@ onBeforeMount(() => {
 </template>
 
 <style scoped lang="scss">
+
+.tb-title {
+font-weight: bold;
+}
 .tb-section li {
   font-size: smaller;
   list-style-type: none;

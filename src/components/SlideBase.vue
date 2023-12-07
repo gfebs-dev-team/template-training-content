@@ -1,15 +1,25 @@
 <script setup>
 const props = defineProps(['title', 'columns', 'img'])
+import { onMounted, ref, useAttrs, useSlots } from 'vue'
+const hasMain = ref(false)
+const hasImg = ref(false)
+
+onMounted(() => {
+  hasMain.value = useSlots().main ? true : false
+  //console.log(hasMain.value);
+  hasImg.value = props.img ? true : false
+  //console.log(hasImg.value);
+})
 </script>
 <template>
   <div class="slide">
-    <div class="column main_column" v-if="!!this.$slots.main">
-      <h2 class="slide-title">{{ title }}</h2>
+    <div class="column main_column" v-if="hasMain">
+      <h2 class="slide-title">{{ props.title }}</h2>
       <slot name="main" />
     </div>
     <div
-      :class="'column column_' + (index + 1)"
-      v-for="index in columns"
+      :class="['column', 'column_' + (index + 1), { column_image: hasImg }]"
+      v-for="index in props.columns"
       :key="index"
     >
       <slot :name="'column_' + (index + 1)" />
@@ -20,13 +30,9 @@ const props = defineProps(['title', 'columns', 'img'])
 
 <style scoped lang="scss">
 :global(img) {
-  height: 100%;
+  width: 100%;
   object-fit: contain;
-  @media only screen and (max-width: 1000px) {
-    :global(img) {
-      max-width: 100%;
-    }
-  }
+  justify-self: center;
 }
 .slide {
   display: flex;
@@ -35,12 +41,9 @@ const props = defineProps(['title', 'columns', 'img'])
   align-items: stretch;
   height: 100%;
   width: 100%;
-  padding: $p5;
+  padding: clamp($p3,-5.3846rem + 11.5385vw ,$p5);
   gap: $p3;
 
-  @media only screen and (max-width: 1200px) {
-    padding: $p4;
-  }
   &.active {
     z-index: 0;
   }
@@ -57,8 +60,13 @@ const props = defineProps(['title', 'columns', 'img'])
       flex-shrink: 0;
     }
   }
+
+  .column_image {
+    justify-content: center;
+    width: 80%;
+  }
   h2 {
-    font-size: $m2;
+    font-size: clamp($m1, 0.8846rem + 0.9615vw, $m2);
     font-weight: bold;
     text-transform: capitalize;
     color: var(--color-accent);

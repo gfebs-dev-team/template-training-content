@@ -6,7 +6,7 @@ import { onBeforeMount } from 'vue'
 const slideData = {
   title: 'Target Audience',
   type: 'content',
-  img: '/essentials-introduction-slide02.svg'
+  img: './essentials-introduction-slide02.svg'
 }
 
 const slides = useSlidesStore()
@@ -18,7 +18,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideContent v-bind="slideData" columns="1">
+  <SlideContent v-bind="slideData" :columns="1">
     <p>
       The target audience for this course is anyone who is assigned a GFEBS user role according to their installation requirements or organizational needs. Successful completion of this course is paramount before a user is provisioned for GFEBS user-role functions.
     </p>

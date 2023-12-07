@@ -1,7 +1,14 @@
 <script setup>
 import SlideBase from './SlideBase.vue'
-import { computed } from 'vue'
+import { onMounted, ref, computed, useAttrs} from 'vue'
+const hasImg = ref(false)
+
 const props = defineProps(['title', 'img', 'columns'])
+
+onMounted(() => {
+  hasImg.value = props.img ? true : false
+})
+
 const lastColumn = computed(() => {
   if(props.columns){
     //console.log('column_' + (props.columns + 1));
@@ -15,14 +22,14 @@ let column = (index) => {
 </script>
 
 <template>
-  <SlideBase class="content" :title="props.title" :columns="props.columns" :img="props.img">
+  <SlideBase class="content" v-bind="props">
     <template #main>
       <slot></slot>
     </template>
     <template #[column(index)] v-for="index in columns" :key=index>
       <slot :name="'column_' + (index + 1)" />
     </template>
-    <template #[lastColumn] v-if="this.$props.img">
+    <template #[lastColumn] v-if="hasImg">
       <img :src="img" :alt="img" />
     </template>
   </SlideBase>

@@ -6,7 +6,7 @@ import { onBeforeMount } from 'vue'
 const slideData = {
   title: 'GFEBS Instructional Prerequisites',
   type: 'content',
-  img: '/essentials-introduction-slide03.svg'
+  img: './essentials-introduction-slide03.svg'
 }
 
 const slides = useSlidesStore()
@@ -18,7 +18,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideContent v-bind="slideData" columns="1">
+  <SlideContent v-bind="slideData" :columns="1">
     <p>
       The GFEBS Essentials module includes 5 lessons. Currently, there are no prerequisite training
       requirements to preclude completion.

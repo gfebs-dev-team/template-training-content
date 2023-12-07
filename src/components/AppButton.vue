@@ -44,9 +44,6 @@ button {
   font-size: $m-2;
 }
 
-.large {
-}
-
 .outline {
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   color: var(--color-text);

@@ -7,7 +7,7 @@ const slideData = {
   title: 'GFEBS Integrated Process',
   type: 'content',
   section: "Section 1: What to Expect",
-  img: '/essentials-introduction-slide04.svg',
+  img: './essentials-introduction-slide04.svg',
 }
 
 const slides = useSlidesStore()
@@ -19,7 +19,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideContent v-bind="slideData" columns="1">
+  <SlideContent v-bind="slideData" :columns="1">
     <p>The next lesson is GFEBS Integrated Process</p>
     <p>This lesson contains the following sections:</p>
     <ol>

@@ -28,12 +28,12 @@ function windowClose() {
 <template>
   <nav>
     <div class="heading">
-      <img id="heading-shield" src="/FC-Crest.svg" />
-      <div class="heading-text">
+      <img id="heading-shield" src="/crest.svg" />
+      <div class="heading-text title">
         <h1 id="heading-title">
-          <span class="title">Financial</span>
-          <span class="title">Management</span>
-          <span class="title">School</span>
+          Financial<br/>
+          Management
+          School
         </h1>
         <h2 id="heading-subtitle" class="title">
           <slot></slot>
@@ -99,20 +99,12 @@ nav {
   align-items: center;
   align-self: stretch;
 
-  @media only screen and (max-width: 1000px) {
-    flex-direction: column;
-    gap: $p2;
-  }
   .heading {
     display: flex;
     align-items: center;
     gap: $p3;
     width: fit-content;
 
-    @media only screen and (max-width: 1000px) {
-      justify-content: space-between;
-      width: 100%;
-    }
     #heading-shield {
       width: 6rem;
       height: 6rem;
@@ -126,38 +118,14 @@ nav {
 
       #heading-title {
         display: grid;
-        grid-template-areas: 'a a' 'b c';
+        line-height: 150%;
+        font-size: clamp($m0, clampBuilder(1024, 1440, $m0, $m2, 1), $m2);
         gap: 0 $p0;
-        span {
-          font-size: $m1;
-          &:first-child {
-            grid-area: a;
-          }
-
-          &:nth-child(2) {
-            grid-area: b;
-          }
-
-          &:last-child {
-            grid-area: c;
-          }
-        }
-
-        @media only screen and (max-width: 1000px) {
-          grid-template-areas: 'a b c';
-          text-align: right;
-        }
-
-        @media only screen and (max-width: 760px) {
-          grid-template-areas: 'a a' 'b c';
-        }
+      
       }
       #heading-subtitle {
         font-size: $m-1;
         color: var(--color-accent);
-        @media only screen and (max-width: 1000px) {
-          align-self: flex-end;
-        }
       }
     }
   }
@@ -171,19 +139,12 @@ nav {
     align-self: stretch;
     width: 25rem;
 
-    @media only screen and (max-width: 1000px) {
-      width: 100%;
-      gap: $p1;
-    }
     .progress-bar {
       width: 100%;
       height: 1.5rem;
       background-color: var(--color-accent-light);
       border-radius: 1rem;
 
-      @media only screen and (max-width: 1000px) {
-        height: 1rem;
-      }
       #progress {
         background-color: var(--color-accent);
         border-radius: 1rem;

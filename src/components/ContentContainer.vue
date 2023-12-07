@@ -24,16 +24,11 @@ main {
   display: flex;
   flex-direction: column;
   aspect-ratio: 4/3;
+  height: 100%;
   max-height: 100%;
   margin:auto;
   align-items: center;
-  padding: $p5;
-  gap: $p4;
-
-  @media only screen and (max-width: 960px){
-    aspect-ratio: auto;
-    gap: $p3;
-    height: 100%;
-  }
+  padding:clamp($p4,-5.3846rem + 11.5385vw, $p5);
+  gap: clamp($p3, clampBuilder(1024, 1440, $p3, $p4, 1), $p4);
 }
 </style>

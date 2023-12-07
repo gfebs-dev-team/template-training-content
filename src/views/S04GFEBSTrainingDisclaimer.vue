@@ -6,7 +6,7 @@ import { onBeforeMount } from 'vue'
 const slideData = {
   title: 'GFEBS Training Disclaimer',
   type: 'content',
-  img: '/essentials-introduction-slide03.svg'
+  img: './essentials-introduction-slide03.svg'
 }
 
 const slides = useSlidesStore()
@@ -18,7 +18,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideContent v-bind="slideData" columns="1">
+  <SlideContent v-bind="slideData" :columns="1">
     <p>
       GFEBS Essentials Training is based upon procedures and screens at the time of development.
       Production environments are updated on a regular basis and therefore the procedures and

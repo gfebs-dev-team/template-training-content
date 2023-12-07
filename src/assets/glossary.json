@@ -1,14 +1,1214 @@
 [
-    {
-      "term": "apple",
-      "definition": "a fruit"
-    },
-    {
-      "term": "artichoke",
-      "definition": "a froot"
-    },
-    {
-      "term": "banana",
-      "definition": "another fruit"
-    }
-  ]
+ {
+   "term": "ACC",
+   "definition": "Accounting Classification Code"
+ },
+ {
+   "term": "AccAssCat/Account Assignment",
+   "definition": "Specifies whether accounting for an item is to be affected via an auxiliary account (such as a cost center)."
+ },
+ {
+   "term": "Account Document",
+   "definition": "The record of the GL account postings that resulted from posting transactions. For complex postings (more than two accounts), two or more documents are available.\n"
+ },
+ {
+   "term": "Account Group",
+   "definition": "Types of generic ledger accounts- such as assets and liabilities."
+ },
+ {
+   "term": "Accounts Payable",
+   "definition": "A subsidiary record within the general ledger that contains vendor records and the value of amounts owed (liabilities)."
+ },
+ {
+   "term": "Accounts Receivable",
+   "definition": "A subsidiary record within the general ledger that contains customer records and the value of amounts due."
+ },
+ {
+   "term": "Accrual",
+   "definition": "Under the accrual method of accounting, revenue is recognized when revenue is earned, rather that when it is collated. Likewise, expenses are recognized when incurred rather that when paid."
+ },
+ {
+   "term": "Act/Activity Type/ActTyp",
+   "definition": "Determines the type and amount of costs incurred at the individual cost centers."
+ },
+ {
+   "term": "Aggregated plan",
+   "definition": "A Plan for an entire project that provides management with the quantity if materials and other resources required, including when they are needed in the project timeline."
+ },
+ {
+   "term": "AKO",
+   "definition": "Army Knowledge Online\n"
+ },
+ {
+   "term": "ALLOBJ",
+   "definition": "Unrestrictive Commitment Item used for funds distribution.\n"
+ },
+ {
+   "term": "Allocation",
+   "definition": "The initial distribution of authorized funding.\n"
+ },
+ {
+   "term": "Allocation Unique Identifier",
+   "definition": "A Standard Financial Information Structure element. Allocation Unique Identifier is a 15 character no- intelligent number representing an allocation.\n"
+ },
+ {
+   "term": "Allotment",
+   "definition": "Secondary distribution of authorized funding.\n"
+ },
+ {
+   "term": "Amount in doc. curr.",
+   "definition": "Line item amount in document currency.\n"
+ },
+ {
+   "term": "AMSCO",
+   "definition": "Army Management Structure Code\n"
+ },
+ {
+   "term": "Appended orders",
+   "definition": "An additional order assigned to a project, increasing the planned costs of the elements to which it is assigned.\n"
+ },
+ {
+   "term": "Application of Funds",
+   "definition": "An element of the SAP Fund Master record that contains FACTS (US Treasury Reporting) relevant data; it associated with the fund.\n"
+ },
+ {
+   "term": "Apportionment",
+   "definition": "When an appropriation has been enacted, funds are distributed by means of apportionment document authorizes each service or department to obligate funds that are supported by a US Treasury warrant.\n"
+ },
+ {
+   "term": "ASA FM&C",
+   "definition": "Assistant Secretary of the Army, Financial Management and Comptroller\n"
+ },
+ {
+   "term": "Assessment",
+   "definition": "A method of internal cost allocation whereby costs are transferred from one cost center to receiver objects such as projects or other cost centers.\n"
+ },
+ {
+   "term": "Asset",
+   "definition": "Representation of an object that is stored as collateral to be used to process data for the collateral.\n"
+ },
+ {
+   "term": "Asset class",
+   "definition": "Main criterion for classifying fixed assets according to legal and management requirements.\n"
+ },
+ {
+   "term": "Asset Record",
+   "definition": "Master Data resident in GFEBS that information about specific information about an Asset.\n"
+ },
+ {
+   "term": "Asset value date",
+   "definition": "Date of an asset transaction from the asset accounting point of view. It can be different from the posting date and document date and can be in accounting periods that are already closed.\n"
+ },
+ {
+   "term": "ATAAPS",
+   "definition": "Automated Time, Attendance and Production System\n"
+ },
+ {
+   "term": "AUC/Asset Under Construction",
+   "definition": "Balance sheet asset account that retains the values associated with investments prior to placing the investments into production or service.\n"
+ },
+ {
+   "term": "Available Balance",
+   "definition": "A column on the funds Status Report that reflects values equal to budget minus the sum of commitments, undelivered orders, and expenditures.\n"
+ },
+ {
+   "term": "Balanced Scorecard",
+   "definition": "A reports monitoring performance against specific measures.\n"
+ },
+ {
+   "term": "Balanced Scorecard Hierachy",
+   "definition": "Varying business area levels the organization for which performance measures have been established and can be captured.\n"
+ },
+ {
+   "term": "Bank account number",
+   "definition": "Number under which an account is managed at a bank usually maintained in a vendor master record.\n"
+ },
+ {
+   "term": "Base Unit of Meas.",
+   "definition": "Unit of measure in which stocks of the material are managed. The system converts all the quantities you enter in other units of measure (alternative units of measure) to the base unit of measure.\n"
+ },
+ {
+   "term": "Baseline date for due date calculation\n\n",
+   "definition": "Date from which the period for the cash discount deadline and the due date for net payment refer.\n"
+ },
+ {
+   "term": "BaselineDT",
+   "definition": "Date from which the period for the cash discount deadline and the due date for net payment refer.\n"
+ },
+ {
+   "term": "Basic fin./Basic Finish Date\n\n",
+   "definition": "Specifies the ending of the validity period for the order.\n"
+ },
+ {
+   "term": "BES/Budget Estimate Submission\n\n",
+   "definition": "The initial requirements budget submitted to the department of the Army Budget Office for inclusion in the President's budget for submission to Congress.\n"
+ },
+ {
+   "term": "BEx",
+   "definition": "Business Explorer Analyzer\n"
+ },
+ {
+   "term": "BI",
+   "definition": "Business Intelligence\n"
+ },
+ {
+   "term": "Billing block\n\n",
+   "definition": "Stop the creation of a billing document for the entire sales order.\n"
+ },
+ {
+   "term": "Billing element\n\n",
+   "definition": "A specific item within a project against which expenses are accumulated and billed to a customer.\n"
+ },
+ {
+   "term": "BPN",
+   "definition": "Business Partner Number\n"
+ },
+ {
+   "term": "Bsc start/Basic start date\n\n",
+   "definition": "Specifies the beginning of the validity period for the order.\n"
+ },
+ {
+   "term": "BTA",
+   "definition": "Business Transformation Agency\n"
+ },
+ {
+   "term": "Budget",
+   "definition": "Defines the distribution of funds (authority to incur obligation) within the system.\n"
+ },
+ {
+   "term": "Budget Category\n\n",
+   "definition": "Distinguished between different ledgers in which budget areas are stored. Budget Category is always PAYMENT.\n"
+ },
+ {
+   "term": "Budget Entry Document\n\n",
+   "definition": "The record of a budget posting.\n"
+ },
+ {
+   "term": "Budget Execution Business Area\n\n",
+   "definition": "The GFEBS functional business process area that included funds management, funds control, and funds distribution.\n"
+ },
+ {
+   "term": "Budget Object\n\n",
+   "definition": "Actual funding (authority to incur obligation) is assigned to the budget structure elements. Funds must be assigned to all identified key elements before any execution can occur. For GFEBS the elements of a budget object are: Fund, Funds Center, Functional Area, Funded Program, and Commitment Item.\n"
+ },
+ {
+   "term": "Budget Structure\n\n",
+   "definition": "Defines the master data elements including hierarchies where budget structure consists of five key master data elements: funds, funds center, functional area, funded program, and commitment item.\n"
+ },
+ {
+   "term": "Budget type\n\n",
+   "definition": "Categorization of the type of budget (apportionment, allotment, allocation, recession, etc.) being impacted by a budget entry document.\n"
+ },
+ {
+   "term": "Budgetary General Ledger\n\n",
+   "definition": "The Portion of the general ledger that retains accounts and balances reflective of appropriations fund, authority, allotments, apportionments, commitments, and obligations.\n"
+ },
+ {
+   "term": "Budgeting Workbench\n\n",
+   "definition": "The input screen used for creating budget entry documents within GFEBS.\n"
+ },
+ {
+   "term": "Bus. Area\n\n",
+   "definition": "An organizational unit of financial accounting that represents a separate area of operations or responsibilities within an organization and to which the value changes recorded in financial accounting can be allocated. For GFEBS, the business Area is always ARMY.\n"
+ },
+ {
+   "term": "CATS",
+   "definition": "Cross Application Time Sheet\n"
+ },
+ {
+   "term": "Client\n\n",
+   "definition": "The server which supports the operation.\n"
+ },
+ {
+   "term": "CM",
+   "definition": "Cost Management  \n"
+ },
+ {
+   "term": "Co Area\n\n",
+   "definition": "A Code that uniquely identifies a controlling area is the highest organizational unit controlling. GEFBS Release 1.1, the Controlling Area is \"ARMY.\"\n"
+ },
+ {
+   "term": "CoA\n\n",
+   "definition": "Chart of Accounts\n"
+ },
+ {
+   "term": "Collection",
+   "definition": "Receipt of cash or electronic record of increase(s) to cash account.\n"
+ },
+ {
+   "term": "Command field\n\n",
+   "definition": "Allows you to enter the SAP Easy shortcut command or Transaction Code to process transactions.\n"
+ },
+ {
+   "term": "Commitment Item\n\n",
+   "definition": "A nine digit element containing the 4 digit general ledger account code as well as a 4 digit object class/ element of resource code. Commitment Item (CI) defines how the funds are either controlled or spent. CI's are also identified in groupings by OMB object class codes and general categories such as Labor, Non-Labor, and travel.\n"
+ },
+ {
+   "term": "Commitment Item Group\n\n",
+   "definition": "Group of commitment items. In general, commitment item groups are referenced during reporting and analysis.  \n"
+ },
+ {
+   "term": "Company Code\n\n",
+   "definition": "Smallest organizational unit of Financial Accounting for which complete self- contained set of accounts can be drawn up for purposes of external reporting. The Company Code is always ARMY.\n"
+ },
+ {
+   "term": "Condition group\n\n",
+   "definition": "Groups of condition types that are assigned to a given contract type to be used during subsequent processing (order, delivery billing).\n"
+ },
+ {
+   "term": "Construction in Progress (CIP)\n\n",
+   "definition": "An account used to accumulates costs for a fixed asset until its ready for use.  \n"
+ },
+ {
+   "term": "Controlling Area\n\n",
+   "definition": "A code that uniquely identifies a controlling area. The controlling area is the highest organizational unit in Controlling. The Controlling Area is \"ARMY.\"\n"
+ },
+ {
+   "term": "Controlling Document\n\n",
+   "definition": "The record of the cost posting that resulted from posting a transaction.  \n"
+ },
+ {
+   "term": "Cost Allocation\n\n",
+   "definition": "The process of assessing or distributing and one or to quantities from one sender objects.\n"
+ },
+ {
+   "term": "Cost center\n\n",
+   "definition": "An organizational unit within a controlling area that represents a defined location of cost incurrence.  \n"
+ },
+ {
+   "term": "Cost center group\n\n",
+   "definition": "A collection of cost centers. In general cost center groups are used for reporting and analysis.  \n"
+ },
+ {
+   "term": "Cost center hierarchy\n\n",
+   "definition": "A hierarchical structure that combines several cost centers according to a certain criteria.\n"
+ },
+ {
+   "term": "Cost Element\n\n",
+   "definition": "A classification code used to label cost relevant items (i.e.; labor, materials, travel, etc.) the cost Element Structure mirrors the Commitment Item structure and also mirrors the general ledger account code structure.  \n"
+ },
+ {
+   "term": "Cost objects\n\n",
+   "definition": "Collects expenses and revenues for a particular purpose, such as research project. There are many types of cost objects. Examples include cost centers, work orders, projects, sales orders, and capital assets.  \n"
+ },
+ {
+   "term": "Cross-CC no.\n\n",
+   "definition": "In cross-company code document entry, several documents are created in different company codes. A common truncation number indicates that the documents belong together logically. Transaction number can be assigned by the system or manually. The system creates the number from the document number, company code and fiscal year.\n"
+ },
+ {
+   "term": "Currency\n\n",
+   "definition": "Unit in which the rate of a condition is expressed. The rate can be currency, a sales unit or a percentage.  \n"
+ },
+ {
+   "term": "Customer group\n\n",
+   "definition": "Identifies a particular group of customer for the purpose of pricing or generating statistics.\n"
+ },
+ {
+   "term": "Customer Material Number\n\n",
+   "definition": "Uniquely identities the material from the customer point of view.\n"
+ },
+ {
+   "term": "D/C\n\n",
+   "definition": "Debit/Credit  \n"
+ },
+ {
+   "term": "Delivery block\n\n",
+   "definition": "Stop the allocation of material to the entire sales order.  \n"
+ },
+ {
+   "term": "Delivery Date\n\n",
+   "definition": "Date on which goods are to be delivered or services performed.  \n"
+ },
+ {
+   "term": "Delivery Plant\n\n",
+   "definition": "Location from which the goods or services should be delivered to the customer.\n"
+ },
+ {
+   "term": "Delivery Time\n\n",
+   "definition": "Agreed time of delivery with the customer in the contract or the quotation. It is the time period that the customer grants the vendor from between the contract release rider until the delivery arrives.\n"
+ },
+ {
+   "term": "Demand Unique Identifier/DUID\n\n",
+   "definition": "A Standard Financial Information Structure element, Demand Unique Identifier is a data tag referenced by the Defense Corporate Repository for identifying a spending event. It is assigned when a commitment is initiated and referenced throughout obligation, expense recognition, and disbursement.\n"
+ },
+ {
+   "term": "Department/Department Regular\n\n",
+   "definition": "A Standard Financial Information Structure data element for the treasury Department symbol.\n"
+ },
+ {
+   "term": "Deprecation\n\n",
+   "definition": "In compliance with the Matching Principal (GAAP), depreciation is a mechanism for deferring the expense of an asset so that the benefit received from the investment is recognized during the same accounting periods that the expense is recognized.\n"
+ },
+ {
+   "term": "Description",
+   "definition": "Text to identify the material.  \n"
+ },
+ {
+   "term": "DFAS\n\n",
+   "definition": "Defense Finance and Accounting Service  \n"
+ },
+ {
+   "term": "Display Variant\n\n",
+   "definition": "A set of criteria that determine that content of a display or report.\n"
+ },
+ {
+   "term": "Distribution Channel\n\n",
+   "definition": "Way in which products or services reach the customer.  \n"
+ },
+ {
+   "term": "Division",
+   "definition": "Way of grouping materials, products or services. Used to determine the sales area and business area for a material, product or service.\n"
+ },
+ {
+   "term": "Division (Organization)\n\n",
+   "definition": "An organizational element in the Army.\n"
+ },
+ {
+   "term": "Doc. Number/Document Number\n\n",
+   "definition": "Identifies each document in a company code in a specific fiscal year.\n"
+ },
+ {
+   "term": "Docs entered up to/Document Entry\n\n",
+   "definition": "Date on which a business transaction is transferred into one or more accounting ledgers.\n"
+ },
+ {
+   "term": "Document",
+   "definition": "Identifies each document in a company code in a specific fiscal year.\n"
+ },
+ {
+   "term": "Document Date\n\n",
+   "definition": "Date on which the original document was issued. Date on which the document is posted/ saved to the system.  \n"
+ },
+ {
+   "term": "Document Header Text\n\n",
+   "definition": "Explanations or notes which apply to the document as a whole.\n"
+ },
+ {
+   "term": "Document Overview\n\n",
+   "definition": "A utility within SAP that maintains folders containing user specific documents.\n"
+ },
+ {
+   "term": "Document type\n\n",
+   "definition": "Classifies the entry document and determines general ledger account impacts.\n"
+ },
+ {
+   "term": "Due Date/Due On\n\n",
+   "definition": "The due date for net payment calculated from the baseline date for payment and the maximum permissible target dates in the terms of payment.\n"
+ },
+ {
+   "term": "Durat\n\n",
+   "definition": "The normal duration required to carry out the operation.\n"
+ },
+ {
+   "term": "EA\n\n",
+   "definition": "Equipment and Assets  \n"
+ },
+ {
+   "term": "ECC\n\n",
+   "definition": "Enterprise Central Component\n"
+ },
+ {
+   "term": "Enter\n\n",
+   "definition": "Funds Distribution option for posting original budget.\n"
+ },
+ {
+   "term": "Environment\n\n",
+   "definition": "A completely self-contained version of the SAP database, designated for a specific purpose. A production environment contains live, real-time data while a non-production environment, sometimes called a “sandbox”, contains data that has been captured for testing purposes and is not available for use.\n"
+ },
+ {
+   "term": "EOR\n\n",
+   "definition": "Element of Resource\n"
+ },
+ {
+   "term": "Equipment\n\n",
+   "definition": "Number by which a piece of equipment can be clearly defined.\n"
+ },
+ {
+   "term": "ERP",
+   "definition": "Enterprise Resource Planning\n"
+ },
+ {
+   "term": "Eun",
+   "definition": "Specifies the unit of measure in which the goods movements or inventory count is entered.  \n"
+ },
+ {
+   "term": "Expenditures\n\n",
+   "definition": "The value reflective of the sum of both invoices and payments.\n"
+ },
+ {
+   "term": "FACTS",
+   "definition": "Federal Agencies Centralized Trail\n"
+ },
+ {
+   "term": "FCA\n\n",
+   "definition": "Functional Cost Amount  \n"
+ },
+ {
+   "term": "FI/Financials\n\n",
+   "definition": "A SAP module in GFEBS where general ledger master data is maintained as well as where accounting functions take place.  \n"
+ },
+ {
+   "term": "Financial Accounting\n\n",
+   "definition": "A SAP module in GFEBS where general ledger master data is maintained as well as where accounting functions take place.  \n"
+ },
+ {
+   "term": "Financial budget item\n\n",
+   "definition": "Assigns a line item to a transaction type in the cash flow statement.\n"
+ },
+ {
+   "term": "Financial Management Area\n\n",
+   "definition": "An organizational unit which plans, controls and monitors funds and commitment budgets. In GFEBS always ARMY.\n"
+ },
+ {
+   "term": "FM\n\n",
+   "definition": "Financial Management  \n"
+ },
+ {
+   "term": "FM Area\n\n",
+   "definition": "An organizational unit which plans, controls and monitors funds and commitment budgets. In GFEBS always ARMY.\n"
+ },
+ {
+   "term": "FMS\n\n",
+   "definition": "Financial Management Services\n"
+ },
+ {
+   "term": "FMS/Foreign Military Sales\n\n",
+   "definition": "Foreign Military Sales. The FMS program is United States Government Program for transferring defense articles, services, and training to other nations and international organizations.  \n"
+ },
+ {
+   "term": "From acct\n\n",
+   "definition": "Lower limit if the G/L account numbers for which the subsequent posting periods are allowed.  \n"
+ },
+ {
+   "term": "From per.\n\n",
+   "definition": "Together with one year produces the beginning of the allowed posting period interval.\n"
+ },
+ {
+   "term": "Func Area/Functional Area\n\n",
+   "definition": "A 16 digit code that classifies the leveled of expense / cost to mission relevant categories. Incorporates AMS elements such as Major Decision Packages (MDEP), Program (PE), Budget Line Item (BLIN), and Functional Cost Code (FCC). Functional Area is an element of the Budget Object.\n"
+ },
+ {
+   "term": "Func. Loc./Functional Location\n\n",
+   "definition": "Represents that place at which a maintenance task is performed.  \n"
+ },
+ {
+   "term": "Functional Area Group\n\n",
+   "definition": "A defined group of specific functional areas. Functional Area groups are primarily used for funds distribution purposes.  \n"
+ },
+ {
+   "term": "Fund\n\n",
+   "definition": "A master record within SAP that represents a set of specific accounting elements for recognition of obligation (budget) authority. A Fund is referenced whenever spending occurs. Within the DoD, funds represent defined and specific authority to incur obligation as granted by Congress.  \n"
+ },
+ {
+   "term": "Fund Group\n\n",
+   "definition": "Within SAP funds can be grouped for purposes of reporting and analysis.  \n"
+ },
+ {
+   "term": "Fund type\n\n",
+   "definition": "Defines the category of the funding.\n"
+ },
+ {
+   "term": "Funded Program\n\n",
+   "definition": "A 24 character Funds Management data element used to restrict spending to specific project or order related efforts.\n"
+ },
+ {
+   "term": "Funds center\n\n",
+   "definition": "An organizational unit within financial Management area to which budget can be assigned.  \n"
+ },
+ {
+   "term": "Funds center group\n\n",
+   "definition": "A Grouping of funds centers. In general, funds center groups are referenced during budget distribution or during reporting and analysis.  \n"
+ },
+ {
+   "term": "Funds Center or value(s)\n\n",
+   "definition": "A selection variant for generating the funds Status Reports by funds Center.\n"
+ },
+ {
+   "term": "Funds Management\n\n",
+   "definition": "A SAP module where funds and funding master data is maintained as well as where funds distribution functions take place.\n"
+ },
+ {
+   "term": "Funds Management Area\n\n",
+   "definition": "An organizational unit which plans, controls and monitors fund and commitment budgets. The FM Area is always ARMY.\n"
+ },
+ {
+   "term": "Funds Management doc\n\n",
+   "definition": "The record of the Funds account posting that resulted from posting a transaction.\n"
+ },
+ {
+   "term": "Future Years Defense Program/FYDP\n\n",
+   "definition": "A Department of Defense documented plan to address future defense posture. This documentation and updates result in the annual budget guidance, Program Objective Memoranda and Budget Estimate Submission.\n"
+ },
+ {
+   "term": "FY/Fiscal Year\n\n",
+   "definition": "Period of time (12 months which starts 1 Oct) for which a company produces financial statements and takes inventory.\n"
+ },
+ {
+   "term": "G/L account / G/L acct / G/L account no.\n\n",
+   "definition": "Structure that records value movements in a company code and represents the G/L account items in a chart of accounts.\n"
+ },
+ {
+   "term": "General Ledger/GL\n\n",
+   "definition": "A Company’s accounting records this formal ledger contains all the financial accounts and statements of a business.\n"
+ },
+ {
+   "term": "General Ledger Account\n\n",
+   "definition": "Structure that records value movements in a company code and represents the G/L account items in a chart of accounts.\n"
+ },
+ {
+   "term": "GFEBS\n\n",
+   "definition": "General Fund Enterprise Business System  \n"
+ },
+ {
+   "term": "Goods Issue\n\n",
+   "definition": "A document posted in GFEBS that verifies that specific quantity of material or services has been issued to an order.\n"
+ },
+ {
+   "term": "Goods Receipt G/R\n\n",
+   "definition": "A document posted in GFEBS that verifies that a specified quantity of material or services against an order.\n"
+ },
+ {
+   "term": "Goods Receipt/Invoice Receipt GR/IR\n\n",
+   "definition": "An account within GFEBS wherein goods receipts are posted and matched to invoices received before authorizing disbursement. After matching, these transactions clear this account and post to the appropriate liability, asset, or expense accounts.\n"
+ },
+ {
+   "term": "Goods Report\n\n",
+   "definition": "A document that tracks the inwards movement or acknowledgement of goods and / or materials.\n"
+ },
+ {
+   "term": "Grant",
+   "definition": "Contains the financial conditions and legal rules that are agreed between the sponsor and the grantee.  \n"
+ },
+ {
+   "term": "Graphical User Interface (GUI)\n\n",
+   "definition": "The SAP User Interface is the software on the computer or local server that allows connection to one or more of the SAP environments.\n"
+ },
+ {
+   "term": "Header Text (in funds management)\n\n",
+   "definition": "An optional free- text field in Funds Management for recording information pertinent to specific budget entry documents.  \n"
+ },
+ {
+   "term": "Incoterms\n\n",
+   "definition": "Commonly used trading terms that comply with the standards established by the International Chamber of Commerce.\n"
+ },
+ {
+   "term": "Intermediate Documents (IDOCs)\n\n",
+   "definition": "Information packets transferred from one system to another used to determine the success or failure of an interface.\n"
+ },
+ {
+   "term": "Internal Order\n\n",
+   "definition": "An object in the controlling module that collects actual and plan data at the level. Similar to Job Order Numbers. Transaction\n"
+ },
+ {
+   "term": "Inv. receipt date\n\n",
+   "definition": "Date on which an invoice is received.\n"
+ },
+ {
+   "term": "Invoice Date\n\n",
+   "definition": "Specifies the invoice date of the original document.\n"
+ },
+ {
+   "term": "Invoice Doc Number\n\n",
+   "definition": "Number which uniquely identifies an invoice.\n"
+ },
+ {
+   "term": "Item Category/ItCa\n\n",
+   "definition": "Classification that distinguishes between different types of items and how the system processes the item.\n"
+ },
+ {
+   "term": "Item in sales order\n\n",
+   "definition": "Number that identifies the line item of the sales order.\n"
+ },
+ {
+   "term": "Legislation\n\n",
+   "definition": "Categorization of the type of law that was enacted to authorize specific funds referenced in a budget entry document.\n"
+ },
+ {
+   "term": "LOA\n\n",
+   "definition": "Line of Accounting  \n"
+ },
+ {
+   "term": "Main Account\n\n",
+   "definition": "A Standard Financial Information structure data element that identifies the appropriation. It equates to the basic symbol. An example is 2020 for OMA funding.\n"
+ },
+ {
+   "term": "Main work center for maintenance tasks\n\n",
+   "definition": "Key which uniquely identifies the responsible work center.\n"
+ },
+ {
+   "term": "Master Data",
+   "definition": "A collection of information about a person, an object such as a cost object, a vendor, or general ledger account. For example record contains not only general information such as the vendors name and address, but also specific information, such as payment terms and delivery instructions.\n"
+ },
+ {
+   "term": "Master Doc\n\n",
+   "definition": "Evidence of one or more material movements, providing information for downstream applications. Can be printed to accompany the physical goods movement\n"
+ },
+ {
+   "term": "Master.Doc. Year\n\n",
+   "definition": "Fiscal year during which one or more material movements occurs.\n"
+ },
+ {
+   "term": "Material\n\n",
+   "definition": "Goods that are the subject of the business activity.  \n"
+ },
+ {
+   "term": "Material description\n\n",
+   "definition": "Text containing up to 40 characters that describes the material in detail.\n"
+ },
+ {
+   "term": "Material doc\n\n",
+   "definition": "Evidence of one or more material movements, providing information for downstream applications. Can be printed to accompany the physical goods movement.\n"
+ },
+ {
+   "term": "Material Document year\n\n",
+   "definition": "Fiscal year doing which one or more material movements occurs.\n"
+ },
+ {
+   "term": "Material group\n\n",
+   "definition": "Codes that classify goods and services according to their characteristics such as commodity or service type. These codes assist in deriving the appropriate general ledger postings.\n"
+ },
+ {
+   "term": "Material pricing group\n\n",
+   "definition": "Way of grouping materials to which you want to apply the same conditions.\n"
+ },
+ {
+   "term": "Materials Management\n\n",
+   "definition": "A SAP module in GFEBS were vendor master data is contained as well where purchasing functions take place.\n"
+ },
+ {
+   "term": "Materials Master\n\n",
+   "definition": "The complete database of all material used within the Army.\n"
+ },
+ {
+   "term": "MILSTRIP\n\n",
+   "definition": "Military Standard Requisitioning and Issues Procedures\n"
+ },
+ {
+   "term": "MIPR\n\n",
+   "definition": "Military Interdepartmental Purchase Request.\n"
+ },
+ {
+   "term": "Mn.wk.ctr\n\n",
+   "definition": "Key which uniquely identifies the responsible work center.\n"
+ },
+ {
+   "term": "MoA\n\n",
+   "definition": "Memorandum of Agreement\n"
+ },
+ {
+   "term": "Movement type\n\n",
+   "definition": "Specifies a key for the type of goods movements. Each goods movement is allocated to a movement type.  \n"
+ },
+ {
+   "term": "Moving Average Price/MAP\n\n",
+   "definition": "An inventory valuation methodology mandated by OSD for all modernized accounting systems. Also referred to as Moving average Cost (MAC), it identifies the average cost per item and then multiplies that average by that average by the quantity on hand.\n"
+ },
+ {
+   "term": "MRP - Material Requirement Planning\n\n",
+   "definition": "A term for procedures in materials planning that takes into account and plans every future requirement during the creation of procurement proposals such as independent or dependent requirement.\n"
+ },
+ {
+   "term": "Next p/ date\n\n",
+   "definition": "Date a payment is to be performed\n"
+ },
+ {
+   "term": "Normal duration of the activity\n\n",
+   "definition": "The normal duration required to carry out the operation.\n"
+ },
+ {
+   "term": "Number",
+   "definition": "Number of capacities required to carry out the operation.  \n"
+ },
+ {
+   "term": "ODS/Operation Data Store\n\n",
+   "definition": "Reporting tool used primarily in legacy for every day analysis.\n"
+ },
+ {
+   "term": "OMB",
+   "definition": "Office of Management and Budget\n"
+ },
+ {
+   "term": "Operation short text\n\n",
+   "definition": "Description of the operation or sub-operation.  \n"
+ },
+ {
+   "term": "Order",
+   "definition": "Description of a single task or measure within a controlling area.\n"
+ },
+ {
+   "term": "Order quantity\n\n",
+   "definition": "Total number of material to be ordered for a particular line item.\n"
+ },
+ {
+   "term": "Order reason\n\n",
+   "definition": "Indicates the reason for creating the sales document.  \n"
+ },
+ {
+   "term": "Order Type\n\n",
+   "definition": "Classification that distinguishes between different types of sales documents that are categorizes by purpose.  \n"
+ },
+ {
+   "term": "Organizational hierarchy\n\n",
+   "definition": "Consists of set coding elements that are used to represent an organization’s operational and reporting structures such as legal entities, regions locations, projects, product lines, and manufacturing plants.\n"
+ },
+ {
+   "term": "Organizational Unique Identifier\n\n",
+   "definition": "A Standard Financial information structure element that is a non- intelligent code required to identify organizations. The OUID is “ARMY.”\n"
+ },
+ {
+   "term": "OSD",
+   "definition": "Office of the Secretary of Defense\n"
+ },
+ {
+   "term": "Partner profit center\n\n",
+   "definition": "Used to identify exchanges of goods and services between profit centers.\n"
+ },
+ {
+   "term": "Payment Method Supplemental\n\n",
+   "definition": "Payment source used for grouping open items for payment.\n"
+ },
+ {
+   "term": "Payment Method\n\n",
+   "definition": "Method by which a payment item is to be paid (primarily used in reimbursables).\n"
+ },
+ {
+   "term": "Payment Proposal\n\n",
+   "definition": "Scheduled payment run after invoices are received and validated.\n"
+ },
+ {
+   "term": "Payment terms\n\n",
+   "definition": "Key for defining payment for goods or services composed of cash discount percentages and payment periods.\n"
+ },
+ {
+   "term": "PEC-Period-End Close\n\n",
+   "definition": "It is used to ensure that all data belonging to a period is determined and the data is available for Army controlling and reporting purposes.\n"
+ },
+ {
+   "term": "Period",
+   "definition": "Self-contained part of a fiscal year.\n"
+ },
+ {
+   "term": "Person Responsible\n\n",
+   "definition": "An optional data element within Funds Management used for recoding used for recording the name of the person or office responsible for specific budget entry documents.\n"
+ },
+ {
+   "term": "PGrp/Purchase Group\n\n",
+   "definition": "Key for a buyer or a group of buyers, who is/ are responsible for certain purchasing activities.\n"
+ },
+ {
+   "term": "PII Personally Identifiable information\n\n",
+   "definition": "Used primarily in cost management for payroll.\n"
+ },
+ {
+   "term": "Ping plant\n\n",
+   "definition": "A plant where maintenance tasks are planned and prepared.  \n"
+ },
+ {
+   "term": "Planning",
+   "definition": "Where maintenance tasks are planned and prepared.\n"
+ },
+ {
+   "term": "Plant Maintenance/PM\n\n",
+   "definition": "A SAP module in GFEBS where plant master data is maintained as well as where work orders are planned and executed.\n"
+ },
+ {
+   "term": "Plant/Plnt\n\n",
+   "definition": "An organizational unit within logistic, serving to subdivide an enterprise according to production procurement, maintenance, storage, and materials planning.\n"
+ },
+ {
+   "term": "PO Date\n\n",
+   "definition": "Date that appears on the customer's purchase order.  \n"
+ },
+ {
+   "term": "PO Item\n\n",
+   "definition": "Reference to be used for the customer’s line item.\n"
+ },
+ {
+   "term": "PO Number\n\n",
+   "definition": "Number that the customer uses to uniquely identify a purchasing document.\n"
+ },
+ {
+   "term": "POrg/Purchasing Organization/Purch Org\n\n",
+   "definition": "An organizational unit that purchases. In GFEBS Release 1.1., the purchasing organization is “ARMY.\"\n"
+ },
+ {
+   "term": "Posting Date\n\n",
+   "definition": "Date on which a business transaction is transferred into one or more accounting ledgers on document entry.\n"
+ },
+ {
+   "term": "PP&E\n\n",
+   "definition": "Property, Plant, and Equipment\n"
+ },
+ {
+   "term": "Price group\n\n",
+   "definition": "Group of customer who share the same pricing requirement.\n"
+ },
+ {
+   "term": "Process\n\n",
+   "definition": "Defines the action being performed on a budget entry document.  \n"
+ },
+ {
+   "term": "Processing type\n\n",
+   "definition": "Settlement method to be used for settling assets.\n"
+ },
+ {
+   "term": "Product hierarchy\n\n",
+   "definition": "An alphanumeric character string for grouping material by combining different characteristics.\n"
+ },
+ {
+   "term": "Profit center\n\n",
+   "definition": "An organizational unit in accounting that reflects management- oriented structure of the organization for the purpose of internal control.\n"
+ },
+ {
+   "term": "Project structure\n\n",
+   "definition": "Used to plan, monitor, control, and carry out a project, providing precise goals and activities necessary for project competition.\n"
+ },
+ {
+   "term": "Project Structure Controller\n\n",
+   "definition": "A GFEBS user role responsible for creating the Asset under Construction (AuC) accounting record.  \n"
+ },
+ {
+   "term": "Project System (PS) Financial Controller\n\n",
+   "definition": "A GFEBS user role responsible for the detailed project planning and determining project feasibility.\n"
+ },
+ {
+   "term": "Project Systems (PS)\n\n",
+   "definition": "A SAP module used for planning managing, and performing projects.\n"
+ },
+ {
+   "term": "Public Law\n\n",
+   "definition": "Number that is cited on the apportionment document that represents the congressional session during which the law was enacted. It is also a Standard Financial  information Structure data element that depicts the Public Law which enacted particular funding authority.  \n"
+ },
+ {
+   "term": "Purchase Document/Purch. Doc\n\n",
+   "definition": "Number that identifies the instrument used by purchasing to procure materials or services."
+ },
+ {
+   "term": "Purchase document item number\n\n",
+   "definition": "Line item number of the purchasing document.\n"
+ },
+ {
+   "term": "Purchase Order/PO\n\n",
+   "definition": "An obligating document used for SPS/Misc Pay/Outbound Reim and Direct Cite. This document represents a legal reservation of funds after either a contract has been signed or a service provider has agreed to provide goods and services.\n"
+ },
+ {
+   "term": "Purchase Order Text/PO Text\n\n",
+   "definition": "Short text description for the material or service purchased with the PO.\n"
+ },
+ {
+   "term": "Purchase requisition/Purch.req.\n\n",
+   "definition": "A document posted in GFEBS when a purchase requisition is saved / posted or held. Once posted, the purchase requisition automatically posts a funds commitment and decrements available authority.\n"
+ },
+ {
+   "term": "Purchase requisition type\n\n",
+   "definition": "Allows a distinction between the different types of purchase requisitions.  \n"
+ },
+ {
+   "term": "Purchase Order Unit/PO Unit\n\n",
+   "definition": "Unit of Measure on the purchase order.\n"
+ },
+ {
+   "term": "Quantity/QTY\n\n",
+   "definition": "Specifies the quantities ordered.\n"
+ },
+ {
+   "term": "RA- Result Analysis\n\n",
+   "definition": "RA is used to evaluate Planned Cost, estimates via transaction code c-J40, and Actual Cost to determine the correct amount to post to the GL for environmental liability and deferred maintenance.\n"
+ },
+ {
+   "term": "Reason for rejection\n\n",
+   "definition": "Explanation as to why an order or line is blocked for delivery.\n"
+ },
+ {
+   "term": "Receiver Budget type\n\n",
+   "definition": "Categorization of the type of budget (apportionment, allotment, allocation, rescission, etc.) being impacted by a distribution of funds.\n"
+ },
+ {
+   "term": "Receiver Commitment Item\n\n",
+   "definition": "The commitment item identified with the funds that are distrusted to a fund center on a budget entry document always use ALLOBJ.\n"
+ },
+ {
+   "term": "Receiver designator\n\n",
+   "definition": "A data element used in the Budgeting workbench to indicate an increase to funds. The receiver designator is represented by a plus sign “+\".\n"
+ },
+ {
+   "term": "Receiver functional Area\n\n",
+   "definition": "The functional area or functional area group identified with the funds that are distributed to a fund center on a budget entry document.  \n"
+ },
+ {
+   "term": "Receiver Fund\n\n",
+   "definition": "The fund which is being distributed to the receiver fund center on budget entry document.\n"
+ },
+ {
+   "term": "Receiver Funded Program\n\n",
+   "definition": "The funded program or funded program identified with the funds that are distributed to a fund center on a budget entry document.\n"
+ },
+ {
+   "term": "Receiver Funds Center\n\n",
+   "definition": "The fund center which is receiving the funds distribution on budget document.\n"
+ },
+ {
+   "term": "Reference",
+   "definition": "Number that may contain the document of the customer / vendor. It is used as a search criterion when displaying or changing documents.  \n"
+ },
+ {
+   "term": "Report List\n\n",
+   "definition": "List of available SAP reports within the Report Painter.\n"
+ },
+ {
+   "term": "Req. delivery date",
+   "definition": "Proposed date in which the customer should receive delivery of the goods or services.\n"
+ },
+ {
+   "term": "Responsible Cost Center\n\n",
+   "definition": "Cost center charged of maintenance tasks.  \n"
+ },
+ {
+   "term": "RM",
+   "definition": "Reimbursables"
+ },
+ {
+   "term": "Routes",
+   "definition": "Path that the shipment travels to be delivered to the customer.\n"
+ },
+ {
+   "term": "RP",
+   "definition": "Real Property\n"
+ },
+ {
+   "term": "RPI\n\n",
+   "definition": "Real Property Inventory Requirements  \n"
+ },
+ {
+   "term": "RPUID- Real Property Unique Identifier\n\n",
+   "definition": "A Standard Financial Information Structure data element that identifies the Real Property entity.\n"
+ },
+ {
+   "term": "Run date\n\n",
+   "definition": "Used to identify the parameters for the date on which the program is to be executed.\n"
+ },
+ {
+   "term": "SAFE",
+   "definition": "Single Army Financial Enterprise  \n"
+ },
+ {
+   "term": "Sales and Distribution/SD\n\n",
+   "definition": "A SAP module in GFEBS where the customer records are stored as well as where sales functions take place.  \n"
+ },
+ {
+   "term": "Sales order\n\n",
+   "definition": "An agreement between a performing and requesting entity which authorizes an allotted amount for goods and/or services.\n"
+ },
+ {
+   "term": "Sales order number\n\n",
+   "definition": "The number of the document that represents a business transaction in sales and distribution.  \n"
+ },
+ {
+   "term": "Sales Organization\n\n",
+   "definition": "An organizational unit that structures the company according to its sales requirements.\n"
+ },
+ {
+   "term": "SAP",
+   "definition": "System Application and Products- the SAP System includes functionality for Accounting, Logistics, Industry Solution, and Human Resources.\n"
+ },
+ {
+   "term": "SC",
+   "definition": "Spending Chain\n"
+ },
+ {
+   "term": "Schedule Line in sales order\n\n",
+   "definition": "Number the uniquely identifies the division of an item in a sales document according to date and quantity.  \n"
+ },
+ {
+   "term": "SDRN\n\n",
+   "definition": "Standard Document Reference Number  \n"
+ },
+ {
+   "term": "Sender Budget Type\n\n",
+   "definition": "Categorization of the type of budget (apportionment, allotment, allocation, rescission, etc.) being impacted by a distribution of funds.  \n"
+ },
+ {
+   "term": "Sender Commitment item\n\n",
+   "definition": "The commitment identified with the funds that are distributed on a budget entry document for funds distribution always ALLOBJ.\n"
+ },
+ {
+   "term": "Sender Designator\n\n",
+   "definition": "A data element used in the Budgeting Workbench to indicate a decrement to funds. The sender designator is represented by a minus sign “-“.\n"
+ },
+ {
+   "term": "Sender Functional Area\n\n",
+   "definition": "The functional area or functional area group identified with the funds that are distributed on a budget entry document.\n"
+ },
+ {
+   "term": "Sender Fund\n\n",
+   "definition": "The fund which is being distributed by the sender on budget entry document.\n"
+ },
+ {
+   "term": "Sender Funded Program\n\n",
+   "definition": "The funded program or funded program group identified with the funds that are distributed on a budget entry document.\n"
+ },
+ {
+   "term": "Sender Funds Center\n\n",
+   "definition": "The Center from which budget is being distributed on a budget document.\n"
+ },
+ {
+   "term": "Settlement",
+   "definition": "The process of allocating actual costs incurred for a project, network, or activity to one or more cost centers during period and processing.\n"
+ },
+ {
+   "term": "Settlement period\n\n",
+   "definition": "Timeframe in which service charge settlements are to be made.\n"
+ },
+ {
+   "term": "SFIS\n\n",
+   "definition": "Standard Financial Information Structure- a comprehensive data structure that supports requirements for budgeting, financial accounting, cost/ performance management, and external reporting across the DoD enterprise. SFIS provides an enterprise-wide standard for categorizing financial information along several dimensions to support financial management and reporting functions.  \n"
+ },
+ {
+   "term": "Ship-to party\n\n",
+   "definition": "Customer who will receive the goods or services.\n"
+ },
+ {
+   "term": "Shipping point/ receiving point\n\n",
+   "definition": "Physical location from where an item is shipped or received from.\n"
+ },
+ {
+   "term": "Short text\n\n",
+   "definition": "Explanations or notes that apply to the line item.\n"
+ },
+ {
+   "term": "SME",
+   "definition": "Subject Matter Expert  \n"
+ },
+ {
+   "term": "Sold-to party\n\n",
+   "definition": "Customer who orders the goods or services. Contractually responsible for sales orders.\n"
+ },
+ {
+   "term": "SOMARDS",
+   "definition": "Standard Operation and Maintenance Army Research and Development System\n"
+ },
+ {
+   "term": "Special Purpose Ledger\n\n",
+   "definition": "Subsidiary ledger to the General Ledger that contains funds center specific detailed information.\n"
+ },
+ {
+   "term": "STANFINS",
+   "definition": "Standard Financial Systems\n"
+ },
+ {
+   "term": "Statistical Key Figures\n\n",
+   "definition": "Represents activities or statistics in a cost center, profit center, or order. Normally used for purposes of allocation or assessment. Examples are “cubic feet in a facility” or “number of gallons in a pool.\"\n"
+ },
+ {
+   "term": "Sub-number\n\n",
+   "definition": "Number used when referencing an existing asset to create a new asset.\n"
+ },
+ {
+   "term": "T-Code/Transaction Code\n\n",
+   "definition": "A Sap specific, unique command that tells the location of a system task. A Transaction code may contain letters only or a combination of letter and numbers. When entered into command line in SAP, the system is prompted to perform specific tasks or specific data screens for entry.\n"
+ },
+ {
+   "term": "TAS/TAFS\n\n",
+   "definition": "Treasury Appropriation Symbol/Treasury Fund Symbol  \n"
+ },
+ {
+   "term": "Tax amount\n\n",
+   "definition": "Amount that is posted and sent to the tax authorities. Can be input tax, output tax or withholding tax.  \n"
+ },
+ {
+   "term": "Tax code\n\n",
+   "definition": "Code that represents the specifications used for calculating and displaying tax.  \n"
+ },
+ {
+   "term": "Tax jurisdiction code\n\n",
+   "definition": "Used for determining the tax rates in the United State. It defines to which tax authorities you must pay your taxes. It’s always the city to which the goods are supplied.\n"
+ },
+ {
+   "term": "TECO",
+   "definition": "Technically Closing\n"
+ },
+ {
+   "term": "Text\n\n",
+   "definition": "Contains explanations or notes that apply to the document as whole or to a specific item.\n"
+ },
+ {
+   "term": "Text Name\n\n",
+   "definition": "An optional field in Funds Management that facilitates pre-positioned text insertion to a budget entry document.\n"
+ },
+ {
+   "term": "To",
+   "definition": "End of a selection range used to produce a list or report.\n"
+ },
+ {
+   "term": "To period\n\n",
+   "definition": "Together with the year, the value is used to end the permitted posting interval.\n"
+ },
+ {
+   "term": "Transactional Data\n\n",
+   "definition": "Data related to a single business event such as a purchase requisition pr request for payment.  \n"
+ },
+ {
+   "term": "Translation date\n\n",
+   "definition": "Date at which an amount is translated into another currency.  \n"
+ },
+ {
+   "term": "UIC Unit Identification Code\n\n",
+   "definition": "Code used in Cost for Payroll justification of faces to spaces.\n"
+ },
+ {
+   "term": "Unit of entry\n\n",
+   "definition": "Specifies the unit of measure in which the goods movement or inventory count is entered.\n"
+ },
+ {
+   "term": "Unit of Measure/UM/Un\n\n",
+   "definition": "Specifies the unit of measure in which the goods or service is to be ordered.\n"
+ },
+ {
+   "term": "User Profile\n\n",
+   "definition": "The collection of authorizations a user or set of users has been granted in order to perform transactions related to their jobs.\n"
+ },
+ {
+   "term": "Valid from\n\n",
+   "definition": "Date validity period starts.  \n"
+ },
+ {
+   "term": "Valid to\n\n",
+   "definition": "Date validity period ends.\n"
+ },
+ {
+   "term": "Valuation price\n\n",
+   "definition": "Price of the material per price unit.\n"
+ },
+ {
+   "term": "Value date\n\n",
+   "definition": "Calendar date from which a business transaction is reflected in the interest statement.\n"
+ },
+ {
+   "term": "Vendor/Vendors (from/to)-\n\n",
+   "definition": "Business partner to who amounts are payable for goods delivered or services preformed.\n"
+ },
+ {
+   "term": "Version",
+   "definition": "Enables you to manger several sets of data in parallel for the same budget object.\n"
+ },
+ {
+   "term": "WBS element\n\n",
+   "definition": "(1). Structural element in a work breakdown structure representing the hierarchical organization of a project. (2). A specific work element or function used to organize and define the total work scope of the project.\n"
+ },
+ {
+   "term": "Work",
+   "definition": "Amount of work involved in performing the activity.  \n"
+ },
+ {
+   "term": "Work Breakdown Structure\n\n",
+   "definition": "The WBS forms the basis for all subsequent planning tasks in the project. The emphasis is placed on the planning, analysis, description, control, and monitoring of cost, basic data, and the budget.\n"
+ },
+ {
+   "term": "Work Order\n\n",
+   "definition": "An order that specifies a task to perform in GFEBS.\n"
+ },
+ {
+   "term": "Workflow",
+   "definition": "A SAP module in GFEBS where work review and authorizations master data is maintained. Workflow is also within SAP that uses email and attachments to route a sequence of tasks to a worker team for authorizations and or reviews/ approvals.\n"
+ }
+]

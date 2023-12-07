@@ -48,6 +48,7 @@ const activeSection = ref(0)
       display: flex;
       width: 100%;
       flex-direction: column;
+      padding: $p1;
       gap: $p1;
     }
     .button-group {
@@ -82,11 +83,20 @@ const activeSection = ref(0)
       }
     }
     }
+
+    &::after {
+      content: url("./essentials-introduction-slide06.svg");
+      position: absolute;
+      top: -2rem;
+      right: -2rem;
+      width: 8rem;
+      object-fit: contain;
+    }
     
   }
 
   &.table {
-    width: 35rem;
+    width: 40rem;
     display: flex;
     flex-direction: column;
     gap: .75rem;

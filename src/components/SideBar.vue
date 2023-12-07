@@ -83,20 +83,15 @@ defineProps(['title'])
   position: absolute;
   height: 100%;
   bottom: 0;
-  left: -24rem;
-  width: 24rem;
+  left: calc(clamp(18rem, 3.2308rem + 23.0769vw, 24rem)*-1);
+  width:  clamp(18rem, 3.2308rem + 23.0769vw, 24rem);
   z-index: 99;
   background-color: $delft-blue;
   flex-direction: column;
   transition: ease-in-out 0.7s;
-  --font-size-heading: #{$m0};
-  --font-size-body: #{$m-1};
-  @media only screen and (max-width: 1100px) {
-    --font-size-heading: #{$m-1};
-    --font-size-body: #{$m-2};
-    left: -18rem;
-    width: 18rem;
-  }
+  --font-size-heading: clamp($m-1, 0.3846rem + 0.9615vw, $m0);
+  --font-size-body: clamp(0.88rem, 0.5846rem + 0.4615vw, 1rem);
+
   &.active {
     left: 0;
     transition: ease-in-out 0.7s;
