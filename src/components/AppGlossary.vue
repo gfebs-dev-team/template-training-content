@@ -3,41 +3,11 @@ import { ref, TransitionGroup, Transition } from 'vue'
 import { useSlidesStore } from '../stores/slides'
 import { storeToRefs } from 'pinia'
 
-defineProps({
-  glossary: Array
-})
+defineProps(['glossary'])
 
 const slides = useSlidesStore()
 const { glossaryState } = storeToRefs(slides)
 
-const alphabet = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z'
-]
 const activeIndex = ref(0)
 const activeFilter = ref('all')
 const search = ref('')
@@ -57,6 +27,15 @@ function getFilter(term) {
         return term.toLocaleLowerCase().startsWith(activeFilter.value.toLocaleLowerCase())
     }
   }
+}
+
+function limitedAlphabet(glossary) {
+  let alphabet = new Set()
+  glossary.forEach((item) => {
+    alphabet.add(item.term.toLocaleLowerCase().charAt(0))
+  })
+  console.log(alphabet)
+  return [...alphabet]
 }
 </script>
 
@@ -95,10 +74,11 @@ function getFilter(term) {
             >
               0-9
             </button>
+
             <button
               :class="{ active: activeFilter == letter && search == '' }"
               @click="activeFilter = letter"
-              v-for="(letter, index) in alphabet"
+              v-for="(letter, index) in limitedAlphabet(glossary)"
               :key="index"
             >
               {{ letter }}
@@ -109,29 +89,28 @@ function getFilter(term) {
           <input id="glossary-search" type="search" v-model="search" placeholder="Search" />
         </div>
       </div>
-      
-        <div class="terms-area">
-          <template v-for="(item, index) in glossary" :key="item.term">
-            <TransitionGroup name="terms">
-              <li
-                :class="{ active: activeIndex == index }"
-                @click="activeIndex = index"
-                v-if="getFilter(item.term)"
-              >
-                {{ item.term }}
-              </li>
-            </TransitionGroup>
-          </template>
-        </div>
-        <div class="definition-area">
-            <Transition>
-              <h3 :key="activeIndex">{{ glossary[activeIndex].term }}</h3></Transition
+
+      <div class="terms-area">
+        <template v-for="(item, index) in glossary" :key="item.term">
+          <TransitionGroup name="terms">
+            <li
+              :class="{ active: activeIndex == index }"
+              @click="activeIndex = index"
+              v-if="getFilter(item.term)"
             >
-            <Transition>
-              <p :key="activeIndex">{{ glossary[activeIndex].definition }}</p>
-            </Transition>
-        </div>
-      
+              {{ item.term }}
+            </li>
+          </TransitionGroup>
+        </template>
+      </div>
+      <div class="definition-area">
+        <Transition>
+          <h3 :key="activeIndex">{{ glossary[activeIndex].term }}</h3></Transition
+        >
+        <Transition>
+          <p :key="activeIndex">{{ glossary[activeIndex].definition }}</p>
+        </Transition>
+      </div>
     </div>
   </div>
 </template>
@@ -149,10 +128,10 @@ function getFilter(term) {
   height: 100vh;
   align-items: center;
   justify-content: center;
-  padding: $p5;
+  padding: clamp($p5, clampBuilder(1024, 1440, $p5, $p5*2), $p5*2);
   .glossary {
     display: grid;
-    grid-template-areas: "a a" "b b" "c d";
+    grid-template-areas: 'a a' 'b b' 'c d';
     grid-template-columns: 15rem auto;
     grid-template-rows: 2rem 2rem auto;
     background-color: $delft-blue;
@@ -161,19 +140,14 @@ function getFilter(term) {
     gap: $p0 0;
     width: 100%;
     height: 100%;
-    max-width: 70rem;
-    max-height: 40rem;
 
-    @media only screen and (max-width: 1024px) {
-      max-width: 54rem;
-    }
     .heading {
       display: flex;
       grid-area: a;
       justify-content: space-between;
       h2 {
         color: $lavender;
-        font-size: clamp($m0, clampBuilder(1024, 1440, $m0, $m2, 1), $m2);
+        font-size: clamp($m0, clampBuilder(1024, 1440, $m0, $m2), $m2);
         font-weight: 700;
         line-height: 130%;
         letter-spacing: 0.175rem;
@@ -183,6 +157,7 @@ function getFilter(term) {
 
     .filter-search {
       display: flex;
+      justify-content: space-between;
       grid-area: b;
       align-items: center;
       height: 2rem;
@@ -191,6 +166,7 @@ function getFilter(term) {
         display: flex;
         gap: $p0;
         align-items: center;
+
         .v-divider {
           display: block;
           height: 1.5rem;
@@ -201,10 +177,11 @@ function getFilter(term) {
         button {
           background: none;
           border-radius: $p-2;
-          padding: math.div($p-2,2);
+          padding: math.div($p-2, 2);
           color: $cool-grey;
           border: none;
           font-weight: 700;
+          text-transform: uppercase;
           font-size: $m-2;
           transition: transform ease-in-out 0.8s;
           transition: margin ease-in-out 0.5s;
@@ -228,101 +205,97 @@ function getFilter(term) {
         }
       }
       .search #glossary-search {
-          border-radius: 1rem;
-          width: 100%;
-          height: 1rem;
-          border: none;
-          background-color: $space-cadet;
-          color: $cool-grey;
-          padding: $p1;
-        }
-      
+        border-radius: 1rem;
+        width: 100%;
+        height: 1rem;
+        border: none;
+        background-color: $space-cadet;
+        color: $cool-grey;
+        padding: $p1;
+      }
     }
 
+    .terms-area {
+      grid-area: c;
+      width: 100%;
+      height: 100%;
+      padding: 1.25rem;
+      overflow-y: auto;
+      gap: $p-1;
+      background-color: $oxford-blue;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
 
-      .terms-area {
-        grid-area: c;
-        width: 100%;
-        height: 100%;
-        padding: 1.25rem;
-        overflow-y: auto;
-        gap: $p-1;
-        background-color: $oxford-blue;
-        display: flex;
-        flex-direction: column;
-        flex-grow:1;
+      li {
+        position: relative;
+        list-style-type: none;
+        font-size: $m-2;
+        color: $lavender;
+        font-weight: 700;
+        text-transform: capitalize;
+        cursor: pointer;
 
-        li {
-          position: relative;
-          list-style-type: none;
-          font-size: $m-2;
-          color: $lavender;
-          font-weight: 700;
-          text-transform: capitalize;
-          cursor: pointer;
-
-          &:hover{
-            text-decoration: underline;
-          }
-
-          &.active {
-            color: var(--color-accent);
-          }
+        &:hover {
+          text-decoration: underline;
         }
 
-        .terms-move,
-        .terms-enter-active,
-        .terms-leave-active {
-          transition: all 0.5s ease;
+        &.active {
+          color: var(--color-accent);
         }
-        .terms-enter-from,
-        .terms-leave-to {
-          opacity: 0;
-          transform: translateX(30px);
-        }
-        .terms-leave-active {
-          position: absolute;
-        }
-
       }
 
-      .definition-area {
-        display: flex;
-        grid-area: d;
-        flex-direction: column;
-        gap: $p0;
-        padding: 2rem;
-        background-color: $space-cadet;
-        width:100%;
+      .terms-move,
+      .terms-enter-active,
+      .terms-leave-active {
+        transition: all 0.5s ease;
+      }
+      .terms-enter-from,
+      .terms-leave-to {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      .terms-leave-active {
+        position: absolute;
+      }
+    }
 
-        h3 {
-          font-size: $m0;
-          font-weight: 700;
-          color: var(--color-accent);
-          text-transform: capitalize;
-        }
+    .definition-area {
+      display: flex;
+      grid-area: d;
+      flex-direction: column;
+      gap: $p0;
+      padding: 2rem;
+      background-color: $space-cadet;
+      width: 100%;
 
-        p {
-          width: 100%;
-          word-wrap: break-word;
-        }
+      h3 {
+        font-size: $m0;
+        font-weight: 700;
+        color: var(--color-accent);
+        text-transform: capitalize;
+      }
 
-        .v-enter-active,
-        .v-leave-active {
-          transition: opacity 0.5s ease;
-        }
+      p {
+        width: 100%;
+        word-wrap: break-word;
+      }
 
-        .v-enter-from,
-        .v-leave-to {
-          opacity: 0;
-        }
+      .v-enter-active,
+      .v-leave-active {
+        transition: opacity 0.5s ease;
+      }
 
-        .v-leave-active {
-          position: absolute;
-          z-index: -1;
-        }
+      .v-enter-from,
+      .v-leave-to {
+        opacity: 0;
+      }
+
+      .v-leave-active {
+        position: absolute;
+        z-index: -1;
       }
     }
   }
-
+}
 </style>

@@ -2,12 +2,13 @@
 import SlideContent from '../components/SlideContent.vue'
 import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue'
+import slide01 from '../assets/img/essentials-introduction-slide01-multiple.svg'
 
 const slideData = {
   title: 'GFEBS Overview Lesson',
   type: 'content',
   section: "Section 1: What to Expect",
-  img: './essentials-introduction-slide01-multiple.svg',
+  img: slide01,
 }
 
 const slides = useSlidesStore()

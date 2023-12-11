@@ -106,8 +106,8 @@ nav {
     width: fit-content;
 
     #heading-shield {
-      width: 6rem;
-      height: 6rem;
+      width: clamp(6rem, clampBuilder(1024, 1440, 6rem, 7rem), 7rem);
+      height: clamp(6rem, clampBuilder(1024, 1440, 6rem, 7rem), 7rem);
     }
 
     .heading-text {
@@ -119,12 +119,12 @@ nav {
       #heading-title {
         display: grid;
         line-height: 150%;
-        font-size: clamp($m0, clampBuilder(1024, 1440, $m0, $m2, 1), $m2);
+        font-size: clamp($m0, clampBuilder(1024, 1440, $m0, $m2), $m2);
         gap: 0 $p0;
       
       }
       #heading-subtitle {
-        font-size: $m-1;
+        font-size: clamp($m-1, clampBuilder(1024, 1440, $m-1, $m0), $m0);
         color: var(--color-accent);
       }
     }

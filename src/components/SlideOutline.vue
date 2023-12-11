@@ -1,6 +1,7 @@
 <script setup>
 import SlideBase from './SlideBase.vue'
 import { ref } from 'vue'
+import slide06 from '../assets/img/essentials-introduction-slide06.svg'
 const props = defineProps(['title', 'sections'])
 const activeSection = ref(0)
 </script>
@@ -29,6 +30,7 @@ const activeSection = ref(0)
         <button class='back' @click="activeSection -= 1" v-if="activeSection > 0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z"></path></svg></button>
         <button class='next' @click="activeSection += 1" v-if="activeSection < props.sections + 1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path></svg></button>
       </div>
+      <img class="target" :src="slide06"/>
     </div>
   </SlideBase>
 </template>
@@ -84,8 +86,7 @@ const activeSection = ref(0)
     }
     }
 
-    &::after {
-      content: url("./essentials-introduction-slide06.svg");
+    .target {
       position: absolute;
       top: -2rem;
       right: -2rem;

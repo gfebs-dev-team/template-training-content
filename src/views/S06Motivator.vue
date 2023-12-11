@@ -2,11 +2,12 @@
 import SlideContent from '../components/SlideContent.vue'
 import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue'
+import slide04 from '../assets/img/essentials-introduction-slide04.svg'
 
 const slideData = {
   title: 'Motivator',
   type: 'content',
-  img: './essentials-introduction-slide04.svg'
+  img: slide04
 }
 
 const slides = useSlidesStore()

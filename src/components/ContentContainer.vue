@@ -29,6 +29,6 @@ main {
   margin:auto;
   align-items: center;
   padding:clamp($p4,-5.3846rem + 11.5385vw, $p5);
-  gap: clamp($p3, clampBuilder(1024, 1440, $p3, $p4, 1), $p4);
+  gap: clamp($p3, clampBuilder(1024, 1440, $p3, $p4), $p4);
 }
 </style>
