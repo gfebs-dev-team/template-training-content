@@ -1,6 +1,6 @@
 <script setup>
 import SlideBase from './SlideBase.vue'
-import { onMounted, ref, computed, useAttrs} from 'vue'
+import { onMounted, ref, computed} from 'vue'
 const hasImg = ref(false)
 
 const props = defineProps(['title', 'img', 'columns'])

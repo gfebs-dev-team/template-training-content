@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps(['title', 'columns', 'img'])
-import { onMounted, ref, useAttrs, useSlots } from 'vue'
+import { onMounted, ref, useSlots } from 'vue'
 const hasMain = ref(false)
 const hasImg = ref(false)
 
