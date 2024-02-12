@@ -43,7 +43,7 @@ watch(current, () => {
   width: 100%;
   background-color: var(--color-accent-light);
   display: flex;
-  padding: $p2 $p3;
+  padding: $p1 $p3;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
@@ -61,7 +61,7 @@ watch(current, () => {
       }
       .bar {
         height: 2px;
-        width: 20px;
+        width: 16px;
         background-color: var(--color-text-dark);
         transition: 0.5s;
       }

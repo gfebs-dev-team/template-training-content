@@ -106,25 +106,25 @@ nav {
     width: fit-content;
 
     #heading-shield {
-      width: clamp(6rem, clampBuilder(1024, 1440, 6rem, 7rem), 7rem);
-      height: clamp(6rem, clampBuilder(1024, 1440, 6rem, 7rem), 7rem);
+      width: clamp(5rem, clampBuilder(1024, 1440, 6rem, 7rem), 6rem);
+      height: clamp(5rem, clampBuilder(1024, 1440, 6rem, 7rem), 6rem);
     }
 
     .heading-text {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: $p0;
+      gap: $p-2;
 
       #heading-title {
         display: grid;
         line-height: 150%;
-        font-size: clamp($m0, clampBuilder(1024, 1440, $m0, $m2), $m2);
+        font-size: $m1;
         gap: 0 $p0;
       
       }
       #heading-subtitle {
-        font-size: clamp($m-1, clampBuilder(1024, 1440, $m-1, $m0), $m0);
+        font-size: $m0;
         color: var(--color-accent);
       }
     }

@@ -31,13 +31,34 @@ $p-2: 0.25rem;
 
 @use 'sass:math';
 
+@media only screen and (max-width < 1000px) {
+  $m5: 2.62rem;
+  $m4: 2.12rem;
+  $m3: 1.75rem;
+  $m2: 1.5rem;
+  $m1: 1.25rem;
+  $m0: 1rem;
+  $m-1: 0.88rem;
+  $m-2: 0.7rem;
+  $m-3: 0.5rem;
+
+  $p5: 3rem;
+  $p4: 2rem;
+  $p3: 1.5rem;
+  $p2: 1rem;
+  $p1: 0.75rem;
+  $p0: 0.5rem;
+  $p-1: 0.25rem;
+  $p-2: 0.125rem;
+}
+
 @function clampBuilder($minV, $maxV, $minS, $maxS) {
-  $slope: math.div(
-    math.div($maxS, 1rem) - math.div($minS, 1rem),
-    math.div($maxV, 16) - math.div($minV, 16)
+  $slope: math.div(math.div($maxS, 1rem) - math.div($minS, 1rem),
+      math.div($maxV, 16) - math.div($minV, 16));
+
+  $yIntercept: (
+    math.div(-$minV, 16) * $slope) + math.div($minS, 1rem
   );
 
-  $yIntercept: (math.div(-$minV, 16) * $slope) + math.div($minS, 1rem);
-
-  @return calc(#{$yIntercept}rem + #{($slope * 100)}vw);
+@return calc(#{$yIntercept}rem + #{($slope * 100)}vw);
 }

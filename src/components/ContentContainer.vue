@@ -28,7 +28,7 @@ main {
   max-height: 100%;
   margin:auto;
   align-items: center;
-  padding:clamp($p4,-5.3846rem + 11.5385vw, $p5);
-  gap: clamp($p3, clampBuilder(1024, 1440, $p3, $p4), $p4);
+  padding: $p3;
+  gap: $p2;
 }
 </style>

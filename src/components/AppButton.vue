@@ -12,7 +12,7 @@ defineProps(['size', 'color', 'variant'])
 button {
   display: flex;
   flex: 1 0 0;
-  gap: $p1;
+  gap: $p0;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.02rem;
@@ -34,7 +34,7 @@ button {
 }
 
 .small {
-  padding: $p0 $p2;
+  padding: $p-1 $p2;
   font-size: $m-2;
   border-width: .1em!important;
 }

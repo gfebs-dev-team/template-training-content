@@ -41,7 +41,7 @@ onMounted(() => {
   align-items: stretch;
   height: 100%;
   width: 100%;
-  padding: clamp($p3,-5.3846rem + 11.5385vw ,$p5);
+  padding: $p3;
   gap: $p3;
 
   &.active {
@@ -66,7 +66,7 @@ onMounted(() => {
     width: 80%;
   }
   h2 {
-    font-size: clamp($m1, 0.8846rem + 0.9615vw, $m2);
+    font-size: $m1;
     font-weight: bold;
     text-transform: capitalize;
     color: var(--color-accent);
