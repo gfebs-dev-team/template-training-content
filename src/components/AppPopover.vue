@@ -4,7 +4,7 @@ import { ref, watch } from 'vue'
 
 const popover = ref(false)
 
-watch((popover), () => {
+watch(popover, () => {
   console.log(popover.value)
 })
 defineProps(['buttonStyle'])

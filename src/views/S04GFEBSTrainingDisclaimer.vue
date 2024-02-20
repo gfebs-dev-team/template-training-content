@@ -1,5 +1,4 @@
 <script setup>
-import SlideContent from '../components/SlideContent.vue'
 import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue'
 import slide03 from '../assets/img/essentials-introduction-slide03.svg'

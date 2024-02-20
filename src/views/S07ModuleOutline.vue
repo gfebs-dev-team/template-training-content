@@ -159,10 +159,10 @@ onBeforeMount(() => {
 font-weight: bold;
 }
 .tb-section li {
-  font-size: smaller;
+  font-size: $m-2*.75;
   list-style-type: none;
 }
 h3 {
-  font-size: $m2;
+  font-size: $m1;
 }
 </style>

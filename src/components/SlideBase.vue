@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps(['title', 'columns', 'img'])
-import { onMounted, ref, useSlots } from 'vue'
+import { onMounted, ref, useSlots} from 'vue'
 const hasMain = ref(false)
 const hasImg = ref(false)
 
@@ -10,6 +10,7 @@ onMounted(() => {
   hasImg.value = props.img ? true : false
   //console.log(hasImg.value);
 })
+
 </script>
 <template>
   <div class="slide">
@@ -41,7 +42,7 @@ onMounted(() => {
   align-items: stretch;
   height: 100%;
   width: 100%;
-  padding: $p3;
+  padding: $p4;
   gap: $p3;
 
   &.active {

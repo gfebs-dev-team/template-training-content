@@ -1,9 +1,7 @@
 <script setup>
-import SlideContent from '../components/SlideContent.vue';
 import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue'
-import slide07 from '../assets/img/essentials-introduction-slide07.svg'
-import GFEBSBase from '../components/GFEBSBase.vue';
+import slide07 from '../assets/img/essentials-introduction-slide07.svg';
 
 const slideData = {
   title: 'Demonstrations and Simulation',
@@ -18,9 +16,6 @@ onBeforeMount(() => {
   addSlide(slideData, 10)
 })
 
-function openSIM() {
-  
-}
 </script>
 
 <template>

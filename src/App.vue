@@ -1,6 +1,6 @@
 <script setup>
 import ContentContainer from './components/ContentContainer.vue'
-import { onMounted } from 'vue';
+import { onMounted} from 'vue';
 
 const courseData = {
   "courseCode": "",
@@ -8,14 +8,7 @@ const courseData = {
   "topic": "Introduction"
 }
 
-watch(current, () => {
-  const searchURL = new URL(window.location)
-  //searchURL.searchParams.set('page', slides.current + 1)
-
-  //window.history.pushState({}, '', searchURL)
-})
-
-onMounted(() => {
+/**onMounted(() => {
   let pageFilter;
 
   let queryString = window.location.search
@@ -25,7 +18,7 @@ onMounted(() => {
     pageFilter = urlParams.get('simulation')
     //current.value = pageFilter-1;
   }
-})
+})**/
 </script>
 
 <template>

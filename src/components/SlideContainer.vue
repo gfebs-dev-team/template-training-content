@@ -1,7 +1,8 @@
 <script setup>
 import SlideHeader from './SlideHeader.vue'
+import SlideSection from './SlideSection.vue'
 import SideBar from './SideBar.vue'
-import { Transition, watch, onMounted, isReactive } from 'vue'
+import { Transition,onMounted} from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSlidesStore } from '@/stores/slides'
 import views from '../views'
@@ -11,14 +12,7 @@ let slidesComp = Object.keys(views).map((key) => {
 })
 
 const slides = useSlidesStore()
-const { current } = storeToRefs(slides)
-
-watch(current, () => {
-  const searchURL = new URL(window.location)
-  searchURL.searchParams.set('page', slides.current + 1)
-
-  window.history.pushState({}, '', searchURL)
-})
+const { current, slidesList } = storeToRefs(slides)
 
 onMounted(() => {
   let pageFilter;
@@ -40,6 +34,7 @@ defineProps(['topic', 'title'])
     <SlideHeader>{{ topic }}</SlideHeader>
     <div class="slide-area">
       <SideBar :title="title" />
+      
       <template v-for="(slide, index) in slidesComp" :key="index">
         <Transition>
           <component

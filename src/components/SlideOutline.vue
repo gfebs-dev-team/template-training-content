@@ -37,7 +37,7 @@ const activeSection = ref(0)
 
 <style scoped lang="scss">
 .slide-outline {
-  padding: $p4;
+  padding: $p3;
 }
 .outline {
   background-color: $space-cadet;

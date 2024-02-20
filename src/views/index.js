@@ -10,6 +10,7 @@ import S08GFEBSOverviewLesson from './S08GFEBSOverviewLesson.vue';
 import S09GFEBSIntegratedProcessOverview from './S09GFEBSIntegratedProcessOverview.vue';
 import S10GFEBSNavigationandGFEBSReports from './S10GFEBSNavigationandGFEBSReports.vue';
 import S11DemonstrationsandSimulations from './S11DemonstrationsandSimulations.vue';
+import S12LearningAssessment from './S12LearningAssessment.vue';
 //@endindex
 export default {
   //@index('./*.vue', f=> `${f.name},`)
@@ -24,6 +25,7 @@ export default {
   S09GFEBSIntegratedProcessOverview,
   S10GFEBSNavigationandGFEBSReports,
   S11DemonstrationsandSimulations,
+  S12LearningAssessment,
   //@endindex
 }
 

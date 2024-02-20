@@ -28,7 +28,7 @@ main {
   max-height: 100%;
   margin:auto;
   align-items: center;
-  padding: $p3;
+  padding: $p4;
   gap: $p2;
 }
 </style>
