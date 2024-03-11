@@ -1,5 +1,5 @@
 
-# [GFEBS] Training Content
+# GFEBS Training Content
 ![Static Badge](https://img.shields.io/badge/template-%23fcc603?style=for-the-badge&labelColor=%23fcc603) ![Static Badge](https://img.shields.io/badge/gfebs-%23737373?style=for-the-badge&labelColor=%23fcc603)
 
 Internal template for creating GFEBs DL training content packages.
