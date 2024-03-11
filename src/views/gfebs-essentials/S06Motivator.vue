@@ -38,3 +38,4 @@ onBeforeMount(() => {
 </template>
 
 <style scoped lang="scss"></style>
+../../stores/slides

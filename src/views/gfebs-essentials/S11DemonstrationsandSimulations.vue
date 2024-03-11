@@ -48,3 +48,4 @@ onBeforeMount(() => {
     height: 70%;
   }
 }</style>
+../../stores/slides

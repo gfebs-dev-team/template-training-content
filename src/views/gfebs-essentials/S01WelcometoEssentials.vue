@@ -32,3 +32,4 @@ onBeforeMount(() => {
 <style scoped lang="scss">
 
 </style>
+../../stores/slides

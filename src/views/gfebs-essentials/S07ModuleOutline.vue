@@ -166,3 +166,4 @@ h3 {
   font-size: $m1;
 }
 </style>
+../../stores/slides
