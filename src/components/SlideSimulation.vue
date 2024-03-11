@@ -1,5 +1,6 @@
 <script setup>
 import SlideBase from './SlideBase.vue'
+import GFEBSBase from './GFEBSBase.vue'
 import { useSlidesStore } from '@/stores/slides'
 import { onUpdated, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
@@ -38,19 +39,10 @@ watch(answer, () => {
 </script>
 
 <template>
-  <SlideBase :title="title" :columns="1" class="question">
+  <SlideBase :title="title" :columns="0" class="question">
     <template #main>
-      <div class="content-box">
         <h3><slot name="question"></slot></h3>
-
-        <div class="options">
-          <slot name="options"></slot>
-        </div>
-      </div>
-    </template>
-
-    <template #column_2>
-      <img class="question_marker" :src="image" />
+        <GFEBSBase>hello</GFEBSBase>
     </template>
   </SlideBase>
 </template>

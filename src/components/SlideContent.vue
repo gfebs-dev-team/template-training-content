@@ -1,37 +1,39 @@
 <script setup>
-import SlideHeader from './SlideHeader.vue'
-defineProps(['topic', 'title', 'type'])
+import SlideBase from './SlideBase.vue'
+import { onMounted, ref, computed} from 'vue'
+const hasImg = ref(false)
+
+const props = defineProps(['title', 'img', 'columns'])
+
+onMounted(() => {
+  hasImg.value = props.img ? true : false
+})
+
+const lastColumn = computed(() => {
+  if(props.columns){
+    //console.log('column_' + (props.columns + 1));
+    return 'column_' + (props.columns + 1);
+  }
+  return 'column'
+})
+let column = (index) => {
+  return 'column_' + (index+1);
+}
 </script>
 
 <template>
-  <div>
-    <SlideHeader>{{ topic }}</SlideHeader>
-    <div class="slide">
-      <h2 class="slide-header">{{ title }}</h2>
-      <div class="content">
-        <slot></slot>
-      </div>
-    </div>
-  </div>
+  <SlideBase class="content" v-bind="props">
+    <template #main>
+      <slot></slot>
+    </template>
+    <template #[column(index)] v-for="index in columns" :key=index>
+      <slot :name="'column_' + (index + 1)" />
+    </template>
+    <template #[lastColumn] v-if="hasImg">
+      <img :src="img" :alt="img" />
+    </template>
+  </SlideBase>
 </template>
 
 <style scoped lang="scss">
-.slide {
-  display: flex;
-  flex-direction: column;
-  padding: 2em;
-  gap: 1em;
-
-  h2 {
-    font-weight: bold;
-    font-size: 2em;
-    color: red;
-  }
-  .content {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    font-size: 1.2em;
-  }
-}
 </style>

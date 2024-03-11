@@ -1,34 +1,21 @@
 <script setup>
-import { storeToRefs } from 'pinia'
-import { useSlidesStore } from '@/stores/slides'
-import ContentHeader from '../components/ContentHeader.vue'
-import ContentNavigation from './ContentNavigation.vue'
-import SideBar from '../components/SideBar.vue'
-import views from '../views'
+import ContentHeader from '../components/ContentHeader.vue';
+import AppGlossary from './AppGlossary.vue';
+import SlideContainer from './SlideContainer.vue';
+import glossary from '../assets/glossary.json';
+import { useSlidesStore } from '@/stores/slides';
+import { storeToRefs } from 'pinia';
 
-let slidesComp = Object.keys(views).map((key) => {
-  return views[key]
-})
-
+defineProps(['topic', 'courseCode', 'courseTitle', 'title'])
 const slides = useSlidesStore()
-const { current } = storeToRefs(slides)
-
-defineProps(['topic', 'courseCode', 'courseTitle'])
+const { glossaryState, slidesComp } = storeToRefs(slides);
 </script>
 
 <template>
   <main>
+    <AppGlossary :glossary="glossary" v-if="glossaryState"></AppGlossary>
     <ContentHeader>GFEBS {{ courseCode }} {{ courseTitle }}</ContentHeader>
-    <div class="layout">
-      <ContentNavigation>
-        <div class="content-box">
-          <SideBar v-bind="{'topic': topic}"></SideBar>
-          <div v-for="(slide, index) in slidesComp" :key=index>
-            <component :is="slide" :topic="topic" v-show="(index==current)"></component>
-          </div>
-        </div>
-      </ContentNavigation>
-    </div>
+    <SlideContainer :topic="topic" :title="title" />
   </main>
 </template>
 
@@ -36,22 +23,12 @@ defineProps(['topic', 'courseCode', 'courseTitle'])
 main {
   display: flex;
   flex-direction: column;
+  aspect-ratio: 4/3;
   height: 100%;
-}
-.layout {
-  position: relative;
-  display: grid;
-  grid-gap: 1em;
-  height: 100%;
+  max-height: 100%;
+  margin:auto;
   align-items: center;
-  grid-template-columns: 2em 1fr 2em;
-  grid-template-areas: 'a b c';
-  padding: 0em 1em 3em 1em;
-  .content-box {
-    grid-area: b;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-  }
+  padding: $p4;
+  gap: $p2;
 }
 </style>
