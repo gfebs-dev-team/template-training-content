@@ -2,7 +2,7 @@
 import SlideHeader from './SlideHeader.vue'
 import SlideSection from './SlideSection.vue'
 import SideBar from './SideBar.vue'
-import { Transition,onMounted} from 'vue'
+import { Transition,onMounted, watch} from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSlidesStore } from '@/stores/slides'
 import views from '../views'
@@ -13,6 +13,9 @@ let slidesComp = Object.keys(views).map((key) => {
 
 const slides = useSlidesStore()
 const { current, slidesList } = storeToRefs(slides)
+
+//watch(current, ()=>{
+//})
 
 onMounted(() => {
   let pageFilter;

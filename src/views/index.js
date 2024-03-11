@@ -11,6 +11,7 @@ import S09GFEBSIntegratedProcessOverview from './S09GFEBSIntegratedProcessOvervi
 import S10GFEBSNavigationandGFEBSReports from './S10GFEBSNavigationandGFEBSReports.vue';
 import S11DemonstrationsandSimulations from './S11DemonstrationsandSimulations.vue';
 import S12LearningAssessment from './S12LearningAssessment.vue';
+import S13History01 from './S13History01.vue';
 //@endindex
 export default {
   //@index('./*.vue', f=> `${f.name},`)
@@ -26,6 +27,7 @@ export default {
   S10GFEBSNavigationandGFEBSReports,
   S11DemonstrationsandSimulations,
   S12LearningAssessment,
+  S13History01,
   //@endindex
 }
 
