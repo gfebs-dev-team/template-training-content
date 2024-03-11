@@ -8,7 +8,7 @@ import { storeToRefs } from 'pinia';
 
 defineProps(['topic', 'courseCode', 'courseTitle', 'title'])
 const slides = useSlidesStore()
-const { glossaryState } = storeToRefs(slides);
+const { glossaryState, slidesComp } = storeToRefs(slides);
 </script>
 
 <template>

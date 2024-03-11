@@ -7,7 +7,7 @@ import { storeToRefs } from 'pinia'
 import { useSlidesStore } from '@/stores/slides'
 
 const slides = useSlidesStore()
-const { current, slidesList } = storeToRefs(slides)
+const { current, slidesList, slidesComp } = storeToRefs(slides)
 
 //watch(current, ()=>{
 //})
