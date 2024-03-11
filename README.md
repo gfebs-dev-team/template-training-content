@@ -1,37 +1,73 @@
 
-# GFEBS Training Content
+# Training Content
 ![Static Badge](https://img.shields.io/badge/template-%23fcc603?style=for-the-badge&labelColor=%23fcc603) ![Static Badge](https://img.shields.io/badge/gfebs-%23737373?style=for-the-badge&labelColor=%23fcc603)
+
 
 Internal template for creating GFEBs DL training content packages.
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Demo
 
-## Customize configuration
+Insert gif or link to demo
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Installation
 
-```sh
-npm install
+Install `template-training-content` with [Github CLI](https://cli.github.com/)
+
+```bash
+  gh repo create [COURSE_CODE]-training-content --template="aretum-eagleharbor-gfebs/template-training-content"
+  
+  cd [COURSE_CODE]-training-content
+
+  npm i -D && npm install sass && npm install selenium-webdriver
 ```
 
-### Compile and Hot-Reload for Development
+## Run Locally
 
-```sh
-npm run dev
+Clone the project
+
+```bash
+  git clone https://github.com/aretum-eagleharbor-gfebs/template-training-content.git
 ```
 
-### Compile and Minify for Production
+Go to the project directory
 
-```sh
-npm run build
+```bash
+  cd template-training-content
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+Install dependencies
 
-```sh
-npm run lint
+```bash
+  npm install
 ```
+
+Compile and Hot-Reload for Development
+
+```bash
+  npm run dev
+```
+
+Compile and Minify for Production
+
+```bash
+  npm run build
+```
+
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  npm run test
+```
+
+
+## Tech Stack
+
+**Client:** Vue, Selenium, Sass
+
+**Server:** Node
+
