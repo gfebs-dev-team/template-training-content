@@ -5,11 +5,6 @@ import SideBar from './SideBar.vue'
 import { Transition,onMounted, watch} from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSlidesStore } from '@/stores/slides'
-import views from '../views'
-
-let slidesComp = Object.keys(views).map((key) => {
-  return views[key]
-})
 
 const slides = useSlidesStore()
 const { current, slidesList } = storeToRefs(slides)

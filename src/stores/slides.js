@@ -1,14 +1,9 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import views from '../views'
 
 export const useSlidesStore = defineStore('slides', () => {
   const current = ref(0)
   const slidesList = ref(new Array)
-
-  let slidesComp = Object.keys(views).map((key) => {
-    return views[key]
-  })
 
   const total = slidesComp.length
   const checkpoint = ref(total + 1)

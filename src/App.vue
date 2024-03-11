@@ -1,6 +1,11 @@
 <script setup>
 import ContentContainer from './components/ContentContainer.vue'
 import { onMounted} from 'vue';
+import views from '../views'
+
+let slidesComp = Object.keys(views).map((key) => {
+  return views[key]
+})
 
 const courseData = {
   "courseCode": "",
