@@ -34,7 +34,7 @@ git clone https://github.com/aretum-eagleharbor-gfebs/template-training-content.
 Go to the project directory
 
 ```bash
-  cd template-training-content
+cd template-training-content
 ```
 
 Install dependencies
