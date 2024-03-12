@@ -16,11 +16,11 @@ Insert gif or link to demo
 Install `template-training-content` with [Github CLI](https://cli.github.com/)
 
 ```bash
-  gh repo create [COURSE_CODE]-training-content --template="aretum-eagleharbor-gfebs/template-training-content"
-  
-  cd [COURSE_CODE]-training-content
+gh repo create [COURSE_CODE]-training-content --template="aretum-eagleharbor-gfebs/template-training-content"
 
-  npm i -D && npm install sass && npm install selenium-webdriver
+cd [COURSE_CODE]-training-content
+
+npm i -D && npm install sass && npm install selenium-webdriver
 ```
 
 ## Run Locally
@@ -28,7 +28,7 @@ Install `template-training-content` with [Github CLI](https://cli.github.com/)
 Clone the project
 
 ```bash
-  git clone https://github.com/aretum-eagleharbor-gfebs/template-training-content.git
+git clone https://github.com/aretum-eagleharbor-gfebs/template-training-content.git
 ```
 
 Go to the project directory
@@ -40,19 +40,19 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  npm install
+npm install
 ```
 
 Compile and Hot-Reload for Development
 
 ```bash
-  npm run dev
+npm run dev
 ```
 
 Compile and Minify for Production
 
 ```bash
-  npm run build
+npm run build
 ```
 
 
@@ -61,7 +61,7 @@ Compile and Minify for Production
 To run tests, run the following command
 
 ```bash
-  npm run test
+npm run test
 ```
 
 
