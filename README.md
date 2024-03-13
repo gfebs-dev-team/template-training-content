@@ -1,6 +1,6 @@
 
 # Template: Training Content
-![Static Badge](https://img.shields.io/badge/template-%23fcc603?style=for-the-badge&labelColor=%23fcc603) ![Static Badge](https://img.shields.io/badge/gfebs-%23737373?style=for-the-badge&labelColor=%23fcc603)
+![Static Badge](https://img.shields.io/badge/progress-wip-orange?style=for-the-badge) ![Static Badge](https://img.shields.io/badge/template-%23fcc603?style=for-the-badge&labelColor=%23fcc603) ![Static Badge](https://img.shields.io/badge/gfebs-%23737373?style=for-the-badge&labelColor=%23fcc603) 
 
 
 Internal boilerplate for creating GFEBs DL training content packages.
@@ -20,7 +20,7 @@ gh repo create [COURSE_CODE]-training-content --template="aretum-eagleharbor-gfe
 
 cd [COURSE_CODE]-training-content
 
-npm i -D && npm install sass && npm install selenium-webdriver
+npm i -D
 ```
 
 ## Run Locally
