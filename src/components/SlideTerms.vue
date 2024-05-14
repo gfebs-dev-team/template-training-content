@@ -32,8 +32,8 @@ defineProps({
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  justify-content: space-between;
+ 
+  justify-content: top;
   overflow: auto;
   .main-text {
     display:flex;
@@ -48,6 +48,7 @@ defineProps({
   border-radius: 5px;
   display: flex;
   width: 100%;
+
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem;
@@ -84,5 +85,6 @@ defineProps({
   justify-content: space-between;
   gap: 1.5rem;
   width: 80%;
+  height: 60%;
 }
 </style>

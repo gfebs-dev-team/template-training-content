@@ -1,11 +1,13 @@
 <script setup>
 import ContentContainer from './components/ContentContainer.vue'
-import { onMounted} from 'vue';
+
+
+//import { onMounted} from 'vue';
 
 const courseData = {
   "courseCode": "",
-  "courseTitle": "Essentials",
-  "topic": "Introduction"
+  "courseTitle": "GFEBS L210E Financials Process Overview",
+  "topic": "Introduction to Financials"
 }
 
 /**onMounted(() => {

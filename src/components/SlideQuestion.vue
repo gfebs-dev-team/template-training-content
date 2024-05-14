@@ -7,10 +7,11 @@ import { inject } from 'vue'
 
 const slides = useSlidesStore()
 const { current, slidesList } = storeToRefs(slides)
-const image = ref('qanda.png')
+const image = ref('src/assets/img/gfebs-qanda.svg')
 defineProps(['title', 'topic'])
-
+console.log(current)
 const answer = inject('answer')
+console.log(slidesList.value)
 
 onUpdated(() => {
   if (slidesList.value[current.value].viewed === false) {
@@ -20,16 +21,17 @@ onUpdated(() => {
 
 watch(answer, () => {
   if (answer.value === slidesList.value[current.value].answer) {
-    image.value = 'correct.png'
+    image.value = 'src/assets/img/gfebs-correct.svg'
     slidesList.value[current.value].user = answer.value
     slidesList.value[current.value].viewed = true
+
     if (current.value <= slides.total) {
       slides.enableNext()
     } else {
       slides.disableNext()
     }
   } else {
-    image.value = 'incorrect.png'
+    image.value = 'src/assets/img/gfebs-incorrect.svg'
     slides.disableNext()
     slidesList.value[current.value].user = answer.value
   }

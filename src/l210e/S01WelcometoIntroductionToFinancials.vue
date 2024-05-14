@@ -1,10 +1,11 @@
 <script setup>
+import SlideContent from '../components/SlideContent.vue'
 import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue'
 import slide01 from '../assets/img/essentials-introduction-slide01-multiple.svg'
 
 const slideData = {
-  title: 'Lesson 1 Outline',
+  title: 'Welcome to GFEBS L210E Financials Process Overview',
   type: 'content',
   img: slide01
 }
@@ -13,22 +14,14 @@ const slides = useSlidesStore()
 const { addSlide } = slides
 
 onBeforeMount(() => {
-  addSlide(slideData, 1)
+  addSlide(slideData, 0)
 })
 </script>
 
 <template>
   <SlideContent v-bind="slideData" :columns="1">
     <p>
-      In this lesson, we're going to cover what you need to get started learning GFEBS. 
-    </p>
-    <p>The lesson is divided into three sections</p>
-    <ol>
-      <li>What to Expect</li>
-      <li>Key Concepts</li>
-      <li>Key Features</li>
-    </ol>
-    <p>First, we'll cover some basic course information</p>
+     This training course will introduce you to the process, coordination, and information required to understand the Financials process in GFEBS.</p>
   </SlideContent>
 </template>
 

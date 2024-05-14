@@ -1,6 +1,6 @@
 <script setup>
 import SlideOutline from '../components/SlideOutline.vue'
-import { useSlidesStore } from '../stores/slides'
+import { useSlidesStore } from '../../stores/slides'
 import { onBeforeMount } from 'vue'
 
 const slideData = {

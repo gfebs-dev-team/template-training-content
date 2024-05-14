@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, markRaw } from 'vue'
-import views from '../gfebs-essentials'
+import views from '../l210e'
 
 export const useSlidesStore = defineStore('slides', () => {
   const current = ref(0)
@@ -20,7 +20,7 @@ export const useSlidesStore = defineStore('slides', () => {
     if(slidesList.value[index] == null) {
       slidesList.value.push(obj)
     } 
-    //console.log(slidesList.value)
+ 
   }
 
   function toggleSidebar() {
@@ -65,6 +65,7 @@ export const useSlidesStore = defineStore('slides', () => {
       }
     }
     checkpoint.value = total + 1
+    
   }
 
   return {

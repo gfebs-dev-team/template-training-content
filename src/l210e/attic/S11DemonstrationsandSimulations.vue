@@ -1,5 +1,5 @@
 <script setup>
-import { useSlidesStore } from '../stores/slides'
+import { useSlidesStore } from '../../stores/slides'
 import { onBeforeMount } from 'vue'
 import slide07 from '../assets/img/essentials-introduction-slide07.svg';
 
