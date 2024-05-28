@@ -128,7 +128,7 @@ function limitedAlphabet(glossary) {
   height: 100vh;
   align-items: center;
   justify-content: center;
-  padding: clamp($p5, clampBuilder(1024, 1440, $p5, $p5*2), $p5*2);
+  padding: clamp($p5, clampBuilder(1024, 1440, $p5, $p5 * 2), $p5 * 2);
   .glossary {
     display: grid;
     grid-template-areas: 'a a' 'b b' 'c d';
@@ -221,6 +221,7 @@ function limitedAlphabet(glossary) {
       height: 100%;
       padding: 1.25rem;
       overflow-y: auto;
+      scrollbar-color: $harvest-gold $delft-blue;
       gap: $p-1;
       background-color: $oxford-blue;
       display: flex;

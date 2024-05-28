@@ -83,8 +83,8 @@ defineProps(['title'])
   position: absolute;
   height: 100%;
   bottom: 0;
-  left: calc(clamp(18rem, 3.2308rem + 23.0769vw, 24rem)*-1);
-  width:  clamp(18rem, 3.2308rem + 23.0769vw, 24rem);
+  left: calc(clamp(18rem, 3.2308rem + 23.0769vw, 24rem) * -1);
+  width: clamp(18rem, 3.2308rem + 23.0769vw, 24rem);
   z-index: 99;
   background-color: $delft-blue;
   flex-direction: column;
@@ -113,6 +113,7 @@ defineProps(['title'])
     color: white;
     height: 100%;
     overflow-y: scroll;
+    scrollbar-color: $harvest-gold $delft-blue;
 
     .section {
       display: flex;
