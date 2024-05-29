@@ -8,7 +8,9 @@ import { storeToRefs } from 'pinia'
 const slides = useSlidesStore()
 const { current, glossaryState } = storeToRefs(slides)
 const { total } = slides
-let progress = computed (()=>{ return `width: ${((current.value+1) / total) * 100}%`});
+let progress = computed(() => {
+  return `width: ${((current.value + 1) / total) * 100}%`
+})
 
 const buttonStyle = {
   size: 'medium',
@@ -31,9 +33,8 @@ function windowClose() {
       <img id="heading-shield" src="/crest.svg" />
       <div class="heading-text title">
         <h1 id="heading-title">
-          Financial<br/>
-          Management
-          School
+          Financial<br />
+          Management School
         </h1>
         <h2 id="heading-subtitle" class="title">
           <slot></slot>
@@ -121,7 +122,6 @@ nav {
         line-height: 150%;
         font-size: $m1;
         gap: 0 $p0;
-      
       }
       #heading-subtitle {
         font-size: $m0;

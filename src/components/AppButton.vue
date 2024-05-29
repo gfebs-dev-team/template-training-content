@@ -36,7 +36,7 @@ button {
 .small {
   padding: $p-1 $p2;
   font-size: $m-2;
-  border-width: .1em!important;
+  border-width: 0.1em !important;
 }
 
 .medium {
@@ -67,22 +67,21 @@ button {
   --color-border: #{$mas-blue};
   --color-text: #{$cool-grey};
   --color-hover-text: #{$alice-blue};
-  --color-hover-background: #{lighten($rich-black, .1)};
+  --color-hover-background: #{lighten($rich-black, 0.1)};
 }
 
 .lightMode {
   --color-border: #{$lavender};
   --color-text: #{$alice-blue};
   --color-hover-text: #{$space-cadet};
-  --color-hover-background: #{lighten($rich-black, .1)};
+  --color-hover-background: #{lighten($rich-black, 0.1)};
   &:disabled {
     --color-border: #{$cool-grey};
-    --color-text:  #{$cool-grey};
+    --color-text: #{$cool-grey};
     cursor: not-allowed;
-  };
+  }
 }
 
 .accentMode {
 }
-
 </style>

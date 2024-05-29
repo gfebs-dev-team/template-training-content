@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps(['title', 'columns', 'img'])
-import { onMounted, ref, useSlots} from 'vue'
+import { onMounted, ref, useSlots } from 'vue'
 const hasMain = ref(false)
 const hasImg = ref(false)
 
@@ -10,7 +10,6 @@ onMounted(() => {
   hasImg.value = props.img ? true : false
   //console.log(hasImg.value);
 })
-
 </script>
 <template>
   <div class="slide">

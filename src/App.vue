@@ -1,11 +1,10 @@
 <script setup>
 import ContentContainer from './components/ContentContainer.vue'
-import { onMounted} from 'vue';
 
 const courseData = {
-  "courseCode": "",
-  "courseTitle": "Essentials",
-  "topic": "Introduction"
+  courseCode: '',
+  courseTitle: 'Essentials',
+  topic: 'Introduction'
 }
 
 /**onMounted(() => {
@@ -22,9 +21,7 @@ const courseData = {
 </script>
 
 <template>
-    <ContentContainer v-bind="courseData"/>
+  <ContentContainer v-bind="courseData" />
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

@@ -7,7 +7,7 @@
     </div>
     <div class="toolbar">
       <button class="btn menu">Menu</button>
-      <input type="text">
+      <input type="text" />
       <button class="btn">Log off</button>
       <button class="btn menu">System</button>
       <button class="btn">User menu</button>
@@ -31,9 +31,10 @@
   flex-direction: column;
   .header {
     display: flex;
-    padding: .2rem .5rem;
+    padding: 0.2rem 0.5rem;
     width: 100%;
-    background: linear-gradient(#e4eaf0, #B6C9DD), linear-gradient(#ffffff00, #00000021),linear-gradient(#ffffffc4, #00000000);
+    background: linear-gradient(#e4eaf0, #b6c9dd), linear-gradient(#ffffff00, #00000021),
+      linear-gradient(#ffffffc4, #00000000);
     h2 {
       font-family: 'Arial';
       font-style: italic;
@@ -44,16 +45,16 @@
   }
 
   .toolbar {
-    display:flex;
+    display: flex;
     height: 1.7rem;
-    padding: .2rem .5rem;
-    gap: .2rem;
+    padding: 0.2rem 0.5rem;
+    gap: 0.2rem;
 
     .btn {
-      font-size: .7rem;
+      font-size: 0.7rem;
       border-radius: 0;
-      background: linear-gradient(#f5efbe, #EBDF8C);
-      border: .1rem solid black;
+      background: linear-gradient(#f5efbe, #ebdf8c);
+      border: 0.1rem solid black;
     }
   }
 }

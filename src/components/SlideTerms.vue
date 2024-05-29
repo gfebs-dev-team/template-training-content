@@ -36,10 +36,10 @@ defineProps({
   justify-content: space-between;
   overflow: auto;
   .main-text {
-    display:flex;
+    display: flex;
     flex-direction: column;
     padding: 1rem 0rem;
-    gap:1rem;
+    gap: 1rem;
   }
 }
 
@@ -53,7 +53,7 @@ defineProps({
   padding: 2rem;
   max-height: 15rem;
   overflow: auto;
-  
+
   #def-name {
     color: var(--color-accent);
     font-size: var(--m0);
@@ -66,13 +66,13 @@ defineProps({
     line-height: 1.5rem;
 
     @media only screen and (max-width: 950px) {
-      overflow:visible;
+      overflow: visible;
     }
   }
 
   @media only screen and (max-height: 925px) {
     max-height: max-content;
-    #def-paragraph{
+    #def-paragraph {
       font-size: var(--m-1);
     }
   }

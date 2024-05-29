@@ -6,8 +6,8 @@ import slide01 from '../assets/img/essentials-introduction-slide01-multiple.svg'
 const slideData = {
   title: 'GFEBS Overview Lesson',
   type: 'content',
-  section: "Section 1: What to Expect",
-  img: slide01,
+  section: 'Section 1: What to Expect',
+  img: slide01
 }
 
 const slides = useSlidesStore()
@@ -40,4 +40,3 @@ onBeforeMount(() => {
 </template>
 
 <style scoped lang="scss"></style>
-../../stores/slides

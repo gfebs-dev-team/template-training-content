@@ -55,9 +55,9 @@ watch(current, () => {
       display: grid;
       gap: 5px;
       cursor: pointer;
-      
-      @media only screen and (max-width:1200px) {
-        transform: scale(.7);
+
+      @media only screen and (max-width: 1200px) {
+        transform: scale(0.7);
       }
       .bar {
         height: 2px;

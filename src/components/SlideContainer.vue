@@ -1,27 +1,29 @@
 <script setup>
 import SlideHeader from './SlideHeader.vue'
-import SlideSection from './SlideSection.vue'
+// import SlideSection from './SlideSection.vue'
 import SideBar from './SideBar.vue'
-import { Transition,onMounted, watch} from 'vue'
+import { onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSlidesStore } from '@/stores/slides'
 
 const slides = useSlidesStore()
-const { current, slidesList, slidesComp } = storeToRefs(slides)
+const { current, slidesComp } = storeToRefs(slides)
 
 //watch(current, ()=>{
 //})
 
 onMounted(() => {
-  let pageFilter;
+  let pageFilter
 
   let queryString = window.location.search
   let urlParams = new URLSearchParams(queryString)
 
   if (urlParams.has('page')) {
-    pageFilter = parseInt(urlParams.get('page'));
-    current.value = pageFilter-1;
+    pageFilter = parseInt(urlParams.get('page'))
+    current.value = pageFilter - 1
   }
+
+  slides.saveToFile()
 })
 
 defineProps(['topic', 'title'])
@@ -32,7 +34,7 @@ defineProps(['topic', 'title'])
     <SlideHeader>{{ topic }}</SlideHeader>
     <div class="slide-area">
       <SideBar :title="title" />
-      
+
       <template v-for="(slide, index) in slidesComp" :key="index">
         <Transition>
           <component

@@ -21,13 +21,12 @@ onBeforeMount(() => {
 <template>
   <SlideContent v-bind="slideData" :columns="1">
     <p>
-      After the completion of this module, you must score a minimum of 80 percent on the Post Assessment in order to pass. The assessment covers all the lessons. After answering all the questions, a summary screen will display your score.  
+      After the completion of this module, you must score a minimum of 80 percent on the Post
+      Assessment in order to pass. The assessment covers all the lessons. After answering all the
+      questions, a summary screen will display your score.
     </p>
-    <p>
-      You will have unlimited attempts to pass the Post Assesment
-    </p>
+    <p>You will have unlimited attempts to pass the Post Assesment</p>
   </SlideContent>
 </template>
 
 <style scoped lang="scss"></style>
-../../stores/slides

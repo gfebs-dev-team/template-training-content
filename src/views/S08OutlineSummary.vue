@@ -52,28 +52,55 @@ onBeforeMount(() => {
         <li>Key Features</li>
       </ul>
     </template>
-    <template #mainsection_0> 
+    <template #mainsection_0>
       <h2>Module Outline</h2>
-      <p>There are 5 lessons in this module as seen in the numbered list on the left. Each lesson contains multiple supporting sections</p>
-      <p>This learning module requires satisfactory completion of the Post Assessment in order to attain credit.</p>
-      <p><span style="font-weight:bold">Click the arrows</span> in this box to examine the lessons and objectives.</p>
+      <p>
+        There are 5 lessons in this module as seen in the numbered list on the left. Each lesson
+        contains multiple supporting sections
+      </p>
+      <p>
+        This learning module requires satisfactory completion of the Post Assessment in order to
+        attain credit.
+      </p>
+      <p>
+        <span style="font-weight: bold">Click the arrows</span> in this box to examine the lessons
+        and objectives.
+      </p>
     </template>
-    <template #mainsection_1> 
+    <template #mainsection_1>
       <h2>Lesson 1:</h2>
-      <p>There are 5 lessons in this module as seen in the numbered list on the left. Each lesson contains multiple supporting sections</p>
-      <p>This learning module requires satisfactory completion of the Post Assessment in order to attain credit.</p>
-      <p><span style="font-weight:bold">Click the arrows</span> in this box to examine the lessons and objectives.</p>
+      <p>
+        There are 5 lessons in this module as seen in the numbered list on the left. Each lesson
+        contains multiple supporting sections
+      </p>
+      <p>
+        This learning module requires satisfactory completion of the Post Assessment in order to
+        attain credit.
+      </p>
+      <p>
+        <span style="font-weight: bold">Click the arrows</span> in this box to examine the lessons
+        and objectives.
+      </p>
     </template>
-    <template #mainsection_2> 
-      <h2>Lesson 2: </h2>
-      <p>There are 5 lessons in this module as seen in the numbered list on the left. Each lesson contains multiple supporting sections</p>
-      <p>This learning module requires satisfactory completion of the Post Assessment in order to attain credit.</p>
-      <p><span style="font-weight:bold">Click the arrows</span> in this box to examine the lessons and objectives.</p>
+    <template #mainsection_2>
+      <h2>Lesson 2:</h2>
+      <p>
+        There are 5 lessons in this module as seen in the numbered list on the left. Each lesson
+        contains multiple supporting sections
+      </p>
+      <p>
+        This learning module requires satisfactory completion of the Post Assessment in order to
+        attain credit.
+      </p>
+      <p>
+        <span style="font-weight: bold">Click the arrows</span> in this box to examine the lessons
+        and objectives.
+      </p>
     </template>
   </SlideOutline>
 </template>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .tb-title {
   font-weight: bold;
   font-size: $m-2;

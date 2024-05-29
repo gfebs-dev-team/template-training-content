@@ -1,14 +1,14 @@
 <script setup>
-import ContentHeader from '../components/ContentHeader.vue';
-import AppGlossary from './AppGlossary.vue';
-import SlideContainer from './SlideContainer.vue';
-import glossary from '../assets/glossary.json';
-import { useSlidesStore } from '@/stores/slides';
-import { storeToRefs } from 'pinia';
+import ContentHeader from '../components/ContentHeader.vue'
+import AppGlossary from './AppGlossary.vue'
+import SlideContainer from './SlideContainer.vue'
+import glossary from '../assets/glossary.json'
+import { useSlidesStore } from '@/stores/slides'
+import { storeToRefs } from 'pinia'
 
 defineProps(['topic', 'courseCode', 'courseTitle', 'title'])
 const slides = useSlidesStore()
-const { glossaryState, slidesComp } = storeToRefs(slides);
+const { glossaryState } = storeToRefs(slides)
 </script>
 
 <template>
@@ -26,7 +26,7 @@ main {
   aspect-ratio: 4/3;
   height: 100%;
   max-height: 100%;
-  margin:auto;
+  margin: auto;
   align-items: center;
   padding: $p4;
   gap: $p2;

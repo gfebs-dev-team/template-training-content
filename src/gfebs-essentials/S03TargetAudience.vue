@@ -20,12 +20,11 @@ onBeforeMount(() => {
 <template>
   <SlideContent v-bind="slideData" :columns="1">
     <p>
-      The target audience for this course is anyone who is assigned a GFEBS user role according to their installation requirements or organizational needs. Successful completion of this course is paramount before a user is provisioned for GFEBS user-role functions.
+      The target audience for this course is anyone who is assigned a GFEBS user role according to
+      their installation requirements or organizational needs. Successful completion of this course
+      is paramount before a user is provisioned for GFEBS user-role functions.
     </p>
   </SlideContent>
 </template>
 
-<style scoped lang="scss">
-
-</style>
-../../stores/slides
+<style scoped lang="scss"></style>

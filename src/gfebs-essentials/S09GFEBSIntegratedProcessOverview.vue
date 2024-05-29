@@ -6,8 +6,8 @@ import slide04 from '../assets/img/essentials-introduction-slide04.svg'
 const slideData = {
   title: 'GFEBS Integrated Process',
   type: 'content',
-  section: "Section 1: What to Expect",
-  img: slide04,
+  section: 'Section 1: What to Expect',
+  img: slide04
 }
 
 const slides = useSlidesStore()
@@ -27,10 +27,10 @@ onBeforeMount(() => {
       <li>Business Process Areas</li>
     </ol>
     <p>
-      Here you learn about the processes, coordination, and concepts required to understand the integrated business process areas in GFEBS
+      Here you learn about the processes, coordination, and concepts required to understand the
+      integrated business process areas in GFEBS
     </p>
   </SlideContent>
 </template>
 
 <style scoped lang="scss"></style>
-../../stores/slides

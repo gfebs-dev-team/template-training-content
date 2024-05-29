@@ -5,13 +5,12 @@ const props = defineProps(['title', 'img', 'columns', 'num'])
 
 <template>
   <SlideBase class="content" v-bind="props">
-   <img src="img"/>
-   <div class title>
-    <h2>Section {{num}}</h2>
-    <h3>{{ section }}</h3>
-   </div>
+    <img src="img" />
+    <div class title>
+      <h2>Section {{ num }}</h2>
+      <h3>{{ section }}</h3>
+    </div>
   </SlideBase>
 </template>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

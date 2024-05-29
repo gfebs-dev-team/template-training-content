@@ -154,16 +154,14 @@ onBeforeMount(() => {
 </template>
 
 <style scoped lang="scss">
-
 .tb-title {
-font-weight: bold;
+  font-weight: bold;
 }
 .tb-section li {
-  font-size: $m-2*.75;
+  font-size: $m-2 * 0.75;
   list-style-type: none;
 }
 h3 {
   font-size: $m1;
 }
 </style>
-../../stores/slides

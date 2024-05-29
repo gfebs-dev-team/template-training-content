@@ -41,8 +41,8 @@ watch(answer, () => {
 <template>
   <SlideBase :title="title" :columns="0" class="question">
     <template #main>
-        <h3><slot name="question"></slot></h3>
-        <GFEBSBase>hello</GFEBSBase>
+      <h3><slot name="question"></slot></h3>
+      <GFEBSBase>hello</GFEBSBase>
     </template>
   </SlideBase>
 </template>

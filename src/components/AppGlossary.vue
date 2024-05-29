@@ -1,5 +1,5 @@
 <script setup>
-import { ref, TransitionGroup, Transition } from 'vue'
+import { ref } from 'vue'
 import { useSlidesStore } from '../stores/slides'
 import { storeToRefs } from 'pinia'
 

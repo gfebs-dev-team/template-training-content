@@ -19,9 +19,7 @@ onBeforeMount(() => {
 
 <template>
   <SlideContent v-bind="slideData" :columns="1">
-    <p>
-      In this lesson, we're going to cover what you need to get started learning GFEBS. 
-    </p>
+    <p>In this lesson, we're going to cover what you need to get started learning GFEBS.</p>
     <p>The lesson is divided into three sections</p>
     <ol>
       <li>What to Expect</li>
@@ -32,7 +30,4 @@ onBeforeMount(() => {
   </SlideContent>
 </template>
 
-<style scoped lang="scss">
-
-</style>
-../../stores/slides
+<style scoped lang="scss"></style>

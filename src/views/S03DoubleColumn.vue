@@ -6,7 +6,7 @@ import { onBeforeMount } from 'vue'
 const slideData = {
   title: 'Double Columns',
   type: 'content',
-  section: "Section 1: Slide Types",
+  section: 'Section 1: Slide Types'
 }
 
 const slides = useSlidesStore()

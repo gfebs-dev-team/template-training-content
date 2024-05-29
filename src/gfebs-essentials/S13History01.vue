@@ -28,10 +28,12 @@ onBeforeMount(() => {
       The GFEBS system is a product of both a congressional mandate and the Army's desire to bring
       systems into the Standard Army Financial Enterprise, also referred to as SAFE, environment. In
       1966, Congress passed the Federal Financial Management Improvement Act. This act escalated the
-      need for federal financial management systems to provide accurate, reliable and timely financial management information to the government's highest levels. In 2002, the Office of the Secretary of Defense (OSD) directed that Army services comply with this act by the 2007 fiscal year.
+      need for federal financial management systems to provide accurate, reliable and timely
+      financial management information to the government's highest levels. In 2002, the Office of
+      the Secretary of Defense (OSD) directed that Army services comply with this act by the 2007
+      fiscal year.
     </p>
   </SlideContent>
 </template>
 
 <style scoped lang="scss"></style>
-../../stores/slides
