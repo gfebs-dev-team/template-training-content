@@ -20,7 +20,6 @@ watch(answer, () => {
     image.value = correct
     slidesList.value[current.value].user = answer.value
     slidesList.value[current.value].viewed = true
-   
   } else {
     image.value = incorrect
     slidesList.value[current.value].user = answer.value
@@ -42,10 +41,16 @@ watch(answer, () => {
     </template>
 
     <template #column_2>
-      <img class="question_marker" :src="image" />
+      <img class="h-full" :src="image" />
     </template>
   </SlideBase>
 </template>
+
+<style lang="postcss">
+.column_2 {
+  @apply w-2/3;
+}
+</style>
 
 <style scoped lang="scss">
 .content-box {
@@ -109,15 +114,6 @@ watch(answer, () => {
           font-weight: bold;
         }
       }
-    }
-  }
-}
-
-:global(.slide.question .column_2) {
-  width: 20rem;
-  @media only screen and (max-width: 1000px) {
-    :global(img) {
-      max-width: 100%;
     }
   }
 }

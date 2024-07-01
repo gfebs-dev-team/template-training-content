@@ -29,11 +29,6 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-:global(img) {
-  width: 100%;
-  object-fit: contain;
-  justify-self: center;
-}
 .slide {
   display: flex;
   z-index: -99;
