@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
-import { ref, markRaw } from 'vue'
-import views from '../gfebs-essentials'
+import { ref, markRaw, computed } from 'vue'
+import views from '../views'
 
 export const useSlidesStore = defineStore('slides', () => {
-  const current = ref(0)
+  
   const slidesComp = ref(
     markRaw(
       Object.keys(views).map((key) => {
@@ -11,13 +11,14 @@ export const useSlidesStore = defineStore('slides', () => {
       })
     )
   )
+  const current = ref(0)
   const slidesList = ref(new Array())
   const total = slidesComp.value.length
-  const checkpoint = ref(total + 1)
+  const checkpoint = ref(total-1)
   const sidebarState = ref(false)
   const glossaryState = ref(false)
-  const next = ref(true)
-  const prev = ref(false)
+  const next = computed(()=> current.value < checkpoint.value)
+  const prev = computed(()=> current.value > 0)
 
   function addSlide(obj, index) {
     if (slidesList.value[index] == null) {
@@ -32,28 +33,12 @@ export const useSlidesStore = defineStore('slides', () => {
 
   function goNext() {
     current.value++
-    console.log(current.value)
+    //console.log(current.value)
   }
 
   function goPrev() {
     current.value--
-    console.log(current.value)
-  }
-
-  function disableNext() {
-    next.value = false
-  }
-
-  function enableNext() {
-    next.value = true
-  }
-
-  function disablePrev() {
-    prev.value = false
-  }
-
-  function enablePrev() {
-    prev.value = true
+    //console.log(current.value)
   }
 
   function getTitle() {
@@ -67,7 +52,7 @@ export const useSlidesStore = defineStore('slides', () => {
         return
       }
     }
-    checkpoint.value = total + 1
+    checkpoint.value = total -1
   }
 
   return {
@@ -79,14 +64,9 @@ export const useSlidesStore = defineStore('slides', () => {
     prev,
     sidebarState,
     glossaryState,
-    saveToFile,
     getTitle,
     toggleSidebar,
     addSlide,
-    disableNext,
-    disablePrev,
-    enableNext,
-    enablePrev,
     goNext,
     goPrev,
     setCheckpoint,

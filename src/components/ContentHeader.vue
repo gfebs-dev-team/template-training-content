@@ -1,197 +1,102 @@
 <script setup>
 import AppButton from './AppButton.vue'
 import AppPopover from './AppPopover.vue'
-import { watchEffect, computed } from 'vue'
+import AppProgress from './AppProgress.vue'
+import { RiMenuLine, RiCloseLine, RiDatabaseLine } from '@remixicon/vue'
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
 
 const slides = useSlidesStore()
 const { current, glossaryState } = storeToRefs(slides)
-const { total } = slides
-let progress = computed(() => {
-  return `width: ${((current.value + 1) / total) * 100}%`
-})
-
-const buttonStyle = {
-  size: 'medium',
-  color: 'darkMode',
-  variant: 'outline'
-}
-
-watchEffect(current, () => {
-  document.getElementById('progress')?.setAttribute('style', `${progress.value}`)
-})
+const { total, goNext, goPrev } = slides
 
 function windowClose() {
   window.close()
 }
+
+defineProps(['courseData'])
 </script>
 
 <template>
-  <nav>
-    <div class="heading">
-      <img id="heading-shield" src="/crest.svg" />
-      <div class="heading-text title">
-        <h1 id="heading-title">
-          Financial<br />
-          Management School
+  <div
+    class="z-10 box-content flex w-full flex-col items-center justify-end bg-spacecadet xl:gap-4 xl:max-w-[1200px]"
+  >
+    <div
+      class="grid h-min sm:h-20 w-full grid-cols-[auto_auto_1fr] items-center gap-4 p-4 xl:h-auto"
+    >
+      <img class="h-10 md:h-12 xl:h-24" src="/crest.svg" />
+      <div class="flex flex-col gap-1 xl:gap-2">
+        <h1
+          class="max-w-56 text-balance text-sm font-bold uppercase text-aliceblue md:text-base xl:max-w-64 xl:text-xl"
+        >
+          Financial Management School
         </h1>
-        <h2 id="heading-subtitle" class="title">
-          <slot></slot>
+        <h2
+          class="hidden text-balance text-sm font-bold uppercase text-saffron xl:inline xl:text-base"
+        >
+          GFEBS {{ courseData.courseCode }}:
+          {{ courseData.courseTitle }}
         </h2>
       </div>
-    </div>
-    <div class="tracker">
-      <div class="progress-bar">
-        <div id="progress" :style="progress"></div>
-      </div>
-      <div class="buttons">
-        <AppPopover :buttonStyle="buttonStyle">
-          <template #button-name
-            ><svg
-              width="17"
-              height="17"
-              viewBox="0 0 17 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2.75 12.8335V3.8335C2.75 2.72893 3.64543 1.8335 4.75 1.8335H14.0833C14.4515 1.8335 14.75 2.13198 14.75 2.50016V14.5002C14.75 14.8684 14.4515 15.1668 14.0833 15.1668H5.08333C3.79467 15.1668 2.75 14.1222 2.75 12.8335ZM13.4167 13.8335V11.8335H5.08333C4.53105 11.8335 4.08333 12.2812 4.08333 12.8335C4.08333 13.3858 4.53105 13.8335 5.08333 13.8335H13.4167ZM7.41667 3.16683H4.75C4.38181 3.16683 4.08333 3.46531 4.08333 3.8335V10.7247C4.38642 10.5807 4.72547 10.5002 5.08333 10.5002H13.4167V3.16683H12.0833V8.50016L9.75 7.16683L7.41667 8.50016V3.16683Z"
-                fill="#91A0BE"
-              />
-            </svg>
-            Resources
-          </template>
-
-          <template #menu>
-            <div class="resource-menu">
-              <ul>
-                <li @click="glossaryState = true">Glossary</li>
-                <!--Set Glossary Popup and bind to click-->
-                <li><a href="/">GFEBS Production PSW</a></li>
-              </ul>
-            </div>
-          </template>
-        </AppPopover>
-        <AppButton id="heading-exit" v-bind="buttonStyle" @click="windowClose()">
-          <svg
-            width="13"
-            height="13"
-            viewBox="0 0 13 13"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+      <div class="flex flex-col gap-4 justify-self-end xl:w-2/3">
+        <AppProgress class="hidden xl:block" />
+        <div
+          class="grid grid-rows-2 sm:grid-rows-1 sm:grid-cols-2 w-full justify-end gap-1 md:gap-4"
+        >
+          <AppPopover
+            buttonStyle="relative max-w-36 h-full justify-self-end border-transparent bg-oxfordblue p-1 px-2 text-xs text-aliceblue md:text-sm flex xl:w-full xl:max-w-none xl:text-base"
           >
-            <path
-              d="M6.25004 5.16671L10.9167 0.5L12.25 1.83333L7.58336 6.50004L12.25 11.1667L10.9167 12.5L6.25004 7.83336L1.58333 12.5L0.25 11.1667L4.91671 6.50004L0.25 1.83333L1.58333 0.5L6.25004 5.16671Z"
-              fill="#F4BC3A"
-            />
-          </svg>
-          Exit
+            <template #button-name>
+              <RiDatabaseLine class="size-5 fill-aliceblue" /> Resources
+            </template>
+            <template #menu>
+              <a
+                class="font-bold p-2 rounded hover:bg-masblue transition-colors text-xs text-aliceblue md:text-sm xl:w-full xl:max-w-none xl:text-base"
+                @click="glossaryState = !glossaryState"
+                >Glossary</a
+              >
+              <a
+                class="font-bold p-2 rounded hover:bg-masblue transition-colors text-xs text-aliceblue md:text-sm xl:w-full xl:max-w-none xl:text-base"
+                >GFEBS Production PSW</a
+              >
+            </template>
+          </AppPopover>
+          <AppButton
+            class="w-full justify-self-end border-transparent bg-oxfordblue p-1 px-2 text-xs text-aliceblue md:text-sm xl:w-full xl:max-w-none xl:text-base"
+            @click="windowClose()"
+          >
+            <RiCloseLine class="size-6 fill-aliceblue" /> EXIT
+          </AppButton>
+        </div>
+      </div>
+    </div>
+    <div
+      class="grid h-16 w-full grid-cols-[1.5rem_1fr_auto] items-center gap-4 border-t border-masblue p-4 shadow-md transition md:h-12 md:py-1 xl:h-16 xl:rounded-t-lg xl:border-t-0 xl:bg-masblue"
+    >
+      <RiMenuLine
+        @click="$emit('toggleSidebar')"
+        class="size-6 fill-coolgrey p-1 hover:cursor-pointer xl:size-8"
+      ></RiMenuLine>
+      <h2 class="text-balance text-xs font-bold uppercase text-coolgrey md:text-sm xl:hidden">
+        GFEBS {{ courseData.courseCode }}:
+        {{ courseData.courseTitle }}
+      </h2>
+      <div class="hidden h-12 items-center justify-end gap-4 text-xs text-aliceblue xl:flex">
+        <AppButton
+          class="h-fit max-w-fit border-2 border-aliceblue p-2 px-4 disabled:border-coolgrey disabled:text-coolgrey"
+          @click="goPrev()"
+          :disabled="!slides.prev"
+        >
+          Back
+        </AppButton>
+        <AppButton
+          class="h-fit max-w-fit border-2 border-aliceblue p-2 px-4 disabled:border-coolgrey disabled:text-coolgrey"
+          @click="goNext()"
+          :disabled="!slides.next"
+        >
+          Next
         </AppButton>
       </div>
     </div>
-  </nav>
+  </div>
 </template>
-
-<style scoped lang="scss">
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
-
-  .heading {
-    display: flex;
-    align-items: center;
-    gap: $p3;
-    width: fit-content;
-
-    #heading-shield {
-      width: clamp(5rem, clampBuilder(1024, 1440, 6rem, 7rem), 6rem);
-      height: clamp(5rem, clampBuilder(1024, 1440, 6rem, 7rem), 6rem);
-    }
-
-    .heading-text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: $p-2;
-
-      #heading-title {
-        display: grid;
-        line-height: 150%;
-        font-size: $m1;
-        gap: 0 $p0;
-      }
-      #heading-subtitle {
-        font-size: $m0;
-        color: var(--color-accent);
-      }
-    }
-  }
-
-  .tracker {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    gap: $p2;
-    align-self: stretch;
-    width: 25rem;
-
-    .progress-bar {
-      width: 100%;
-      height: 1.5rem;
-      background-color: var(--color-accent-light);
-      border-radius: 1rem;
-
-      #progress {
-        background-color: var(--color-accent);
-        border-radius: 1rem;
-        transition: ease 1.5s;
-        height: 100%;
-      }
-    }
-    .buttons {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: $p2;
-      .resource-menu {
-        background-color: $oxford-blue;
-        width: fit-content;
-        border-radius: 0.5rem;
-        ul {
-          display: flex;
-          flex-direction: column;
-          padding: $p-1;
-          list-style: none;
-          justify-content: center;
-          li {
-            padding: $p-1;
-            border-radius: 0.25rem;
-            font-size: $m-2;
-            font-weight: 700;
-            a {
-              font-size: $m-2;
-              font-weight: 700;
-              text-decoration: none;
-              &:visited {
-                color: inherit;
-              }
-            }
-            &:hover {
-              background-color: $mas-blue;
-            }
-          }
-        }
-      }
-
-      #heading-exit {
-        color: var(--color-accent);
-      }
-    }
-  }
-}
-</style>

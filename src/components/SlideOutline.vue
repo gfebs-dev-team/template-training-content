@@ -8,7 +8,7 @@ const activeSection = ref(0)
 
 <template>
   <SlideBase class="slide-outline">
-    <ol class="outline table">
+    <ol class="soutline table">
       <li
         :class="[{ active: activeSection == index }, 'tbsection_' + index]"
         v-for="index in sections"
@@ -17,7 +17,7 @@ const activeSection = ref(0)
         <slot :name="'tablesection_' + index" />
       </li>
     </ol>
-    <div class="outline main">
+    <div class="soutline main">
       <div :class="['mnsection', 'mnsection_0']" v-if="activeSection == 0">
         <slot name="mainsection_0"></slot>
       </div>
@@ -51,7 +51,7 @@ const activeSection = ref(0)
 .slide-outline {
   padding: $p3;
 }
-.outline {
+.soutline {
   background-color: $space-cadet;
   padding: $p2;
   &.main {

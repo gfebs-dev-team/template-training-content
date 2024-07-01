@@ -2,7 +2,7 @@
 import ContentContainer from './components/ContentContainer.vue'
 
 const courseData = {
-  courseCode: '',
+  courseCode: ' ',
   courseTitle: 'Essentials',
   topic: 'Introduction'
 }
@@ -21,7 +21,5 @@ const courseData = {
 </script>
 
 <template>
-  <ContentContainer v-bind="courseData" />
+  <ContentContainer :courseData="courseData" />
 </template>
-
-<style scoped lang="scss"></style>

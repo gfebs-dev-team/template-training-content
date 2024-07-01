@@ -3,34 +3,26 @@ import SlideBase from './SlideBase.vue'
 import { useSlidesStore } from '@/stores/slides'
 import { onUpdated, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
+import correct from '../assets/img/gfebs-correct.svg'
+import incorrect from '../assets/img/gfebs-incorrect.svg'
+import qanda from '../assets/img/gfebs-qanda.svg'
 import { inject } from 'vue'
 
 const slides = useSlidesStore()
 const { current, slidesList } = storeToRefs(slides)
-const image = ref('qanda.png')
+const image = ref(qanda)
 defineProps(['title', 'topic'])
 
 const answer = inject('answer')
 
-onUpdated(() => {
-  if (slidesList.value[current.value].viewed === false) {
-    slides.disableNext()
-  }
-})
-
 watch(answer, () => {
   if (answer.value === slidesList.value[current.value].answer) {
-    image.value = 'correct.png'
+    image.value = correct
     slidesList.value[current.value].user = answer.value
     slidesList.value[current.value].viewed = true
-    if (current.value <= slides.total) {
-      slides.enableNext()
-    } else {
-      slides.disableNext()
-    }
+   
   } else {
-    image.value = 'incorrect.png'
-    slides.disableNext()
+    image.value = incorrect
     slidesList.value[current.value].user = answer.value
   }
   slides.setCheckpoint()
