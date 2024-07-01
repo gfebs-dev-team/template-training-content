@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useSlidesStore } from '../stores/slides'
 import { storeToRefs } from 'pinia'
-import { RiCloseLine } from '@remixicon/vue'
+import { RiCloseLine, RiArrowLeftLine } from '@remixicon/vue'
 
 defineProps(['glossary'])
 
@@ -38,76 +38,116 @@ function limitedAlphabet(glossary) {
   console.log(alphabet)
   return [...alphabet]
 }
+const defArea = ref(false)
+
+function setTerm(index) {
+  activeIndex.value = index
+  defArea.value = true
+}
 </script>
 
 <template>
   <div
-    class="fixed flex bg-richblack bg-opacity-20 backdrop-blur-sm z-20 inset-0 w-full h-full items-center justify-center p-4"
+    class="fixed flex bg-richblack bg-opacity-20 backdrop-blur-sm z-20 inset-0 w-full h-full max-h-dvh items-center justify-center p-4"
   >
     <!-- GLOSSARY -->
-    <div class="h-full grid bg-spacecadet rounded p-4 auto-rows-min gap-2">
+    <div
+      class="h-full w-full flex flex-col bg-delftblue rounded p-4 gap-4 auto-rows-max lg:max-w-[1000px] lg:max-h-[800px]"
+    >
       <!-- HEADING -->
-      <h2 class="font-bold text-lg">Glossary</h2>
+      <h2 class="font-bold text-xl">Glossary</h2>
 
       <!-- CLOSE -->
-      <RiCloseLine class="fill-saffron col-start-2 justify-self-end" />
+      <RiCloseLine
+        @click="glossaryState = false"
+        class="fill-saffron absolute right-4 top-4 col-start-2 justify-self-end"
+      />
 
-      <!-- FILTER -->
-      <div class="flex flex-col row-span-2">
-        <button
-          :class="[{ default: search != '' }, { active: activeFilter == 'all' && search == '' }]"
-          @click="activeFilter = 'all'"
+      <div class="flex flex-col gap-4 justify-between md:flex-row">
+        <!-- FILTER -->
+        <div
+          class="col-span-2 flex items-center justify-center overflow-x-auto overflow-y-hidden divide-x divide-coolgrey divide-opacity-50"
         >
-          All
-        </button>
-        <div class="v-divider"></div>
-        <div class="alphabet flex flex-col">
           <button
-            :class="{ active: activeFilter == '0-9' && search == '' }"
-            @click="activeFilter = '0-9'"
+            class="font-bold p-2 px-3 capitalize text-nowrap"
+            :class="[
+              { default: search != '' },
+              { 'text-saffron': activeFilter == 'all' && search == '' }
+            ]"
+            @click="activeFilter = 'all'"
           >
-            0-9
+            All
           </button>
 
-          <button
-            :class="{ active: activeFilter == letter && search == '' }"
-            @click="activeFilter = letter"
-            v-for="(letter, index) in limitedAlphabet(glossary)"
-            :key="index"
-          >
-            {{ letter }}
-          </button>
+          <div class="alphabet py-1 flex w-full overflow-x-auto">
+            <button
+              class="font-bold p-1 pl-3 capitalize text-nowrap"
+              :class="{ 'text-saffron': activeFilter == '0-9' && search == '' }"
+              @click="activeFilter = '0-9'"
+            >
+              0-9
+            </button>
+            <button
+              class="font-bold p-1 capitalize"
+              :class="{ 'text-saffron': activeFilter == letter && search == '' }"
+              @click="activeFilter = letter"
+              v-for="(letter, index) in limitedAlphabet(glossary)"
+              :key="index"
+            >
+              {{ letter }}
+            </button>
+          </div>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="row-start-2 col-span-2">
+          <input
+            class="bg-spacecadet focus-visible:outline focus-visible:outline-masblue focus-visible:outline-2 rounded-full px-4 py-1 w-full"
+            id="glossary-search"
+            type="search"
+            v-model="search"
+            placeholder="Search"
+          />
         </div>
       </div>
 
-      <!-- SEARCH -->
-      <div class="search">
-        <input id="glossary-search" type="search" v-model="search" placeholder="Search" />
-      </div>
-
-      <!-- TERMS-AREA -->
-      <div class="overflow-auto h-full">
-        <template v-for="(item, index) in glossary" :key="item.term">
-          <TransitionGroup name="terms">
-            <li
-              :class="{ active: activeIndex == index }"
-              @click="activeIndex = index"
-              v-if="getFilter(item.term)"
-            >
-              {{ item.term }}
-            </li>
-          </TransitionGroup>
-        </template>
-      </div>
-
-      <!-- DEFINITION-AREA -->
-      <div class="col-start-2">
-        <Transition>
-          <h3 :key="activeIndex">{{ glossary[activeIndex].term }}</h3></Transition
+      <div class="relative flex overflow-x-hidden overflow-auto h-full max-h-fit w-full">
+        <!-- TERMS-AREA -->
+        <div
+          class="overflow-y-auto over-flow-x-hidden w-full h-full max-h-fit bg-oxfordblue p-4 list-none flex-col col-span-2 gap-2 sm:w-2/3"
         >
-        <Transition>
-          <p :key="activeIndex">{{ glossary[activeIndex].definition }}</p>
-        </Transition>
+          <template v-for="(item, index) in glossary" :key="item.term">
+            <TransitionGroup name="terms">
+              <li
+                :class="{ 'text-saffron': activeIndex == index }"
+                @click="setTerm(index)"
+                v-if="getFilter(item.term)"
+              >
+                {{ item.term }}
+              </li>
+            </TransitionGroup>
+          </template>
+        </div>
+
+        <!-- DEFINITION-AREA -->
+        <div
+          class="overflow-y-auto overflow-x-hidden col-span-2 p-4 gap-2 flex transition-all absolute sm:static sm:w-full inset-0 bg-spacecadet"
+          :class="{ 'translate-x-full sm:transform-none': !defArea }"
+        >
+          <button
+            @click="defArea = false"
+            class="hover:bg-coolgrey h-min hover:bg-opacity-50 rounded p-2"
+          >
+            <RiArrowLeftLine class="fill-aliceblue size-4" />
+          </button>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-lg font-bold" :key="activeIndex">
+              {{ glossary[activeIndex].term }}
+            </h3>
+
+            <p :key="activeIndex">{{ glossary[activeIndex].definition }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

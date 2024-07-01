@@ -44,6 +44,7 @@ defineProps(['courseData'])
           class="grid grid-rows-2 sm:grid-rows-1 sm:grid-cols-2 w-full justify-end gap-1 md:gap-4"
         >
           <AppPopover
+            class-name="order-2 sm:order-none"
             buttonStyle="relative max-w-36 h-full justify-self-end border-transparent bg-oxfordblue p-1 px-2 text-xs text-aliceblue md:text-sm flex xl:w-full xl:max-w-none xl:text-base"
           >
             <template #button-name>
