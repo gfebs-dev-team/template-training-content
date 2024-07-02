@@ -29,7 +29,7 @@ watch(answer, () => {
 
 const classNames = {
   main: 'order-2 md:order-1',
-  2: 'w-2/3 order-1 h-1/2 md:h-full md:order-2 flex-shrink min-h-0 '
+  2: 'w-2/3 order-1 h-1/2 md:h-full md:order-2 flex-shrink min-h-0 px-8'
 }
 </script>
 
@@ -46,7 +46,7 @@ const classNames = {
     </template>
 
     <template #column_2>
-      <img class="max-h-1/2 object-contain h-full w-full" :src="image" />
+      <img class="max-h-1/2 object-contain h-full" :src="image" />
     </template>
   </SlideBase>
 </template>
