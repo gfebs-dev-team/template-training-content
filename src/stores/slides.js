@@ -3,7 +3,6 @@ import { ref, markRaw, computed } from 'vue'
 import views from '../views'
 
 export const useSlidesStore = defineStore('slides', () => {
-  
   const slidesComp = ref(
     markRaw(
       Object.keys(views).map((key) => {
@@ -14,17 +13,16 @@ export const useSlidesStore = defineStore('slides', () => {
   const current = ref(0)
   const slidesList = ref(new Array())
   const total = slidesComp.value.length
-  const checkpoint = ref(total-1)
+  const checkpoint = ref(total - 1)
   const sidebarState = ref(false)
   const glossaryState = ref(false)
-  const next = computed(()=> current.value < checkpoint.value)
-  const prev = computed(()=> current.value > 0)
+  const next = computed(() => current.value < checkpoint.value)
+  const prev = computed(() => current.value > 0)
 
   function addSlide(obj, index) {
     if (slidesList.value[index] == null) {
       slidesList.value.push(obj)
     }
-    //console.log(slidesList.value)
   }
 
   function toggleSidebar() {
@@ -52,7 +50,7 @@ export const useSlidesStore = defineStore('slides', () => {
         return
       }
     }
-    checkpoint.value = total -1
+    checkpoint.value = total - 1
   }
 
   return {

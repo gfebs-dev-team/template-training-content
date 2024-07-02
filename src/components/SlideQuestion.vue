@@ -12,8 +12,9 @@ const slides = useSlidesStore()
 const { current, slidesList } = storeToRefs(slides)
 const image = ref(qanda)
 defineProps(['title', 'topic'])
-
+console.log(current)
 const answer = inject('answer')
+console.log(slidesList.value)
 
 watch(answer, () => {
   if (answer.value === slidesList.value[current.value].answer) {
