@@ -1,24 +1,29 @@
 <script setup>
-const props = defineProps(['title', 'columns', 'img'])
+const props = defineProps(['title', 'columns', 'classNames', 'class'])
 import { onMounted, ref, useSlots } from 'vue'
 const hasMain = ref(false)
-const hasImg = ref(false)
 
 onMounted(() => {
   hasMain.value = useSlots().main ? true : false
-  //console.log(hasMain.value);
-  hasImg.value = props.img ? true : false
-  //console.log(hasImg.value);
 })
 </script>
 <template>
-  <div class="slide">
-    <div class="column main_column" v-if="hasMain">
-      <h2 class="slide-title">{{ props.title }}</h2>
+  <div
+    class="flex flex-col absolute items-center w-full h-full md:flex-row md:items-stretch p-4 md:p-8 gap-6"
+    :class="class"
+  >
+    <h2 class="text-2xl w-full text-saffron font-bold md:hidden">{{ props.title }}</h2>
+    <div
+      class="w-full flex flex-col items-stretch gap-2"
+      :class="classNames && classNames.main ? classNames.main : ''"
+      v-if="hasMain"
+    >
+      <h2 class="hidden md:block text-2xl text-saffron font-bold">{{ props.title }}</h2>
       <slot name="main" />
     </div>
     <div
-      :class="['column', 'column_' + (index + 1), { column_image: hasImg }]"
+      class="w-full flex flex-col items-stretch gap-2"
+      :class="classNames && classNames[index + 1] ? classNames[index + 1] : ''"
       v-for="index in props.columns"
       :key="index"
     >
@@ -27,44 +32,3 @@ onMounted(() => {
     <slot></slot>
   </div>
 </template>
-
-<style scoped lang="scss">
-.slide {
-  display: flex;
-  z-index: -99;
-  position: absolute;
-  align-items: stretch;
-  height: 100%;
-  width: 100%;
-  padding: $p4;
-  gap: $p3;
-
-  &.active {
-    z-index: 0;
-  }
-  .column {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-  }
-  .main_column {
-    align-items: stretch;
-    gap: $p0;
-    h2 {
-      flex-shrink: 0;
-    }
-  }
-
-  .column_image {
-    justify-content: center;
-    width: 80%;
-  }
-  h2 {
-    font-size: $m1;
-    font-weight: bold;
-    text-transform: capitalize;
-    color: var(--color-accent);
-  }
-}
-</style>

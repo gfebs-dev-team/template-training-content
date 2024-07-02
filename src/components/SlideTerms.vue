@@ -5,84 +5,35 @@ defineProps({
   defName: String,
   defParagraph: String
 })
+
+const classNames = {
+  main: 'h-full'
+}
 </script>
 
 <template>
-  <SlideBase :title="title">
+  <SlideBase :title="title" :classNames="classNames">
     <template #main>
-      <div class="left">
-        <div class="main-text">
+      <div class="flex flex-col w-full h-full overflow-auto gap-4">
+        <div class="flex flex-col px-2 gap-2">
           <slot name="main-text" />
         </div>
 
-        <div class="term-definition" v-if="defName != ''">
-          <h3 id="def-name">{{ defName }}</h3>
-          <p id="def-paragraph">{{ defParagraph }}</p>
+        <div
+          class="flex flex-col rounded-md bg-spacecadet p-4 h-full overflow-auto w-full gap-2 md:h-1/2"
+          v-if="defName != ''"
+        >
+          <h3 class="text-saffron font-bold text-lg">{{ defName }}</h3>
+          <p class="overflow-auto">{{ defParagraph }}</p>
         </div>
       </div>
     </template>
-    <div class="column column_2">
+
+    <!-- Buttons -->
+    <div
+      class="grid grid-flow-dense grid-cols-2 min-w-0 min-h-0 gap-2 h-full justify-between w-full md:w-4/5 md:h-auto md:grid-cols-1"
+    >
       <slot></slot>
     </div>
   </SlideBase>
 </template>
-
-<style scoped lang="scss">
-.left {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  justify-content: space-between;
-  overflow: auto;
-  .main-text {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 0rem;
-    gap: 1rem;
-  }
-}
-
-.term-definition {
-  background-color: var(--color-background);
-  border-radius: 5px;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 2rem;
-  max-height: 15rem;
-  overflow: auto;
-
-  #def-name {
-    color: var(--color-accent);
-    font-size: var(--m0);
-    font-weight: bold;
-  }
-
-  #def-paragraph {
-    overflow: auto;
-    font-size: $m-2;
-    line-height: 1.5rem;
-
-    @media only screen and (max-width: 950px) {
-      overflow: visible;
-    }
-  }
-
-  @media only screen and (max-height: 925px) {
-    max-height: max-content;
-    #def-paragraph {
-      font-size: var(--m-1);
-    }
-  }
-}
-
-:global(.column_2) {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.5rem;
-  width: 80%;
-}
-</style>

@@ -111,22 +111,22 @@ function setTerm(index) {
         </div>
       </div>
 
-      <div class="relative flex overflow-x-hidden overflow-auto h-full max-h-fit w-full">
+      <div class="relative flex overflow-x-hidden overflow-auto h-full max-h-fit w-full p-2">
         <!-- TERMS-AREA -->
-        <div
-          class="overflow-y-auto over-flow-x-hidden w-full h-full max-h-fit bg-oxfordblue p-4 list-none flex-col col-span-2 gap-2 sm:w-2/3"
-        >
-          <template v-for="(item, index) in glossary" :key="item.term">
-            <TransitionGroup name="terms">
+        <div class="bg-oxfordblue p-2 w-full md:w-2/5">
+          <div
+            class="overflow-y-auto overflow-x-hidden w-full h-full max-h-fit bg-oxfordblue p-4 list-none flex-col col-span-2 gap-2 scrollbar-thin scrollbar-thumb-saffron scrollbar-track-oxfordblue"
+          >
+            <template v-for="(item, index) in glossary" :key="item.term">
               <li
-                :class="{ 'text-saffron': activeIndex == index }"
+                :class="{ 'text-saffron font-bold': activeIndex == index }"
                 @click="setTerm(index)"
                 v-if="getFilter(item.term)"
               >
                 {{ item.term }}
               </li>
-            </TransitionGroup>
-          </template>
+            </template>
+          </div>
         </div>
 
         <!-- DEFINITION-AREA -->
@@ -136,7 +136,7 @@ function setTerm(index) {
         >
           <button
             @click="defArea = false"
-            class="hover:bg-coolgrey h-min hover:bg-opacity-50 rounded p-2"
+            class="hover:bg-coolgrey h-min hover:bg-opacity-50 rounded p-2 lg:hidden"
           >
             <RiArrowLeftLine class="fill-aliceblue size-4" />
           </button>

@@ -11,5 +11,3 @@ const props = defineProps(['title', 'img', 'columns', 'num'])
     </div>
   </SlideBase>
 </template>
-
-<style scoped lang="scss"></style>

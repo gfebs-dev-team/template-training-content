@@ -26,95 +26,27 @@ watch(answer, () => {
   }
   slides.setCheckpoint()
 })
+
+const classNames = {
+  main: 'order-2 md:order-1',
+  2: 'w-2/3 order-1 h-1/2 md:h-full md:order-2 flex-shrink min-h-0 '
+}
 </script>
 
 <template>
-  <SlideBase :title="title" :columns="1" class="question">
+  <SlideBase :title="title" :columns="1" :classNames="classNames">
     <template #main>
-      <div class="content-box">
+      <div class="flex flex-col w-full gap-4">
         <h3><slot name="question"></slot></h3>
 
-        <div class="options">
+        <div class="flex flex-col list-none md:ml-4 gap-2">
           <slot name="options"></slot>
         </div>
       </div>
     </template>
 
     <template #column_2>
-      <img class="h-full" :src="image" />
+      <img class="max-h-1/2 object-contain h-full w-full" :src="image" />
     </template>
   </SlideBase>
 </template>
-
-<style lang="postcss">
-.column_2 {
-  @apply w-2/3;
-}
-</style>
-
-<style scoped lang="scss">
-.content-box {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  gap: 1.5rem;
-  .options {
-    display: flex;
-    gap: 0.5em;
-    flex-direction: column;
-    list-style-type: none;
-    margin-right: 1rem;
-    z-index: 1;
-    :slotted(li.choice) {
-      //box-sizing: border-box;
-      display: flex;
-      width: 100%;
-      gap: 1em;
-      border: 2px solid transparent;
-      border-radius: 10px;
-      transition-duration: 0.2s;
-
-      input[type='radio'] {
-        margin-left: 0.5em;
-        accent-color: var(--color-accent);
-      }
-
-      label {
-        //cursor: pointer;
-        width: 100%;
-        height: 100%;
-        padding: 0.5em;
-      }
-
-      &.checked {
-        background-color: var(--color-accent);
-        border-radius: 10px;
-        transition-duration: 0.2s;
-        input[type='radio'] {
-          accent-color: $oxford-blue;
-          mix-blend-mode: multiply;
-        }
-        input[type='radio'] + label {
-          background-color: var(--color-accent);
-          color: $space-cadet;
-          padding: 0.5em;
-          font-weight: bold;
-        }
-      }
-
-      &:hover {
-        color: var(--color-accent);
-        border: 2px solid var(--color-accent);
-        transition-duration: 0.2s;
-
-        input[type='radio'] {
-          fill: var(--color-accent);
-        }
-        label {
-          font-weight: bold;
-        }
-      }
-    }
-  }
-}
-</style>
