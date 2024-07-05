@@ -1,7 +1,7 @@
 <script setup>
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
-import {RiLockFill} from "@remixicon/vue"
+import { RiLockFill } from '@remixicon/vue'
 import { onUpdated, onMounted, watchEffect, watch } from 'vue'
 
 const slides = useSlidesStore()
@@ -14,7 +14,7 @@ watchEffect(() => {
 })
 
 function goToSlide(i) {
-  if(i < checkpoint.value +1) {
+  if (i < checkpoint.value + 1) {
     current.value = i
     slides.toggleSidebar()
   }
@@ -23,14 +23,14 @@ function goToSlide(i) {
 function setLinks() {
   document.querySelectorAll('#sidebar .links a').forEach((link, index) => {
     if (index > checkpoint.value) {
-      link.setAttribute("disabled", "")
+      link.setAttribute('disabled', '')
     } else {
-      link.removeAttribute("disabled")
+      link.removeAttribute('disabled')
     }
-  }) 
+  })
 }
 
-onMounted(() => {  
+onMounted(() => {
   links = slidesList.value
   links.forEach((slide) => {
     sections.push(slide.section)
@@ -41,7 +41,7 @@ onMounted(() => {
   })
 })
 
-onUpdated(()=> {
+onUpdated(() => {
   slides.setCheckpoint()
   //setLinks()
 })
@@ -55,21 +55,33 @@ defineProps(['title'])
 </script>
 
 <template>
-  <div id="sidebar" class="absolute z-10 flex h-full w-64 bg-spacecadet p-6 transition xl:bg-masblue" v-bind:class="{ '-translate-x-64': !sidebarState }">
-    <div class="links flex w-full flex-col gap-2 xl:gap-4 overflow-auto">
-      <div class="section flex flex-col gap-2" v-for="(section, index) in sections" :key="index">
+  <div
+    id="sidebar"
+    class="absolute z-10 flex h-full w-64 bg-spacecadet p-4 transition xl:bg-masblue"
+    v-bind:class="{ '-translate-x-64': !sidebarState }"
+  >
+    <div
+      class="links flex w-full flex-col gap-2 xl:gap-4 overflow-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-w-1 scrollbar-thumb-harvestgold scrollbar-track-aliceblue p-2"
+    >
+      <div
+        class="section flex flex-col gap-2 pr-2"
+        v-for="(section, index) in sections"
+        :key="index"
+      >
         <h2 class="section-title font-bold text-lg xl:text-xl">{{ section }}</h2>
-        <div class="flex justify-between"
+        <div
+          class="flex justify-between"
           v-for="slide in links.filter((link) => {
             return link.section === section
           })"
           :key="slidesList.indexOf(slide)"
         >
-          <a class="w-full text-sm font-bold text-aliceblue xl:text-base hover:cursor-pointer "
-          :class="{
-            'text-saffron': current == slidesList.indexOf(slide),
-            'text-coolgrey cursor-none': slidesList.indexOf(slide) > checkpoint,
-          }"
+          <a
+            class="w-full text-sm text-aliceblue xl:text-base hover:font-semibold hover:cursor-pointer"
+            :class="{
+              'text-saffron font-semibold': current == slidesList.indexOf(slide),
+              'text-coolgrey cursor-none': slidesList.indexOf(slide) > checkpoint
+            }"
             @click="goToSlide(slidesList.indexOf(slide))"
             :disabled="slidesList.indexOf(slide) > checkpoint.value"
           >
@@ -81,4 +93,3 @@ defineProps(['title'])
     </div>
   </div>
 </template>
-
