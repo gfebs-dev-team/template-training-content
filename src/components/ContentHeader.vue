@@ -14,6 +14,10 @@ function windowClose() {
   window.close()
 }
 
+function openLink(link) {
+  window.open(link, '_blank')
+}
+
 defineProps(['courseData'])
 </script>
 
@@ -58,6 +62,7 @@ defineProps(['courseData'])
               >
               <a
                 class="font-bold p-2 rounded hover:bg-masblue transition-colors text-xs text-aliceblue md:text-sm xl:w-full xl:max-w-none xl:text-base"
+                @click="openLink('https://gfebs.army.mil/gm')"
                 >GFEBS Production PSW</a
               >
             </template>

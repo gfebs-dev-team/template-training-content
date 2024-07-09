@@ -1,7 +1,5 @@
-import './assets/sass/main.scss'
 import './style.css'
 import SlideContent from './components/SlideContent.vue'
-
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

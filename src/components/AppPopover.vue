@@ -13,7 +13,7 @@ defineProps(['buttonStyle', 'className'])
 
 <template>
   <div class="top-0 fixed left-0 z-10 w-dvw h-dvh" @click="popover = false" v-if="popover"></div>
-  <div class="w-full" :class="className">
+  <div class="w-full relative" :class="className">
     <AppButton class="relative w-full" :class="buttonStyle" @click="popover = !popover"
       ><slot name="button-name"></slot
     ></AppButton>

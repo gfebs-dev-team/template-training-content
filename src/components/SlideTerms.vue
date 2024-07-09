@@ -24,11 +24,17 @@ function setTerm(index) {
         </div>
 
         <div
-          class="rounded-md bg-spacecadet p-4 h-full overflow-auto w-full md:h-1/2"
+          class="rounded-md bg-spacecadet p-4 h-full overflow-auto w-full md:h-1/2 relative"
           v-if="currIndex"
         >
           <template v-for="index in termsNum" :key="index">
-            <Transition>
+            <Transition
+              name="fade"
+              enter-active-class="transition-opacity duration-500 ease-in-out"
+              leave-active-class="transition-opacity duration-500 ease-in-out"
+              enter-from-class="absolute  opacity-0 inset-0 p-4"
+              leave-to-class="absolute opacity-0 inset-0 p-4"
+            >
               <div class="flex flex-col gap-2" v-if="index === currIndex">
                 <h3 class="text-saffron font-bold text-lg">
                   <slot :name="'termButton_' + index" />
