@@ -49,29 +49,29 @@ defineProps(['courseData'])
         >
           <AppPopover
             class-name="order-2 sm:order-none"
-            buttonStyle="relative max-w-36 h-full justify-self-end border-transparent bg-oxfordblue p-1 px-2 text-xs text-aliceblue md:text-sm flex xl:w-full xl:max-w-none xl:text-base"
+            buttonStyle="relative max-w-36 h-full justify-self-end border-masblue border-3 text-coolgrey p-1 px-2 text-xs text-aliceblue lg:text-sm flex xl:w-full xl:max-w-none "
           >
             <template #button-name>
-              <RiDatabaseLine class="size-5 fill-aliceblue" /> Resources
+              <RiDatabaseLine class="size-5 fill-coolgrey" /> Resources
             </template>
             <template #menu>
               <a
-                class="font-bold p-2 rounded hover:bg-masblue transition-colors text-xs text-aliceblue md:text-sm xl:w-full xl:max-w-none xl:text-base"
+                class="font-bold p-2 rounded hover:bg-masblue transition-colors text-xs text-aliceblue md:text-sm xl:w-full xl:max-w-none"
                 @click="glossaryState = !glossaryState"
                 >Glossary</a
               >
               <a
-                class="font-bold p-2 rounded hover:bg-masblue transition-colors text-xs text-aliceblue md:text-sm xl:w-full xl:max-w-none xl:text-base"
+                class="font-bold p-2 rounded hover:bg-masblue transition-colors text-xs text-aliceblue md:text-sm xl:w-full xl:max-w-none"
                 @click="openLink('https://gfebs.army.mil/gm')"
                 >GFEBS Production PSW</a
               >
             </template>
           </AppPopover>
           <AppButton
-            class="w-full justify-self-end border-transparent bg-oxfordblue p-1 px-2 text-xs text-aliceblue md:text-sm xl:w-full xl:max-w-none xl:text-base"
+            class="w-full justify-self-end border-masblue border-3 text-saffron bg-transparent p-1 px-2 text-xs md:text-sm xl:w-full xl:max-w-none"
             @click="windowClose()"
           >
-            <RiCloseLine class="size-6 fill-aliceblue" /> EXIT
+            <RiCloseLine class="size-6 fill-saffron" /> EXIT
           </AppButton>
         </div>
       </div>
