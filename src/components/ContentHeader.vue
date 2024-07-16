@@ -28,18 +28,16 @@ defineProps(['courseData'])
     <div
       class="grid h-min sm:h-20 w-full grid-cols-[auto_auto_1fr] items-center gap-4 p-4 xl:h-auto"
     >
-      <img class="h-10 md:h-12 xl:h-24" src="/crest.svg" />
+      <img class="h-8 md:h-12 xl:h-16 min-w-max" src="/gfebs_white.png" />
       <div class="flex flex-col gap-1 xl:gap-2">
         <h1
           class="max-w-56 text-balance text-sm font-bold uppercase text-aliceblue md:text-base xl:max-w-64 xl:text-xl"
         >
-          Financial Management School
-        </h1>
-        <h2
-          class="hidden text-balance text-sm font-bold uppercase text-saffron xl:inline xl:text-base"
-        >
-          GFEBS {{ courseData.courseCode }}:
+          GFEBS {{ courseData.courseCode }}
           {{ courseData.courseTitle }}
+        </h1>
+        <h2 class="text-balance text-sm font-bold uppercase text-saffron xl:inline xl:text-base">
+          {{ courseData.topic }}
         </h2>
       </div>
       <div class="flex flex-col gap-4 justify-self-end xl:w-2/3">
@@ -83,10 +81,7 @@ defineProps(['courseData'])
         @click="$emit('toggleSidebar')"
         class="size-6 fill-coolgrey p-1 hover:cursor-pointer xl:size-8"
       ></RiMenuLine>
-      <h2 class="text-balance text-xs font-bold uppercase text-coolgrey md:text-sm xl:hidden">
-        GFEBS {{ courseData.courseCode }}:
-        {{ courseData.courseTitle }}
-      </h2>
+
       <div class="hidden h-12 items-center justify-end gap-4 text-xs text-aliceblue xl:flex">
         <AppButton
           class="h-fit max-w-fit border-2 border-aliceblue p-2 px-4 disabled:border-coolgrey disabled:text-coolgrey"

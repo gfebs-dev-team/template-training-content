@@ -47,7 +47,7 @@ const classNames = {
     </template>
 
     <template #column_2>
-      <img class="max-h-1/2 object-contain h-full" :src="image" />
+      <img class="max-h-1/2 h-full md:h-auto md:p-8 object-contain" :src="image" />
     </template>
   </SlideBase>
 </template>

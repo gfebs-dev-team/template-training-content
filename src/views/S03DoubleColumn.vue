@@ -1,33 +1,42 @@
 <script setup>
-import SlideContent from '../components/SlideContent.vue'
+import SlideQuestion from '../components/SlideQuestion.vue'
+import SlideQuestionInput from '../components/SlideQuestionInput.vue'
 import { useSlidesStore } from '../stores/slides'
-import { onBeforeMount } from 'vue'
+import { onBeforeMount, provide, ref } from 'vue'
 
 const slideData = {
-  title: 'Double Columns',
-  type: 'content',
-  section: 'Section 1: Slide Types'
+  title: 'Multiple Choice Question',
+  type: 'question',
+  section: 'Section 1: Slide Types',
+  viewed: false,
+  answer: 'third',
+  user: ''
 }
 
 const slides = useSlidesStore()
 const { addSlide } = slides
 
+const answer = ref()
+const checked_el = ref(0)
+
+provide('answer', answer)
+provide('checked_el', checked_el)
+
 onBeforeMount(() => {
-  addSlide(slideData, 2)
+  addSlide(slideData, 4)
 })
 </script>
 
 <template>
-  <SlideContent v-bind="slideData" :columns="1">
-    <p>
-      This training course will introduce you to the process, coordination, and information required
-      to understand the Financials process in GFEBS.
-    </p>
-    <template #column_2>
-      <p>
-        This training course will introduce you to the process, coordination, and information
-        required to understand the Financials process in GFEBS.
-      </p>
+  <SlideQuestion :title="slideData.title">
+    <template #question>What is the answer to this question?</template>
+    <template #options>
+      <SlideQuestionInput value="first" label="first" index="1" count="1" />
+      <SlideQuestionInput value="second" label="second" index="2" count="1" />
+      <SlideQuestionInput value="third" label="third" index="3" count="1" />
+      <SlideQuestionInput value="fourth" label="fourth" index="4" count="1" />
     </template>
-  </SlideContent>
+  </SlideQuestion>
 </template>
+
+<style scoped lang="scss"></style>

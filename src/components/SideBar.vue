@@ -57,12 +57,10 @@ defineProps(['title'])
 <template>
   <div
     id="sidebar"
-    class="absolute z-10 flex h-full w-64 bg-spacecadet p-4 transition xl:bg-masblue"
-    v-bind:class="{ '-translate-x-64': !sidebarState }"
+    class="absolute z-10 flex h-full w-1/3 bg-spacecadet p-6 transition xl:bg-masblue overflow-auto"
+    v-bind:class="{ '-translate-x-full': !sidebarState }"
   >
-    <div
-      class="links flex w-full flex-col gap-2 xl:gap-4 overflow-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar scrollbar-w-1 scrollbar-thumb-harvestgold scrollbar-track-aliceblue p-2"
-    >
+    <div class="links flex w-full flex-col gap-2 xl:gap-4">
       <div
         class="section flex flex-col gap-2 pr-2"
         v-for="(section, index) in sections"
@@ -85,7 +83,7 @@ defineProps(['title'])
             @click="goToSlide(slidesList.indexOf(slide))"
             :disabled="slidesList.indexOf(slide) > checkpoint.value"
           >
-            {{ slide.title }}
+            {{ slidesList.indexOf(slide) + 1 + '. ' + slide.title }}
           </a>
           <RiLockFill class="size-4 fill-aliceblue" v-if="slidesList.indexOf(slide) > checkpoint" />
         </div>

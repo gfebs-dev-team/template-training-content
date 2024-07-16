@@ -1,46 +1,68 @@
-
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-//const imageUrl = ref('../assets/img/GFEBS_Diagram-slide016.jpeg'); // Replace with your actual image URL
-const isExpanded = ref(false);
+const toggleState = ref(false)
 
-const expandImage = () => {
-  isExpanded.value = true;
-};
-
-const closeImage = () => {
-  isExpanded.value = false;
-};
+function toggleSize() {
+  toggleState.value = !toggleState.value
+  const slideArea = document.querySelector('.slide-area')
+  if (toggleState.value) {
+    slideArea.style.overflow = 'hidden'
+  } else {
+    slideArea.style.overflow = 'auto'
+  }
+}
 </script>
 
 <template>
-  <div>
-    <img :src="imageUrl" alt="Image" @click="expandImage">
-    <div v-if="isExpanded" class="modal">
-      <img :src="imageUrl" alt="Expanded Image">
-      <button @click="closeImage">Close</button>
+  <div :class="{ modal: toggleState, expanded: toggleState }">
+    <div @click="toggleSize">
+      <slot />
     </div>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .modal {
-  display: none; /* Initially hidden */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
+  position: fixed;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scrolling if needed */
-  background-color: rgba(0,0,0,0.4);
+  left: 0;
+  z-index: 100;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  justify-self: center;
+  text-justify: auto;
+  background: rgba(11, 21, 40, 0.6);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
-.modal img {
-  max-width: 70%; 
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.expanded {
+  margin: auto;
+  background: rgba(11, 21, 40, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  overflow: hidden;
+}
+
+img[slot] {
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80vw;
+  max-height: 80vh;
+  overflow: hidden;
 }
 </style>
