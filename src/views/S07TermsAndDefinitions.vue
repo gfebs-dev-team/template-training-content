@@ -2,6 +2,15 @@
 import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue'
 import SlideTerms from '@/components/SlideTerms.vue'
+import {
+  RiCheckLine,
+  RiCheckFill,
+  RiCheckDoubleFill,
+  RiCheckboxLine,
+  RiCheckboxCircleLine,
+  RiCheckboxFill,
+  RiCheckboxCircleFill
+} from '@remixicon/vue'
 
 const slideData = {
   title: 'Terms and Definition Slide',
@@ -32,6 +41,9 @@ onBeforeMount(() => {
       thresholds for routing. GFEBS will route JVs automatically to their appropriate reviewers
       based on the organization from the JV originate, and to approvers based on the dollar amount
       of the JV.
+    </template>
+    <template #check_1>
+      <RiCheckLine />
     </template>
 
     <template #termButton_2>Journal Voucher Processor</template>

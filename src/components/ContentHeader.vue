@@ -29,7 +29,7 @@ defineProps(['courseData'])
       class="grid h-min sm:h-20 w-full grid-cols-[auto_auto_1fr] items-center gap-4 p-4 xl:h-auto"
     >
       <img class="h-8 md:h-12 xl:h-16 min-w-max" src="/gfebs_white.png" />
-      <div class="flex flex-col gap-1 xl:gap-2">
+      <div class="flex flex-col gap-1">
         <h1
           class="max-w-56 text-balance text-sm font-bold uppercase text-aliceblue md:text-base xl:max-w-64 xl:text-xl"
         >
