@@ -42,12 +42,12 @@ onMounted(() => {
 })
 
 onUpdated(() => {
-  slides.setCheckpoint()
+  //slides.setCheckpoint()
   //setLinks()
 })
 
 watch(current, (curr) => {
-  slides.setCheckpoint()
+  //slides.setCheckpoint()
   setLinks()
 })
 
