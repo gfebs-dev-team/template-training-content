@@ -14,7 +14,7 @@ watchEffect(() => {
 })
 
 function goToSlide(i) {
-  if (i < checkpoint.value + 1) {
+  if (i < checkpoint.value + 1 || slides.testing) {
     current.value = i
     slides.toggleSidebar()
   }
@@ -78,14 +78,14 @@ defineProps(['title'])
             class="w-full text-sm text-aliceblue xl:text-base hover:font-semibold hover:cursor-pointer"
             :class="{
               'text-saffron font-semibold': current == slidesList.indexOf(slide),
-              'text-coolgrey cursor-none': slidesList.indexOf(slide) > checkpoint
+              'text-coolgrey cursor-none': slidesList.indexOf(slide) > checkpoint && !slides.testing
             }"
             @click="goToSlide(slidesList.indexOf(slide))"
-            :disabled="slidesList.indexOf(slide) > checkpoint.value"
+            :disabled="slidesList.indexOf(slide) > checkpoint.value && !slides.testing"
           >
             {{ slidesList.indexOf(slide) + 1 + '. ' + slide.title }}
           </a>
-          <RiLockFill class="size-4 fill-aliceblue" v-if="slidesList.indexOf(slide) > checkpoint" />
+          <RiLockFill class="size-4 fill-aliceblue" v-if="slidesList.indexOf(slide) > checkpoint && !slides.testing" />
         </div>
       </div>
     </div>

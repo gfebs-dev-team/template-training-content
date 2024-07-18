@@ -93,7 +93,7 @@ defineProps(['courseData'])
         <AppButton
           class="h-fit max-w-fit border-2 border-aliceblue p-2 px-4 disabled:border-coolgrey disabled:text-coolgrey"
           @click="goNext()"
-          :disabled="!slides.next"
+          :disabled="!slides.next && !slides.testing"
         >
           Next
         </AppButton>
