@@ -12,8 +12,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <SlideBase class="content" v-bind="props" :columns="1">
-      <div class="m-auto mt-44" title>
+  <SlideBase class="content" v-bind="props">
+      <div class="m-auto" title>
         <h2 class="text-5xl w-full text-saffron font-bold">{{ sectionNum }}</h2>
         <h3 class="text-4xl w-full font-bold">{{ subtitle }}</h3>
       </div>
