@@ -7,7 +7,7 @@ defineProps(['slideData', 'image'])
     <slot />
 
     <template #column_2>
-      <img class="max-h-1/2 h-full md:h-auto md:p-8 object-contain" :src="image" />
+      <img class="md:p-8 md:pt-0 object-contain" :src="image" />
     </template>
   </SlideContent>
 </template>
