@@ -2,15 +2,7 @@
 import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue'
 import SlideTerms from '@/components/SlideTerms.vue'
-import {
-  RiCheckLine,
-  RiCheckFill,
-  RiCheckDoubleFill,
-  RiCheckboxLine,
-  RiCheckboxCircleLine,
-  RiCheckboxFill,
-  RiCheckboxCircleFill
-} from '@remixicon/vue'
+import { RiCheckLine } from '@remixicon/vue'
 
 const slideData = {
   title: 'Terms and Definition Slide',
@@ -40,7 +32,17 @@ onBeforeMount(() => {
       of the Journal Voucher Reviewers and the Journal Voucher Approvers, and maintains the dollar
       thresholds for routing. GFEBS will route JVs automatically to their appropriate reviewers
       based on the organization from the JV originate, and to approvers based on the dollar amount
-      of the JV.
+      of the JV. The Journal Voucher Workflow Maintainer loads the two tables. One table stores the
+      user IDs of Journal Voucher Processors and the related organizations. The other table stores
+      the user IDs of the Journal Voucher Reviewers and the Journal Voucher Approvers, and maintains
+      the dollar thresholds for routing. GFEBS will route JVs automatically to their appropriate
+      reviewers based on the organization from the JV originate, and to approvers based on the
+      dollar amount of the JV. The Journal Voucher Workflow Maintainer loads the two tables. One
+      table stores the user IDs of Journal Voucher Processors and the related organizations. The
+      other table stores the user IDs of the Journal Voucher Reviewers and the Journal Voucher
+      Approvers, and maintains the dollar thresholds for routing. GFEBS will route JVs automatically
+      to their appropriate reviewers based on the organization from the JV originate, and to
+      approvers based on the dollar amount of the JV.
     </template>
     <template #check_1>
       <RiCheckLine />

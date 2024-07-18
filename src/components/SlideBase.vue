@@ -24,7 +24,7 @@ onMounted(() => {
     >
       {{ id + '. ' + props.title }}
     </h2>
-    <div class="flex gap-2" v-if="hasMain || props.columns">
+    <div class="flex gap-2 h-full" v-if="hasMain || props.columns">
       <div
         class="w-full flex flex-col items-stretch gap-2"
         :class="classNames && classNames.main ? classNames.main : ''"
