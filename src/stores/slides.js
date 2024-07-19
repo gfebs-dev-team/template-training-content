@@ -11,7 +11,7 @@ export const useSlidesStore = defineStore('slides', () => {
     )
   )
 
-  const testing = true
+  const testing = false
   const glossaryEnable = false
   const current = ref(0)
   const slidesList = ref(new Array())
@@ -33,8 +33,7 @@ export const useSlidesStore = defineStore('slides', () => {
   }
 
   function goNext() {
-    if (current.value < (total - 1))
-      current.value++
+    current.value++
     //console.log(current.value)
   }
 

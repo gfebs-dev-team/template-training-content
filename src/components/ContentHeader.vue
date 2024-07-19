@@ -20,7 +20,6 @@ function openLink(link) {
 
 function disable() {
   var dis = true
-
   if (testing) {
     dis = !(current.value < (total - 1))
   }
