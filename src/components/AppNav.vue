@@ -6,7 +6,19 @@ import { storeToRefs } from 'pinia'
 
 const slides = useSlidesStore()
 const { current } = storeToRefs(slides)
-const { goNext, goPrev } = slides
+const { total, goNext, goPrev, testing } = slides
+
+function disable() {
+  var dis = true
+  if (testing) {
+    dis = !(current.value < (total - 1))
+  }
+  else {
+    dis = !slides.next
+  }
+
+  return dis
+}
 
 defineProps(['courseData'])
 </script>
@@ -28,7 +40,7 @@ defineProps(['courseData'])
       <AppButton
         class="h-fit max-w-fit border-2 border-aliceblue p-1 px-4 disabled:border-coolgrey disabled:text-coolgrey"
         @click="goNext()"
-        :disabled="!slides.next"
+        :disabled="disable()"
       >
         Next
       </AppButton>
