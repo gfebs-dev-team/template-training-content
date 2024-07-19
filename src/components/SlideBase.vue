@@ -19,10 +19,10 @@ onMounted(() => {
     :class="class"
   >
     <h2
-      class="text-2xl w-full md:block text-saffron font-bold transition"
+      class="text-2xl w-1/2 md:block text-saffron font-bold transition"
       v-if="props.title && props.type != 'section'"
     >
-      {{ id + '. ' + props.title }}
+      {{props.title }}
     </h2>
     <div class="flex gap-2 h-full" v-if="hasMain || props.columns">
       <div
