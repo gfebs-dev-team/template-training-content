@@ -92,11 +92,3 @@ defineProps(['title'])
     </div>
   </div>
 </template>
-
-<style scoped lang="scss">
-span{
-display: inline-block;
-white-space: nowrap; 
-width: auto;
-}
-</style>
