@@ -19,11 +19,10 @@ onMounted(() => {
     :class="class"
   >
     <h2
-      class="text-2xl w-1/2 md:block text-saffron font-bold transition"
+      class="text-2xl md:w-1/2 md:block text-saffron font-bold transition"
       v-if="props.title && props.type != 'section'"
-    >
-      {{props.title }}
-    </h2>
+      v-html="props.title" />
+
     <div class="flex gap-2 h-full" v-if="hasMain || props.columns">
       <div
         class="w-full flex flex-col items-stretch gap-2"
@@ -44,3 +43,11 @@ onMounted(() => {
     <slot></slot>
   </div>
 </template>
+
+<style scoped lang="scss">
+span{
+display: inline-block;
+white-space: nowrap; 
+width: auto;
+}
+</style>

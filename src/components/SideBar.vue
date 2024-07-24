@@ -83,7 +83,8 @@ defineProps(['title'])
             @click="goToSlide(slidesList.indexOf(slide))"
             :disabled="slidesList.indexOf(slide) > checkpoint.value && !slides.testing"
           >
-            {{ slidesList.indexOf(slide) + 1 + '. ' + slide.title }}
+            {{ slidesList.indexOf(slide) + 1 + '. '}}
+            <a v-html="slide.title"/>
           </a>
           <RiLockFill class="size-4 fill-aliceblue" v-if="slidesList.indexOf(slide) > checkpoint && !slides.testing" />
         </div>
@@ -91,3 +92,11 @@ defineProps(['title'])
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+span{
+display: inline-block;
+white-space: nowrap; 
+width: auto;
+}
+</style>
