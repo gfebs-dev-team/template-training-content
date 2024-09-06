@@ -9,7 +9,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/gfebs-dev-team/template-training-content">
-    <img src="public/assets/gfebs_white.png" alt="Logo" height="80">
+    <img src="public/gfebs_white.png" alt="Logo" height="80">
   </a>
 
   <h3 align="center">template-training-content</h3>
