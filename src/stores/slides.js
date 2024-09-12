@@ -11,7 +11,7 @@ export const useSlidesStore = defineStore('slides', () => {
     )
   )
 
-  const testing = false
+  const testing = true
   const glossaryEnable = false
   const current = ref(0)
   const slidesList = ref(new Array())

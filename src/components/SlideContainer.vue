@@ -1,9 +1,11 @@
 <script setup>
 // import SlideSection from './SlideSection.vue'
-import { onMounted } from 'vue'
+import { onMounted, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSlidesStore } from '@/stores/slides'
+import { useUrlSearchParams } from '@vueuse/core'
 
+const params = useUrlSearchParams('history')
 const slides = useSlidesStore()
 const { current, slidesComp } = storeToRefs(slides)
 
@@ -15,8 +17,12 @@ onMounted(() => {
 
   if (urlParams.has('page')) {
     pageFilter = parseInt(urlParams.get('page'))
-    current.value = pageFilter - 1
+    current.value = pageFilter
   }
+})
+
+watch(current, (current) => {
+  params.page = current + 1
 })
 
 defineProps(['topic', 'title'])

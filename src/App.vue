@@ -6,18 +6,6 @@ const courseData = {
   courseTitle: 'Essentials',
   topic: 'Introduction'
 }
-
-/**onMounted(() => {
-  let pageFilter;
-
-  let queryString = window.location.search
-  let urlParams = new URLSearchParams(queryString)
-
-  if (urlParams.has('simulation')) {
-    pageFilter = urlParams.get('simulation')
-    //current.value = pageFilter-1;
-  }
-})**/
 </script>
 
 <template>

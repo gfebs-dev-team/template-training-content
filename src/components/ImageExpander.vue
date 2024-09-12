@@ -21,7 +21,7 @@ defineProps(['src', 'className', 'alt'])
     >
       <img
         :src="src"
-        class="contain h-full w-auto object-center xl:max-w-[1200px]"
+        class="contain h-auto w-auto object-center xl:max-w-[1200px]"
         :class="className"
         :alt="alt"
       />
