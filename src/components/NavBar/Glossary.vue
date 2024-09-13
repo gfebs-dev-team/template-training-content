@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { useSlidesStore } from '../stores/slides'
+import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
 import { RiCloseLine, RiArrowLeftLine } from '@remixicon/vue'
 

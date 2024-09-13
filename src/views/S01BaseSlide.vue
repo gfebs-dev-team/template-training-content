@@ -1,10 +1,10 @@
 <script setup>
-import SlideContent from '../components/SlideContent.vue'
+import { SlideColumns } from '@/components/Slide'
 import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue'
 
 const slideData = {
-  title: 'SlideContent',
+  title: 'SlideColumns',
   type: 'content',
   section: 'Section 1: Slide Types'
 }
@@ -18,14 +18,14 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideContent v-bind="slideData">
+  <SlideColumns v-bind="slideData">
     <p>
-      This is your standard slide type, <strong>SlideContent</strong>. The single column is the
-      default layout for this slide type. Properties required for <strong>SlideContent</strong> are
+      This is your standard slide type, <strong>SlideColumns</strong>. The single column is the
+      default layout for this slide type. Properties required for <strong>SlideColumns</strong> are
       <em>title, type,</em> and <em>section</em>. All slide data must be added to the store with
       <code>addSlide(slideData, slideNumber)</code> before mount.
     </p>
-  </SlideContent>
+  </SlideColumns>
 </template>
 
 <style scoped lang="scss">

@@ -1,6 +1,6 @@
 <script setup>
-import SlideContent from '../components/SlideContent.vue'
-import { useSlidesStore } from '../stores/slides'
+import { SlideColumns } from '@/components/Slide'
+import { useSlidesStore } from '@/stores/slides'
 import { onBeforeMount } from 'vue'
 
 const slideData = {
@@ -18,7 +18,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideContent v-bind="slideData" :columns="2">
+  <SlideColumns v-bind="slideData" :columns="2">
     <p>
       This training course will introduce you to the process, coordination, and information required
       to understand the Financials process in GFEBS.
@@ -35,5 +35,5 @@ onBeforeMount(() => {
         required to understand the Financials process in GFEBS.
       </p>
     </template>
-  </SlideContent>
+  </SlideColumns>
 </template>

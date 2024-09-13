@@ -1,7 +1,7 @@
 <script setup>
 import AppButton from './AppButton.vue'
 import AppPopover from './AppPopover.vue'
-import AppProgress from './AppProgress.vue'
+import { NavProgress } from '@/components/NavBar'
 import { RiMenuLine, RiCloseLine, RiDatabaseLine } from '@remixicon/vue'
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'

@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref, useSlots, computed } from 'vue'
-import { useSlidesStore } from '../stores/slides'
+import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
 
 const slides = useSlidesStore()

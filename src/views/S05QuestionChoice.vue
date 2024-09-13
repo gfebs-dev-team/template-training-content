@@ -1,7 +1,6 @@
 <script setup>
-import SlideQuestion from '../components/SlideQuestion.vue'
-import SlideQuestionInput from '../components/SlideQuestionInput.vue'
-import { useSlidesStore } from '../stores/slides'
+import { SlideQuestion, SlideQuestionInput } from '@/components/Slide'
+import { useSlidesStore } from '@/stores/slides'
 import { onBeforeMount, provide, ref } from 'vue'
 
 const slideData = {

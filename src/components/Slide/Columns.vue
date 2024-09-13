@@ -1,5 +1,5 @@
 <script setup>
-import SlideBase from './SlideBase.vue'
+import SlideBase from './Base.vue'
 import { computed } from 'vue'
 
 const props = defineProps(['title', 'classNames', 'columns'])

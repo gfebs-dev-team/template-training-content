@@ -1,7 +1,7 @@
 <script setup>
-import AppButton from './AppButton.vue'
-import AppProgress from './AppProgress.vue'
-import { useSlidesStore } from '../stores/slides'
+import AppButton from '@/components/AppButton.vue'
+import AppProgress from './Progress.vue'
+import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
 
 const slides = useSlidesStore()
@@ -11,9 +11,8 @@ const { total, goNext, goPrev, testing } = slides
 function disable() {
   var dis = true
   if (testing) {
-    dis = !(current.value < (total - 1))
-  }
-  else {
+    dis = !(current.value < total - 1)
+  } else {
     dis = !slides.next
   }
 

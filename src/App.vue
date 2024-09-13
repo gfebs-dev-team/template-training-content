@@ -1,9 +1,8 @@
 <script setup>
-import ContentHeader from '@/components/ContentHeader.vue'
-import AppGlossary from '@/components/AppGlossary.vue'
-import AppNav from '@/components/AppNav.vue'
-import SideBar from '@/components/SideBar.vue'
-import SlideContainer from '@/components/SlideContainer.vue'
+import AppHeader from '@/components/AppHeader.vue'
+import { NavBar } from '@/components/NavBar'
+import TheSideBar from '@/components/TheSideBar.vue'
+import { SlideContainer } from '@/components/Slide'
 import glossary from './assets/glossary.json'
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
@@ -25,16 +24,16 @@ const { toggleSidebar } = slides
   >
     <AppGlossary :glossary="glossary" v-if="glossaryState"></AppGlossary>
 
-    <ContentHeader @toggleSidebar="toggleSidebar()" :courseData="courseData"></ContentHeader>
+    <AppHeader @toggleSidebar="toggleSidebar()" :courseData="courseData" />
     <section
       class="relative flex size-full h-full flex-col justify-between overflow-hidden xl:rounded-b-lg bg-oxfordblue xl:max-w-[1200px]"
     >
-      <SideBar :sidebarState="sidebarState" />
+      <TheSideBar :sidebarState="sidebarState" />
 
       <SlideContainer />
     </section>
 
-    <AppNav :courseData="courseData" />
+    <NavBar :courseData="courseData" />
     <!-- Bottom Nav -->
   </main>
 </template>

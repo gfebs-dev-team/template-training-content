@@ -1,20 +1,17 @@
 <script setup>
-import SlideBase from './SlideBase.vue'
+import Base from '@/components/Slide/Base.vue'
 import { useSlidesStore } from '@/stores/slides'
-import { onUpdated, ref, watch } from 'vue'
+import { onUpdated, ref, watch, inject } from 'vue'
 import { storeToRefs } from 'pinia'
-import correct from '../assets/img/gfebs-correct.svg'
-import incorrect from '../assets/img/gfebs-incorrect.svg'
-import qanda from '../assets/img/gfebs-qanda.svg'
-import { inject } from 'vue'
+import correct from './assets/gfebs-correct.svg'
+import incorrect from './assets/gfebs-incorrect.svg'
+import qanda from './assets/gfebs-qanda.svg'
 
+defineProps(['title', 'topic'])
 const slides = useSlidesStore()
 const { current, slidesList } = storeToRefs(slides)
 const image = ref(qanda)
-defineProps(['title', 'topic'])
-console.log(current)
 const answer = inject('answer')
-console.log(slidesList.value)
 
 watch(answer, () => {
   if (answer.value === slidesList.value[current.value].answer) {
@@ -35,7 +32,7 @@ const classNames = {
 </script>
 
 <template>
-  <SlideBase :title="title" :columns="1" :classNames="classNames">
+  <Base :title="title" :columns="1" :classNames="classNames">
     <template #main>
       <div class="flex flex-col w-full gap-4">
         <h3><slot name="question"></slot></h3>
@@ -49,5 +46,5 @@ const classNames = {
     <template #column_2>
       <img class="max-h-1/2 h-full md:h-auto md:p-8 object-contain md:pt-0" :src="image" />
     </template>
-  </SlideBase>
+  </Base>
 </template>

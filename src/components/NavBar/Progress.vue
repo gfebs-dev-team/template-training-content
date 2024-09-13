@@ -1,5 +1,5 @@
 <script setup>
-import { useSlidesStore } from '../stores/slides'
+import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 

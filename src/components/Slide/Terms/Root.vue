@@ -1,7 +1,8 @@
 <script setup>
-import SlideBase from './SlideBase.vue'
-import SlideTermButton from './SlideTermButton.vue'
 import { ref } from 'vue'
+import Base from '../Base.vue'
+import Button from './Button.vue'
+
 defineProps(['title', 'termsNum'])
 
 const classNames = {
@@ -16,7 +17,7 @@ function setTerm(index) {
 </script>
 
 <template>
-  <SlideBase :title="title" :classNames="classNames">
+  <Base :title="title" :classNames="classNames">
     <template #main>
       <div class="flex h-full gap-8 flex-col md:flex-row">
         <div class="flex flex-col w-full h-full overflow-auto gap-4">
@@ -53,14 +54,14 @@ function setTerm(index) {
           class="grid grid-flow-dense grid-cols-2 min-w-0 min-h-0 gap-4 h-full w-full md:w-4/5 md:h-auto md:flex md:flex-col"
         >
           <template v-for="index in termsNum" :key="index">
-            <SlideTermButton :index="index" :currIndex @click="setTerm(index)">
+            <Button :index="index" :currIndex @click="setTerm(index)">
               <template #term>
                 <slot :name="'termButton_' + index" />
               </template>
-            </SlideTermButton>
+            </Button>
           </template>
         </div>
       </div>
     </template>
-  </SlideBase>
+  </Base>
 </template>

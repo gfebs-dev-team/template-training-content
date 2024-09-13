@@ -1,7 +1,7 @@
 <script setup>
-import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount } from 'vue'
-import SlideTerms from '@/components/SlideTerms.vue'
+import { useSlidesStore } from '@/stores/slides'
+import { SlideTerms } from '@/components/Slide'
 import { RiCheckLine } from '@remixicon/vue'
 
 const slideData = {
