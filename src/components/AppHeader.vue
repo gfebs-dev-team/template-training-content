@@ -50,7 +50,7 @@ defineProps(['courseData'])
         </h2>
       </div>
       <div class="flex flex-col gap-4 justify-self-end xl:w-2/3">
-        <AppProgress class="hidden xl:block" />
+        <NavProgress class="hidden xl:block" />
         <div
           class="grid grid-rows-2 sm:grid-rows-1 sm:grid-cols-2 w-full justify-end gap-1 md:gap-4"
         >

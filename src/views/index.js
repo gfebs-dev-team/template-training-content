@@ -20,3 +20,6 @@ export default {
   S08OutlineSummary
   //@endindex
 }
+
+//Generate Index
+//CMD + K , I

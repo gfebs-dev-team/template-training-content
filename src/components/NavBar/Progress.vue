@@ -18,12 +18,7 @@ defineProps(['courseData'])
       class="ease h-full bg-saffron transition-width duration-700"
       :style="`width: ${progress}`"
     ></div>
-    <span
-      class="hidden xl:flex absolute z-[3] inset-0 items-center justify-center text-oxfordblue"
-      >{{ current + '/' + total }}</span
-    >
-
-    <span class="hidden xl:flex absolute z inset-0 items-center justify-center text-aliceblue">{{
+    <span class="hidden absolute z-[3] inset-0 items-center justify-center text-oxfordblue">{{
       current + '/' + total
     }}</span>
   </div>

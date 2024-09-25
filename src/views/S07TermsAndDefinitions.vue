@@ -44,9 +44,6 @@ onBeforeMount(() => {
       to their appropriate reviewers based on the organization from the JV originate, and to
       approvers based on the dollar amount of the JV.
     </template>
-    <template #check_1>
-      <RiCheckLine />
-    </template>
 
     <template #termButton_2>Journal Voucher Processor</template>
     <template #termDef_2> The Journal Voucher Processor prepares and parks JV. </template>
