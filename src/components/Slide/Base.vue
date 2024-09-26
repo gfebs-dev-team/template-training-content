@@ -16,7 +16,7 @@ onMounted(() => {
 </script>
 <template>
   <div
-    class="flex flex-col absolute items-center w-full h-full md:items-stretch p-4 md:p-8 gap-6"
+    class="flex flex-col absolute inset-0 items-center w-full h-full md:items-stretch p-4 md:p-8 gap-6"
     :class="class"
   >
     <h2
@@ -25,7 +25,7 @@ onMounted(() => {
       v-html="props.title"
     />
 
-    <div class="flex gap-2 h-full" v-if="hasMain || props.columns">
+    <div class="flex gap-2 h-full min-h-0" v-if="hasMain || props.columns">
       <div
         :class="
           twMerge(
