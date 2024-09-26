@@ -1,7 +1,8 @@
 <script setup>
 import { onMounted, ref, useSlots, computed } from 'vue'
-import { useSlidesStore } from '@/stores/slides'
+import { twMerge } from 'tailwind-merge'
 import { storeToRefs } from 'pinia'
+import { useSlidesStore } from '@/stores/slides'
 
 const slides = useSlidesStore()
 const { current } = storeToRefs(slides)
@@ -26,15 +27,23 @@ onMounted(() => {
 
     <div class="flex gap-2 h-full" v-if="hasMain || props.columns">
       <div
-        class="w-full flex flex-col items-stretch gap-2"
-        :class="classNames && classNames.main ? classNames.main : ''"
+        :class="
+          twMerge(
+            'w-full flex flex-col items-stretch gap-2',
+            classNames && classNames.main ? classNames.main : ''
+          )
+        "
         v-if="hasMain"
       >
         <slot name="main" />
       </div>
       <div
-        class="w-full flex flex-col items-stretch gap-2"
-        :class="classNames && classNames[index + 1] ? classNames[index + 1] : ''"
+        :class="
+          twMerge(
+            'w-full flex flex-col items-stretch gap-2',
+            classNames && classNames[index + 1] ? classNames[index + 1] : ''
+          )
+        "
         v-for="index in props.columns"
         :key="index"
       >
