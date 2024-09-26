@@ -48,7 +48,9 @@ Internal boilerplate for creating GFEBs DL training content packages.
 To create a new GFEBS DL Product, install `template-training-content` with [Github CLI](https://cli.github.com/)
 
 ```bash
-gh repo create [COURSE_CODE]-training-content --template="aretum-eagleharbor-gfebs/template-training-content"
+gh repo create gfebs-dev-team/[COURSE_CODE]-training-content --template="gfebs-dev-team/template-training-content"
+
+gh repo close [COURSE_CODE]-training-content
 
 cd [COURSE_CODE]-training-content
 
@@ -61,7 +63,7 @@ npm i -D
 To contribute and make edits to `template-training-content`, clone the project
 
 ```bash
-git clone https://github.com/aretum-eagleharbor-gfebs/template-training-content.git
+git clone https://github.com/gfebs-dev-team/template-training-content.git
 ```
 
 Go to the project directory
