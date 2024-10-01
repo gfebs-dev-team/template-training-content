@@ -50,7 +50,7 @@ To create a new GFEBS DL Product, install `template-training-content` with [Gith
 ```bash
 gh repo create gfebs-dev-team/[COURSE_CODE]-training-content --template="gfebs-dev-team/template-training-content"
 
-gh repo close [COURSE_CODE]-training-content
+gh repo clone [COURSE_CODE]-training-content
 
 cd [COURSE_CODE]-training-content
 
