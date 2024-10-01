@@ -29,7 +29,7 @@ onMounted(() => {
       <div
         :class="
           twMerge(
-            'w-full flex flex-col items-stretch gap-2',
+            'w-full flex flex-col items-stretch gap-4',
             classNames && classNames.main ? classNames.main : ''
           )
         "
@@ -40,7 +40,7 @@ onMounted(() => {
       <div
         :class="
           twMerge(
-            'w-full flex flex-col items-stretch gap-2',
+            'w-full flex flex-col items-stretch gap-4',
             classNames && classNames[index + 1] ? classNames[index + 1] : ''
           )
         "
@@ -53,11 +53,3 @@ onMounted(() => {
     <slot></slot>
   </div>
 </template>
-
-<style>
-.text-group {
-  display: inline-block;
-  white-space: nowrap;
-  width: auto;
-}
-</style>

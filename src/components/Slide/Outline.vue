@@ -2,7 +2,7 @@
 import SlideBase from './Base.vue'
 import { ref } from 'vue'
 import { RiArrowLeftWideLine, RiArrowRightWideLine } from '@remixicon/vue'
-import slide06 from '@/assets/img/essentials-introduction-slide06.svg'
+import slide06 from '@/assets/img/target.svg'
 const props = defineProps(['title', 'sections', 'twClasses'])
 const activeSection = ref(0)
 </script>

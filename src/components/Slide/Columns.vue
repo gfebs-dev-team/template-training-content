@@ -17,7 +17,7 @@ let column = (index) => {
 </script>
 
 <template>
-  <SlideBase class="content" v-bind="props">
+  <SlideBase class="content" v-bind="props" type="columns">
     <template #main>
       <slot></slot>
     </template>
