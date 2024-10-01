@@ -1,28 +1,27 @@
 <script setup>
 import { SlideQuestion, SlideQuestionInput } from '@/components/Slide'
-import { useSlidesStore } from '@/stores/slides'
+import { useSlidesStore } from '../stores/slides'
 import { onBeforeMount, provide, ref } from 'vue'
 
 const slideData = {
-  title: 'Multiple Choice Question',
+  title: 'True-False Question',
   type: 'question',
-  section: 'Section 1: Slide Types',
+  section: 'Section 1: What to Expect',
   viewed: false,
-  answer: 'third',
+  answer: 'false',
   user: ''
 }
 
-const slides = useSlidesStore()
-const { addSlide } = slides
-
 const answer = ref()
 const checked_el = ref(0)
+const slides = useSlidesStore()
+const { addSlide } = slides
 
 provide('answer', answer)
 provide('checked_el', checked_el)
 
 onBeforeMount(() => {
-  addSlide(slideData, 4)
+  addSlide(slideData, 6)
 })
 </script>
 
@@ -30,10 +29,8 @@ onBeforeMount(() => {
   <SlideQuestion :title="slideData.title">
     <template #question>What is the answer to this question?</template>
     <template #options>
-      <SlideQuestionInput value="first" label="first" index="1" count="1" />
-      <SlideQuestionInput value="second" label="second" index="2" count="1" />
-      <SlideQuestionInput value="third" label="third" index="3" count="1" />
-      <SlideQuestionInput value="fourth" label="fourth" index="4" count="1" />
+      <SlideQuestionInput value="true" label="true" index="1" count="2" />
+      <SlideQuestionInput value="false" label="false" index="2" count="2" />
     </template>
   </SlideQuestion>
 </template>

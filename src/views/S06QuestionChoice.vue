@@ -1,6 +1,6 @@
 <script setup>
 import { SlideQuestion, SlideQuestionInput } from '@/components/Slide'
-import { useSlidesStore } from '../stores/slides'
+import { useSlidesStore } from '@/stores/slides'
 import { onBeforeMount, provide, ref } from 'vue'
 
 const slideData = {
@@ -22,7 +22,7 @@ provide('answer', answer)
 provide('checked_el', checked_el)
 
 onBeforeMount(() => {
-  addSlide(slideData, 4)
+  addSlide(slideData, 5)
 })
 </script>
 

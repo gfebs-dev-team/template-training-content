@@ -2,8 +2,9 @@
 import { ref } from 'vue'
 import Base from '../Base.vue'
 import Button from './Button.vue'
+import { twMerge } from 'tailwind-merge'
 
-defineProps(['title', 'termsNum', 'reverse'])
+defineProps(['title', 'termsNum', 'reverse', 'split'])
 
 const classNames = {
   main: 'h-full'
@@ -64,7 +65,12 @@ function setTerm(index) {
         <!-- Buttons -->
         <div
           v-if="!reverse"
-          class="grid col-start-2 grid-flow-dense grid-cols-2 min-w-0 min-h-0 gap-4 h-full w-full md:h-auto md:flex md:flex-col"
+          :class="
+            twMerge(
+              'grid col-start-2 grid-flow-dense grid-cols-2 min-w-0 min-h-0 gap-4 h-full w-full md:h-auto md:flex md:flex-col',
+              split ? 'md:grid md:grid-cols-2' : ''
+            )
+          "
         >
           <template v-for="index in termsNum" :key="index">
             <Button :index="index" :currIndex @click="setTerm(index)">
@@ -74,6 +80,7 @@ function setTerm(index) {
             </Button>
           </template>
         </div>
+
         <div
           class="rounded-md bg-spacecadet p-4 h-auto overflow-auto max-h-full w-full relative"
           v-if="currIndex && reverse"

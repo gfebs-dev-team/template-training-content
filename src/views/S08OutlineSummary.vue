@@ -1,12 +1,11 @@
 <script setup>
-import { SlideOutline } from '@/components/Slide'
-import { useSlidesStore } from '@/stores/slides'
 import { onBeforeMount } from 'vue'
-
+import { useSlidesStore } from '@/stores/slides'
+import { SlideTerms } from '@/components/Slide'
 const slideData = {
-  title: 'Outline Summary Slide',
+  title: 'Terms and Definition Slide',
   type: 'content',
-  section: 'Section 1: What to Expect'
+  section: 'Section 1: Slide Types'
 }
 
 const slides = useSlidesStore()
@@ -18,83 +17,51 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideOutline v-bind="slideData" :sections="4">
-    <template #tablesection_1>
-      <span class="font-bold mb-2">GFEBS Essentials Introductions</span>
-      <ul class="text-xs flex flex-col gap-2">
-        <li>What to Expect</li>
-        <li>Key Concepts</li>
-        <li>Key Features</li>
-      </ul>
+  <SlideTerms v-bind="slideData" :termsNum="5">
+    <template #main-text>
+      <p>Here are a number key terms and concepts related to this section.</p>
+      <p><span style="font-weight: bold">Click</span> each term to the right to learn more.</p>
     </template>
-    <template #tablesection_2>
-      <span class="font-bold mb-2">GFEBS Essentials Introductions</span>
-      <ul class="text-xs flex flex-col gap-2">
-        <li>What to Expect</li>
-        <li>Key Concepts</li>
-        <li>Key Features</li>
-      </ul>
+
+    <template #termButton_1>Journal Voucher Workflow Maintainer</template>
+    <template #termDef_1>
+      The Journal Voucher Workflow Maintainer loads the two tables. One table stores the user IDs of
+      Journal Voucher Processors and the related organizations. The other table stores the user IDs
+      of the Journal Voucher Reviewers and the Journal Voucher Approvers, and maintains the dollar
+      thresholds for routing. GFEBS will route JVs automatically to their appropriate reviewers
+      based on the organization from the JV originate, and to approvers based on the dollar amount
+      of the JV. The Journal Voucher Workflow Maintainer loads the two tables. One table stores the
+      user IDs of Journal Voucher Processors and the related organizations. The other table stores
+      the user IDs of the Journal Voucher Reviewers and the Journal Voucher Approvers, and maintains
+      the dollar thresholds for routing. GFEBS will route JVs automatically to their appropriate
+      reviewers based on the organization from the JV originate, and to approvers based on the
+      dollar amount of the JV. The Journal Voucher Workflow Maintainer loads the two tables. One
+      table stores the user IDs of Journal Voucher Processors and the related organizations. The
+      other table stores the user IDs of the Journal Voucher Reviewers and the Journal Voucher
+      Approvers, and maintains the dollar thresholds for routing. GFEBS will route JVs automatically
+      to their appropriate reviewers based on the organization from the JV originate, and to
+      approvers based on the dollar amount of the JV.
     </template>
-    <template #tablesection_3>
-      <span class="font-bold mb-2">GFEBS Essentials Introductions</span>
-      <ul class="text-xs flex flex-col gap-2">
-        <li>What to Expect</li>
-        <li>Key Concepts</li>
-        <li>Key Features</li>
-      </ul>
+
+    <template #termButton_2>Journal Voucher Processor</template>
+    <template #termDef_2> The Journal Voucher Processor prepares and parks JV. </template>
+
+    <template #termButton_3>Journal Voucher Reviewer</template>
+    <template #termDef_3>
+      The Journal Voucher Reviewer reviews parked JVs and releases or rejects the JV. If the Journal
+      Voucher Reviewer releases a JV, he/she sends it on the Journal Voucher Approver for final
+      approval.
     </template>
-    <template #tablesection_4>
-      <span class="font-bold mb-2">GFEBS Essentials Introductions</span>
-      <ul class="text-xs flex flex-col gap-2">
-        <li>What to Expect</li>
-        <li>Key Concepts</li>
-        <li>Key Features</li>
-      </ul>
+
+    <template #termButton_4>Journal Voucher Approver</template>
+    <template #termDef_4>
+      The Journal Voucher Approver approves or rejects JV and processes JV documents.
     </template>
-    <template #mainsection_0>
-      <h2 class="font-bold text-xl text-saffron">Module Outline</h2>
-      <p>
-        There are 5 lessons in this module as seen in the numbered list on the left. Each lesson
-        contains multiple supporting sections
-      </p>
-      <p>
-        This learning module requires satisfactory completion of the Post Assessment in order to
-        attain credit.
-      </p>
-      <p>
-        <span style="font-weight: bold">Click the arrows</span> in this box to examine the lessons
-        and objectives.
-      </p>
+
+    <template #termButton_5>Journal Voucher Master Processor</template>
+    <template #termDef_5>
+      The Journal Voucher Master Processor uploads JVs into GFEBS and updates funding changes on
+      purchase orders (POs)
     </template>
-    <template #mainsection_1>
-      <h2 class="font-bold text-xl text-saffron">Lesson 1:</h2>
-      <p>
-        There are 5 lessons in this module as seen in the numbered list on the left. Each lesson
-        contains multiple supporting sections
-      </p>
-      <p>
-        This learning module requires satisfactory completion of the Post Assessment in order to
-        attain credit.
-      </p>
-      <p>
-        <span style="font-weight: bold">Click the arrows</span> in this box to examine the lessons
-        and objectives.
-      </p>
-    </template>
-    <template #mainsection_2>
-      <h2 class="font-bold text-xl text-saffron">Lesson 2:</h2>
-      <p>
-        There are 5 lessons in this module as seen in the numbered list on the left. Each lesson
-        contains multiple supporting sections
-      </p>
-      <p>
-        This learning module requires satisfactory completion of the Post Assessment in order to
-        attain credit.
-      </p>
-      <p>
-        <span style="font-weight: bold">Click the arrows</span> in this box to examine the lessons
-        and objectives.
-      </p>
-    </template>
-  </SlideOutline>
+  </SlideTerms>
 </template>
