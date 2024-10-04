@@ -12,7 +12,7 @@ export const useSlidesStore = defineStore('slides', () => {
   )
 
   const testing = true
-  const glossaryEnable = false
+  const glossaryEnable = true
   const current = ref(0)
   const slidesList = ref(new Array())
   const total = slidesComp.value.length

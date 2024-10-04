@@ -67,7 +67,7 @@ function setTerm(index) {
           v-if="!reverse"
           :class="
             twMerge(
-              'grid col-start-2 grid-flow-dense grid-cols-2 min-w-0 min-h-0 gap-4 h-full w-full md:h-auto md:flex md:flex-col',
+              'grid col-start-2 grid-flow-dense grid-cols-2 min-w-0 min-h-0 gap-4 h-full w-full md:h-auto md:flex md:flex-col max-h-[85%] overflow-y-auto',
               split ? 'md:grid md:grid-cols-2' : ''
             )
           "
