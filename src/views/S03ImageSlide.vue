@@ -2,9 +2,7 @@
 import { onBeforeMount } from 'vue'
 import { SlideColumns } from '@/components/Slide'
 import { useSlidesStore } from '@/stores/slides'
-import image from '../assets/img/module_checkpoint.png'
-import cash from '../assets/img/Cash Balancing Process Flow.svg'
-import chart from '../assets/img/GFEBS_Diagram-slide016.jpeg'
+import chart from '../assets/img/essentials-introduction-slide012.svg'
 import ImageExpander from '@/components/ImageExpander.vue'
 
 const slideData = {

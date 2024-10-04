@@ -12,14 +12,11 @@ defineProps(['courseData'])
 
 <template>
   <div
-    class="left-0 h-2 w-full overflow-hidden bg-masblue xl:h-6 xl:rounded-md flex items-center xl:justify-center text-aliceblue relative"
-  >
-    <div
-      class="ease h-full bg-saffron transition-width duration-700"
-      :style="`width: ${progress}`"
-    ></div>
-    <span class="hidden absolute z-[3] inset-0 items-center justify-center text-oxfordblue">{{
-      current + '/' + total
-    }}</span>
+    class="left-0 h-2 w-full overflow-hidden bg-masblue xl:h-6 xl:rounded-md flex items-center xl:justify-center text-aliceblue relative">
+    <div class="ease h-full bg-saffron transition-width duration-700" :style="`width: ${progress}`"></div>
+    <span
+      class="hidden xl:flex absolute z-10 inset-0 items-center justify-center text-oxfordblue"
+      >{{ (current + 1) + '/' + total }}</span
+    >
   </div>
 </template>
