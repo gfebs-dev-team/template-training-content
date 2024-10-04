@@ -1,6 +1,6 @@
 <script setup>
 import AppHeader from '@/components/AppHeader.vue'
-import { NavBar } from '@/components/NavBar'
+import { NavBar, NavGlossary } from '@/components/NavBar'
 import TheSideBar from '@/components/TheSideBar.vue'
 import { SlideContainer } from '@/components/Slide'
 import glossary from './assets/glossary.json'
@@ -22,7 +22,7 @@ const { toggleSidebar } = slides
   <main
     class="flex h-dvh flex-col justify-between xl:items-center xl:bg-spacecadet xl:px-32 xl:py-10"
   >
-    <AppGlossary :glossary="glossary" v-if="glossaryState"></AppGlossary>
+    <NavGlossary :glossary="glossary" v-if="glossaryState"></NavGlossary>
 
     <AppHeader @toggleSidebar="toggleSidebar()" :courseData="courseData" />
     <section
