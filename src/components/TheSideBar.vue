@@ -60,13 +60,13 @@ defineProps(['title'])
     class="absolute z-10 flex h-full w-1/3 bg-spacecadet p-6 transition xl:bg-masblue overflow-auto"
     v-bind:class="{ '-translate-x-full': !sidebarState }"
   >
-    <div class="links flex w-full flex-col gap-2 xl:gap-4">
+    <div class="links flex w-full flex-col gap-6 xl:gap-6">
       <div
         class="section flex flex-col gap-2 pr-2"
         v-for="(section, index) in sections"
         :key="index"
       >
-        <h2 class="section-title font-bold text-lg xl:text-xl">{{ section }}</h2>
+        <h2 class="section-title font-bold text-xl mb-1 xl:text-xl">{{ section }}</h2>
         <div
           class="flex justify-between"
           v-for="slide in links.filter((link) => {
