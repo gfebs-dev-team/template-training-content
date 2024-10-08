@@ -14,7 +14,7 @@ const viewed = ref(false)
     :class="
       twMerge(
         'relative outline-none p-4 min-w-0 min-h-0 rounded-md text-center text-xs sm:text-base cursor-pointer border-2 border-transparent hover:bg-transparent hover:border-saffron hover:text-aliceblue bg-spacecadet text-aliceblue font-bold transition-all',
-        currIndex === index ? 'bg-saffron text-spacecadet' : ''
+        currIndex === index ? 'bg-saffron text-spacecadet pointer-events-none' : ''
       )
     "
   >
