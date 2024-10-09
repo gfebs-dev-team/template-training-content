@@ -1,6 +1,5 @@
 <script setup>
-// import SlideSection from './SlideSection.vue'
-import { onBeforeMount, watch } from 'vue'
+import { onBeforeMount, watch, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSlidesStore } from '@/stores/slides'
 import { useUrlSearchParams } from '@vueuse/core'
@@ -8,6 +7,13 @@ import { useUrlSearchParams } from '@vueuse/core'
 const params = useUrlSearchParams('history')
 const slides = useSlidesStore()
 const { current, slidesComp } = storeToRefs(slides)
+
+let launcher
+onMounted(() => {
+  window.addEventListener('message', function (event) {
+    launcher = event.data.launcher
+  })
+})
 
 onBeforeMount(() => {
   let pageFilter
@@ -19,6 +25,13 @@ onBeforeMount(() => {
     pageFilter = parseInt(urlParams.get('page'))
     current.value = pageFilter - 1
   }
+
+  window.addEventListener('beforeunload', function () {
+    window.opener.postMessage(
+      { GFEBS_LOCATION: this.window.location.href, launcher: launcher },
+      launcher
+    )
+  })
 })
 
 watch(current, (current) => {
