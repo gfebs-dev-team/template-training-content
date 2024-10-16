@@ -2,7 +2,7 @@
 import SlideBase from './Base.vue'
 import { ref } from 'vue'
 import { RiArrowLeftWideLine, RiArrowRightWideLine } from '@remixicon/vue'
-import slide06 from '@/assets/target.svg'
+import target from './assets/target.svg'
 const props = defineProps(['title', 'sections', 'twClasses'])
 const activeSection = ref(0)
 </script>
@@ -38,7 +38,7 @@ const activeSection = ref(0)
             </div>
           </template>
 
-          <img class="target absolute size-20 -right-7 -top-7" :src="slide06" />
+          <img class="target absolute size-20 -right-7 -top-7" :src="target" />
         </div>
         <div class="grid absolute w-full h-full top-0 left-0 grid-cols-2 p-0">
           <button

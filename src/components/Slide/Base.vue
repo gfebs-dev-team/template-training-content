@@ -53,3 +53,11 @@ onMounted(() => {
     <slot></slot>
   </div>
 </template>
+
+<style>
+.text-group {
+  display: inline-block;
+  white-space: nowrap;
+  width: auto;
+}
+</style>

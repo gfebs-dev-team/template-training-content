@@ -1,6 +1,7 @@
 <script setup>
+import { twMerge } from 'tailwind-merge'
 import { inject } from 'vue'
-defineProps(['value', 'label', 'index', 'count'])
+defineProps(['value', 'label', 'index', 'count', 'className'])
 const checked_el = inject('checked_el')
 const answer = inject('answer')
 function setInput(v, i) {
@@ -25,7 +26,12 @@ function setInput(v, i) {
       :data-checked="checked_el == index"
     />
     <label
-      class="h-min capitalize w-full p-1 text-sm text-aliceblue data-[checked=true]:font-bold data-[checked=true]:text-spacecadet data-[checked=false]:group-hover:font-bold data-[checked=false]:group-hover:text-saffron xl:text-lg"
+      :class="
+        twMerge(
+          'h-min capitalize w-full p-1 text-sm text-aliceblue data-[checked=true]:font-bold data-[checked=true]:text-spacecadet data-[checked=false]:group-hover:font-bold data-[checked=false]:group-hover:text-saffron xl:text-lg',
+          className
+        )
+      "
       :data-checked="checked_el == index"
       :for="count + '_' + value"
       >{{ label }}</label

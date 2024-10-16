@@ -1,20 +1,6 @@
 <script setup>
 import SlideColumns from './Columns.vue'
-defineProps(['slideData', 'image'])
-</script>
-<template>
-  <SlideColumns v-bind="slideData" :columns="1">
-    <slot />
-
-    <template #column_2>
-      <img class="md:p-8 md:pt-0 object-contain" :src="image" />
-    </template>
-  </SlideColumns>
-</template>
-
-<!-- <script setup>
-import SlideColumns from './Columns.vue'
-import image from '@/assets/checkpoint.svg'
+import image from './assets/checkpoint.svg'
 defineProps(['slideData', 'image'])
 </script>
 <template>
@@ -29,4 +15,4 @@ defineProps(['slideData', 'image'])
       <img class="max-h-1/2 h-full md:h-auto md:p-8 object-contain md:pt-0" :src="image" />
     </template>
   </SlideColumns>
-</template> -->
+</template>
