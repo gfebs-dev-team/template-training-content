@@ -26,7 +26,7 @@ const { toggleSidebar } = slides
 
     <AppHeader @toggleSidebar="toggleSidebar()" :courseData="courseData" />
     <section
-      class="relative flex size-full h-full flex-col justify-between overflow-hidden xl:rounded-b-lg bg-oxfordblue xl:max-w-[1200px]"
+      class="relative flex size-full h-full flex-col justify-between overflow-auto xl:rounded-b-lg bg-oxfordblue xl:max-w-[1200px]"
     >
       <TheSideBar :sidebarState="sidebarState" />
 

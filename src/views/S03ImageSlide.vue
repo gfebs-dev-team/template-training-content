@@ -2,7 +2,7 @@
 import { onBeforeMount } from 'vue'
 import { SlideColumns } from '@/components/Slide'
 import { useSlidesStore } from '@/stores/slides'
-import chart from '../assets/img/essentials-introduction-slide012.svg'
+import chart from '@/assets/demonstration.svg'
 import ImageExpander from '@/components/ImageExpander.vue'
 
 const slideData = {
