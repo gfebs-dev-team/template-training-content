@@ -5,3 +5,7 @@
 :root {
     @apply text-aliceblue
 }
+
+.slideImg {
+    @apply h-3/4 md:p-8 md:pt-0 object-contain
+}
