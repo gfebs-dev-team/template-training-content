@@ -2,7 +2,6 @@
 import { SlideCheckpoint } from '@/components/Slide'
 import { useSlidesStore } from '@/stores/slides'
 import { onBeforeMount } from 'vue'
-import checkpoint from '@/assets/module_checkpoint.png'
 
 const slideData = {
   title: 'Learning Checkpoint',
@@ -19,10 +18,5 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideCheckpoint
-    v-bind="slideData"
-    :columns="1"
-    :image="checkpoint"
-  >
-  </SlideCheckpoint>
+  <SlideCheckpoint v-bind="slideData" />
 </template>
