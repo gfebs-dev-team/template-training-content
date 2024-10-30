@@ -2,7 +2,7 @@
 import { SlideColumns } from '@/components/Slide'
 import { useSlidesStore } from '@/stores/slides'
 import { onBeforeMount } from 'vue'
-//import slideImg from '@/assets/__COURSE_LOGO__.svg'
+//import slideImg from '@/assets/fundsmanagement.svg'
 
 const slideData = {
   type: 'content',

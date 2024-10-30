@@ -23,12 +23,9 @@ onBeforeMount(() => {
     <p><span class="font-bold">Role</span>:</p>
     <p><span class="font-bold">Scenario</span>:</p>
     <p><span class="font-bold">Transaction Code:</span></p>
-    <p>
-      <span class="font-bold">Click</span> the icon on the right to
-      begin.
-    </p>
+    <p><span class="font-bold">Click</span> the icon on the right to begin.</p>
     <template #column_2>
-      <a href="#"><img :src="target" alt="chart" class="p-8" /></a>
+      <a href="#"><img :src="target" alt="chart" class="slideImg mx-auto" /></a>
     </template>
   </SlideColumns>
 </template>

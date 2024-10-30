@@ -20,12 +20,9 @@ onBeforeMount(() => {
 
 <template>
   <SlideColumns v-bind="slideData" :columns="1">
-    <p>
-      <span class="font-bold">Click</span> the icon to the right to
-      begin.
-    </p>
+    <p><span class="font-bold">Click</span> the icon to the right to begin.</p>
     <template #column_2>
-      <a href="#"><img :src="target" alt="chart" class="p-8" /></a>
+      <a href="#"><img :src="target" alt="chart" class="slideImg mx-auto" /></a>
     </template>
   </SlideColumns>
 </template>
