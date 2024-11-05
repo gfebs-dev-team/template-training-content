@@ -1,18 +1,18 @@
 <script setup>
 import Base from '@/components/Slide/Base.vue'
 import { useSlidesStore } from '@/stores/slides'
-import { onUpdated, ref, watch, inject, reactive } from 'vue'
+import { onMounted, ref, watch, inject, reactive } from 'vue'
 import { storeToRefs } from 'pinia'
 import { MatchingDrag, MatchingDrop } from '@/components/Slide/Matching'
 import { onDrop, dataHandler, setElems } from '@/components/Slide/Matching/draggable.js'
 import AppButton from '@/components/AppButton.vue'
 
-defineProps(['title', 'topic'])
+const props = defineProps(['title', 'topic', 'index'])
 defineEmits(['reset'])
 const slides = useSlidesStore()
 const { current, slidesList } = storeToRefs(slides)
 const answer = inject('answer')
-const slideData = slidesList.value[current.value]
+const slideData = slidesList.value[props.index]
 const checkValue = ref(0)
 
 watch(answer, () => {
@@ -100,7 +100,7 @@ function reset() {
             @dragenter.prevent
             @dragover.prevent
           >
-            <MatchingDrag :id="drag" v-for="drag in Object.keys(slideData.answer)" ref="dragItems">
+            <MatchingDrag :id="drag" v-for="drag in Object.keys(slideData.answer)">
               {{ drag }}
             </MatchingDrag>
             <div

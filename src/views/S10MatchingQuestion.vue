@@ -31,7 +31,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <SlideMatching :title="slideData.title">
+  <SlideMatching :title="slideData.title" :index="9">
     <template #question>What is the answer to this question?</template>
   </SlideMatching>
 </template>
