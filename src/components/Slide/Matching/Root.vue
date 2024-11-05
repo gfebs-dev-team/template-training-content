@@ -32,14 +32,17 @@ watch(answer, () => {
 })
 
 function isEqual(obj, aObj) {
-  const keys = Object.keys(obj).filter((v) => v != 'undefined')
-  console.log(keys)
+  const keys = Object.keys(obj)
+    .filter((v) => v != 'undefined')
+    .map((x) => x.replace(/[0-9]/gm, ''))
+  // console.log(keys)
   let equals = keys.length == Object.keys(aObj).length
   let keyEquals = true
 
+  console.log(obj)
   keys.forEach((k) => {
-    // console.log(obj[k] + ' == ' + aObj[k])
-    if (obj[k] != aObj[k]) {
+    console.log(obj[props.index + k] + ' == ' + aObj[k])
+    if (obj[props.index + k] != aObj[k]) {
       keyEquals = false
     }
   })
@@ -55,7 +58,6 @@ function isEqual(obj, aObj) {
 
 function dropHandle(event, index) {
   const data = dataHandler(event)
-  console.log(data[0])
   const clone = data
   if (data[0]) {
     clone.shift()
@@ -64,7 +66,8 @@ function dropHandle(event, index) {
     })
   } else {
     // console.log(index)
-    answer[data[1][0]] = data[1][1]
+
+    answer[data[1][0]] = data[1][1].replace(/[0-9]/, '')
   }
   slideData.user = answer
   console.log('Is Equal: ' + isEqual(answer, slideData.answer))
@@ -123,7 +126,7 @@ function reset() {
           <div class="flex flex-col list-none gap-2">
             <MatchingDrop
               :index="index + 1"
-              :id="drop"
+              :id="index + drop"
               data-name="drop"
               @data="dropHandle($event, index + 1)"
               @drop="onDrop($event)"
