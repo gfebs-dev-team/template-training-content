@@ -9,6 +9,7 @@ import S07TrueFalse from './S07TrueFalse.vue'
 import S08OutlineSummary from './S08OutlineSummary.vue'
 import S09TermsAndDefinitions from './S09TermsAndDefinitions.vue'
 import S10MatchingQuestion from './S10MatchingQuestion.vue'
+import S11MatchingQuestionTwo from './S11MatchingQuestionTwo.vue'
 //@endindex
 export default {
   //@index('./*.vue', f=> `${f.name},`)
@@ -21,7 +22,8 @@ export default {
   S07TrueFalse,
   S08OutlineSummary,
   S09TermsAndDefinitions,
-  S10MatchingQuestion
+  S10MatchingQuestion,
+  S11MatchingQuestionTwo
   //@endindex
 }
 

@@ -76,8 +76,8 @@ const classNames = {
 }
 
 function reset() {
-  const dropArea = document.querySelector('[data-index="0"]')
-  const dragItems = document.querySelectorAll('.drag')
+  const dropArea = document.querySelector(`[data-slideID="${props.index}"][data-index="0"]`)
+  const dragItems = document.querySelectorAll(`[data-slideID="${props.index}"].drag`)
   dragItems.forEach((d) => {
     dropArea.appendChild(d)
   })
@@ -96,11 +96,17 @@ function reset() {
           <div
             class="flex flex-col list-none md:ml-4 gap-2 h-full relative"
             :data-index="0"
-            @drop="onDrop($event)"
+            :data-slideID="index"
+            @drop.self="onDrop($event)"
             @dragenter.prevent
             @dragover.prevent
           >
-            <MatchingDrag :id="drag" v-for="drag in Object.keys(slideData.answer)">
+            <MatchingDrag
+              :active="current.value === props.index"
+              :id="index + drag"
+              :slideID="index"
+              v-for="drag in Object.keys(slideData.answer)"
+            >
               {{ drag }}
             </MatchingDrag>
             <div
