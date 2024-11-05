@@ -6,6 +6,7 @@ import { storeToRefs } from 'pinia'
 import { MatchingDrag, MatchingDrop } from '@/components/Slide/Matching'
 import { onDrop, dataHandler, setElems } from '@/components/Slide/Matching/draggable.js'
 import AppButton from '@/components/AppButton.vue'
+import { shuffleArray } from '../../../script/utils'
 
 const props = defineProps(['title', 'topic', 'index'])
 defineEmits(['reset'])
@@ -108,7 +109,7 @@ function reset() {
               :active="current.value === props.index"
               :id="index + drag"
               :slideID="index"
-              v-for="drag in Object.keys(slideData.answer)"
+              v-for="drag in shuffleArray(Object.keys(slideData.answer))"
             >
               {{ drag }}
             </MatchingDrag>
