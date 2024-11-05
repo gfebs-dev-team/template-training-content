@@ -1,6 +1,7 @@
 <script setup>
 import Base from '@/components/Slide/Base.vue'
 import { useSlidesStore } from '@/stores/slides'
+import { shuffleArray } from '@/script/utils.js'
 import { onMounted, ref, watch, inject, reactive } from 'vue'
 import { storeToRefs } from 'pinia'
 import { MatchingDrag, MatchingDrop } from '@/components/Slide/Matching'
@@ -35,13 +36,11 @@ function isEqual(obj, aObj) {
   const keys = Object.keys(obj)
     .filter((v) => v != 'undefined')
     .map((x) => x.replace(/[0-9]/gm, ''))
-  // console.log(keys)
+
   let equals = keys.length == Object.keys(aObj).length
   let keyEquals = true
 
-  console.log(obj)
   keys.forEach((k) => {
-    console.log(obj[props.index + k] + ' == ' + aObj[k])
     if (obj[props.index + k] != aObj[k]) {
       keyEquals = false
     }
@@ -65,12 +64,9 @@ function dropHandle(event, index) {
       answer[a[0]] = a[1]
     })
   } else {
-    // console.log(index)
-
     answer[data[1][0]] = data[1][1].replace(/[0-9]/, '')
   }
   slideData.user = answer
-  console.log('Is Equal: ' + isEqual(answer, slideData.answer))
 }
 
 const classNames = {
@@ -87,6 +83,8 @@ function reset() {
   checkValue.value = -1
   for (var member in answer) delete answer[member]
 }
+
+let dragItems = shuffleArray(Object.keys(slideData.answer))
 </script>
 
 <template>
@@ -108,7 +106,7 @@ function reset() {
               :active="current.value === props.index"
               :id="index + drag"
               :slideID="index"
-              v-for="drag in Object.keys(slideData.answer)"
+              v-for="drag in dragItems"
             >
               {{ drag }}
             </MatchingDrag>
