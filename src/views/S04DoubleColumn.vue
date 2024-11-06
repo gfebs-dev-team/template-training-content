@@ -13,7 +13,7 @@ const slides = useSlidesStore()
 const { addSlide } = slides
 
 onBeforeMount(() => {
-  addSlide(slideData, 4)
+  addSlide(slideData, 3)
 })
 </script>
 
