@@ -6,13 +6,9 @@ import { SlideContainer } from '@/components/Slide'
 import glossary from './assets/glossary.json'
 import { useSlidesStore } from '@/stores/slides'
 import { storeToRefs } from 'pinia'
+import config from '/gfebs.config.js'
 
-const courseData = {
-  courseCode: ' ',
-  courseTitle: 'Training Content Template',
-  topic: 'Demo'
-}
-
+const courseData = config.data.course
 const slides = useSlidesStore()
 const { glossaryState, sidebarState } = storeToRefs(slides)
 const { toggleSidebar } = slides
@@ -24,7 +20,7 @@ const { toggleSidebar } = slides
   >
     <NavGlossary :glossary="glossary" v-if="glossaryState"></NavGlossary>
 
-    <AppHeader @toggleSidebar="toggleSidebar()" :courseData="courseData" />
+    <AppHeader @toggleSidebar="toggleSidebar()" :courseData />
     <section
       class="relative flex size-full h-full flex-col justify-between overflow-auto xl:rounded-b-lg bg-oxfordblue xl:max-w-[1200px]"
     >
